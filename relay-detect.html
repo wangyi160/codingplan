@@ -675,10 +675,12 @@
                 COMBO_CONFIG = data;
                 applyPageTexts();
                 initCombos();
+                renderHistory();
             })
             .catch(function(err) {
                 console.warn(t('configLoadFailedLogPrefix') || 'config load failed:', err);
                 initCombos();
+                renderHistory();
             });
 
         var form = document.getElementById('detectForm');
@@ -1260,7 +1262,6 @@
 
         // ── 初始化 ──
         applyPageTexts();
-        renderHistory();
     })();
     </script>
 </body>
