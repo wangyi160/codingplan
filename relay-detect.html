@@ -748,6 +748,11 @@
             return '通过 ' + count.pass + ' / 警告 ' + count.warning + ' / 失败 ' + count.fail;
         }
 
+        function formatDecisionScore(scoreValue) {
+            var score = Number(scoreValue);
+            return Number.isFinite(score) ? Math.round(score * 100) + '%' : '-';
+        }
+
         // ── 可编辑下拉框 ──
         function createComboInput(displayInputId, valueInputId, toggleId, dropdownId, options) {
             var displayInput = document.getElementById(displayInputId);
@@ -970,7 +975,7 @@
             var items = result.evaluation_items || result.aggregated_item_evaluations || [];
             var ctx = result.context || {};
             var normalizedStatus = normalizeVerdictStatus(decision.status);
-            var decisionScore = typeof decision.score === 'number' ? Math.round(decision.score * 100) + '%' : '-';
+            var decisionScore = formatDecisionScore(decision.score);
             var passCount = 0;
             var warningCount = 0;
             var failCount = 0;
@@ -1127,7 +1132,7 @@
                 var items = entry.full_result.evaluation_items || entry.full_result.aggregated_item_evaluations || [];
                 var ctx = entry.full_result.context || {};
                 var normalizedStatus = normalizeVerdictStatus(decision.status);
-                var decisionScore = typeof decision.score === 'number' ? Math.round(decision.score * 100) + '%' : '-';
+                var decisionScore = formatDecisionScore(decision.score);
                 var passCount = 0;
                 var warningCount = 0;
                 var failCount = 0;
