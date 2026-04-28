@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中转站检测</title>
+    <title id="pageTitle"></title>
     <link rel="icon" href="/favicon.ico?v=260418" type="image/x-icon">
     <link rel="stylesheet" href="styles/shared.css">
     <script src="scripts/relay-detect-config.local.js"></script>
@@ -516,20 +516,20 @@
 
         <!-- 页面导航 Tab -->
         <nav class="page-nav">
-            <a href="index.html" class="page-tab">国内 Coding Plan</a>
-            <a href="relays.html" class="page-tab">API 中转站</a>
-            <a href="relay-detect.html" class="page-tab active">中转站检测</a>
+            <a href="index.html" class="page-tab" id="navIndexTab"></a>
+            <a href="relays.html" class="page-tab" id="navRelaysTab"></a>
+            <a href="relay-detect.html" class="page-tab active" id="navDetectTab"></a>
             <div class="settings-wrapper">
-                <button class="settings-btn" id="settingsBtn" title="设置" aria-label="设置">
+                <button class="settings-btn" id="settingsBtn" title="" aria-label="">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="3"/>
                         <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
                     </svg>
                 </button>
                 <div class="settings-panel" id="settingsPanel" hidden>
-                    <div class="settings-panel-title">显示设置</div>
+                    <div class="settings-panel-title" id="settingsPanelTitle"></div>
                     <div class="settings-toggle-row">
-                        <label for="ultraWideToggle">超宽屏模式</label>
+                        <label for="ultraWideToggle" id="ultraWideToggleLabel"></label>
                         <label class="toggle-switch">
                             <input type="checkbox" id="ultraWideToggle">
                             <span class="toggle-slider"></span>
@@ -541,8 +541,8 @@
 
         <!-- Header -->
         <div class="header">
-            <h1>中转站检测</h1>
-            <p class="subtitle">填写你购买的中转站信息，检测其服务真实性与风险等级</p>
+            <h1 id="pageHeading"></h1>
+            <p class="subtitle" id="pageSubtitle"></p>
         </div>
 
         <!-- 检测表单 -->
@@ -550,11 +550,11 @@
             <form id="detectForm" autocomplete="off">
                 <div class="form-row">
                     <div class="form-group form-group-half">
-                        <label class="form-label">Base URL <span class="form-hint">中转站的 API 地址</span></label>
+                        <label class="form-label"><span id="baseUrlLabel"></span> <span class="form-hint" id="baseUrlHint"></span></label>
                         <div class="combo-input-wrapper">
-                            <input type="text" class="combo-input" id="baseUrlDisplay" placeholder="https://api.example.com">
+                            <input type="text" class="combo-input" id="baseUrlDisplay" placeholder="">
                             <input type="hidden" id="baseUrl" required>
-                            <button type="button" class="combo-toggle-btn" id="baseUrlToggle" aria-label="展开选项">
+                            <button type="button" class="combo-toggle-btn" id="baseUrlToggle" aria-label="">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="6 9 12 15 18 9"></polyline>
                                 </svg>
@@ -563,11 +563,11 @@
                         </div>
                     </div>
                     <div class="form-group form-group-half">
-                        <label class="form-label">模型名称 <span class="form-hint">要检测的模型</span></label>
+                        <label class="form-label"><span id="modelNameLabel"></span> <span class="form-hint" id="modelNameHint"></span></label>
                         <div class="combo-input-wrapper">
-                            <input type="text" class="combo-input" id="modelNameDisplay" placeholder="claude-sonnet-4-20250514">
+                            <input type="text" class="combo-input" id="modelNameDisplay" placeholder="">
                             <input type="hidden" id="modelName" required>
-                            <button type="button" class="combo-toggle-btn" id="modelNameToggle" aria-label="展开选项">
+                            <button type="button" class="combo-toggle-btn" id="modelNameToggle" aria-label="">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="6 9 12 15 18 9"></polyline>
                                 </svg>
@@ -577,10 +577,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">API Key <span class="form-hint">你的密钥，仅用于本次检测，不会保存</span></label>
-                    <input type="text" class="form-input" id="apiKey" placeholder="sk-..." required>
+                    <label class="form-label"><span id="apiKeyLabel"></span> <span class="form-hint" id="apiKeyHint"></span></label>
+                    <input type="text" class="form-input" id="apiKey" placeholder="" required>
                 </div>
-                <button type="submit" class="submit-btn" id="submitBtn">开始检测</button>
+                <button type="submit" class="submit-btn" id="submitBtn"></button>
             </form>
         </div>
 
@@ -590,8 +590,8 @@
         <!-- 检测历史 -->
         <div class="history-section">
             <div class="section-title">
-                检测历史
-                <button class="history-clear-btn" id="clearHistoryBtn" style="display:none" title="清空历史">清空</button>
+                <span id="historySectionTitle"></span>
+                <button class="history-clear-btn" id="clearHistoryBtn" style="display:none" title=""></button>
             </div>
             <div id="historyContainer"></div>
         </div>
@@ -606,17 +606,78 @@
         var HISTORY_KEY = 'relay_detect_history';
         var POLL_INTERVAL = 3000;
         var MAX_POLL_COUNT = 60;
+        var COMBO_CONFIG = { baseUrls: [], models: [], texts: {} };
+
+        function t(key) {
+            if (!COMBO_CONFIG || !COMBO_CONFIG.texts) return '';
+            var value = COMBO_CONFIG.texts[key];
+            return typeof value === 'string' ? value : '';
+        }
+
+        function applyPageTexts() {
+            document.title = t('pageTitle');
+            var mapping = [
+                ['pageTitle', 'pageTitle'],
+                ['navIndexTab', 'navIndexTab'],
+                ['navRelaysTab', 'navRelaysTab'],
+                ['navDetectTab', 'navDetectTab'],
+                ['settingsPanelTitle', 'settingsPanelTitle'],
+                ['ultraWideToggleLabel', 'ultraWideToggleLabel'],
+                ['pageHeading', 'pageHeading'],
+                ['pageSubtitle', 'pageSubtitle'],
+                ['baseUrlLabel', 'baseUrlLabel'],
+                ['baseUrlHint', 'baseUrlHint'],
+                ['modelNameLabel', 'modelNameLabel'],
+                ['modelNameHint', 'modelNameHint'],
+                ['apiKeyLabel', 'apiKeyLabel'],
+                ['apiKeyHint', 'apiKeyHint'],
+                ['submitBtn', 'submitBtnIdle'],
+                ['historySectionTitle', 'historySectionTitle'],
+                ['clearHistoryBtn', 'clearHistoryBtn'],
+            ];
+
+            mapping.forEach(function(entry) {
+                var el = document.getElementById(entry[0]);
+                if (el) {
+                    el.textContent = t(entry[1]);
+                }
+            });
+
+            var baseUrlDisplay = document.getElementById('baseUrlDisplay');
+            if (baseUrlDisplay) baseUrlDisplay.placeholder = t('baseUrlPlaceholder');
+
+            var modelNameDisplay = document.getElementById('modelNameDisplay');
+            if (modelNameDisplay) modelNameDisplay.placeholder = t('modelNamePlaceholder');
+
+            var apiKey = document.getElementById('apiKey');
+            if (apiKey) apiKey.placeholder = t('apiKeyPlaceholder');
+
+            var baseUrlToggle = document.getElementById('baseUrlToggle');
+            if (baseUrlToggle) baseUrlToggle.setAttribute('aria-label', t('comboExpandAriaLabel'));
+
+            var modelNameToggle = document.getElementById('modelNameToggle');
+            if (modelNameToggle) modelNameToggle.setAttribute('aria-label', t('comboExpandAriaLabel'));
+
+            var clearHistoryBtnEl = document.getElementById('clearHistoryBtn');
+            if (clearHistoryBtnEl) clearHistoryBtnEl.title = t('clearHistoryBtnTitle');
+
+            var settingsBtn = document.getElementById('settingsBtn');
+            if (settingsBtn) {
+                settingsBtn.title = t('settingsBtnTitle');
+                settingsBtn.setAttribute('aria-label', t('settingsBtnAriaLabel'));
+            }
+        }
 
         // ── 下拉列表配置：来自 relay-detect-config.json ──
-        var COMBO_CONFIG = { baseUrls: [], models: [] };
         fetch('relay-detect-config.json')
             .then(function(resp) { return resp.json(); })
             .then(function(data) {
                 COMBO_CONFIG = data;
+                applyPageTexts();
                 initCombos();
             })
             .catch(function(err) {
-                console.warn('加载下拉配置失败:', err);
+                console.warn(t('configLoadFailedLogPrefix') || 'config load failed:', err);
                 initCombos();
             });
 
@@ -675,9 +736,9 @@
         }
 
         function verdictLabel(status) {
-            if (status === 'healthy') return '健康';
-            if (status === 'review') return '需审查';
-            if (status === 'suspicious') return '可疑';
+            if (status === 'healthy') return t('verdictHealthy');
+            if (status === 'review') return t('verdictReview');
+            if (status === 'suspicious') return t('verdictSuspicious');
             return status;
         }
 
@@ -696,9 +757,9 @@
         }
 
         function riskLabel(level) {
-            if (level === 'low') return '低风险';
-            if (level === 'medium') return '中风险';
-            if (level === 'high') return '高风险';
+            if (level === 'low') return t('riskLow');
+            if (level === 'medium') return t('riskMedium');
+            if (level === 'high') return t('riskHigh');
             return level;
         }
 
@@ -709,9 +770,9 @@
         }
 
         function badgeText(status) {
-            if (status === 'pass') return '通过';
-            if (status === 'warning') return '警告';
-            if (status === 'fail') return '失败';
+            if (status === 'pass') return t('badgePass');
+            if (status === 'warning') return t('badgeWarning');
+            if (status === 'fail') return t('badgeFail');
             return status;
         }
 
@@ -745,7 +806,7 @@
 
         function formatItemStatusCount(item) {
             var count = getItemStatusCount(item);
-            return '通过 ' + count.pass + ' / 警告 ' + count.warning + ' / 失败 ' + count.fail;
+            return t('statusCountPrefixPass') + ' ' + count.pass + ' / ' + t('statusCountPrefixWarning') + ' ' + count.warning + ' / ' + t('statusCountPrefixFail') + ' ' + count.fail;
         }
 
         function formatDecisionScore(scoreValue) {
@@ -797,7 +858,7 @@
 
                 if (filterText) {
                     html += '<div class="combo-option combo-custom-option" data-value="' + escapeHtml(filter) + '" data-label="' + escapeHtml(filter) + '">';
-                    html += '使用自定义: ' + escapeHtml(filter);
+                    html += escapeHtml(t('comboCustomPrefix')) + ': ' + escapeHtml(filter);
                     html += '</div>';
                 }
 
@@ -908,9 +969,9 @@
             if (!baseUrl || !apiKey || !modelName) return;
 
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="spinner"></span>检测中...';
+            submitBtn.innerHTML = '<span class="spinner"></span>' + escapeHtml(t('submitBtnLoading'));
             resultDiv.style.display = 'block';
-            resultDiv.innerHTML = '<div class="result-loading"><div class="spinner-lg"></div><p>正在提交检测任务...</p></div>';
+            resultDiv.innerHTML = '<div class="result-loading"><div class="spinner-lg"></div><p>' + escapeHtml(t('resultSubmitting')) + '</p></div>';
 
             fetch(API_BASE + '/relay_detect/tasks', {
                 method: 'POST',
@@ -923,18 +984,18 @@
                     throw new Error(data.err_msg || data.err_code);
                 }
                 var taskId = data.data.task_id;
-                resultDiv.innerHTML = '<div class="result-loading"><div class="spinner-lg"></div><p>检测进行中，请稍候...</p></div>';
+                resultDiv.innerHTML = '<div class="result-loading"><div class="spinner-lg"></div><p>' + escapeHtml(t('resultPolling')) + '</p></div>';
                 pollResult(taskId, baseUrl, modelName, 0);
             })
             .catch(function(err) {
-                showError('提交失败', err.message);
+                showError(t('errorSubmitTitle'), err.message);
                 resetSubmitBtn();
             });
         });
 
         function pollResult(taskId, baseUrl, modelName, count) {
             if (count >= MAX_POLL_COUNT) {
-                showError('检测超时', '等待时间过长，请稍后重试');
+                showError(t('errorTimeoutTitle'), t('errorTimeoutMessage'));
                 resetSubmitBtn();
                 return;
             }
@@ -952,8 +1013,8 @@
                             renderHistory();
                             resetSubmitBtn();
                         } else if (task.status === 'failed') {
-                            var errMsg = task.error_message || '检测失败';
-                            showError('检测失败', errMsg);
+                            var errMsg = task.error_message || t('errorDetectTitle');
+                            showError(t('errorDetectTitle'), errMsg);
                             saveHistory(baseUrl, modelName, task);
                             renderHistory();
                             resetSubmitBtn();
@@ -962,7 +1023,7 @@
                         }
                     })
                     .catch(function(err) {
-                        showError('查询失败', err.message);
+                        showError(t('errorQueryTitle'), err.message);
                         resetSubmitBtn();
                     });
             }, POLL_INTERVAL);
@@ -995,11 +1056,11 @@
             html += '<div class="verdict-card ' + escapeHtml(normalizedStatus) + '">';
             html += '<div class="verdict-icon">' + verdictIcon(normalizedStatus) + '</div>';
             html += '<div class="verdict-info"><h3>' + escapeHtml(verdictLabel(normalizedStatus)) + '</h3>';
-            html += '<p>分数: ' + escapeHtml(decisionScore) + '</p></div>';
+            html += '<p>' + escapeHtml(t('scoreLabel')) + ': ' + escapeHtml(decisionScore) + '</p></div>';
             html += '<div class="verdict-stats">';
-            html += '<div class="verdict-stat pass"><span class="num">' + (decision.stats ? (decision.stats.pass_count || 0) : passCount) + '</span><span class="label">通过</span></div>';
-            html += '<div class="verdict-stat warning"><span class="num">' + (decision.stats ? (decision.stats.warning_count || 0) : warningCount) + '</span><span class="label">警告</span></div>';
-            html += '<div class="verdict-stat fail"><span class="num">' + (decision.stats ? (decision.stats.fail_count || 0) : failCount) + '</span><span class="label">失败</span></div>';
+            html += '<div class="verdict-stat pass"><span class="num">' + (decision.stats ? (decision.stats.pass_count || 0) : passCount) + '</span><span class="label">' + escapeHtml(t('badgePass')) + '</span></div>';
+            html += '<div class="verdict-stat warning"><span class="num">' + (decision.stats ? (decision.stats.warning_count || 0) : warningCount) + '</span><span class="label">' + escapeHtml(t('badgeWarning')) + '</span></div>';
+            html += '<div class="verdict-stat fail"><span class="num">' + (decision.stats ? (decision.stats.fail_count || 0) : failCount) + '</span><span class="label">' + escapeHtml(t('badgeFail')) + '</span></div>';
             html += '</div>';
             html += '</div>';
 
@@ -1021,8 +1082,8 @@
 
             // 上下文
             html += '<div class="context-bar">';
-            html += '<span>协议: <strong>' + escapeHtml(task.provider || ctx.provider_mode || '-') + '</strong></span>';
-            html += '<span>模型: <strong>' + escapeHtml(task.model_name || ctx.model_name || '-') + '</strong></span>';
+            html += '<span>' + escapeHtml(t('contextProviderLabel')) + ': <strong>' + escapeHtml(task.provider || ctx.provider_mode || '-') + '</strong></span>';
+            html += '<span>' + escapeHtml(t('contextModelLabel')) + ': <strong>' + escapeHtml(task.model_name || ctx.model_name || '-') + '</strong></span>';
             html += '</div>';
 
             resultDiv.innerHTML = html;
@@ -1035,7 +1096,7 @@
 
         function resetSubmitBtn() {
             submitBtn.disabled = false;
-            submitBtn.textContent = '开始检测';
+            submitBtn.textContent = t('submitBtnIdle');
         }
 
         // ── 历史记录 ──
@@ -1083,14 +1144,14 @@
         function renderHistory() {
             var history = loadHistory();
             if (history.length === 0) {
-                historyContainer.innerHTML = '<div class="history-empty">暂无检测历史</div>';
+                historyContainer.innerHTML = '<div class="history-empty">' + escapeHtml(t('historyEmpty')) + '</div>';
                 clearHistoryBtn.style.display = 'none';
                 return;
             }
             clearHistoryBtn.style.display = '';
 
             var html = '<table class="history-table"><thead><tr>';
-            html += '<th>时间</th><th>Base URL</th><th>模型</th><th>风险等级</th><th>状态</th>';
+            html += '<th>' + escapeHtml(t('historyTableTime')) + '</th><th>' + escapeHtml(t('historyTableBaseUrl')) + '</th><th>' + escapeHtml(t('historyTableModel')) + '</th><th>' + escapeHtml(t('historyTableRisk')) + '</th><th>' + escapeHtml(t('historyTableStatus')) + '</th>';
             html += '</tr></thead><tbody>';
 
             history.forEach(function(entry, idx) {
@@ -1100,7 +1161,7 @@
                 html += '<td>' + escapeHtml(entry.base_url) + '</td>';
                 html += '<td>' + escapeHtml(entry.model_name) + '</td>';
                 html += '<td><span class="risk-badge ' + escapeHtml(riskCls) + '">' + escapeHtml(riskLabel(entry.risk_level || '-')) + '</span></td>';
-                html += '<td>' + (entry.status === 'succeeded' ? '完成' : '失败') + '</td>';
+                html += '<td>' + (entry.status === 'succeeded' ? escapeHtml(t('historyStatusSucceeded')) : escapeHtml(t('historyStatusFailed'))) + '</td>';
                 html += '</tr>';
             });
 
@@ -1124,8 +1185,8 @@
             });
 
             var html = '<div class="history-detail-card">';
-            html += '<button class="history-detail-close" title="关闭">&times;</button>';
-            html += '<h3>检测详情</h3>';
+            html += '<button class="history-detail-close" title="' + escapeHtml(t('historyDetailCloseTitle')) + '">&times;</button>';
+            html += '<h3>' + escapeHtml(t('historyDetailTitle')) + '</h3>';
 
             if (entry.status === 'succeeded' && entry.full_result) {
                 var decision = entry.full_result.final_decision || {};
@@ -1149,11 +1210,11 @@
                 html += '<div class="verdict-card ' + escapeHtml(normalizedStatus) + '" style="margin-bottom:20px">';
                 html += '<div class="verdict-icon">' + verdictIcon(normalizedStatus) + '</div>';
                 html += '<div class="verdict-info"><h3>' + escapeHtml(verdictLabel(normalizedStatus)) + '</h3>';
-                html += '<p>分数: ' + escapeHtml(decisionScore) + '</p></div>';
+                html += '<p>' + escapeHtml(t('scoreLabel')) + ': ' + escapeHtml(decisionScore) + '</p></div>';
                 html += '<div class="verdict-stats">';
-                html += '<div class="verdict-stat pass"><span class="num">' + (decision.stats ? (decision.stats.pass_count || 0) : passCount) + '</span><span class="label">通过</span></div>';
-                html += '<div class="verdict-stat warning"><span class="num">' + (decision.stats ? (decision.stats.warning_count || 0) : warningCount) + '</span><span class="label">警告</span></div>';
-                html += '<div class="verdict-stat fail"><span class="num">' + (decision.stats ? (decision.stats.fail_count || 0) : failCount) + '</span><span class="label">失败</span></div>';
+                html += '<div class="verdict-stat pass"><span class="num">' + (decision.stats ? (decision.stats.pass_count || 0) : passCount) + '</span><span class="label">' + escapeHtml(t('badgePass')) + '</span></div>';
+                html += '<div class="verdict-stat warning"><span class="num">' + (decision.stats ? (decision.stats.warning_count || 0) : warningCount) + '</span><span class="label">' + escapeHtml(t('badgeWarning')) + '</span></div>';
+                html += '<div class="verdict-stat fail"><span class="num">' + (decision.stats ? (decision.stats.fail_count || 0) : failCount) + '</span><span class="label">' + escapeHtml(t('badgeFail')) + '</span></div>';
                 html += '</div>';
                 html += '</div>';
 
@@ -1173,11 +1234,11 @@
                 }
 
                 html += '<div class="context-bar">';
-                html += '<span>协议: <strong>' + escapeHtml(ctx.provider_mode || entry.provider || '-') + '</strong></span>';
-                html += '<span>模型: <strong>' + escapeHtml(entry.model_name || ctx.model_name || '-') + '</strong></span>';
+                html += '<span>' + escapeHtml(t('contextProviderLabel')) + ': <strong>' + escapeHtml(ctx.provider_mode || entry.provider || '-') + '</strong></span>';
+                html += '<span>' + escapeHtml(t('contextModelLabel')) + ': <strong>' + escapeHtml(entry.model_name || ctx.model_name || '-') + '</strong></span>';
                 html += '</div>';
             } else if (entry.error_message) {
-                html += '<div class="result-error"><h4>检测失败</h4><p>' + escapeHtml(entry.error_message || entry.error_code || '未知错误') + '</p></div>';
+                html += '<div class="result-error"><h4>' + escapeHtml(t('errorDetectTitle')) + '</h4><p>' + escapeHtml(entry.error_message || entry.error_code || t('errorUnknown')) + '</p></div>';
             }
 
             html += '</div>';
@@ -1191,13 +1252,14 @@
         }
 
         clearHistoryBtn.addEventListener('click', function() {
-            if (confirm('确定要清空所有检测历史吗？')) {
+            if (confirm(t('clearHistoryConfirm'))) {
                 localStorage.removeItem(HISTORY_KEY);
                 renderHistory();
             }
         });
 
         // ── 初始化 ──
+        applyPageTexts();
         renderHistory();
     })();
     </script>
