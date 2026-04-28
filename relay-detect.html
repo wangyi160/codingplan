@@ -237,15 +237,15 @@
             align-items: center;
             gap: 20px;
         }
-        .verdict-card.healthy {
+        .verdict-card.pass {
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.06), rgba(16, 185, 129, 0.02));
             border-color: rgba(16, 185, 129, 0.3);
         }
-        .verdict-card.review {
+        .verdict-card.warning {
             background: linear-gradient(135deg, rgba(245, 158, 11, 0.06), rgba(245, 158, 11, 0.02));
             border-color: rgba(245, 158, 11, 0.3);
         }
-        .verdict-card.suspicious {
+        .verdict-card.fail {
             background: linear-gradient(135deg, rgba(239, 68, 68, 0.06), rgba(239, 68, 68, 0.02));
             border-color: rgba(239, 68, 68, 0.3);
         }
@@ -253,17 +253,17 @@
             font-size: 36px;
             flex-shrink: 0;
         }
-        .verdict-card.healthy .verdict-icon { color: var(--accent-success); }
-        .verdict-card.review .verdict-icon { color: var(--accent-warning); }
-        .verdict-card.suspicious .verdict-icon { color: var(--accent-error); }
+        .verdict-card.pass .verdict-icon { color: var(--accent-success); }
+        .verdict-card.warning .verdict-icon { color: var(--accent-warning); }
+        .verdict-card.fail .verdict-icon { color: var(--accent-error); }
         .verdict-info h3 {
             font-size: 18px;
             font-weight: 700;
             margin-bottom: 4px;
         }
-        .verdict-card.healthy .verdict-info h3 { color: var(--accent-success); }
-        .verdict-card.review .verdict-info h3 { color: var(--accent-warning); }
-        .verdict-card.suspicious .verdict-info h3 { color: var(--accent-error); }
+        .verdict-card.pass .verdict-info h3 { color: var(--accent-success); }
+        .verdict-card.warning .verdict-info h3 { color: var(--accent-warning); }
+        .verdict-card.fail .verdict-info h3 { color: var(--accent-error); }
         .verdict-info p {
             font-size: 13px;
             color: var(--text-secondary);
@@ -425,9 +425,9 @@
             font-size: 12px;
             font-weight: 600;
         }
-        .risk-badge.low { background: rgba(16,185,129,0.1); color: #059669; }
-        .risk-badge.medium { background: rgba(245,158,11,0.1); color: #d97706; }
-        .risk-badge.high { background: rgba(239,68,68,0.1); color: #dc2626; }
+        .risk-badge.pass { background: rgba(16,185,129,0.1); color: #059669; }
+        .risk-badge.warning { background: rgba(245,158,11,0.1); color: #d97706; }
+        .risk-badge.fail { background: rgba(239,68,68,0.1); color: #dc2626; }
         .history-clear-btn {
             display: inline-flex;
             align-items: center;
@@ -737,31 +737,34 @@
                    pad(d.getHours()) + ':' + pad(d.getMinutes());
         }
 
+        function normalizeFinalStatus(status) {
+            if (status === 'pass') return 'pass';
+            if (status === 'warning') return 'warning';
+            if (status === 'fail') return 'fail';
+            return '';
+        }
+
         function verdictLabel(status) {
-            if (status === 'healthy') return t('verdictHealthy');
-            if (status === 'review') return t('verdictReview');
-            if (status === 'suspicious') return t('verdictSuspicious');
+            status = normalizeFinalStatus(status);
+            if (status === 'pass') return t('statusPass');
+            if (status === 'warning') return t('statusWarning');
+            if (status === 'fail') return t('statusFail');
             return status;
         }
 
-        function normalizeVerdictStatus(status) {
-            if (status === 'pass') return 'healthy';
-            if (status === 'warning') return 'review';
-            if (status === 'fail') return 'suspicious';
-            return status || '';
-        }
-
         function verdictIcon(status) {
-            if (status === 'healthy') return '&#10003;';
-            if (status === 'review') return '&#9888;';
-            if (status === 'suspicious') return '&#10007;';
+            status = normalizeFinalStatus(status);
+            if (status === 'pass') return '&#10003;';
+            if (status === 'warning') return '&#9888;';
+            if (status === 'fail') return '&#10007;';
             return '?';
         }
 
         function riskLabel(level) {
-            if (level === 'low') return t('riskLow');
-            if (level === 'medium') return t('riskMedium');
-            if (level === 'high') return t('riskHigh');
+            level = normalizeFinalStatus(level);
+            if (level === 'pass') return t('statusPass');
+            if (level === 'warning') return t('statusWarning');
+            if (level === 'fail') return t('statusFail');
             return level;
         }
 
@@ -1037,7 +1040,7 @@
             var decision = result.final_decision || {};
             var items = result.evaluation_items || result.aggregated_item_evaluations || [];
             var ctx = result.context || {};
-            var normalizedStatus = normalizeVerdictStatus(decision.status);
+            var normalizedStatus = normalizeFinalStatus(decision.status);
             var decisionScore = formatDecisionScore(decision.score);
             var passCount = 0;
             var warningCount = 0;
@@ -1114,11 +1117,7 @@
             var history = loadHistory();
             var decision = (task.result && task.result.final_decision) || {};
             var stats = decision.stats || {};
-            var rawStatus = decision.status || '';
-            var riskLevel = '';
-            if (rawStatus === 'pass' || rawStatus === 'healthy') riskLevel = 'low';
-            else if (rawStatus === 'warning' || rawStatus === 'review') riskLevel = 'medium';
-            else if (rawStatus === 'fail' || rawStatus === 'suspicious') riskLevel = 'high';
+            var rawStatus = normalizeFinalStatus(decision.status);
             var entry = {
                 task_id: task.task_id,
                 base_url: baseUrl,
@@ -1126,7 +1125,7 @@
                 provider: task.provider || '',
                 detected_at: new Date().toISOString(),
                 status: task.status,
-                risk_level: riskLevel,
+                risk_level: rawStatus,
                 final_status: rawStatus,
                 evaluation_summary: {
                     pass_count: stats.pass_count || 0,
@@ -1157,12 +1156,12 @@
             html += '</tr></thead><tbody>';
 
             history.forEach(function(entry, idx) {
-                var riskCls = entry.risk_level || 'low';
+                var riskCls = normalizeFinalStatus(entry.final_status || entry.risk_level);
                 html += '<tr data-idx="' + idx + '">';
                 html += '<td>' + escapeHtml(formatTime(entry.detected_at)) + '</td>';
                 html += '<td>' + escapeHtml(entry.base_url) + '</td>';
                 html += '<td>' + escapeHtml(entry.model_name) + '</td>';
-                html += '<td><span class="risk-badge ' + escapeHtml(riskCls) + '">' + escapeHtml(riskLabel(entry.risk_level || '-')) + '</span></td>';
+                html += '<td><span class="risk-badge ' + escapeHtml(riskCls) + '">' + escapeHtml(riskLabel(riskCls)) + '</span></td>';
                 html += '<td>' + (entry.status === 'succeeded' ? escapeHtml(t('historyStatusSucceeded')) : escapeHtml(t('historyStatusFailed'))) + '</td>';
                 html += '</tr>';
             });
@@ -1194,7 +1193,7 @@
                 var decision = entry.full_result.final_decision || {};
                 var items = entry.full_result.evaluation_items || entry.full_result.aggregated_item_evaluations || [];
                 var ctx = entry.full_result.context || {};
-                var normalizedStatus = normalizeVerdictStatus(decision.status);
+                var normalizedStatus = normalizeFinalStatus(decision.status);
                 var decisionScore = formatDecisionScore(decision.score);
                 var passCount = 0;
                 var warningCount = 0;
