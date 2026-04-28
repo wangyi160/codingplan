@@ -970,7 +970,7 @@
             var items = result.evaluation_items || result.aggregated_item_evaluations || [];
             var ctx = result.context || {};
             var normalizedStatus = normalizeVerdictStatus(decision.status);
-            var decisionConfidence = typeof decision.confidence === 'number' ? Math.round(decision.confidence * 100) + '%' : '-';
+            var decisionScore = typeof decision.score === 'number' ? Math.round(decision.score * 100) + '%' : '-';
             var passCount = 0;
             var warningCount = 0;
             var failCount = 0;
@@ -990,7 +990,7 @@
             html += '<div class="verdict-card ' + escapeHtml(normalizedStatus) + '">';
             html += '<div class="verdict-icon">' + verdictIcon(normalizedStatus) + '</div>';
             html += '<div class="verdict-info"><h3>' + escapeHtml(verdictLabel(normalizedStatus)) + '</h3>';
-            html += '<p>分数: ' + escapeHtml(decisionConfidence) + '</p></div>';
+            html += '<p>分数: ' + escapeHtml(decisionScore) + '</p></div>';
             html += '<div class="verdict-stats">';
             html += '<div class="verdict-stat pass"><span class="num">' + (decision.stats ? (decision.stats.pass_count || 0) : passCount) + '</span><span class="label">通过</span></div>';
             html += '<div class="verdict-stat warning"><span class="num">' + (decision.stats ? (decision.stats.warning_count || 0) : warningCount) + '</span><span class="label">警告</span></div>';
@@ -1127,7 +1127,7 @@
                 var items = entry.full_result.evaluation_items || entry.full_result.aggregated_item_evaluations || [];
                 var ctx = entry.full_result.context || {};
                 var normalizedStatus = normalizeVerdictStatus(decision.status);
-                var decisionConfidence = typeof decision.confidence === 'number' ? Math.round(decision.confidence * 100) + '%' : '-';
+                var decisionScore = typeof decision.score === 'number' ? Math.round(decision.score * 100) + '%' : '-';
                 var passCount = 0;
                 var warningCount = 0;
                 var failCount = 0;
@@ -1144,7 +1144,7 @@
                 html += '<div class="verdict-card ' + escapeHtml(normalizedStatus) + '" style="margin-bottom:20px">';
                 html += '<div class="verdict-icon">' + verdictIcon(normalizedStatus) + '</div>';
                 html += '<div class="verdict-info"><h3>' + escapeHtml(verdictLabel(normalizedStatus)) + '</h3>';
-                html += '<p>分数: ' + escapeHtml(decisionConfidence) + '</p></div>';
+                html += '<p>分数: ' + escapeHtml(decisionScore) + '</p></div>';
                 html += '<div class="verdict-stats">';
                 html += '<div class="verdict-stat pass"><span class="num">' + (decision.stats ? (decision.stats.pass_count || 0) : passCount) + '</span><span class="label">通过</span></div>';
                 html += '<div class="verdict-stat warning"><span class="num">' + (decision.stats ? (decision.stats.warning_count || 0) : warningCount) + '</span><span class="label">警告</span></div>';
