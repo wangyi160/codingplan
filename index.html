@@ -1023,6 +1023,28 @@
             padding: 24px;
             box-shadow: var(--shadow-md);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recommendation-card .card-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-20deg);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .recommendation-card > * {
+            position: relative;
+            z-index: 1;
         }
 
         .recommendation-card:hover {
@@ -1713,6 +1735,7 @@
 
         // 全局配置
         let appConfig = {};
+        let watermarkUrl = '';
 
         // 全局数据
         let allPlans = [];
@@ -3273,6 +3296,7 @@
 
                 return `
                     <div class="recommendation-card">
+                        <div class="card-watermark">${watermarkUrl}</div>
                         <div class="recommendation-header">
                             ${nameHtml}
                             <span class="recommendation-rating">${stars}</span>
@@ -3382,8 +3406,8 @@
         document.addEventListener('DOMContentLoaded', async () => {
             await loadConfig();
 
-            // 设置表格水印，截图分享时可溯源
-            const watermarkUrl = appConfig.header?.watermarkUrl || window.location.host;
+            // 设置水印域名，截图分享时可溯源
+            watermarkUrl = appConfig.header?.watermarkUrl || window.location.host;
             document.querySelectorAll('.table-watermark-line').forEach(el => {
                 el.textContent = watermarkUrl;
             });
