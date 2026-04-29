@@ -484,6 +484,37 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        /* 表格底纹水印 */
+        .table-watermark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-tertiary);
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 1;
+            user-select: none;
+            transform: rotate(-25deg);
+            word-break: break-all;
+            text-align: center;
+            padding: 40px;
+            line-height: 1.4;
+        }
+
+        .table-scroll,
+        #plansTable {
+            position: relative;
+            z-index: 2;
         }
 
         .table-scroll {
@@ -1620,6 +1651,7 @@
 
         <!-- 表格 -->
         <div class="table-wrapper">
+            <div class="table-watermark" id="tableWatermark"></div>
             <div class="table-scroll" id="tableScroll">
                 <table id="plansTable">
                     <thead>
@@ -3339,6 +3371,12 @@
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
+            // 设置表格水印为当前页面URL，截图分享时可溯源
+            const watermarkEl = document.getElementById('tableWatermark');
+            if (watermarkEl) {
+                watermarkEl.textContent = window.location.href;
+            }
+
             await loadConfig();
             await loadData();
         });
