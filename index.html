@@ -1695,11 +1695,11 @@
                             <th class="sortable" data-column="monthlyPrice">连续包月</th>
                             <th class="sortable" data-column="quarterlyPrice">连续包季</th>
                             <th class="sortable" data-column="yearlyPrice">连续包年</th>
-                            <th>支持模型</th>
                             <th class="sortable" data-column="fiveHoursRequests">5小时请求数</th>
                             <th class="sortable" data-column="weeklyRequests">每周请求数</th>
                             <th class="sortable" data-column="monthlyRequests">每月总请求数</th>
                             <th class="sortable" data-column="tokenLimit">Token上限</th>
+                            <th>支持模型</th>
                             <th>其他权益</th>
                             <th>状态</th>
                             <th class="note-header">备注</th>
@@ -3039,13 +3039,13 @@
                     <td><span class="price-monthly">${plan.currency||'¥'}${formatPrice(plan.monthlyPrice)} <span class="unit">/ 月</span></span></td>
                     <td><span class="price-normal">${plan.currency||'¥'}${formatPrice(plan.quarterlyPrice)} <span class="price-original">${plan.currency||'¥'}${formatPrice(plan.monthlyPrice * 3)}</span> <span class="unit">/ 季</span></span></td>
                     <td><span class="price-normal">${plan.currency||'¥'}${formatPrice(plan.yearlyPrice)} <span class="price-original">${plan.currency||'¥'}${formatPrice(plan.monthlyPrice * 12)}</span> <span class="unit">/ 年</span></span></td>
-                    <td>
-                        ${plan.models.map(model => `<span class="model-tag">${escapeHtml(model)}</span>`).join('')}
-                    </td>
                     <td><span class="request-count">${formatRequestCount(plan.fiveHoursRequests)} <span class="unit">/ 5小时</span></span></td>
                     <td><span class="request-count">${formatRequestCount(plan.weeklyRequests)} <span class="unit">/ 周</span></span></td>
                     <td><span class="request-count">${formatRequestCount(plan.monthlyRequests)} <span class="unit">/ 月</span></span></td>
                     <td><span class="request-count">${typeof plan.tokenLimit === 'number' ? plan.tokenLimit + 'M <span class="unit">Tokens</span>' : escapeHtml(plan.tokenLimit || '无限制')}</span></td>
+                    <td>
+                        ${plan.models.map(model => `<span class="model-tag">${escapeHtml(model)}</span>`).join('')}
+                    </td>
                     <td>
                         ${plan.benefits.map(benefit => `<span class="benefit">${escapeHtml(benefit)}</span>`).join('')}
                     </td>
