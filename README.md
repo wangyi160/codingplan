@@ -27,7 +27,7 @@
     - 高效版支持GLM5.1。+1
     - 无忧版即支持无次Qwen3.5-35B-A3B（20M/日）。+1
 4. 字节·方舟 ⭐️⭐️⭐️⭐️
-    - 独占Doubao-Seed-2.0系列模型，支持GLM-5.1，K-2.6，M2.7。+1
+    - 独占Doubao-Seed-2.0系列，支持GLM-5.1，K-2.6，M2.7。+1
     - 赠送真OpenClaw。+1
     - 普遍反馈用量减得很快，倍率不清晰。-1
 5. Kimi ⭐️⭐️⭐️
@@ -48,21 +48,21 @@
 
 | 平台 | 套餐 | 类型 | 链接 | 首月价格 | 连续包月 | 连续包季 | 连续包年 | 支持模型 | 5小时请求数 | 每周请求数 | 每月总请求数 | 其他权益 | 备注 |
 |------|------|------|---------|---------|---------|---------|---------|---------|-----------|-----------|-----------|---------|------|
-| 智谱AI | Lite | Coding Plan | [跳转](https://www.bigmodel.cn/glm-coding?ic=QJ8SDUDGOX) | ¥46.55 | ¥49 | ¥132 ~~147~~ / 季 | ¥470 ~~588~~ / 年 | GLM-5.1, GLM-5-Turbo | 1,200 | 6,000 | 24,000 | 免费MCP次数 | • 3倍Claude Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算 • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| 智谱AI | Pro | Coding Plan | [跳转](https://www.bigmodel.cn/glm-coding?ic=QJ8SDUDGOX) | ¥141.55 | ¥149 | ¥402 ~~447~~ / 季 | ¥1430 ~~1788~~ / 年 | GLM-5.1, GLM-5-Turbo, GLM-5 | 6,000 | 30,000 | 120,000 | 免费MCP次数 | • 5倍Lite用量。官方以prompt计数，这里按1 prompt≈15次请求换算 • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| 智谱AI | Max | Coding Plan | [跳转](https://www.bigmodel.cn/glm-coding?ic=QJ8SDUDGOX) | ¥445.55 | ¥469 | ¥1266 ~~1407~~ / 季 | ¥4502 ~~5628~~ / 年 | GLM-5.1, GLM-5-Turbo, GLM-5 | 24,000 | 120,000 | 480,000 | 免费MCP次数 | • 20倍Lite用量。官方以prompt计数，这里按1 prompt≈15次请求换算 • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| 智谱国际版 | Lite | Coding Plan | [跳转](https://z.ai/subscribe?ic=YBEQOH949X) | $16.2 | $18 | $49 ~~54~~ / 季 | $173 ~~216~~ / 年 | GLM-5.1, GLM-5-Turbo | 1,200 | 6,000 | 24,000 | 免费MCP次数 | • 3倍Claude Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算 • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| 智谱国际版 | Pro | Coding Plan | [跳转](https://z.ai/subscribe?ic=YBEQOH949X) | $64.8 | $72 | $194 ~~216~~ / 季 | $691 ~~864~~ / 年 | GLM-5.1, GLM-5-Turbo, GLM-5 | 6,000 | 30,000 | 120,000 | 免费MCP次数 | • 5倍Lite用量。官方以prompt计数，这里按1 prompt≈15次请求换算 • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| 智谱国际版 | Max | Coding Plan | [跳转](https://z.ai/subscribe?ic=YBEQOH949X) | $144 | $160 | $432 ~~480~~ / 季 | $1536 ~~1920~~ / 年 | GLM-5.1, GLM-5-Turbo, GLM-5 | 24,000 | 120,000 | 480,000 | 免费MCP次数 | • 4倍Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算 • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| MiniMax | Starter | Coding Plan | [跳转](https://platform.minimaxi.com/subscribe/token-plan?code=72x1bRR9Fl&source=link) | ¥26.1 | ¥29 | - / 季 | ¥290 ~~348~~ / 年 | MiniMax-M2.7, MiniMax-M2.5 | 600 | 6,000 | 24,000 | - | • 约50TPS • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| MiniMax | Plus | Coding Plan | [跳转](https://platform.minimaxi.com/subscribe/token-plan?code=72x1bRR9Fl&source=link) | ¥44.1 | ¥49 | - / 季 | ¥490 ~~588~~ / 年 | MiniMax-M2.7, MiniMax-M2.5 | 1,500 | 15,000 | 60,000 | - | • 约50TPS • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| MiniMax | Max | Coding Plan | [跳转](https://platform.minimaxi.com/subscribe/token-plan?code=72x1bRR9Fl&source=link) | ¥107.1 | ¥119 | - / 季 | ¥1190 ~~1428~~ / 年 | MiniMax-M2.7, MiniMax-M2.5 | 4,500 | 45,000 | 180,000 | - | • 约50TPS • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| MiniMax | Plus-极速 | Coding Plan | [跳转](https://platform.minimaxi.com/subscribe/token-plan?code=72x1bRR9Fl&source=link) | ¥88.2 | ¥98 | - / 季 | ¥980 ~~1176~~ / 年 | MiniMax-M2.7-highspeed, MiniMax-M2.5-highspeed | 1,500 | 15,000 | 60,000 | - | • 约100TPS • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| MiniMax | Max-极速 | Coding Plan | [跳转](https://platform.minimaxi.com/subscribe/token-plan?code=72x1bRR9Fl&source=link) | ¥179.1 | ¥199 | - / 季 | ¥1990 ~~2388~~ / 年 | MiniMax-M2.7-highspeed, MiniMax-M2.5-highspeed | 4,500 | 45,000 | 180,000 | - | • 约100TPS • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| 讯飞·星火 | Pro | Coding Plan | [跳转](  https://maas.xfyun.cn/packageSubscription?inviteCode=MAAS-A4227EAE) | - | ¥39 | - / 季 | - / 年 | GLM-5, Qwen-3.5-Plus, MiniMax-M2.5, Kimi-K2.5, Spark-X2, DeepSeek-V3.2 | 1,200 | 9,000 | 18,000 | - | - |
-| 讯飞·星火 | Max | Coding Plan | [跳转](  https://maas.xfyun.cn/packageSubscription?inviteCode=MAAS-A4227EAE) | - | ¥199 | - / 季 | - / 年 | GLM-5.1, Qwen-3.5-Plus, GLM-5, MiniMax-M2.5, Kimi-K2.5, Spark-X2, DeepSeek-V3.2 | 6,000 | 45,000 | 90,000 | - | • GLM5.1已恢复200K上下文 |
-| 字节·方舟 | Lite | Coding Plan | [跳转](https://volcengine.com/L/uCoen5sFGaY/) | ¥36 | ¥40 | - / 季 | - / 年 | Doubao-Seed-2.0, MiniMax-M2.6, Kimi-K2.6, GLM-5.1, DeepSeek-V3.2 | 1,200 | 9,000 | 18,000 | ArkClaw 7天体验 | - |
-| 字节·方舟 | Pro | Coding Plan | [跳转](https://volcengine.com/L/uCoen5sFGaY/) | ¥160 | ¥200 | - / 季 | - / 年 | Doubao-Seed-2.0, MiniMax-M2.6, Kimi-K2.6, GLM-5.1, DeepSeek-V3.2 | 6,000 | 45,000 | 90,000 | 免费ArkClaw | - |
+| 智谱AI | Lite | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpzhipu) | ¥46.55 | ¥49 | ¥132 ~~147~~ / 季 | ¥470 ~~588~~ / 年 | GLM-5.1, GLM-5-Turbo | 1,200 | 6,000 | 24,000 | 免费MCP次数 | • 3倍Claude Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算 • 官方只有周限量无月限量，这里按照1月=4周计算 |
+| 智谱AI | Pro | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpzhipu) | ¥141.55 | ¥149 | ¥402 ~~447~~ / 季 | ¥1430 ~~1788~~ / 年 | GLM-5.1, GLM-5-Turbo, GLM-5 | 6,000 | 30,000 | 120,000 | 免费MCP次数 | • 5倍Lite用量。官方以prompt计数，这里按1 prompt≈15次请求换算 • 官方只有周限量无月限量，这里按照1月=4周计算 |
+| 智谱AI | Max | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpzhipu) | ¥445.55 | ¥469 | ¥1266 ~~1407~~ / 季 | ¥4502 ~~5628~~ / 年 | GLM-5.1, GLM-5-Turbo, GLM-5 | 24,000 | 120,000 | 480,000 | 免费MCP次数 | • 20倍Lite用量。官方以prompt计数，这里按1 prompt≈15次请求换算 • 官方只有周限量无月限量，这里按照1月=4周计算 |
+| 智谱国际版 | Lite | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpzai) | $16.2 | $18 | $49 ~~54~~ / 季 | $173 ~~216~~ / 年 | GLM-5.1, GLM-5-Turbo | 1,200 | 6,000 | 24,000 | 免费MCP次数 | • 3倍Claude Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算 • 官方只有周限量无月限量，这里按照1月=4周计算 |
+| 智谱国际版 | Pro | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpzai) | $64.8 | $72 | $194 ~~216~~ / 季 | $691 ~~864~~ / 年 | GLM-5.1, GLM-5-Turbo, GLM-5 | 6,000 | 30,000 | 120,000 | 免费MCP次数 | • 5倍Lite用量。官方以prompt计数，这里按1 prompt≈15次请求换算 • 官方只有周限量无月限量，这里按照1月=4周计算 |
+| 智谱国际版 | Max | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpzai) | $144 | $160 | $432 ~~480~~ / 季 | $1536 ~~1920~~ / 年 | GLM-5.1, GLM-5-Turbo, GLM-5 | 24,000 | 120,000 | 480,000 | 免费MCP次数 | • 4倍Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算 • 官方只有周限量无月限量，这里按照1月=4周计算 |
+| MiniMax | Starter | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpminimax) | ¥26.1 | ¥29 | - / 季 | ¥290 ~~348~~ / 年 | MiniMax-M2.7, MiniMax-M2.5 | 600 | 6,000 | 24,000 | - | • 约50TPS • 官方只有周限量无月限量，这里按照1月=4周计算 |
+| MiniMax | Plus | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpminimax) | ¥44.1 | ¥49 | - / 季 | ¥490 ~~588~~ / 年 | MiniMax-M2.7, MiniMax-M2.5 | 1,500 | 15,000 | 60,000 | - | • 约50TPS • 官方只有周限量无月限量，这里按照1月=4周计算 |
+| MiniMax | Max | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpminimax) | ¥107.1 | ¥119 | - / 季 | ¥1190 ~~1428~~ / 年 | MiniMax-M2.7, MiniMax-M2.5 | 4,500 | 45,000 | 180,000 | - | • 约50TPS • 官方只有周限量无月限量，这里按照1月=4周计算 |
+| MiniMax | Plus-极速 | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpminimax) | ¥88.2 | ¥98 | - / 季 | ¥980 ~~1176~~ / 年 | MiniMax-M2.7-highspeed, MiniMax-M2.5-highspeed | 1,500 | 15,000 | 60,000 | - | • 约100TPS • 官方只有周限量无月限量，这里按照1月=4周计算 |
+| MiniMax | Max-极速 | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpminimax) | ¥179.1 | ¥199 | - / 季 | ¥1990 ~~2388~~ / 年 | MiniMax-M2.7-highspeed, MiniMax-M2.5-highspeed | 4,500 | 45,000 | 180,000 | - | • 约100TPS • 官方只有周限量无月限量，这里按照1月=4周计算 |
+| 讯飞·星火 | Pro | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpxunfei) | - | ¥39 | - / 季 | - / 年 | GLM-5, Qwen-3.5-Plus, MiniMax-M2.5, Kimi-K2.5, Spark-X2, DeepSeek-V3.2 | 1,200 | 9,000 | 18,000 | - | - |
+| 讯飞·星火 | Max | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpxunfei) | - | ¥199 | - / 季 | - / 年 | GLM-5.1, Qwen-3.5-Plus, GLM-5, MiniMax-M2.5, Kimi-K2.5, Spark-X2, DeepSeek-V3.2 | 6,000 | 45,000 | 90,000 | - | • GLM5.1已恢复200K上下文 |
+| 字节·方舟 | Lite | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpfangzhou) | ¥36 | ¥40 | - / 季 | - / 年 | Doubao-Seed-2.0, MiniMax-M2.6, Kimi-K2.6, GLM-5.1, DeepSeek-V3.2 | 1,200 | 9,000 | 18,000 | ArkClaw 7天体验 | - |
+| 字节·方舟 | Pro | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpfangzhou) | ¥160 | ¥200 | - / 季 | - / 年 | Doubao-Seed-2.0, MiniMax-M2.6, Kimi-K2.6, GLM-5.1, DeepSeek-V3.2 | 6,000 | 45,000 | 90,000 | 免费ArkClaw | - |
 | Kimi | Andante | Coding Plan | [跳转](https://www.kimi.com/code) | - | ¥49 | - / 季 | ¥468 ~~588~~ / 年 | Kimi-K2.6, Kimi-K2.5, Kimi-K2 | 未公开 | 未公开 | 未公开 | - | Agent 4 倍速 |
 | Kimi | Moderato | Coding Plan | [跳转](https://www.kimi.com/code) | - | ¥99 | - / 季 | ¥948 ~~1188~~ / 年 | Kimi-K2.6, Kimi-K2.5, Kimi-K2 | 未公开 | 未公开 | 未公开 | - | 4 倍额度, Agent 多任务并行 |
 | Kimi | Allegretto | Coding Plan | [跳转](https://www.kimi.com/code) | - | ¥199 | - / 季 | ¥1908 ~~2388~~ / 年 | Kimi-K2.6, Kimi-K2.5, Kimi-K2 | 未公开 | 未公开 | 未公开 | 免费Kimi-Claw | 20 倍额度 |
