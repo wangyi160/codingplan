@@ -252,7 +252,6 @@
       "Qwen-3.5-Plus",
       "MiniMax-M2.5",
       "Kimi-K2.5",
-      "Spark-X2",
       "DeepSeek-V3.2"
     ],
     "fiveHoursRequests": 1200,
@@ -277,7 +276,6 @@
       "GLM-5",
       "MiniMax-M2.5",
       "Kimi-K2.5",
-      "Spark-X2",
       "DeepSeek-V3.2"
     ],
     "fiveHoursRequests": 6000,
@@ -298,7 +296,7 @@
     "yearlyPrice": "-",
     "models": [
       "Doubao-Seed-2.0",
-      "MiniMax-M2.6",
+      "MiniMax-M2.7",
       "Kimi-K2.6",
       "GLM-5.1",
       "DeepSeek-V3.2"
@@ -323,7 +321,7 @@
     "yearlyPrice": "-",
     "models": [
       "Doubao-Seed-2.0",
-      "MiniMax-M2.6",
+      "MiniMax-M2.7",
       "Kimi-K2.6",
       "GLM-5.1",
       "DeepSeek-V3.2"
