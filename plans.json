@@ -695,10 +695,9 @@
     "yearlyPrice": "-",
     "models": [
       "HY-2.0",
-      "HY-T1",
-      "GLM-5",
-      "Kimi-K2.5",
-      "MiniMax-M2.5"
+      "GLM-5.1",
+      "MiniMax-M2.7",
+      "Kimi-K2.5"
     ],
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
@@ -718,10 +717,9 @@
     "yearlyPrice": "-",
     "models": [
       "HY-2.0",
-      "HY-T1",
-      "GLM-5",
-      "Kimi-K2.5",
-      "MiniMax-M2.5"
+      "GLM-5.1",
+      "MiniMax-M2.7",
+      "Kimi-K2.5"
     ],
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
@@ -741,10 +739,9 @@
     "yearlyPrice": "-",
     "models": [
       "HY-2.0",
-      "HY-T1",
-      "GLM-5",
-      "Kimi-K2.5",
-      "MiniMax-M2.5"
+      "GLM-5.1",
+      "MiniMax-M2.7",
+      "Kimi-K2.5"
     ],
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
@@ -764,10 +761,9 @@
     "yearlyPrice": "-",
     "models": [
       "HY-2.0",
-      "HY-T1",
-      "GLM-5",
-      "Kimi-K2.5",
-      "MiniMax-M2.5"
+      "GLM-5.1",
+      "MiniMax-M2.7",
+      "Kimi-K2.5"
     ],
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
