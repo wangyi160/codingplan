@@ -3327,9 +3327,9 @@
                 quarterlyPrice = monthlyPrice * 3;
             }
 
-            // 如果包年价格为 "-" 或 NaN，使用包季价格 * 3
+            // 如果包年价格为 "-" 或 NaN，使用包季价格 * 4
             if (isNaN(yearlyPrice) || item.yearlyPrice === '-') {
-                yearlyPrice = quarterlyPrice * 3;
+                yearlyPrice = quarterlyPrice * 4;
             }
 
             // 转换请求数：保留"未公开"和"无限制"，其他转换为数字
