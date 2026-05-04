@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">计费拟合样本提交</title>
+    <title id="pageTitle"></title>
     <link rel="icon" href="/favicon.ico?v=260418" type="image/x-icon">
     <link rel="stylesheet" href="styles/shared.css">
     <script src="scripts/plan-fit-config.local.js"></script>
@@ -360,21 +360,21 @@
 <body>
     <div class="container">
         <nav class="page-nav">
-            <a href="index.html" class="page-tab" id="navHome">国内 Coding Plan</a>
-            <a href="relays.html" class="page-tab" id="navRelays">API 中转站</a>
-            <a href="relay-detect.html" class="page-tab" id="navRelayDetect">中转站检测</a>
-            <a href="plan-fit.html" class="page-tab active" id="navPlanFit">计费拟合样本</a>
+            <a href="index.html" class="page-tab" id="navHome"></a>
+            <a href="relays.html" class="page-tab" id="navRelays"></a>
+            <a href="relay-detect.html" class="page-tab" id="navRelayDetect"></a>
+            <a href="plan-fit.html" class="page-tab active" id="navPlanFit"></a>
             <div class="settings-wrapper">
-                <button class="settings-btn" id="settingsBtn" title="设置" aria-label="设置">
+                <button class="settings-btn" id="settingsBtn" title="" aria-label="">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="3"/>
                         <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
                     </svg>
                 </button>
                 <div class="settings-panel" id="settingsPanel" hidden>
-                    <div class="settings-panel-title">显示设置</div>
+                    <div class="settings-panel-title" id="settingsPanelTitle"></div>
                     <div class="settings-toggle-row">
-                        <label for="ultraWideToggle">超宽屏模式</label>
+                        <label for="ultraWideToggle" id="ultraWideToggleLabel"></label>
                         <label class="toggle-switch">
                             <input type="checkbox" id="ultraWideToggle">
                             <span class="toggle-slider"></span>
@@ -389,28 +389,28 @@
                 <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
-                <span>GitHub</span>
+                <span id="githubLinkText"></span>
             </a>
-            <h1 id="headerTitle">计费拟合样本提交</h1>
-            <p class="subtitle" id="headerSubtitle">提交你在厂商套餐中的实际消耗样本，帮助后端逐步拟合更接近真实的隐藏计费规则。</p>
+            <h1 id="headerTitle"></h1>
+            <p class="subtitle" id="headerSubtitle"></p>
         </div>
 
         <div class="intro-card" id="introCard">
-            <p id="introParagraph1">当前页面只负责收集样本，不会立刻给出推测结果。后端会把同厂商、同套餐的样本合并后再做稳健统计与置信判断。</p>
-            <p id="introParagraph2">厂商、套餐、模型默认从现有套餐数据里给出建议，但都支持自定义输入，适合补录新平台或未收录型号。</p>
+            <p id="introParagraph1"></p>
+            <p id="introParagraph2"></p>
         </div>
 
         <div class="submit-card">
-            <div class="section-title" id="formSectionTitle">提交样本</div>
+            <div class="section-title" id="formSectionTitle"></div>
             <form id="planFitForm" autocomplete="off">
                 <div class="form-grid">
                     <div class="field-group full-width">
                         <div class="selection-row">
                             <div class="field-group">
-                                <label class="field-label" for="vendorInput" id="vendorLabel">厂商</label>
+                                <label class="field-label" for="vendorInput" id="vendorLabel"></label>
                                 <div class="multi-select" id="vendorSelect">
                                     <button class="form-select-trigger" id="vendorInput" type="button" aria-expanded="false" aria-controls="vendorOptionsPanel">
-                                        <span class="multi-select-label placeholder" id="vendorInputLabel">请选择厂商</span>
+                                        <span class="multi-select-label placeholder" id="vendorInputLabel"></span>
                                     </button>
                                     <div class="multi-select-panel" id="vendorOptionsPanel" hidden>
                                         <div class="multi-select-options" id="vendorOptions"></div>
@@ -418,10 +418,10 @@
                                 </div>
                             </div>
                             <div class="field-group">
-                                <label class="field-label" for="planInput" id="planLabel">套餐</label>
+                                <label class="field-label" for="planInput" id="planLabel"></label>
                                 <div class="multi-select" id="planSelect">
                                     <button class="form-select-trigger" id="planInput" type="button" aria-expanded="false" aria-controls="planOptionsPanel" disabled>
-                                        <span class="multi-select-label placeholder" id="planInputLabel">请先选择厂商</span>
+                                        <span class="multi-select-label placeholder" id="planInputLabel"></span>
                                     </button>
                                     <div class="multi-select-panel" id="planOptionsPanel" hidden>
                                         <div class="multi-select-options" id="planOptions"></div>
@@ -429,52 +429,52 @@
                                 </div>
                             </div>
                             <div class="field-group">
-                                <label class="field-label" for="modelInput" id="modelLabel">模型列表</label>
+                                <label class="field-label" for="modelInput" id="modelLabel"></label>
                                 <div class="multi-select" id="modelSelect">
                                     <button class="form-select-trigger" id="modelInput" type="button" aria-expanded="false" aria-controls="modelOptionsPanel" disabled>
-                                        <span class="multi-select-label placeholder" id="modelInputLabel">请先选择套餐</span>
+                                        <span class="multi-select-label placeholder" id="modelInputLabel"></span>
                                     </button>
                                     <div class="multi-select-panel" id="modelOptionsPanel" hidden>
                                         <div class="multi-select-actions">
-                                            <button class="multi-select-action" id="selectAllModelsBtn" type="button">全选</button>
-                                            <button class="multi-select-action" id="clearModelsBtn" type="button">清空</button>
+                                            <button class="multi-select-action" id="selectAllModelsBtn" type="button"></button>
+                                            <button class="multi-select-action" id="clearModelsBtn" type="button"></button>
                                         </div>
                                         <div class="multi-select-options" id="modelOptions"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="field-help" id="modelHelp">像下拉框一样展开后可多选，提交时会一并写入模型列表。</div>
+                        <div class="field-help" id="modelHelp"></div>
                     </div>
                     <div class="field-group">
-                        <label class="field-label" for="windowStartInput" id="windowStartLabel">近 5 小时计费开始时间</label>
-                        <input class="form-input" id="windowStartInput" placeholder="yyyyMMdd hh:mm:ss，例如 20260502 12:00:00">
+                        <label class="field-label" for="windowStartInput" id="windowStartLabel"></label>
+                        <input class="form-input" id="windowStartInput" placeholder="">
                     </div>
                     <div class="field-group">
-                        <label class="field-label" for="usagePercentInput" id="usagePercentLabel">近 5 小时套餐消耗百分比</label>
-                        <input class="form-input" id="usagePercentInput" type="number" min="0.01" max="100" step="0.01" placeholder="例如 17.5" required>
+                        <label class="field-label" for="usagePercentInput" id="usagePercentLabel"></label>
+                        <input class="form-input" id="usagePercentInput" type="number" min="0.01" max="100" step="0.01" placeholder="" required>
                     </div>
                     <div class="field-group">
-                        <label class="field-label" for="readTokensInput" id="readTokensLabel">Read Token（千 Token）</label>
-                        <input class="form-input" id="readTokensInput" type="number" min="0" step="0.1" placeholder="例如 250，表示 25 万 token" required>
-                        <div class="field-help" id="readTokensHelp">这里不包含缓存命中的输入 token，提交时会自动按 1000 倍换算。</div>
+                        <label class="field-label" for="readTokensInput" id="readTokensLabel"></label>
+                        <input class="form-input" id="readTokensInput" type="number" min="0" step="0.1" placeholder="" required>
+                        <div class="field-help" id="readTokensHelp"></div>
                     </div>
                     <div class="field-group">
-                        <label class="field-label" for="cacheHitTokensInput" id="cacheHitTokensLabel">缓存命中 Token（千 Token）</label>
-                        <input class="form-input" id="cacheHitTokensInput" type="number" min="0" step="0.1" placeholder="例如 250，表示 25 万 token" required>
+                        <label class="field-label" for="cacheHitTokensInput" id="cacheHitTokensLabel"></label>
+                        <input class="form-input" id="cacheHitTokensInput" type="number" min="0" step="0.1" placeholder="" required>
                     </div>
                     <div class="field-group">
-                        <label class="field-label" for="writeTokensInput" id="writeTokensLabel">Write Token（千 Token）</label>
-                        <input class="form-input" id="writeTokensInput" type="number" min="0" step="0.1" placeholder="例如 18，表示 1.8 万 token" required>
+                        <label class="field-label" for="writeTokensInput" id="writeTokensLabel"></label>
+                        <input class="form-input" id="writeTokensInput" type="number" min="0" step="0.1" placeholder="" required>
                     </div>
                     <div class="field-group">
-                        <label class="field-label" for="requestCountInput" id="requestCountLabel">请求总次数</label>
-                        <input class="form-input" id="requestCountInput" type="number" min="0" step="1" placeholder="例如 87" required>
+                        <label class="field-label" for="requestCountInput" id="requestCountLabel"></label>
+                        <input class="form-input" id="requestCountInput" type="number" min="0" step="1" placeholder="" required>
                     </div>
                 </div>
                 <div class="submit-row">
-                    <button class="submit-btn" id="submitBtn" type="submit">提交样本</button>
-                    <div class="submit-note" id="submitNote">提交后仅会提示收集成功；聚合展示页会后续单独上线。</div>
+                    <button class="submit-btn" id="submitBtn" type="submit"></button>
+                    <div class="submit-note" id="submitNote"></div>
                 </div>
             </form>
         </div>
@@ -521,7 +521,7 @@
 
         Promise.all([
             fetch('plans.json').then(function(resp) { return resp.json(); }),
-            fetch('plan-fit-content.json').then(function(resp) { return resp.json(); })
+            fetch('plan-fit-config.json').then(function(resp) { return resp.json(); })
         ])
             .then(function(results) {
                 planRows = Array.isArray(results[0]) ? results[0] : [];
@@ -562,16 +562,16 @@
             var requestCount = Number(document.getElementById('requestCountInput').value);
 
             if (!vendor || !plan) {
-                showResult('error', getMessage('submitFailedTitle', '提交失败'), getMessage('vendorPlanRequired', '厂商和套餐都不能为空。'));
+                showResult('error', getMessage('submitFailedTitle'), getMessage('vendorPlanRequired'));
                 return;
             }
             if (!Number.isFinite(fiveHourUsagePercent) || fiveHourUsagePercent <= 0 || fiveHourUsagePercent > 100) {
-                showResult('error', getMessage('submitFailedTitle', '提交失败'), getMessage('usagePercentInvalid', '近 5 小时套餐消耗百分比必须在 0 到 100 之间。'));
+                showResult('error', getMessage('submitFailedTitle'), getMessage('usagePercentInvalid'));
                 return;
             }
 
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="spinner"></span>提交中';
+            submitBtn.innerHTML = '<span class="spinner"></span>' + escapeHtml(getFormText('submitButtonLoading'));
 
             fetch(API_BASE + '/plan_fit/submissions', {
                 method: 'POST',
@@ -605,62 +605,67 @@
                 closeAllDropdowns();
                 showResult(
                     'success',
-                    getMessage('submitSuccessTitle', '样本已提交'),
-                    getMessage('submitSuccessBody', '该样本已经入库，后续会与同厂商、同套餐的其它样本一起参与统计。'),
+                    getMessage('submitSuccessTitle'),
+                    getMessage('submitSuccessBody'),
                     [
-                        getMessage('recordIdPrefix', '记录 ID: ') + result.data.data.id,
-                        getMessage('vendorPrefix', '厂商: ') + result.data.data.vendor,
-                        getMessage('planPrefix', '套餐: ') + result.data.data.plan
+                        getMessage('recordIdPrefix') + result.data.data.id,
+                        getMessage('vendorPrefix') + result.data.data.vendor,
+                        getMessage('planPrefix') + result.data.data.plan
                     ]
                 );
             })
             .catch(function(err) {
-                showResult('error', getMessage('submitFailedTitle', '提交失败'), err.message || getMessage('submitGeneric', '提交过程中发生错误。'));
+                showResult('error', getMessage('submitFailedTitle'), err.message || getMessage('submitGeneric'));
             })
             .finally(function() {
                 submitBtn.disabled = false;
-                submitBtn.textContent = getFormText('submitButton', '提交样本');
+                submitBtn.textContent = getFormText('submitButton');
             });
         });
 
         function applyPageContent(content) {
             var nav = content.nav || {};
             var header = content.header || {};
+            var settings = content.settings || {};
             var formText = content.form || {};
             var intro = Array.isArray(content.intro) ? content.intro : [];
 
-            setText('pageTitle', content.pageTitle || '计费拟合样本提交');
-            setText('navHome', nav.home || '国内 Coding Plan');
-            setText('navRelays', nav.relays || 'API 中转站');
-            setText('navRelayDetect', nav.relayDetect || '中转站检测');
-            setText('navPlanFit', nav.planFit || '计费拟合样本');
-            setText('headerTitle', header.title || '计费拟合样本提交');
-            setText('headerSubtitle', header.subtitle || '');
-            setText('introParagraph1', intro[0] || '');
-            setText('introParagraph2', intro[1] || '');
-            setText('formSectionTitle', formText.sectionTitle || '提交样本');
-            setText('vendorLabel', formText.vendorLabel || '厂商');
-            setText('planLabel', formText.planLabel || '套餐');
-            setText('modelLabel', formText.modelLabel || '模型列表');
-            setText('modelHelp', formText.modelHelp || '');
-            setText('selectAllModelsBtn', formText.modelSelectAll || '全选');
-            setText('clearModelsBtn', formText.modelClear || '清空');
-            setText('windowStartLabel', formText.windowStartLabel || '近 5 小时计费开始时间');
-            setText('usagePercentLabel', formText.usagePercentLabel || '近 5 小时套餐消耗百分比');
-            setText('readTokensLabel', formText.readTokensLabel || 'Read Token（千 Token）');
-            setText('readTokensHelp', formText.readTokensHelp || '');
-            setText('cacheHitTokensLabel', formText.cacheHitTokensLabel || '缓存命中 Token（千 Token）');
-            setText('writeTokensLabel', formText.writeTokensLabel || 'Write Token（千 Token）');
-            setText('requestCountLabel', formText.requestCountLabel || '请求总次数');
-            setText('submitBtn', formText.submitButton || '提交样本');
-            setText('submitNote', formText.submitNote || '');
+            setText('pageTitle', content.pageTitle);
+            setText('navHome', nav.home);
+            setText('navRelays', nav.relays);
+            setText('navRelayDetect', nav.relayDetect);
+            setText('navPlanFit', nav.planFit);
+            setText('githubLinkText', header.githubText);
+            setText('headerTitle', header.title);
+            setText('headerSubtitle', header.subtitle);
+            setButtonA11yText('settingsBtn', settings.buttonTitle);
+            setText('settingsPanelTitle', settings.panelTitle);
+            setText('ultraWideToggleLabel', settings.ultraWideLabel);
+            setText('introParagraph1', intro[0]);
+            setText('introParagraph2', intro[1]);
+            setText('formSectionTitle', formText.sectionTitle);
+            setText('vendorLabel', formText.vendorLabel);
+            setText('planLabel', formText.planLabel);
+            setText('modelLabel', formText.modelLabel);
+            setText('modelHelp', formText.modelHelp);
+            setText('selectAllModelsBtn', formText.modelSelectAll);
+            setText('clearModelsBtn', formText.modelClear);
+            setText('windowStartLabel', formText.windowStartLabel);
+            setText('usagePercentLabel', formText.usagePercentLabel);
+            setText('readTokensLabel', formText.readTokensLabel);
+            setText('readTokensHelp', formText.readTokensHelp);
+            setText('cacheHitTokensLabel', formText.cacheHitTokensLabel);
+            setText('writeTokensLabel', formText.writeTokensLabel);
+            setText('requestCountLabel', formText.requestCountLabel);
+            setText('submitBtn', formText.submitButton);
+            setText('submitNote', formText.submitNote);
 
-            setPlaceholder('windowStartInput', formText.windowStartPlaceholder || '');
-            setPlaceholder('usagePercentInput', formText.usagePercentPlaceholder || '');
-            setPlaceholder('readTokensInput', formText.readTokensPlaceholder || '');
-            setPlaceholder('cacheHitTokensInput', formText.cacheHitTokensPlaceholder || '');
-            setPlaceholder('writeTokensInput', formText.writeTokensPlaceholder || '');
-            setPlaceholder('requestCountInput', formText.requestCountPlaceholder || '');
+            setPlaceholder('windowStartInput', formText.windowStartPlaceholder);
+            setPlaceholder('usagePercentInput', formText.usagePercentPlaceholder);
+            setPlaceholder('readTokensInput', formText.readTokensPlaceholder);
+            setPlaceholder('cacheHitTokensInput', formText.cacheHitTokensPlaceholder);
+            setPlaceholder('writeTokensInput', formText.writeTokensPlaceholder);
+            setPlaceholder('requestCountInput', formText.requestCountPlaceholder);
         }
 
         function renderVendorOptions() {
@@ -694,7 +699,7 @@
             planOptions.innerHTML = planList.length ? planList.map(function(item) {
                 var selected = item === selectedPlan ? ' selected' : '';
                 return '<button class="multi-select-option single-select-option' + selected + '" type="button" data-value="' + encodeURIComponent(item) + '">' + escapeHtml(item) + '</button>';
-            }).join('') : '<div class="multi-select-empty">' + escapeHtml(getFormText('planDisabledPlaceholder', '请先选择厂商')) + '</div>';
+            }).join('') : '<div class="multi-select-empty">' + escapeHtml(getFormText('planDisabledPlaceholder')) + '</div>';
 
             modelList = selectedVendor && selectedPlan ? collectModelOptions(selectedVendor, selectedPlan) : [];
             selectedModels = selectedModels.filter(function(item) {
@@ -708,7 +713,7 @@
                     + '<input type="checkbox" id="' + optionId + '" value="' + escapeHtml(item) + '"' + checked + '>'
                     + '<span>' + escapeHtml(item) + '</span>'
                     + '</label>';
-            }).join('') : '<div class="multi-select-empty">' + escapeHtml(getFormText('modelEmpty', '当前厂商和套餐下暂无预置模型')) + '</div>';
+            }).join('') : '<div class="multi-select-empty">' + escapeHtml(getFormText('modelEmpty')) + '</div>';
 
             Array.prototype.slice.call(modelOptions.querySelectorAll('input[type="checkbox"]')).forEach(function(checkbox) {
                 checkbox.addEventListener('change', updateModelLabel);
@@ -740,7 +745,7 @@
                 var planMatch = !plan || (item.plan || '').trim() === plan;
                 return vendorMatch && planMatch;
             });
-            return rows
+            var modelOptions = rows
                 .flatMap(function(item) { return Array.isArray(item.models) ? item.models : []; })
                 .map(function(item) { return String(item || '').trim(); })
                 .filter(function(item) {
@@ -749,6 +754,13 @@
                     return true;
                 })
                 .sort();
+
+            var otherOption = getFormText('modelOtherOption');
+            if (otherOption && !seen[otherOption]) {
+                modelOptions.push(otherOption);
+            }
+
+            return modelOptions;
         }
 
         function getSelectedModelList() {
@@ -762,7 +774,7 @@
                 vendorInputLabel.textContent = selectedVendor;
                 vendorInputLabel.classList.remove('placeholder');
             } else {
-                vendorInputLabel.textContent = getFormText('vendorPlaceholder', '请选择厂商');
+                vendorInputLabel.textContent = getFormText('vendorPlaceholder');
                 vendorInputLabel.classList.add('placeholder');
             }
 
@@ -770,10 +782,10 @@
                 planInputLabel.textContent = selectedPlan;
                 planInputLabel.classList.remove('placeholder');
             } else if (!selectedVendor) {
-                planInputLabel.textContent = getFormText('planDisabledPlaceholder', '请先选择厂商');
+                planInputLabel.textContent = getFormText('planDisabledPlaceholder');
                 planInputLabel.classList.add('placeholder');
             } else {
-                planInputLabel.textContent = getFormText('planPlaceholder', '请选择套餐');
+                planInputLabel.textContent = getFormText('planPlaceholder');
                 planInputLabel.classList.add('placeholder');
             }
 
@@ -785,11 +797,11 @@
             var selectedModels = getSelectedModelList();
             if (!selectedModels.length) {
                 if (!selectedVendor) {
-                    modelInputLabel.textContent = getFormText('modelDisabledVendorPlaceholder', '请先选择厂商');
+                    modelInputLabel.textContent = getFormText('modelDisabledVendorPlaceholder');
                 } else if (!selectedPlan) {
-                    modelInputLabel.textContent = getFormText('modelDisabledPlanPlaceholder', '请先选择套餐');
+                    modelInputLabel.textContent = getFormText('modelDisabledPlanPlaceholder');
                 } else {
-                    modelInputLabel.textContent = getFormText('modelPlaceholder', '请选择一个或多个模型');
+                    modelInputLabel.textContent = getFormText('modelPlaceholder');
                 }
                 modelInputLabel.classList.add('placeholder');
                 return;
@@ -874,18 +886,18 @@
             return Math.round(value * 1000);
         }
 
-        function getFormText(key, fallback) {
+        function getFormText(key) {
             if (pageContent && pageContent.form && typeof pageContent.form[key] === 'string') {
                 return pageContent.form[key];
             }
-            return fallback;
+            return '';
         }
 
-        function getMessage(key, fallback) {
+        function getMessage(key) {
             if (pageContent && pageContent.messages && typeof pageContent.messages[key] === 'string') {
                 return pageContent.messages[key];
             }
-            return fallback;
+            return '';
         }
 
         function setText(id, value) {
@@ -902,8 +914,16 @@
             }
         }
 
+        function setButtonA11yText(id, value) {
+            var element = document.getElementById(id);
+            if (element) {
+                element.setAttribute('title', value);
+                element.setAttribute('aria-label', value);
+            }
+        }
+
         function resolveErrorMessage(payload) {
-            if (!payload) return '提交过程中发生错误。';
+            if (!payload) return getMessage('submitGeneric');
             if (payload.err_msg) return payload.err_msg;
             if (payload.validation_error) {
                 if (payload.validation_error.body_params && payload.validation_error.body_params[0]) {
@@ -913,7 +933,7 @@
                     return payload.validation_error.query_params[0].msg;
                 }
             }
-            return '提交过程中发生错误。';
+            return getMessage('submitGeneric');
         }
 
         function showResult(kind, title, message, metaItems) {
