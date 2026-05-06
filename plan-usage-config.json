@@ -1,15 +1,15 @@
 {
-  "pageTitle": "计费拟合样本提交",
+  "pageTitle": "Coding Plan 用量提交",
   "nav": {
     "home": "国内 Coding Plan",
     "relays": "API 中转站",
     "relayDetect": "中转站检测",
-    "planUsage": "计费拟合样本"
+    "planUsage": "Coding Plan 用量提交"
   },
   "header": {
     "githubText": "GitHub",
-    "title": "计费拟合样本提交",
-    "subtitle": "提交你在厂商套餐中的实际消耗样本，帮助后端逐步拟合更接近真实的隐藏计费规则。"
+    "title": "Coding Plan 用量提交",
+    "subtitle": "提交您的套餐额度数据，帮助我们更好地了解各平台真实额度消耗情况。"
   },
   "settings": {
     "buttonTitle": "设置",
@@ -17,17 +17,17 @@
     "ultraWideLabel": "超宽屏模式"
   },
   "intro": [
-    "当前页面只负责收集样本，不会立刻给出推测结果。后端会把同厂商、同套餐的样本合并后再做稳健统计与置信判断。",
-    "厂商、套餐、模型默认从现有套餐数据里给出建议，但都支持自定义输入，适合补录新平台或未收录型号。"
+    "您提交后，我们会综合计算您提供的数据和我们已有的数据，来估算各平台的实际用量情况。",
+    "您有任何关于数据提交的疑问，或者遇到任何问题，请随时点击右上角Github进入Discussion或者Issue区进行讨论或者反馈。"
   ],
   "form": {
-    "sectionTitle": "提交样本",
+    "sectionTitle": "提交",
     "vendorLabel": "厂商",
     "vendorPlaceholder": "请选择厂商",
     "planLabel": "套餐",
     "planPlaceholder": "请选择套餐",
     "planDisabledPlaceholder": "请先选择厂商",
-    "modelLabel": "模型列表",
+    "modelLabel": "主力模型",
     "modelPlaceholder": "请选择一个或多个模型",
     "modelDisabledVendorPlaceholder": "请先选择厂商",
     "modelDisabledPlanPlaceholder": "请先选择套餐",
@@ -35,31 +35,33 @@
     "modelClear": "清空",
     "modelEmpty": "当前厂商和套餐下暂无预置模型",
     "modelOtherOption": "其他",
-    "modelHelp": "像下拉框一样展开后可多选，提交时会一并写入模型列表。",
-    "windowStartLabel": "近 5 小时计费开始时间",
-    "windowStartPlaceholder": "yyyyMMdd hh:mm:ss，例如 20260502 12:00:00",
-    "usagePercentLabel": "近 5 小时套餐消耗百分比",
-    "usagePercentPlaceholder": "例如 17.5",
-    "readTokensLabel": "Read Token（千 Token）",
-    "readTokensPlaceholder": "例如 250，表示 25 万 token",
-    "readTokensHelp": "这里不包含缓存命中的输入 token，提交时会自动按 1000 倍换算。",
-    "cacheHitTokensLabel": "缓存命中 Token（千 Token）",
-    "cacheHitTokensPlaceholder": "例如 250，表示 25 万 token",
-    "writeTokensLabel": "Write Token（千 Token）",
-    "writeTokensPlaceholder": "例如 18，表示 1.8 万 token",
-    "requestCountLabel": "请求总次数",
-    "requestCountPlaceholder": "例如 87",
+    "modelHelp": "请先选择厂商，再套餐，最后选择主要是用的模型。",
+    "windowStartLabel": "5小时额度开始时间",
+    "windowStartPlaceholder": "yyyy/MM/dd hh:mm:ss，例如 2026/05/30 23:00:00",
+    "usagePercentLabel": "5小时额度消耗百分比",
+    "usagePercentPlaceholder": "例如 17.5，表示套餐的5小时额度消耗了17.5%",
+    "readTokensLabel": "Input（K Token）",
+    "readTokensPlaceholder": "例如 250，表示 250K 即25 万 token",
+    "readTokensHelp": "这里不包含缓存命中的输入 token",
+    "cacheHitTokensLabel": "缓存命中 Token（K Token）",
+    "cacheHitTokensPlaceholder": "例如 250，表示 250K 即25 万 token",
+    "writeTokensLabel": "Output（K Token）",
+    "writeTokensPlaceholder": "例如 18，表示 18K 即1.8 万 token",
+    "requestCountLabel": "请求次数",
+    "requestCountPlaceholder": "5小时额度时间范围内的请求次数",
     "submitButton": "提交样本",
     "submitButtonLoading": "提交中",
-    "submitNote": "提交后仅会提示收集成功；聚合展示页会后续单独上线。123"
+    "submitNote": ""
   },
   "messages": {
     "submitFailedTitle": "提交失败",
     "vendorPlanRequired": "厂商和套餐都不能为空。",
-    "usagePercentInvalid": "近 5 小时套餐消耗百分比必须在 0 到 100 之间。",
-    "submitGeneric": "提交过程中发生错误。",
+    "usagePercentInvalid": "近 5小时套餐消耗百分比必须在 0 到 100 之间。",
+    "submitGeneric": "提交过程中发生错误，请稍后重试。",
     "submitSuccessTitle": "样本已提交",
-    "submitSuccessBody": "该样本已经入库，后续会与同厂商、同套餐的其它样本一起参与统计。",
+    "submitSuccessBody": "该样本已经提交成功，感谢您提供数据。",
+    "submitSuccessToastTitle": "提交成功",
+    "submitSuccessToastBody": "样本已入库",
     "recordIdPrefix": "记录 ID: ",
     "vendorPrefix": "厂商: ",
     "planPrefix": "套餐: "
