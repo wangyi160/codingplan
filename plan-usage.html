@@ -522,7 +522,7 @@
                     <div class="metric-row">
                         <div class="field-group">
                             <label class="field-label" for="windowStartInput" id="windowStartLabel"></label>
-                            <input class="form-input" id="windowStartInput" type="datetime-local" step="1">
+                            <input class="form-input" id="windowStartInput" type="datetime-local" step="1" required>
                         </div>
                         <div class="field-group">
                             <label class="field-label" for="usagePercentInput" id="usagePercentLabel"></label>
@@ -634,6 +634,7 @@
 
             var vendor = selectedVendor;
             var plan = selectedPlan;
+            var selectedModels = getSelectedModelList();
             var windowStartStr = formatWindowStartInput('windowStartInput');
             var fiveHourUsagePercent = Number(document.getElementById('usagePercentInput').value);
             var readTokens = parseKTokenInput('readTokensInput');
@@ -643,6 +644,14 @@
 
             if (!vendor || !plan) {
                 showResult('error', getMessage('submitFailedTitle'), getMessage('vendorPlanRequired'));
+                return;
+            }
+            if (!windowStartStr) {
+                showResult('error', getMessage('submitFailedTitle'), getMessage('windowStartRequired'));
+                return;
+            }
+            if (!selectedModels.length) {
+                showResult('error', getMessage('submitFailedTitle'), getMessage('modelRequired'));
                 return;
             }
             if (!Number.isFinite(fiveHourUsagePercent) || fiveHourUsagePercent <= 0 || fiveHourUsagePercent > 100) {
@@ -659,7 +668,7 @@
                 body: JSON.stringify({
                     vendor: vendor,
                     plan: plan,
-                    model_list: getSelectedModelList(),
+                    model_list: selectedModels,
                     window_start_str: windowStartStr,
                     five_hour_usage_percent: fiveHourUsagePercent,
                     read_tokens: readTokens,
