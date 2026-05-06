@@ -6,8 +6,8 @@
     <title id="pageTitle"></title>
     <link rel="icon" href="/favicon.ico?v=260418" type="image/x-icon">
     <link rel="stylesheet" href="styles/shared.css">
-    <script src="scripts/plan-fit-config.local.js"></script>
-    <script src="scripts/plan-fit-config.js"></script>
+    <script src="scripts/plan-usage-config.local.js"></script>
+    <script src="scripts/plan-usage-config.js"></script>
     <script src="scripts/shared.js"></script>
     <style>
         .header .subtitle {
@@ -371,7 +371,7 @@
             <a href="index.html" class="page-tab" id="navHome"></a>
             <a href="relays.html" class="page-tab" id="navRelays"></a>
             <a href="relay-detect.html" class="page-tab" id="navRelayDetect"></a>
-            <a href="plan-fit.html" class="page-tab active" id="navPlanFit"></a>
+            <a href="plan-usage.html" class="page-tab active" id="navPlanUsage"></a>
             <div class="settings-wrapper">
                 <button class="settings-btn" id="settingsBtn" title="" aria-label="">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -410,7 +410,7 @@
 
         <div class="submit-card">
             <div class="section-title" id="formSectionTitle"></div>
-            <form id="planFitForm" autocomplete="off">
+            <form id="planUsageForm" autocomplete="off">
                 <div class="form-grid">
                     <div class="field-group full-width">
                         <div class="selection-row">
@@ -502,7 +502,7 @@
     (function() {
         'use strict';
 
-        var API_BASE = (window.PLAN_FIT_CONFIG && window.PLAN_FIT_CONFIG.apiBase) || '';
+        var API_BASE = (window.PLAN_USAGE_CONFIG && window.PLAN_USAGE_CONFIG.apiBase) || '';
         var planRows = [];
         var pageContent = null;
         var selectedVendor = '';
@@ -524,7 +524,7 @@
         var modelOptions = document.getElementById('modelOptions');
         var selectAllModelsBtn = document.getElementById('selectAllModelsBtn');
         var clearModelsBtn = document.getElementById('clearModelsBtn');
-        var form = document.getElementById('planFitForm');
+        var form = document.getElementById('planUsageForm');
         var submitBtn = document.getElementById('submitBtn');
         var resultCard = document.getElementById('resultCard');
         var resultTitle = document.getElementById('resultTitle');
@@ -533,7 +533,7 @@
 
         Promise.all([
             fetch('plans.json').then(function(resp) { return resp.json(); }),
-            fetch('plan-fit-config.json').then(function(resp) { return resp.json(); })
+            fetch('plan-usage-config.json').then(function(resp) { return resp.json(); })
         ])
             .then(function(results) {
                 planRows = Array.isArray(results[0]) ? results[0] : [];
@@ -543,7 +543,7 @@
                 syncDependentOptions();
             })
             .catch(function(err) {
-                console.warn('failed to load plan-fit resources', err);
+                console.warn('failed to load plan-usage resources', err);
             });
 
         vendorInput.addEventListener('click', function(event) {
@@ -585,7 +585,7 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<span class="spinner"></span>' + escapeHtml(getFormText('submitButtonLoading'));
 
-            fetch(API_BASE + '/plan_fit/submissions', {
+            fetch(API_BASE + '/plan_usage/submissions', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -646,7 +646,7 @@
             setText('navHome', nav.home);
             setText('navRelays', nav.relays);
             setText('navRelayDetect', nav.relayDetect);
-            setText('navPlanFit', nav.planFit);
+            setText('navPlanUsage', nav.planUsage);
             setText('githubLinkText', header.githubText);
             setText('headerTitle', header.title);
             setText('headerSubtitle', header.subtitle);

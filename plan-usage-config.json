@@ -4,7 +4,7 @@
     "home": "国内 Coding Plan",
     "relays": "API 中转站",
     "relayDetect": "中转站检测",
-    "planFit": "计费拟合样本"
+    "planUsage": "计费拟合样本"
   },
   "header": {
     "githubText": "GitHub",
