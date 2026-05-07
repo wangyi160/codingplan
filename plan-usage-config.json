@@ -137,7 +137,7 @@
     "emptyAll": "暂无用量统计数据（尚无提交样本或样本不足以计算）。",
     "emptyFiltered": "当前筛选条件下没有匹配的用量统计行。",
     "ciUnavailable": "—",
-    "sampleCountTemplate": "样本：{n}",
+    "sampleCountTemplate": "有效样本：{n}",
     "tableVendor": "厂商",
     "tablePlan": "套餐",
     "tableReadTokensK": "Input(K Tokens)",

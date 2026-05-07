@@ -1880,6 +1880,10 @@
 
         function filterEstimatesRows() {
             return estimatesState.allItems.filter(function(row) {
+                var sc = Number(row.sample_count);
+                if (Number.isFinite(sc) && sc === 0) {
+                    return false;
+                }
                 if (listState.vendorFilter && row.vendor !== listState.vendorFilter) {
                     return false;
                 }
