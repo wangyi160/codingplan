@@ -352,6 +352,60 @@
             cursor: not-allowed;
         }
 
+        .records-toolbar-right {
+            display: flex;
+            align-items: flex-end;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .token-unit-field {
+            min-width: 0;
+        }
+
+        .token-unit-field .segmented-control {
+            margin-top: 8px;
+        }
+
+        .segmented-control {
+            display: inline-flex;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--bg-primary);
+        }
+
+        .segment-btn {
+            padding: 10px 16px;
+            border: none;
+            background: transparent;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .segment-btn:hover:not(:disabled) {
+            color: var(--accent-primary);
+            background: var(--bg-secondary);
+        }
+
+        .segment-btn + .segment-btn {
+            border-left: 1px solid var(--border-color);
+        }
+
+        .segment-btn.active {
+            background: rgba(99, 102, 241, 0.12);
+            color: var(--accent-primary);
+        }
+
+        .segment-btn:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
         .records-meta {
             margin-top: 18px;
             display: flex;
@@ -633,6 +687,10 @@
             .selection-row,
             .metric-row { grid-template-columns: 1fr; }
             .records-filters { grid-template-columns: 1fr; }
+            .records-toolbar-right {
+                width: 100%;
+                justify-content: space-between;
+            }
             .records-toolbar,
             .records-meta,
             .pagination-row {
@@ -814,7 +872,16 @@
                         </div>
                     </div>
                 </div>
-                <button class="secondary-btn" id="resetListFiltersBtn" type="button"></button>
+                <div class="records-toolbar-right">
+                    <div class="field-group token-unit-field">
+                        <label class="field-label" id="listTokenUnitLabel"></label>
+                        <div class="segmented-control" role="group" id="listTokenUnitGroup" aria-label="">
+                            <button type="button" class="segment-btn" id="listTokenUnitKBtn" data-token-unit="k" aria-pressed="true"></button>
+                            <button type="button" class="segment-btn" id="listTokenUnitMBtn" data-token-unit="m" aria-pressed="false"></button>
+                        </div>
+                    </div>
+                    <button class="secondary-btn" id="resetListFiltersBtn" type="button"></button>
+                </div>
             </div>
 
             <div class="records-meta">
@@ -895,6 +962,19 @@
         var listPlanOptionsPanel = document.getElementById('listPlanOptionsPanel');
         var listPlanOptions = document.getElementById('listPlanOptions');
         var resetListFiltersBtn = document.getElementById('resetListFiltersBtn');
+        var listTokenUnitLabel = document.getElementById('listTokenUnitLabel');
+        var listTokenUnitGroup = document.getElementById('listTokenUnitGroup');
+        var listTokenUnitKBtn = document.getElementById('listTokenUnitKBtn');
+        var listTokenUnitMBtn = document.getElementById('listTokenUnitMBtn');
+        var LIST_TOKEN_UNIT_STORAGE = 'planUsageListTokenUnit';
+        var listTokenUnit = (function() {
+            try {
+                var stored = localStorage.getItem(LIST_TOKEN_UNIT_STORAGE);
+                return stored === 'm' ? 'm' : 'k';
+            } catch (err) {
+                return 'k';
+            }
+        })();
         var submissionTable = document.getElementById('submissionTable');
         var submissionTableBody = document.getElementById('submissionTableBody');
         var listStatsText = document.getElementById('listStatsText');
@@ -959,6 +1039,12 @@
         selectAllModelsBtn.addEventListener('click', selectAllModels);
         clearModelsBtn.addEventListener('click', clearSelectedModels);
         resetListFiltersBtn.addEventListener('click', resetSubmissionFilters);
+        listTokenUnitKBtn.addEventListener('click', function() {
+            handleListTokenUnitClick('k');
+        });
+        listTokenUnitMBtn.addEventListener('click', function() {
+            handleListTokenUnitClick('m');
+        });
         prevPageBtn.addEventListener('click', function() {
             if (listState.loading || listState.page <= 0) {
                 return;
@@ -1108,12 +1194,16 @@
             setText('listVendorFilterLabel', listText.vendorFilterLabel);
             setText('listPlanFilterLabel', listText.planFilterLabel);
             setText('resetListFiltersBtn', listText.resetFilters);
+            setText('listTokenUnitLabel', listText.tokenUnitLabel);
+            setText('listTokenUnitKBtn', listText.tokenUnitOptionK);
+            setText('listTokenUnitMBtn', listText.tokenUnitOptionM);
+            if (listTokenUnitGroup) {
+                listTokenUnitGroup.setAttribute('aria-label', listText.tokenUnitLabel || '');
+            }
             setText('recordsVendorHeading', listText.tableVendor);
             setText('recordsPlanHeading', listText.tablePlan);
             setText('recordsUsageHeading', listText.tableUsagePercent);
-            setText('recordsReadTokensHeading', listText.tableReadTokens);
-            setText('recordsCacheHitTokensHeading', listText.tableCacheHitTokens);
-            setText('recordsWriteTokensHeading', listText.tableWriteTokens);
+            refreshListTokenColumnHeaders();
             setText('recordsRequestCountHeading', listText.tableRequestCount);
             setText('recordsSubmittedAtHeading', listText.tableSubmittedAt);
             setText('prevPageBtn', listText.previousPage);
@@ -1332,6 +1422,10 @@
             prevPageBtn.disabled = listState.loading || listState.page <= 0;
             nextPageBtn.disabled = listState.loading || !listState.hasNext;
             resetListFiltersBtn.disabled = listState.loading;
+            if (listTokenUnitKBtn && listTokenUnitMBtn) {
+                listTokenUnitKBtn.disabled = listState.loading;
+                listTokenUnitMBtn.disabled = listState.loading;
+            }
         }
 
         function renderSubmissionTableState() {
@@ -1354,9 +1448,9 @@
                     + '<td><div class="cell-primary">' + escapeHtml(item.vendor || '') + '</div></td>'
                     + '<td><div class="cell-primary">' + escapeHtml(item.plan || '') + '</div></td>'
                     + '<td class="numeric-cell">' + escapeHtml(formatPercent(item.five_hour_usage_percent)) + '</td>'
-                    + '<td class="numeric-cell">' + escapeHtml(formatInteger(item.read_tokens)) + '</td>'
-                    + '<td class="numeric-cell">' + escapeHtml(formatInteger(item.cache_hit_tokens)) + '</td>'
-                    + '<td class="numeric-cell">' + escapeHtml(formatInteger(item.write_tokens)) + '</td>'
+                    + '<td class="numeric-cell">' + escapeHtml(formatListTokenAmount(item.read_tokens)) + '</td>'
+                    + '<td class="numeric-cell">' + escapeHtml(formatListTokenAmount(item.cache_hit_tokens)) + '</td>'
+                    + '<td class="numeric-cell">' + escapeHtml(formatListTokenAmount(item.write_tokens)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(formatInteger(item.request_count)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(submittedAt) + '</td>'
                     + '</tr>';
@@ -1766,6 +1860,47 @@
                 return '-';
             }
             return Math.round(numericValue).toLocaleString('zh-CN');
+        }
+
+        function formatListTokenAmount(rawTokens) {
+            var n = Number(rawTokens);
+            if (!Number.isFinite(n)) {
+                return '-';
+            }
+            if (listTokenUnit === 'm') {
+                return (n / 1000000).toLocaleString('zh-CN', { maximumFractionDigits: 6, minimumFractionDigits: 0 });
+            }
+            return (n / 1000).toLocaleString('zh-CN', { maximumFractionDigits: 3, minimumFractionDigits: 0 });
+        }
+
+        function refreshListTokenColumnHeaders() {
+            var suffix = listTokenUnit === 'm' ? 'M' : 'K';
+            setText('recordsReadTokensHeading', getListText('tableReadTokens' + suffix));
+            setText('recordsCacheHitTokensHeading', getListText('tableCacheHitTokens' + suffix));
+            setText('recordsWriteTokensHeading', getListText('tableWriteTokens' + suffix));
+            if (listTokenUnitKBtn) {
+                listTokenUnitKBtn.classList.toggle('active', listTokenUnit === 'k');
+                listTokenUnitKBtn.setAttribute('aria-pressed', listTokenUnit === 'k' ? 'true' : 'false');
+            }
+            if (listTokenUnitMBtn) {
+                listTokenUnitMBtn.classList.toggle('active', listTokenUnit === 'm');
+                listTokenUnitMBtn.setAttribute('aria-pressed', listTokenUnit === 'm' ? 'true' : 'false');
+            }
+        }
+
+        function handleListTokenUnitClick(unit) {
+            var next = unit === 'm' ? 'm' : 'k';
+            if (listState.loading || next === listTokenUnit) {
+                return;
+            }
+            listTokenUnit = next;
+            try {
+                localStorage.setItem(LIST_TOKEN_UNIT_STORAGE, listTokenUnit);
+            } catch (e) {
+                /* ignore */
+            }
+            refreshListTokenColumnHeaders();
+            renderSubmissionTableState();
         }
 
         function formatTimestamp(value) {
