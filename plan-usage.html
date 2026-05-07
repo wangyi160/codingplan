@@ -1896,9 +1896,16 @@
         }
 
         function buildEstimateTokenMetricCell(metric) {
-            var m = metric || {};
-            var lo = m.ci95_lower;
-            var hi = m.ci95_upper;
+            if (metric == null) {
+                var dash = getEstimatesText('ciUnavailable');
+                return '<td class="numeric-cell estimate-metric-cell">'
+                    + '<div class="estimate-median">' + escapeHtml(dash) + '</div>'
+                    + '<div class="cell-subtext estimate-ci">' + escapeHtml(dash) + '</div>'
+                    + '</td>';
+            }
+            var m = metric;
+            var lo = m.range_lower;
+            var hi = m.range_upper;
             var med = m.median;
             var medianStr = formatListTokenAmount(med);
             var ciStr = (Number.isFinite(Number(lo)) && Number.isFinite(Number(hi)))
@@ -1911,9 +1918,16 @@
         }
 
         function buildEstimateRequestMetricCell(metric) {
-            var m = metric || {};
-            var lo = m.ci95_lower;
-            var hi = m.ci95_upper;
+            if (metric == null) {
+                var dashR = getEstimatesText('ciUnavailable');
+                return '<td class="numeric-cell estimate-metric-cell">'
+                    + '<div class="estimate-median">' + escapeHtml(dashR) + '</div>'
+                    + '<div class="cell-subtext estimate-ci">' + escapeHtml(dashR) + '</div>'
+                    + '</td>';
+            }
+            var m = metric;
+            var lo = m.range_lower;
+            var hi = m.range_upper;
             var med = m.median;
             var medianStr = formatInteger(med);
             var ciStr = (Number.isFinite(Number(lo)) && Number.isFinite(Number(hi)))
