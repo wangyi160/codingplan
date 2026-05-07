@@ -67,6 +67,7 @@
     "tableCacheHitTokens": "缓存命中 Token",
     "tableWriteTokens": "Output Token",
     "tableRequestCount": "请求次数",
+    "tableSubmittedAt": "提交时间",
     "previousPage": "上一页",
     "nextPage": "下一页",
     "loading": "正在加载提交数据...",
@@ -75,8 +76,7 @@
     "totalInfo": "共 {total} 条样本",
     "rangeInfo": "显示第 {start}-{end} 条，共 {total} 条",
     "rangeEmpty": "暂无可展示的数据",
-    "pageInfo": "第 {page} / {pages} 页",
-    "submittedAtPrefix": "提交时间："
+    "pageInfo": "第 {page} / {pages} 页"
   },
   "messages": {
     "submitFailedTitle": "提交失败",

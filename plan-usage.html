@@ -386,7 +386,7 @@
 
         .records-table {
             width: 100%;
-            min-width: 860px;
+            min-width: 940px;
             border-collapse: collapse;
         }
 
@@ -834,6 +834,7 @@
                                 <th class="sortable" data-sort="cache_hit_tokens" id="recordsCacheHitTokensHeading"></th>
                                 <th class="sortable" data-sort="write_tokens" id="recordsWriteTokensHeading"></th>
                                 <th class="sortable" data-sort="request_count" id="recordsRequestCountHeading"></th>
+                                <th class="sortable" data-sort="ctime" id="recordsSubmittedAtHeading"></th>
                             </tr>
                         </thead>
                         <tbody id="submissionTableBody"></tbody>
@@ -1114,6 +1115,7 @@
             setText('recordsCacheHitTokensHeading', listText.tableCacheHitTokens);
             setText('recordsWriteTokensHeading', listText.tableWriteTokens);
             setText('recordsRequestCountHeading', listText.tableRequestCount);
+            setText('recordsSubmittedAtHeading', listText.tableSubmittedAt);
             setText('prevPageBtn', listText.previousPage);
             setText('nextPageBtn', listText.nextPage);
 
@@ -1331,19 +1333,20 @@
                 var submittedAt = formatTimestamp(item.ctime);
                 return '<tr>'
                     + '<td><div class="cell-primary">' + escapeHtml(item.vendor || '') + '</div></td>'
-                    + '<td><div class="cell-primary">' + escapeHtml(item.plan || '') + '</div><div class="cell-subtext">' + escapeHtml(getListText('submittedAtPrefix') + submittedAt) + '</div></td>'
+                    + '<td><div class="cell-primary">' + escapeHtml(item.plan || '') + '</div></td>'
                     + '<td class="numeric-cell">' + escapeHtml(formatPercent(item.five_hour_usage_percent)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(formatInteger(item.read_tokens)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(formatInteger(item.cache_hit_tokens)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(formatInteger(item.write_tokens)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(formatInteger(item.request_count)) + '</td>'
+                    + '<td class="numeric-cell">' + escapeHtml(submittedAt) + '</td>'
                     + '</tr>';
             }).join('');
         }
 
         function buildStatusRow(message, kind) {
             var extraClass = kind ? ' ' + kind : '';
-            return '<tr class="status-row"><td colspan="7"><div class="status-text' + extraClass + '">' + escapeHtml(message) + '</div></td></tr>';
+            return '<tr class="status-row"><td colspan="8"><div class="status-text' + extraClass + '">' + escapeHtml(message) + '</div></td></tr>';
         }
 
         function updateListSortHeaders() {
