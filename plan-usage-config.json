@@ -49,12 +49,12 @@
     "requestCountPlaceholder": "5小时额度时间范围内的请求次数",
     "fieldHelp": {
       "vendor": {
-        "text": "选择这条样本实际对应的平台或厂商名称。\n如果有国内版、国际版或不同区域，请按当前页面套餐列表里的名称保持一致。",
+        "text": "选择这条提交实际对应的平台或厂商名称。\n如果有国内版、国际版或不同区域，请按当前页面套餐列表里的名称保持一致。",
         "image": "assets/plan-usage-help/vendor.png",
         "imageAlt": "厂商字段说明示例图"
       },
       "plan": {
-        "text": "选择与你这次用量数据对应的具体套餐。\n请确保它和你实际提交样本时看到的套餐名称一致，不要混用别的档位。",
+        "text": "选择与你这次用量数据对应的具体套餐。\n请确保它和你实际提交时看到的套餐名称一致，不要混用别的档位。",
         "image": "assets/plan-usage-help/plan.png",
         "imageAlt": "套餐字段说明示例图"
       },
@@ -64,7 +64,7 @@
         "imageAlt": "主力模型字段说明示例图"
       },
       "windowStart": {
-        "text": "填写这份样本对应的 5 小时额度窗口开始时间。\n请尽量按控制台、账单或额度页面里显示的起始时间填写。",
+        "text": "填写该次提交对应的 5 小时额度窗口开始时间。\n请尽量按控制台、账单或额度页面里显示的起始时间填写。",
         "image": "assets/plan-usage-help/window-start.png",
         "imageAlt": "5小时额度开始时间字段说明示例图"
       },
@@ -94,7 +94,7 @@
         "imageAlt": "Output 字段说明示例图"
       }
     },
-    "submitButton": "提交样本",
+    "submitButton": "提交",
     "submitButtonLoading": "提交中",
     "submitNote": ""
   },
@@ -106,8 +106,8 @@
     "planFilterPlaceholder": "全部套餐",
     "resetFilters": "重置筛选",
     "tokenUnitLabel": "Input / 缓存 / Output 单位",
-    "tokenUnitOptionK": "K Token",
-    "tokenUnitOptionM": "M Token",
+    "tokenUnitOptionK": "K Tokens",
+    "tokenUnitOptionM": "M Tokens",
     "tableVendor": "厂商",
     "tablePlan": "套餐",
     "tableUsagePercent": "5小时额度消耗",
@@ -124,7 +124,7 @@
     "loading": "正在加载提交数据...",
     "empty": "当前筛选条件下暂无提交数据。",
     "loadError": "提交数据加载失败，请稍后重试。",
-    "totalInfo": "共 {total} 条样本",
+    "totalInfo": "共 {total} 条提交",
     "rangeInfo": "显示第 {start}-{end} 条，共 {total} 条",
     "rangeEmpty": "暂无可展示的数据",
     "pageInfo": "第 {page} / {pages} 页"
@@ -134,10 +134,10 @@
     "sectionHint": "以下为按 100% 额度归一化后的统计；主数字为中位数，下一行为 95% 置信区间。",
     "loading": "正在加载用量统计…",
     "loadError": "用量统计加载失败，请稍后重试。",
-    "emptyAll": "暂无用量统计数据（尚无提交样本或样本不足以计算）。",
+    "emptyAll": "暂无用量统计数据（尚无可用提交，或有效提交不足以计算）。",
     "emptyFiltered": "当前筛选条件下没有匹配的用量统计行。",
     "ciUnavailable": "—",
-    "sampleCountTemplate": "有效样本：{n}",
+    "sampleCountTemplate": "有效提交：{n}",
     "tableVendor": "厂商",
     "tablePlan": "套餐",
     "tableReadTokensK": "Input(K Tokens)",
@@ -155,10 +155,10 @@
     "windowStartRequired": "5小时额度开始时间不能为空。",
     "usagePercentInvalid": "近 5小时套餐消耗百分比必须在 0 到 100 之间。",
     "submitGeneric": "提交过程中发生错误，请稍后重试。",
-    "submitSuccessTitle": "样本已提交",
-    "submitSuccessBody": "该样本已经提交成功，感谢您提供数据。",
+    "submitSuccessTitle": "提交完成",
+    "submitSuccessBody": "该次提交已成功，感谢您提供数据。",
     "submitSuccessToastTitle": "提交成功",
-    "submitSuccessToastBody": "样本已入库",
+    "submitSuccessToastBody": "提交已入库",
     "recordIdPrefix": "记录 ID: ",
     "vendorPrefix": "厂商: ",
     "planPrefix": "套餐: "
