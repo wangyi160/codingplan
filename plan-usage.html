@@ -950,7 +950,7 @@
             toggleDropdown(event, listVendorSelect, listVendorInput, listVendorOptionsPanel, false);
         });
         listPlanInput.addEventListener('click', function(event) {
-            toggleDropdown(event, listPlanSelect, listPlanInput, listPlanOptionsPanel, false);
+            toggleDropdown(event, listPlanSelect, listPlanInput, listPlanOptionsPanel, !listState.vendorFilter);
         });
         vendorOptions.addEventListener('click', handleVendorSelect);
         planOptions.addEventListener('click', handlePlanSelect);
@@ -1152,6 +1152,14 @@
         }
 
         function syncListPlanOptions() {
+            if (!listState.vendorFilter) {
+                listState.planFilter = '';
+                listPlanOptions.innerHTML = '<div class="multi-select-empty">' + escapeHtml(getFormText('planDisabledPlaceholder')) + '</div>';
+                updateListFilterLabels();
+                updateListPlanInputDisabled();
+                return;
+            }
+
             var options = collectPlanOptions(listState.vendorFilter).slice();
             if (listState.planFilter && options.indexOf(listState.planFilter) < 0) {
                 listState.planFilter = '';
@@ -1164,6 +1172,11 @@
                 return '<button class="multi-select-option single-select-option' + selected + '" type="button" data-value="' + encodeURIComponent(item) + '">' + escapeHtml(label) + '</button>';
             }).join('');
             updateListFilterLabels();
+            updateListPlanInputDisabled();
+        }
+
+        function updateListPlanInputDisabled() {
+            listPlanInput.disabled = !listState.vendorFilter;
         }
 
         function updateListFilterLabels() {
@@ -1175,7 +1188,10 @@
                 listVendorInputLabel.classList.add('placeholder');
             }
 
-            if (listState.planFilter) {
+            if (!listState.vendorFilter) {
+                listPlanInputLabel.textContent = getFormText('planDisabledPlaceholder');
+                listPlanInputLabel.classList.add('placeholder');
+            } else if (listState.planFilter) {
                 listPlanInputLabel.textContent = listState.planFilter;
                 listPlanInputLabel.classList.remove('placeholder');
             } else {
@@ -1199,6 +1215,9 @@
         }
 
         function handleListPlanSelect(event) {
+            if (!listState.vendorFilter) {
+                return;
+            }
             var option = event.target.closest('.single-select-option');
             if (!option) {
                 return;
