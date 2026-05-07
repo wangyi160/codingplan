@@ -203,6 +203,12 @@
 
         .field-help-image-wrap.has-image {
             display: block;
+            cursor: zoom-in;
+        }
+
+        .field-help-image-wrap.has-image:focus-visible {
+            outline: 2px solid rgba(99, 102, 241, 0.55);
+            outline-offset: 2px;
         }
 
         .field-help-image {
@@ -211,6 +217,78 @@
             height: auto;
             max-height: 220px;
             object-fit: contain;
+            pointer-events: none;
+        }
+
+        .field-help-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 10050;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+            box-sizing: border-box;
+        }
+
+        .field-help-lightbox[hidden] {
+            display: none !important;
+        }
+
+        .field-help-lightbox-backdrop {
+            position: absolute;
+            inset: 0;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            background: rgba(15, 23, 42, 0.78);
+            cursor: pointer;
+        }
+
+        .field-help-lightbox-inner {
+            position: relative;
+            z-index: 1;
+            max-width: min(96vw, 1120px);
+            max-height: min(88vh, 900px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .field-help-lightbox-img {
+            display: block;
+            max-width: 100%;
+            max-height: min(88vh, 900px);
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .field-help-lightbox-close {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            width: 36px;
+            height: 36px;
+            border: 0;
+            border-radius: 999px;
+            padding: 0;
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+            color: #fff;
+            background: rgba(30, 41, 59, 0.92);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translate(40%, -40%);
+        }
+
+        .field-help-lightbox-close:hover {
+            background: rgba(51, 65, 85, 0.96);
         }
 
         .field-help {
@@ -905,6 +983,13 @@
     </style>
 </head>
 <body>
+    <div id="fieldHelpImageLightbox" class="field-help-lightbox" hidden aria-modal="true" role="dialog" aria-label="说明大图预览">
+        <button type="button" class="field-help-lightbox-backdrop" aria-label="关闭大图"></button>
+        <div class="field-help-lightbox-inner">
+            <button type="button" class="field-help-lightbox-close" aria-label="关闭">&times;</button>
+            <img class="field-help-lightbox-img" alt="">
+        </div>
+    </div>
     <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
     <div class="container">
         <nav class="page-nav">
@@ -1317,6 +1402,11 @@
         var toastStack = document.getElementById('toastStack');
         var fieldHelpEntries = [];
         var openFieldHelpWrap = null;
+        var fieldHelpLightboxEl = null;
+        var fieldHelpLightboxImg = null;
+        var fieldHelpLightboxKeydownBound = false;
+        var fieldHelpResizeWired = false;
+        var prevBodyOverflowForLightbox = '';
         var successToastTimer = null;
         var resultFlashTimer = null;
         var listState = {
@@ -1567,6 +1657,99 @@
             renderEstimatesTable();
         }
 
+        function getFieldHelpLightbox() {
+            if (!fieldHelpLightboxEl) {
+                fieldHelpLightboxEl = document.getElementById('fieldHelpImageLightbox');
+                if (fieldHelpLightboxEl) {
+                    fieldHelpLightboxImg = fieldHelpLightboxEl.querySelector('.field-help-lightbox-img');
+                    var lbBackdrop = fieldHelpLightboxEl.querySelector('.field-help-lightbox-backdrop');
+                    var lbClose = fieldHelpLightboxEl.querySelector('.field-help-lightbox-close');
+                    if (lbBackdrop) {
+                        lbBackdrop.addEventListener('click', closeFieldHelpImageLightbox);
+                    }
+                    if (lbClose) {
+                        lbClose.addEventListener('click', closeFieldHelpImageLightbox);
+                    }
+                }
+            }
+            return fieldHelpLightboxEl;
+        }
+
+        function onFieldHelpLightboxKeydown(event) {
+            if (event.key === 'Escape') {
+                closeFieldHelpImageLightbox();
+            }
+        }
+
+        function openFieldHelpImageLightbox(src, alt) {
+            var lb = getFieldHelpLightbox();
+            if (!lb || !fieldHelpLightboxImg || !src) {
+                return;
+            }
+            fieldHelpLightboxImg.src = src;
+            fieldHelpLightboxImg.alt = alt || '';
+            lb.hidden = false;
+            prevBodyOverflowForLightbox = document.body.style.overflow;
+            document.body.style.overflow = 'hidden';
+            if (!fieldHelpLightboxKeydownBound) {
+                fieldHelpLightboxKeydownBound = true;
+                document.addEventListener('keydown', onFieldHelpLightboxKeydown);
+            }
+        }
+
+        function closeFieldHelpImageLightbox() {
+            var lb = fieldHelpLightboxEl || document.getElementById('fieldHelpImageLightbox');
+            if (!lb || lb.hidden) {
+                return;
+            }
+            lb.hidden = true;
+            if (fieldHelpLightboxImg) {
+                fieldHelpLightboxImg.removeAttribute('src');
+                fieldHelpLightboxImg.alt = '';
+            }
+            document.body.style.overflow = prevBodyOverflowForLightbox;
+            if (fieldHelpLightboxKeydownBound) {
+                fieldHelpLightboxKeydownBound = false;
+                document.removeEventListener('keydown', onFieldHelpLightboxKeydown);
+            }
+        }
+
+        function clampFieldHelpPopover(entry) {
+            if (!entry || !entry.popover) {
+                return;
+            }
+            if (window.innerWidth <= 768) {
+                entry.popover.style.transform = '';
+                return;
+            }
+            var pop = entry.popover;
+            var m = 16;
+            var vw = window.innerWidth;
+            var s = 0;
+            var iter;
+            for (iter = 0; iter < 8; iter++) {
+                pop.style.transform = 'translateX(calc(-50% + ' + s + 'px)) translateY(0)';
+                var r = pop.getBoundingClientRect();
+                var ds = 0;
+                if (r.left < m) {
+                    ds += m - r.left;
+                }
+                if (r.right > vw - m) {
+                    ds -= r.right - (vw - m);
+                }
+                if (Math.abs(ds) < 0.5) {
+                    break;
+                }
+                s += ds;
+            }
+        }
+
+        function scheduleClampFieldHelpPopover(entry) {
+            requestAnimationFrame(function() {
+                clampFieldHelpPopover(entry);
+            });
+        }
+
         function initFieldHelp() {
             if (!fieldHelpEntries.length) {
                 fieldHelpEntries = Array.prototype.slice.call(document.querySelectorAll('[data-field-help]')).map(function(wrap) {
@@ -1587,6 +1770,7 @@
                     entry.image.addEventListener('load', function() {
                         if (entry.image.getAttribute('src')) {
                             entry.imageWrap.classList.add('has-image');
+                            scheduleClampFieldHelpPopover(entry);
                         }
                     });
                     entry.image.addEventListener('error', function() {
@@ -1601,7 +1785,59 @@
                         }
                         openFieldHelp(entry.wrap);
                     });
+                    entry.imageWrap.addEventListener('click', function() {
+                        if (!entry.imageWrap.classList.contains('has-image')) {
+                            return;
+                        }
+                        var src = entry.image.getAttribute('src');
+                        if (!src) {
+                            return;
+                        }
+                        openFieldHelpImageLightbox(src, entry.image.getAttribute('alt') || '');
+                    });
+                    entry.imageWrap.addEventListener('keydown', function(event) {
+                        if (!entry.imageWrap.classList.contains('has-image')) {
+                            return;
+                        }
+                        if (event.key !== 'Enter' && event.key !== ' ') {
+                            return;
+                        }
+                        event.preventDefault();
+                        var src = entry.image.getAttribute('src');
+                        if (!src) {
+                            return;
+                        }
+                        openFieldHelpImageLightbox(src, entry.image.getAttribute('alt') || '');
+                    });
+                    entry.wrap.addEventListener('mouseenter', function() {
+                        scheduleClampFieldHelpPopover(entry);
+                    });
+                    entry.wrap.addEventListener('focusin', function() {
+                        scheduleClampFieldHelpPopover(entry);
+                    });
+                    entry.wrap.addEventListener('mouseleave', function() {
+                        if (!entry.wrap.classList.contains('is-open')) {
+                            entry.popover.style.transform = '';
+                        }
+                    });
                 });
+
+                if (!fieldHelpResizeWired) {
+                    fieldHelpResizeWired = true;
+                    var resizeClampTimer = null;
+                    window.addEventListener('resize', function() {
+                        if (resizeClampTimer) {
+                            clearTimeout(resizeClampTimer);
+                        }
+                        resizeClampTimer = setTimeout(function() {
+                            fieldHelpEntries.forEach(function(e) {
+                                if (e.wrap.classList.contains('is-open') || e.wrap.matches(':hover')) {
+                                    clampFieldHelpPopover(e);
+                                }
+                            });
+                        }, 80);
+                    });
+                }
             }
 
             renderFieldHelp();
@@ -1628,10 +1864,16 @@
                     entry.image.src = imagePath;
                     entry.image.alt = imageAlt || labelText + '说明图片';
                     entry.imageWrap.classList.remove('has-image');
+                    entry.imageWrap.tabIndex = 0;
+                    entry.imageWrap.setAttribute('role', 'button');
+                    entry.imageWrap.setAttribute('aria-label', '点击查看大图');
                 } else {
                     entry.image.removeAttribute('src');
                     entry.image.alt = '';
                     entry.imageWrap.classList.remove('has-image');
+                    entry.imageWrap.removeAttribute('tabindex');
+                    entry.imageWrap.removeAttribute('role');
+                    entry.imageWrap.removeAttribute('aria-label');
                 }
 
                 var hidden = !helpText && !imagePath;
@@ -1650,6 +1892,13 @@
                 entry.trigger.setAttribute('aria-expanded', isTarget ? 'true' : 'false');
             });
             openFieldHelpWrap = targetWrap || null;
+            if (targetWrap) {
+                fieldHelpEntries.forEach(function(entry) {
+                    if (entry.wrap === targetWrap) {
+                        scheduleClampFieldHelpPopover(entry);
+                    }
+                });
+            }
         }
 
         function closeFieldHelp(targetWrap) {
@@ -1658,6 +1907,7 @@
                     entry.wrap.classList.remove('is-open');
                     entry.popover.setAttribute('aria-hidden', 'true');
                     entry.trigger.setAttribute('aria-expanded', 'false');
+                    entry.popover.style.transform = '';
                 }
             });
             if (!targetWrap || openFieldHelpWrap === targetWrap) {
@@ -2231,6 +2481,11 @@
         }
 
         function handleDocumentClick(event) {
+            var lb = fieldHelpLightboxEl || document.getElementById('fieldHelpImageLightbox');
+            if (lb && !lb.hidden && lb.contains(event.target)) {
+                return;
+            }
+
             if (!vendorSelect.contains(event.target)
                 && !planSelect.contains(event.target)
                 && !modelSelect.contains(event.target)
