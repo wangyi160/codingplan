@@ -1,14 +1,14 @@
 {
-  "pageTitle": "Coding Plan 用量提交",
+  "pageTitle": "Coding Plan用量提交",
   "nav": {
-    "home": "国内 Coding Plan",
-    "relays": "API 中转站",
+    "home": "Coding Plan",
+    "relays": "中转站",
     "relayDetect": "中转站检测",
-    "planUsage": "Coding Plan 用量提交"
+    "planUsage": "Coding Plan用量提交"
   },
   "header": {
     "githubText": "GitHub",
-    "title": "Coding Plan 用量提交",
+    "title": "Coding Plan用量提交",
     "subtitle": "提交您的套餐额度数据，帮助我们更好地了解各平台真实额度消耗情况。"
   },
   "settings": {
