@@ -95,6 +95,124 @@
             color: var(--text-primary);
         }
 
+        .field-label-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .field-help-trigger-wrap {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .field-help-trigger {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            padding: 0;
+            border: 1px solid rgba(99, 102, 241, 0.32);
+            border-radius: 999px;
+            background: rgba(99, 102, 241, 0.08);
+            color: var(--accent-primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1;
+            cursor: help;
+            transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+        }
+
+        .field-help-trigger:hover,
+        .field-help-trigger-wrap.is-open .field-help-trigger,
+        .field-help-trigger:focus-visible {
+            background: rgba(99, 102, 241, 0.14);
+            border-color: rgba(99, 102, 241, 0.5);
+            color: var(--accent-secondary);
+            transform: translateY(-1px);
+        }
+
+        .field-help-trigger:focus-visible {
+            outline: 2px solid rgba(99, 102, 241, 0.25);
+            outline-offset: 2px;
+        }
+
+        .field-help-popover {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(340px, calc(100vw - 40px));
+            padding: 14px;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            box-shadow: var(--shadow-md);
+            z-index: 40;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.16s ease, transform 0.16s ease;
+        }
+
+        .field-help-popover::before {
+            content: '';
+            position: absolute;
+            top: -7px;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            background: inherit;
+            border-left: 1px solid var(--border-color);
+            border-top: 1px solid var(--border-color);
+            transform: translateX(-50%) rotate(45deg);
+        }
+
+        .field-help-trigger-wrap:hover .field-help-popover,
+        .field-help-trigger-wrap:focus-within .field-help-popover,
+        .field-help-trigger-wrap.is-open .field-help-popover {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .field-help-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .field-help-text {
+            font-size: 12px;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            white-space: pre-line;
+        }
+
+        .field-help-image-wrap {
+            display: none;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            background: rgba(148, 163, 184, 0.08);
+        }
+
+        .field-help-image-wrap.has-image {
+            display: block;
+        }
+
+        .field-help-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 220px;
+            object-fit: contain;
+        }
+
         .field-help {
             font-size: 12px;
             color: var(--text-tertiary);
@@ -693,6 +811,23 @@
             .form-grid { grid-template-columns: 1fr; }
             .selection-row,
             .metric-row { grid-template-columns: 1fr; }
+            .field-label-row {
+                align-items: flex-start;
+            }
+            .field-help-popover {
+                left: 0;
+                transform: none;
+                width: min(340px, calc(100vw - 64px));
+            }
+            .field-help-popover::before {
+                left: 13px;
+                transform: rotate(45deg);
+            }
+            .field-help-trigger-wrap:hover .field-help-popover,
+            .field-help-trigger-wrap:focus-within .field-help-popover,
+            .field-help-trigger-wrap.is-open .field-help-popover {
+                transform: translateY(0);
+            }
             .records-filters { grid-template-columns: 1fr; }
             .records-toolbar-right {
                 width: 100%;
@@ -770,7 +905,20 @@
                     <div class="field-group full-width">
                         <div class="selection-row">
                             <div class="field-group">
-                                <label class="field-label" for="vendorInput" id="vendorLabel"></label>
+                                <div class="field-label-row">
+                                    <label class="field-label" for="vendorInput" id="vendorLabel"></label>
+                                    <span class="field-help-trigger-wrap" data-field-help="vendor">
+                                        <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverVendor">?</button>
+                                        <span class="field-help-popover" id="fieldHelpPopoverVendor" role="tooltip" aria-hidden="true">
+                                            <span class="field-help-content">
+                                                <span class="field-help-text"></span>
+                                                <span class="field-help-image-wrap">
+                                                    <img class="field-help-image" alt="" loading="lazy">
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
                                 <div class="multi-select" id="vendorSelect">
                                     <button class="form-select-trigger" id="vendorInput" type="button" aria-expanded="false" aria-controls="vendorOptionsPanel">
                                         <span class="multi-select-label placeholder" id="vendorInputLabel"></span>
@@ -781,7 +929,20 @@
                                 </div>
                             </div>
                             <div class="field-group">
-                                <label class="field-label" for="planInput" id="planLabel"></label>
+                                <div class="field-label-row">
+                                    <label class="field-label" for="planInput" id="planLabel"></label>
+                                    <span class="field-help-trigger-wrap" data-field-help="plan">
+                                        <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverPlan">?</button>
+                                        <span class="field-help-popover" id="fieldHelpPopoverPlan" role="tooltip" aria-hidden="true">
+                                            <span class="field-help-content">
+                                                <span class="field-help-text"></span>
+                                                <span class="field-help-image-wrap">
+                                                    <img class="field-help-image" alt="" loading="lazy">
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
                                 <div class="multi-select" id="planSelect">
                                     <button class="form-select-trigger" id="planInput" type="button" aria-expanded="false" aria-controls="planOptionsPanel" disabled>
                                         <span class="multi-select-label placeholder" id="planInputLabel"></span>
@@ -792,7 +953,20 @@
                                 </div>
                             </div>
                             <div class="field-group">
-                                <label class="field-label" for="modelInput" id="modelLabel"></label>
+                                <div class="field-label-row">
+                                    <label class="field-label" for="modelInput" id="modelLabel"></label>
+                                    <span class="field-help-trigger-wrap" data-field-help="model">
+                                        <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverModel">?</button>
+                                        <span class="field-help-popover" id="fieldHelpPopoverModel" role="tooltip" aria-hidden="true">
+                                            <span class="field-help-content">
+                                                <span class="field-help-text"></span>
+                                                <span class="field-help-image-wrap">
+                                                    <img class="field-help-image" alt="" loading="lazy">
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
                                 <div class="multi-select" id="modelSelect">
                                     <button class="form-select-trigger" id="modelInput" type="button" aria-expanded="false" aria-controls="modelOptionsPanel" disabled>
                                         <span class="multi-select-label placeholder" id="modelInputLabel"></span>
@@ -807,34 +981,110 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="field-help" id="modelHelp"></div>
                     </div>
                     <div class="metric-row">
                         <div class="field-group">
-                            <label class="field-label" for="windowStartInput" id="windowStartLabel"></label>
+                            <div class="field-label-row">
+                                <label class="field-label" for="windowStartInput" id="windowStartLabel"></label>
+                                <span class="field-help-trigger-wrap" data-field-help="windowStart">
+                                    <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverWindowStart">?</button>
+                                    <span class="field-help-popover" id="fieldHelpPopoverWindowStart" role="tooltip" aria-hidden="true">
+                                        <span class="field-help-content">
+                                            <span class="field-help-text"></span>
+                                            <span class="field-help-image-wrap">
+                                                <img class="field-help-image" alt="" loading="lazy">
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </div>
                             <input class="form-input" id="windowStartInput" type="datetime-local" step="1" required>
                         </div>
                         <div class="field-group">
-                            <label class="field-label" for="usagePercentInput" id="usagePercentLabel"></label>
+                            <div class="field-label-row">
+                                <label class="field-label" for="usagePercentInput" id="usagePercentLabel"></label>
+                                <span class="field-help-trigger-wrap" data-field-help="usagePercent">
+                                    <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverUsagePercent">?</button>
+                                    <span class="field-help-popover" id="fieldHelpPopoverUsagePercent" role="tooltip" aria-hidden="true">
+                                        <span class="field-help-content">
+                                            <span class="field-help-text"></span>
+                                            <span class="field-help-image-wrap">
+                                                <img class="field-help-image" alt="" loading="lazy">
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </div>
                             <input class="form-input" id="usagePercentInput" type="number" min="0.01" max="100" step="0.01" placeholder="" required>
                         </div>
                         <div class="field-group">
-                            <label class="field-label" for="requestCountInput" id="requestCountLabel"></label>
+                            <div class="field-label-row">
+                                <label class="field-label" for="requestCountInput" id="requestCountLabel"></label>
+                                <span class="field-help-trigger-wrap" data-field-help="requestCount">
+                                    <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverRequestCount">?</button>
+                                    <span class="field-help-popover" id="fieldHelpPopoverRequestCount" role="tooltip" aria-hidden="true">
+                                        <span class="field-help-content">
+                                            <span class="field-help-text"></span>
+                                            <span class="field-help-image-wrap">
+                                                <img class="field-help-image" alt="" loading="lazy">
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </div>
                             <input class="form-input" id="requestCountInput" type="number" min="0" step="1" placeholder="" required>
                         </div>
                     </div>
                     <div class="metric-row">
                         <div class="field-group">
-                            <label class="field-label" for="readTokensInput" id="readTokensLabel"></label>
+                            <div class="field-label-row">
+                                <label class="field-label" for="readTokensInput" id="readTokensLabel"></label>
+                                <span class="field-help-trigger-wrap" data-field-help="readTokens">
+                                    <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverReadTokens">?</button>
+                                    <span class="field-help-popover" id="fieldHelpPopoverReadTokens" role="tooltip" aria-hidden="true">
+                                        <span class="field-help-content">
+                                            <span class="field-help-text"></span>
+                                            <span class="field-help-image-wrap">
+                                                <img class="field-help-image" alt="" loading="lazy">
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </div>
                             <input class="form-input" id="readTokensInput" type="number" min="0" step="0.1" placeholder="" required>
-                            <div class="field-help" id="readTokensHelp"></div>
                         </div>
                         <div class="field-group">
-                            <label class="field-label" for="cacheHitTokensInput" id="cacheHitTokensLabel"></label>
+                            <div class="field-label-row">
+                                <label class="field-label" for="cacheHitTokensInput" id="cacheHitTokensLabel"></label>
+                                <span class="field-help-trigger-wrap" data-field-help="cacheHitTokens">
+                                    <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverCacheHitTokens">?</button>
+                                    <span class="field-help-popover" id="fieldHelpPopoverCacheHitTokens" role="tooltip" aria-hidden="true">
+                                        <span class="field-help-content">
+                                            <span class="field-help-text"></span>
+                                            <span class="field-help-image-wrap">
+                                                <img class="field-help-image" alt="" loading="lazy">
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </div>
                             <input class="form-input" id="cacheHitTokensInput" type="number" min="0" step="0.1" placeholder="" required>
                         </div>
                         <div class="field-group">
-                            <label class="field-label" for="writeTokensInput" id="writeTokensLabel"></label>
+                            <div class="field-label-row">
+                                <label class="field-label" for="writeTokensInput" id="writeTokensLabel"></label>
+                                <span class="field-help-trigger-wrap" data-field-help="writeTokens">
+                                    <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverWriteTokens">?</button>
+                                    <span class="field-help-popover" id="fieldHelpPopoverWriteTokens" role="tooltip" aria-hidden="true">
+                                        <span class="field-help-content">
+                                            <span class="field-help-text"></span>
+                                            <span class="field-help-image-wrap">
+                                                <img class="field-help-image" alt="" loading="lazy">
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </div>
                             <input class="form-input" id="writeTokensInput" type="number" min="0" step="0.1" placeholder="" required>
                         </div>
                     </div>
@@ -990,6 +1240,8 @@
         var prevPageBtn = document.getElementById('prevPageBtn');
         var nextPageBtn = document.getElementById('nextPageBtn');
         var toastStack = document.getElementById('toastStack');
+        var fieldHelpEntries = [];
+        var openFieldHelpWrap = null;
         var successToastTimer = null;
         var resultFlashTimer = null;
         var listState = {
@@ -1014,6 +1266,7 @@
                 planRows = Array.isArray(results[0]) ? results[0] : [];
                 pageContent = results[1] || {};
                 applyPageContent(pageContent);
+                initFieldHelp();
                 renderVendorOptions();
                 syncDependentOptions();
                 renderListVendorOptions();
@@ -1185,13 +1438,11 @@
             setText('vendorLabel', formText.vendorLabel);
             setText('planLabel', formText.planLabel);
             setText('modelLabel', formText.modelLabel);
-            setText('modelHelp', formText.modelHelp);
             setText('selectAllModelsBtn', formText.modelSelectAll);
             setText('clearModelsBtn', formText.modelClear);
             setText('windowStartLabel', formText.windowStartLabel);
             setText('usagePercentLabel', formText.usagePercentLabel);
             setText('readTokensLabel', formText.readTokensLabel);
-            setText('readTokensHelp', formText.readTokensHelp);
             setText('cacheHitTokensLabel', formText.cacheHitTokensLabel);
             setText('writeTokensLabel', formText.writeTokensLabel);
             setText('requestCountLabel', formText.requestCountLabel);
@@ -1225,6 +1476,104 @@
             renderSubmissionMeta();
             renderSubmissionTableState();
             updateListSortHeaders();
+        }
+
+        function initFieldHelp() {
+            if (!fieldHelpEntries.length) {
+                fieldHelpEntries = Array.prototype.slice.call(document.querySelectorAll('[data-field-help]')).map(function(wrap) {
+                    return {
+                        wrap: wrap,
+                        fieldKey: wrap.getAttribute('data-field-help') || '',
+                        trigger: wrap.querySelector('.field-help-trigger'),
+                        popover: wrap.querySelector('.field-help-popover'),
+                        text: wrap.querySelector('.field-help-text'),
+                        imageWrap: wrap.querySelector('.field-help-image-wrap'),
+                        image: wrap.querySelector('.field-help-image')
+                    };
+                }).filter(function(entry) {
+                    return entry.fieldKey && entry.trigger && entry.popover && entry.text && entry.imageWrap && entry.image;
+                });
+
+                fieldHelpEntries.forEach(function(entry) {
+                    entry.image.addEventListener('load', function() {
+                        if (entry.image.getAttribute('src')) {
+                            entry.imageWrap.classList.add('has-image');
+                        }
+                    });
+                    entry.image.addEventListener('error', function() {
+                        entry.imageWrap.classList.remove('has-image');
+                    });
+                    entry.trigger.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        if (openFieldHelpWrap === entry.wrap) {
+                            closeFieldHelp(entry.wrap);
+                            return;
+                        }
+                        openFieldHelp(entry.wrap);
+                    });
+                });
+            }
+
+            renderFieldHelp();
+        }
+
+        function renderFieldHelp() {
+            var helpConfig = pageContent && pageContent.form && pageContent.form.fieldHelp ? pageContent.form.fieldHelp : {};
+
+            fieldHelpEntries.forEach(function(entry) {
+                var config = helpConfig[entry.fieldKey] || {};
+                var helpText = typeof config.text === 'string' ? config.text : '';
+                var imagePath = typeof config.image === 'string' ? config.image : '';
+                var imageAlt = typeof config.imageAlt === 'string' ? config.imageAlt : '';
+                var labelText = getFormText(entry.fieldKey + 'Label') || entry.fieldKey;
+                var triggerText = typeof config.triggerAriaLabel === 'string' && config.triggerAriaLabel
+                    ? config.triggerAriaLabel
+                    : labelText + '说明';
+
+                entry.text.textContent = helpText;
+                entry.trigger.setAttribute('aria-label', triggerText);
+                entry.popover.setAttribute('aria-label', triggerText);
+
+                if (imagePath) {
+                    entry.image.src = imagePath;
+                    entry.image.alt = imageAlt || labelText + '说明图片';
+                    entry.imageWrap.classList.remove('has-image');
+                } else {
+                    entry.image.removeAttribute('src');
+                    entry.image.alt = '';
+                    entry.imageWrap.classList.remove('has-image');
+                }
+
+                var hidden = !helpText && !imagePath;
+                entry.wrap.hidden = hidden;
+                if (hidden && openFieldHelpWrap === entry.wrap) {
+                    closeFieldHelp(entry.wrap);
+                }
+            });
+        }
+
+        function openFieldHelp(targetWrap) {
+            fieldHelpEntries.forEach(function(entry) {
+                var isTarget = entry.wrap === targetWrap;
+                entry.wrap.classList.toggle('is-open', isTarget);
+                entry.popover.setAttribute('aria-hidden', isTarget ? 'false' : 'true');
+                entry.trigger.setAttribute('aria-expanded', isTarget ? 'true' : 'false');
+            });
+            openFieldHelpWrap = targetWrap || null;
+        }
+
+        function closeFieldHelp(targetWrap) {
+            fieldHelpEntries.forEach(function(entry) {
+                if (!targetWrap || entry.wrap === targetWrap) {
+                    entry.wrap.classList.remove('is-open');
+                    entry.popover.setAttribute('aria-hidden', 'true');
+                    entry.trigger.setAttribute('aria-expanded', 'false');
+                }
+            });
+            if (!targetWrap || openFieldHelpWrap === targetWrap) {
+                openFieldHelpWrap = null;
+            }
         }
 
         function renderListVendorOptions() {
@@ -1656,6 +2005,10 @@
                 && !listVendorSelect.contains(event.target)
                 && !listPlanSelect.contains(event.target)) {
                 closeAllDropdowns();
+            }
+
+            if (openFieldHelpWrap && !openFieldHelpWrap.contains(event.target)) {
+                closeFieldHelp(openFieldHelpWrap);
             }
         }
 

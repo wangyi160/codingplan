@@ -35,20 +35,65 @@
     "modelClear": "清空",
     "modelEmpty": "当前厂商和套餐下暂无预置模型",
     "modelOtherOption": "其他",
-    "modelHelp": "请先选择厂商，再套餐，最后至少选择一个主要使用的模型。",
     "windowStartLabel": "5小时额度开始时间",
     "windowStartPlaceholder": "请使用日期时间选择器，例如 2026-05-30 23:00:00",
     "usagePercentLabel": "5小时额度消耗百分比",
     "usagePercentPlaceholder": "例如 17.5，表示套餐的5小时额度消耗了17.5%",
     "readTokensLabel": "Input（K Token）",
     "readTokensPlaceholder": "例如 250，表示 250K token",
-    "readTokensHelp": "这里不包含缓存命中的输入 token",
     "cacheHitTokensLabel": "缓存命中（K Token）",
     "cacheHitTokensPlaceholder": "例如 250，表示 250K token",
     "writeTokensLabel": "Output（K Token）",
     "writeTokensPlaceholder": "例如 18，表示 18K token",
     "requestCountLabel": "请求次数",
     "requestCountPlaceholder": "5小时额度时间范围内的请求次数",
+    "fieldHelp": {
+      "vendor": {
+        "text": "选择这条样本实际对应的平台或厂商名称。\n如果有国内版、国际版或不同区域，请按当前页面套餐列表里的名称保持一致。",
+        "image": "assets/plan-usage-help/vendor.png",
+        "imageAlt": "厂商字段说明示例图"
+      },
+      "plan": {
+        "text": "选择与你这次用量数据对应的具体套餐。\n请确保它和你实际提交样本时看到的套餐名称一致，不要混用别的档位。",
+        "image": "assets/plan-usage-help/plan.png",
+        "imageAlt": "套餐字段说明示例图"
+      },
+      "model": {
+        "text": "勾选这段 5 小时额度窗口内主要在使用的模型，可多选。\n如果同时用了多个模型，优先勾选消耗占比较高的那些。",
+        "image": "assets/plan-usage-help/model.png",
+        "imageAlt": "主力模型字段说明示例图"
+      },
+      "windowStart": {
+        "text": "填写这份样本对应的 5 小时额度窗口开始时间。\n请尽量按控制台、账单或额度页面里显示的起始时间填写。",
+        "image": "assets/plan-usage-help/window-start.png",
+        "imageAlt": "5小时额度开始时间字段说明示例图"
+      },
+      "usagePercent": {
+        "text": "填写这个 5 小时窗口内已经消耗掉的额度百分比。\n例如输入 17.5，表示该窗口额度已经用了 17.5%。",
+        "image": "assets/plan-usage-help/usage-percent.png",
+        "imageAlt": "5小时额度消耗百分比字段说明示例图"
+      },
+      "requestCount": {
+        "text": "填写同一 5 小时额度时间范围内的请求总次数。\n如果平台页面展示的是累计请求数，请换算出该时间窗口内的实际次数。",
+        "image": "assets/plan-usage-help/request-count.png",
+        "imageAlt": "请求次数字段说明示例图"
+      },
+      "readTokens": {
+        "text": "填写 Input token 总量，单位是 K Token。\n这里不包含缓存命中的输入 token，缓存命中部分请单独填到“缓存命中”字段。",
+        "image": "assets/plan-usage-help/read-tokens.png",
+        "imageAlt": "Input 字段说明示例图"
+      },
+      "cacheHitTokens": {
+        "text": "填写缓存命中的输入 token 总量，单位是 K Token。\n如果这一段时间没有缓存命中，直接填写 0 即可。",
+        "image": "assets/plan-usage-help/cache-hit-tokens.png",
+        "imageAlt": "缓存命中字段说明示例图"
+      },
+      "writeTokens": {
+        "text": "填写 Output token 总量，单位是 K Token。\n请与同一时间窗口内的 Input、缓存命中和请求次数保持口径一致。",
+        "image": "assets/plan-usage-help/write-tokens.png",
+        "imageAlt": "Output 字段说明示例图"
+      }
+    },
     "submitButton": "提交样本",
     "submitButtonLoading": "提交中",
     "submitNote": ""
