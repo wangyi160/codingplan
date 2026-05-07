@@ -9,7 +9,7 @@
   "header": {
     "githubText": "GitHub",
     "title": "Coding Plan用量提交",
-    "subtitle": "提交您的套餐额度数据，帮助我们更好地了解各平台真实额度消耗情况。"
+    "subtitle": "提交您的套餐额度数据，帮助大家更好地了解各平台真实额度消耗情况"
   },
   "settings": {
     "buttonTitle": "设置",
@@ -49,17 +49,17 @@
     "requestCountPlaceholder": "5小时额度时间范围内的请求次数",
     "fieldHelp": {
       "vendor": {
-        "text": "选择这条提交实际对应的平台或厂商名称。\n如果有国内版、国际版或不同区域，请按当前页面套餐列表里的名称保持一致。",
+        "text": "目前只支持以下平台，其他平台敬请期待",
         "image": "assets/plan-usage-help/vendor.png",
         "imageAlt": "厂商字段说明示例图"
       },
       "plan": {
-        "text": "选择与你这次用量数据对应的具体套餐。\n请确保它和你实际提交时看到的套餐名称一致，不要混用别的档位。",
+        "text": "选择平台后，即可选择套餐",
         "image": "assets/plan-usage-help/plan.png",
         "imageAlt": "套餐字段说明示例图"
       },
       "model": {
-        "text": "勾选这段 5 小时额度窗口内主要在使用的模型，可多选。\n如果同时用了多个模型，优先勾选消耗占比较高的那些。",
+        "text": "请选择 5 小时窗口内主要在使用的模型，可多选。",
         "image": "assets/plan-usage-help/model.png",
         "imageAlt": "主力模型字段说明示例图"
       },
@@ -100,9 +100,9 @@
   },
   "list": {
     "sectionTitle": "最近提交",
-    "vendorFilterLabel": "厂商筛选",
+    "vendorFilterLabel": "厂商",
     "vendorFilterPlaceholder": "全部厂商",
-    "planFilterLabel": "套餐筛选",
+    "planFilterLabel": "套餐",
     "planFilterPlaceholder": "全部套餐",
     "resetFilters": "重置筛选",
     "tokenUnitLabel": "Input / 缓存 / Output 单位",
