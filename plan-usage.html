@@ -320,10 +320,17 @@
         }
 
         .records-filters {
-            flex: 1;
+            flex: 0 1 auto;
             display: grid;
-            grid-template-columns: repeat(2, minmax(220px, 280px));
-            gap: 16px 18px;
+            grid-template-columns: repeat(2, minmax(108px, 150px));
+            gap: 10px 12px;
+            min-width: 0;
+        }
+
+        .records-filters .multi-select-label {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .secondary-btn {
