@@ -99,7 +99,7 @@
     "submitNote": ""
   },
   "list": {
-    "sectionTitle": "提交数据",
+    "sectionTitle": "最近提交",
     "vendorFilterLabel": "厂商筛选",
     "vendorFilterPlaceholder": "全部厂商",
     "planFilterLabel": "套餐筛选",
@@ -128,6 +128,25 @@
     "rangeInfo": "显示第 {start}-{end} 条，共 {total} 条",
     "rangeEmpty": "暂无可展示的数据",
     "pageInfo": "第 {page} / {pages} 页"
+  },
+  "estimates": {
+    "sectionTitle": "用量统计",
+    "sectionHint": "以下为按 100% 额度归一化后的统计；主数字为中位数，下一行为 95% 置信区间。",
+    "loading": "正在加载用量统计…",
+    "loadError": "用量统计加载失败，请稍后重试。",
+    "emptyAll": "暂无用量统计数据（尚无提交样本或样本不足以计算）。",
+    "emptyFiltered": "当前筛选条件下没有匹配的用量统计行。",
+    "ciUnavailable": "—",
+    "sampleCountTemplate": "样本：{n}",
+    "tableVendor": "厂商",
+    "tablePlan": "套餐",
+    "tableReadTokensK": "Input（K）",
+    "tableReadTokensM": "Input（M）",
+    "tableCacheHitTokensK": "缓存命中（K）",
+    "tableCacheHitTokensM": "缓存命中（M）",
+    "tableWriteTokensK": "Output（K）",
+    "tableWriteTokensM": "Output（M）",
+    "tableRequestCount": "请求次数"
   },
   "messages": {
     "submitFailedTitle": "提交失败",

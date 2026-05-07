@@ -637,6 +637,56 @@
             line-height: 1.5;
         }
 
+        .estimates-block {
+            margin-top: 22px;
+            margin-bottom: 40px;
+        }
+
+        .recent-submissions-block {
+            margin-top: 8px;
+            padding-top: 4px;
+        }
+
+        .recent-submissions-block > .section-title--subsection {
+            margin-bottom: 14px;
+        }
+
+        .recent-submissions-block .records-meta {
+            margin-top: 0;
+        }
+
+        .section-title--subsection {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .estimates-hint {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            margin: 0 0 14px;
+            line-height: 1.55;
+        }
+
+        .estimates-table {
+            min-width: 780px;
+        }
+
+        .estimate-metric-cell {
+            vertical-align: middle;
+        }
+
+        .estimate-median {
+            font-weight: 700;
+            font-size: 15px;
+            font-variant-numeric: tabular-nums;
+            color: var(--text-primary);
+        }
+
+        .estimate-ci {
+            margin-top: 4px;
+            font-variant-numeric: tabular-nums;
+        }
+
         .numeric-cell {
             font-variant-numeric: tabular-nums;
         }
@@ -1103,7 +1153,6 @@
         </div>
 
         <div class="records-card">
-            <div class="section-title" id="recordsSectionTitle"></div>
             <div class="records-toolbar">
                 <div class="records-filters">
                     <div class="field-group">
@@ -1141,14 +1190,38 @@
                 </div>
             </div>
 
-            <div class="records-meta">
-                <div class="records-meta-primary" id="listStatsText"></div>
-                <div class="records-meta-secondary" id="listRangeText"></div>
+            <div class="estimates-block">
+                <div class="section-title section-title--subsection" id="estimatesSectionTitle"></div>
+                <p class="estimates-hint" id="estimatesSectionHint"></p>
+                <div class="table-wrapper">
+                    <div class="table-scroll">
+                        <table class="records-table estimates-table" id="estimatesTable">
+                            <thead>
+                                <tr>
+                                    <th id="estimatesVendorHeading"></th>
+                                    <th id="estimatesPlanHeading"></th>
+                                    <th id="estimatesReadTokensHeading"></th>
+                                    <th id="estimatesCacheHitTokensHeading"></th>
+                                    <th id="estimatesWriteTokensHeading"></th>
+                                    <th id="estimatesRequestCountHeading"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="estimatesTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
-            <div class="table-wrapper">
-                <div class="table-scroll">
-                    <table class="records-table" id="submissionTable">
+            <div class="recent-submissions-block">
+                <div class="section-title section-title--subsection" id="recentSubmissionsSectionTitle"></div>
+                <div class="records-meta">
+                    <div class="records-meta-primary" id="listStatsText"></div>
+                    <div class="records-meta-secondary" id="listRangeText"></div>
+                </div>
+
+                <div class="table-wrapper">
+                    <div class="table-scroll">
+                        <table class="records-table" id="submissionTable">
                         <thead>
                             <tr>
                                 <th id="recordsVendorHeading"></th>
@@ -1163,14 +1236,15 @@
                         </thead>
                         <tbody id="submissionTableBody"></tbody>
                     </table>
+                    </div>
                 </div>
-            </div>
 
-            <div class="pagination-row">
-                <div class="pagination-text" id="paginationText"></div>
-                <div class="pagination-actions">
-                    <button class="pagination-btn" id="prevPageBtn" type="button"></button>
-                    <button class="pagination-btn" id="nextPageBtn" type="button"></button>
+                <div class="pagination-row">
+                    <div class="pagination-text" id="paginationText"></div>
+                    <div class="pagination-actions">
+                        <button class="pagination-btn" id="prevPageBtn" type="button"></button>
+                        <button class="pagination-btn" id="nextPageBtn" type="button"></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1234,6 +1308,7 @@
         })();
         var submissionTable = document.getElementById('submissionTable');
         var submissionTableBody = document.getElementById('submissionTableBody');
+        var estimatesTableBody = document.getElementById('estimatesTableBody');
         var listStatsText = document.getElementById('listStatsText');
         var listRangeText = document.getElementById('listRangeText');
         var paginationText = document.getElementById('paginationText');
@@ -1257,6 +1332,12 @@
             loading: false,
             error: ''
         };
+        var estimatesState = {
+            allItems: [],
+            loading: false,
+            error: '',
+            fetched: false
+        };
 
         Promise.all([
             fetch('plans.json').then(function(resp) { return resp.json(); }),
@@ -1272,6 +1353,7 @@
                 renderListVendorOptions();
                 syncListPlanOptions();
                 fetchSubmissionList();
+                fetchPlanUsageEstimates();
             })
             .catch(function(err) {
                 console.warn('failed to load plan-usage resources', err);
@@ -1403,6 +1485,7 @@
                 emphasizeResultCard();
                 listState.page = 0;
                 fetchSubmissionList();
+                fetchPlanUsageEstimates();
             })
             .catch(function(err) {
                 showResult('error', getMessage('submitFailedTitle'), err.message || getMessage('submitGeneric'));
@@ -1419,6 +1502,7 @@
             var settings = content.settings || {};
             var formText = content.form || {};
             var listText = content.list || {};
+            var estimatesText = content.estimates || {};
             var intro = Array.isArray(content.intro) ? content.intro : [];
 
             setText('pageTitle', content.pageTitle);
@@ -1448,7 +1532,7 @@
             setText('requestCountLabel', formText.requestCountLabel);
             setText('submitBtn', formText.submitButton);
             setText('submitNote', formText.submitNote);
-            setText('recordsSectionTitle', listText.sectionTitle);
+            setText('recentSubmissionsSectionTitle', listText.sectionTitle);
             setText('listVendorFilterLabel', listText.vendorFilterLabel);
             setText('listPlanFilterLabel', listText.planFilterLabel);
             setText('resetListFiltersBtn', listText.resetFilters);
@@ -1466,6 +1550,10 @@
             setText('recordsSubmittedAtHeading', listText.tableSubmittedAt);
             setText('prevPageBtn', listText.previousPage);
             setText('nextPageBtn', listText.nextPage);
+            setText('estimatesSectionTitle', estimatesText.sectionTitle);
+            setText('estimatesSectionHint', estimatesText.sectionHint);
+            setText('estimatesVendorHeading', estimatesText.tableVendor);
+            setText('estimatesPlanHeading', estimatesText.tablePlan);
 
             setPlaceholder('windowStartInput', formText.windowStartPlaceholder);
             setPlaceholder('usagePercentInput', formText.usagePercentPlaceholder);
@@ -1476,6 +1564,7 @@
             renderSubmissionMeta();
             renderSubmissionTableState();
             updateListSortHeaders();
+            renderEstimatesTable();
         }
 
         function initFieldHelp() {
@@ -1658,6 +1747,7 @@
             syncListPlanOptions();
             closeAllDropdowns();
             fetchSubmissionList();
+            renderEstimatesTable();
         }
 
         function handleListPlanSelect(event) {
@@ -1673,6 +1763,7 @@
             syncListPlanOptions();
             closeAllDropdowns();
             fetchSubmissionList();
+            renderEstimatesTable();
         }
 
         function resetSubmissionFilters() {
@@ -1685,6 +1776,7 @@
             syncListPlanOptions();
             updateListSortHeaders();
             fetchSubmissionList();
+            renderEstimatesTable();
         }
 
         function handleListSort(sortBy) {
@@ -1753,6 +1845,128 @@
                     renderSubmissionMeta();
                     updateListSortHeaders();
                 });
+        }
+
+        function fetchPlanUsageEstimates() {
+            estimatesState.loading = true;
+            estimatesState.error = '';
+            renderEstimatesTable();
+
+            fetch(API_BASE + '/plan_usage/estimates')
+                .then(function(resp) {
+                    return resp.json().then(function(data) {
+                        return { ok: resp.ok, data: data };
+                    });
+                })
+                .then(function(result) {
+                    if (!result.ok || result.data.err_code) {
+                        throw new Error(resolveErrorMessage(result.data) || getEstimatesText('loadError'));
+                    }
+                    var payload = result.data.data;
+                    estimatesState.allItems = Array.isArray(payload) ? payload : [];
+                    estimatesState.loading = false;
+                    estimatesState.error = '';
+                    estimatesState.fetched = true;
+                    renderEstimatesTable();
+                })
+                .catch(function(err) {
+                    estimatesState.loading = false;
+                    estimatesState.allItems = [];
+                    estimatesState.error = err.message || getEstimatesText('loadError');
+                    estimatesState.fetched = true;
+                    renderEstimatesTable();
+                });
+        }
+
+        function filterEstimatesRows() {
+            return estimatesState.allItems.filter(function(row) {
+                if (listState.vendorFilter && row.vendor !== listState.vendorFilter) {
+                    return false;
+                }
+                if (listState.planFilter && row.plan !== listState.planFilter) {
+                    return false;
+                }
+                return true;
+            });
+        }
+
+        function buildEstimateStatusRow(message, kind) {
+            var extraClass = kind ? ' ' + kind : '';
+            return '<tr class="status-row"><td colspan="6"><div class="status-text' + extraClass + '">' + escapeHtml(message) + '</div></td></tr>';
+        }
+
+        function buildEstimateTokenMetricCell(metric) {
+            var m = metric || {};
+            var lo = m.ci95_lower;
+            var hi = m.ci95_upper;
+            var med = m.median;
+            var medianStr = formatListTokenAmount(med);
+            var ciStr = (Number.isFinite(Number(lo)) && Number.isFinite(Number(hi)))
+                ? formatListTokenAmount(lo) + ' – ' + formatListTokenAmount(hi)
+                : getEstimatesText('ciUnavailable');
+            return '<td class="numeric-cell estimate-metric-cell">'
+                + '<div class="estimate-median">' + escapeHtml(medianStr) + '</div>'
+                + '<div class="cell-subtext estimate-ci">' + escapeHtml(ciStr) + '</div>'
+                + '</td>';
+        }
+
+        function buildEstimateRequestMetricCell(metric) {
+            var m = metric || {};
+            var lo = m.ci95_lower;
+            var hi = m.ci95_upper;
+            var med = m.median;
+            var medianStr = formatInteger(med);
+            var ciStr = (Number.isFinite(Number(lo)) && Number.isFinite(Number(hi)))
+                ? formatInteger(lo) + ' – ' + formatInteger(hi)
+                : getEstimatesText('ciUnavailable');
+            return '<td class="numeric-cell estimate-metric-cell">'
+                + '<div class="estimate-median">' + escapeHtml(medianStr) + '</div>'
+                + '<div class="cell-subtext estimate-ci">' + escapeHtml(ciStr) + '</div>'
+                + '</td>';
+        }
+
+        function renderEstimatesTable() {
+            if (!estimatesTableBody) {
+                return;
+            }
+            if (estimatesState.loading) {
+                estimatesTableBody.innerHTML = buildEstimateStatusRow(getEstimatesText('loading'));
+                return;
+            }
+            if (estimatesState.error) {
+                estimatesTableBody.innerHTML = buildEstimateStatusRow(estimatesState.error, 'error');
+                return;
+            }
+            if (!estimatesState.fetched) {
+                estimatesTableBody.innerHTML = buildEstimateStatusRow(getEstimatesText('loading'));
+                return;
+            }
+            if (!estimatesState.allItems.length) {
+                estimatesTableBody.innerHTML = buildEstimateStatusRow(getEstimatesText('emptyAll'));
+                return;
+            }
+
+            var rows = filterEstimatesRows();
+            if (!rows.length) {
+                estimatesTableBody.innerHTML = buildEstimateStatusRow(getEstimatesText('emptyFiltered'));
+                return;
+            }
+
+            estimatesTableBody.innerHTML = rows.map(function(item) {
+                var sc = Number(item.sample_count);
+                var sampleLine = formatTemplate(getEstimatesText('sampleCountTemplate'), {
+                    n: Number.isFinite(sc) ? formatInteger(sc) : '0'
+                });
+                return '<tr>'
+                    + '<td><div class="cell-primary">' + escapeHtml(item.vendor || '') + '</div></td>'
+                    + '<td><div class="cell-primary">' + escapeHtml(item.plan || '') + '</div>'
+                    + '<div class="cell-subtext">' + escapeHtml(sampleLine) + '</div></td>'
+                    + buildEstimateTokenMetricCell(item.read_tokens)
+                    + buildEstimateTokenMetricCell(item.cache_hit_tokens)
+                    + buildEstimateTokenMetricCell(item.write_tokens)
+                    + buildEstimateRequestMetricCell(item.request_count)
+                    + '</tr>';
+            }).join('');
         }
 
         function renderSubmissionMeta() {
@@ -2089,6 +2303,13 @@
             return '';
         }
 
+        function getEstimatesText(key) {
+            if (pageContent && pageContent.estimates && typeof pageContent.estimates[key] === 'string') {
+                return pageContent.estimates[key];
+            }
+            return '';
+        }
+
         function getMessage(key) {
             if (pageContent && pageContent.messages && typeof pageContent.messages[key] === 'string') {
                 return pageContent.messages[key];
@@ -2246,6 +2467,15 @@
                 listTokenUnitMBtn.classList.toggle('active', listTokenUnit === 'm');
                 listTokenUnitMBtn.setAttribute('aria-pressed', listTokenUnit === 'm' ? 'true' : 'false');
             }
+            refreshEstimatesTokenHeaders();
+        }
+
+        function refreshEstimatesTokenHeaders() {
+            var suffix = listTokenUnit === 'm' ? 'M' : 'K';
+            setText('estimatesReadTokensHeading', getEstimatesText('tableReadTokens' + suffix));
+            setText('estimatesCacheHitTokensHeading', getEstimatesText('tableCacheHitTokens' + suffix));
+            setText('estimatesWriteTokensHeading', getEstimatesText('tableWriteTokens' + suffix));
+            setText('estimatesRequestCountHeading', getEstimatesText('tableRequestCount'));
         }
 
         function handleListTokenUnitClick(unit) {
@@ -2261,6 +2491,7 @@
             }
             refreshListTokenColumnHeaders();
             renderSubmissionTableState();
+            renderEstimatesTable();
         }
 
         /** 将 Unix 时间戳格式化为本地时区的 YYYY-MM-DD HH:mm（精确到分钟）。 */
