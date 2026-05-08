@@ -308,7 +308,8 @@
     "benefits": [
       "ArkClaw 7天体验"
     ],
-    "note": ""
+    "note": "",
+    "discontinued": true
   },
   {
     "vendor": "字节·方舟",
@@ -333,7 +334,135 @@
     "benefits": [
       "免费ArkClaw"
     ],
-    "note": ""
+    "note": "",
+    "discontinued": true
+  },
+  {
+    "vendor": "字节·方舟",
+    "plan": "Small",
+    "type": "Token Plan",
+    "action": "https://api.dreamfree.space/c/s/cpyqfangzhou",
+    "firstMonthPrice": "-",
+    "monthlyPrice": 40,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "doubao-seed-2.0-mini",
+      "doubao-seed-2.0-lite",
+      "doubao-seed-2.0-code",
+      "doubao-seed-2.0-pro",
+      "deepseek-v3.2",
+      "minimax-m2.7",
+      "glm-5.1",
+      "kimi-k2.6",
+      "doubao-seedream-5.0-lite",
+      "doubao-seedance-2.0"
+    ],
+    "fiveHoursRequests": 2000,
+    "weeklyRequests": 7000,
+    "monthlyRequests": 20000,
+    "tokenLimit": "无限制",
+    "benefits": [
+      "联网搜索 50次/月"
+    ],
+    "note": "积分制 AFP 计费",
+    "discontinued": false
+  },
+  {
+    "vendor": "字节·方舟",
+    "plan": "Medium",
+    "type": "Token Plan",
+    "action": "https://api.dreamfree.space/c/s/cpyqfangzhou",
+    "firstMonthPrice": "-",
+    "monthlyPrice": 200,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "doubao-seed-2.0-mini",
+      "doubao-seed-2.0-lite",
+      "doubao-seed-2.0-code",
+      "doubao-seed-2.0-pro",
+      "deepseek-v3.2",
+      "minimax-m2.7",
+      "glm-5.1",
+      "kimi-k2.6",
+      "doubao-seedream-5.0-lite",
+      "doubao-seedance-2.0"
+    ],
+    "fiveHoursRequests": 10000,
+    "weeklyRequests": 35000,
+    "monthlyRequests": 100000,
+    "tokenLimit": "无限制",
+    "benefits": [
+      "联网搜索 150次/月",
+      "Seedance 2.0"
+    ],
+    "note": "积分制 AFP 计费，推荐",
+    "discontinued": false
+  },
+  {
+    "vendor": "字节·方舟",
+    "plan": "Large",
+    "type": "Token Plan",
+    "action": "https://api.dreamfree.space/c/s/cpyqfangzhou",
+    "firstMonthPrice": "-",
+    "monthlyPrice": 500,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "doubao-seed-2.0-mini",
+      "doubao-seed-2.0-lite",
+      "doubao-seed-2.0-code",
+      "doubao-seed-2.0-pro",
+      "deepseek-v3.2",
+      "minimax-m2.7",
+      "glm-5.1",
+      "kimi-k2.6",
+      "doubao-seedream-5.0-lite",
+      "doubao-seedance-2.0"
+    ],
+    "fiveHoursRequests": 25000,
+    "weeklyRequests": 87500,
+    "monthlyRequests": 250000,
+    "tokenLimit": "无限制",
+    "benefits": [
+      "联网搜索 400次/月",
+      "Seedance 2.0"
+    ],
+    "note": "积分制 AFP 计费",
+    "discontinued": false
+  },
+  {
+    "vendor": "字节·方舟",
+    "plan": "Max",
+    "type": "Token Plan",
+    "action": "https://api.dreamfree.space/c/s/cpyqfangzhou",
+    "firstMonthPrice": "-",
+    "monthlyPrice": 1000,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "doubao-seed-2.0-mini",
+      "doubao-seed-2.0-lite",
+      "doubao-seed-2.0-code",
+      "doubao-seed-2.0-pro",
+      "deepseek-v3.2",
+      "minimax-m2.7",
+      "glm-5.1",
+      "kimi-k2.6",
+      "doubao-seedream-5.0-lite",
+      "doubao-seedance-2.0"
+    ],
+    "fiveHoursRequests": 50000,
+    "weeklyRequests": 175000,
+    "monthlyRequests": 500000,
+    "tokenLimit": "无限制",
+    "benefits": [
+      "联网搜索 800次/月",
+      "Seedance 2.0"
+    ],
+    "note": "积分制 AFP 计费",
+    "discontinued": false
   },
   {
     "vendor": "Kimi",
