@@ -2978,6 +2978,10 @@
                         valueA = a['note'];
                         valueB = b['note'];
                         break;
+                    case 'rating':
+                        valueA = a.rating || 0;
+                        valueB = b.rating || 0;
+                        break;
                     default:
                         return 0;
                 }
