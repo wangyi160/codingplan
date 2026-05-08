@@ -442,14 +442,14 @@
       "Kimi-K2.6",
       "Doubao-Seedream-5.0-lite"
     ],
-    "fiveHoursRequests": 2000,
-    "weeklyRequests": 7000,
-    "monthlyRequests": 20000,
+    "fiveHoursRequests": 200,
+    "weeklyRequests": 700,
+    "monthlyRequests": 2000,
     "tokenLimit": 22,
     "benefits": [
       "联网搜索 50次/月"
     ],
-    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。"
+    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。\n• 有5小时、周、月的Token限制，没有请求次数限制，表格里按照最优模型，每次请求11KToken计算。"
   },
   {
     "vendor": "字节·方舟",
@@ -469,9 +469,9 @@
       "Doubao-Seedream-5.0-lite",
       "Doubao-Seedance-2.0"
     ],
-    "fiveHoursRequests": 10000,
-    "weeklyRequests": 35000,
-    "monthlyRequests": 100000,
+    "fiveHoursRequests": 1000,
+    "weeklyRequests": 3500,
+    "monthlyRequests": 10000,
     "tokenLimit": 111,
     "benefits": [
       "联网搜索 150次/月"
@@ -496,9 +496,9 @@
       "Doubao-Seedream-5.0-lite",
       "Doubao-Seedance-2.0"
     ],
-    "fiveHoursRequests": 25000,
-    "weeklyRequests": 87500,
-    "monthlyRequests": 250000,
+    "fiveHoursRequests": 2500,
+    "weeklyRequests": 8750,
+    "monthlyRequests": 25000,
     "tokenLimit": 278,
     "benefits": [
       "联网搜索 400次/月"
@@ -523,9 +523,9 @@
       "Doubao-Seedream-5.0-lite",
       "Doubao-Seedance-2.0"
     ],
-    "fiveHoursRequests": 50000,
-    "weeklyRequests": 175000,
-    "monthlyRequests": 500000,
+    "fiveHoursRequests": 5000,
+    "weeklyRequests": 17500,
+    "monthlyRequests": 50000,
     "tokenLimit": 556,
     "benefits": [
       "联网搜索 800次/月"
