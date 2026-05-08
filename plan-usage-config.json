@@ -22,6 +22,7 @@
   ],
   "form": {
     "sectionTitle": "提交",
+    "sectionDescription": "请按同一个 5 小时额度窗口填写一条记录；带 ? 的字段可点开查看示例说明。",
     "vendorLabel": "厂商",
     "vendorPlaceholder": "请选择厂商",
     "planLabel": "套餐",

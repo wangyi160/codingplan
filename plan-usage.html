@@ -60,6 +60,13 @@
             background: var(--border-color);
         }
 
+        .section-description {
+            margin: -8px 0 22px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
         .form-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1035,6 +1042,7 @@
 
         <div class="submit-card">
             <div class="section-title" id="formSectionTitle"></div>
+            <p class="section-description" id="formSectionDescription"></p>
             <form id="planUsageForm" autocomplete="off">
                 <div class="form-grid">
                     <div class="field-group full-width">
@@ -1609,6 +1617,7 @@
             setText('introParagraph1', intro[0]);
             setText('introParagraph2', intro[1]);
             setText('formSectionTitle', formText.sectionTitle);
+            setText('formSectionDescription', formText.sectionDescription);
             setText('vendorLabel', formText.vendorLabel);
             setText('planLabel', formText.planLabel);
             setText('modelLabel', formText.modelLabel);
