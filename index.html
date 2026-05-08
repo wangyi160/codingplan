@@ -1016,6 +1016,13 @@
             font-weight: 600;
         }
 
+        /* 评分星星 */
+        .rating-stars {
+            color: #f59e0b;
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+
         .recommendation-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
@@ -1702,6 +1709,7 @@
                             <th>支持模型</th>
                             <th>其他权益</th>
                             <th>状态</th>
+                            <th class="sortable" data-column="rating">评分</th>
                             <th class="note-header">备注</th>
                         </tr>
                     </thead>
@@ -3050,6 +3058,7 @@
                         ${plan.benefits.map(benefit => `<span class="benefit">${escapeHtml(benefit)}</span>`).join('')}
                     </td>
                     <td>${plan.discontinued ? '<span class="status-offline">已下线</span>' : ''}</td>
+                    <td class="rating-stars">${'★'.repeat(plan.rating || 0)}${'☆'.repeat(5 - (plan.rating || 0))}</td>
                     <td><span class="note">${(plan['note'] || '').replace(/\n/g, '<br>')}</span></td>
                 </tr>
             `).join('');
