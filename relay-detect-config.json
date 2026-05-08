@@ -569,8 +569,9 @@
   ],
   "texts": {
     "pageTitle": "中转站检测",
-    "navIndexTab": "国内 Coding Plan",
-    "navRelaysTab": "API 中转站",
+    "navIndexTab": "Coding Plan",
+    "navPlanUsageTab": "Coding Plan用量提交",
+    "navRelaysTab": "中转站",
     "navDetectTab": "中转站检测",
     "settingsBtnTitle": "设置",
     "settingsBtnAriaLabel": "设置",

@@ -9,34 +9,47 @@ function escapeHtml(text) {
 
 // 超宽屏设置
 (function () {
-    const btn = document.getElementById('settingsBtn');
-    const panel = document.getElementById('settingsPanel');
-    const toggle = document.getElementById('ultraWideToggle');
+    function initUltraWideSettings() {
+        const btn = document.getElementById('settingsBtn');
+        const panel = document.getElementById('settingsPanel');
+        const toggle = document.getElementById('ultraWideToggle');
 
-    function applyUltraWide(on) {
-        document.body.classList.toggle('ultra-wide', on);
-        toggle.checked = on;
-        localStorage.setItem('ultraWide', on ? '1' : '0');
-    }
-
-    if (localStorage.getItem('ultraWide') === '1') {
-        applyUltraWide(true);
-    }
-
-    btn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        panel.hidden = !panel.hidden;
-        btn.classList.toggle('active', !panel.hidden);
-    });
-
-    toggle.addEventListener('change', function () {
-        applyUltraWide(toggle.checked);
-    });
-
-    document.addEventListener('click', function (e) {
-        if (!panel.hidden && !panel.contains(e.target) && e.target !== btn) {
-            panel.hidden = true;
-            btn.classList.remove('active');
+        if (!btn || !panel || !toggle) {
+            return;
         }
-    });
+
+        function applyUltraWide(on) {
+            document.body.classList.toggle('ultra-wide', on);
+            toggle.checked = on;
+            localStorage.setItem('ultraWide', on ? '1' : '0');
+        }
+
+        if (localStorage.getItem('ultraWide') === '1') {
+            applyUltraWide(true);
+        }
+
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            panel.hidden = !panel.hidden;
+            btn.classList.toggle('active', !panel.hidden);
+        });
+
+        toggle.addEventListener('change', function () {
+            applyUltraWide(toggle.checked);
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!panel.hidden && !panel.contains(e.target) && e.target !== btn) {
+                panel.hidden = true;
+                btn.classList.remove('active');
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initUltraWideSettings, { once: true });
+        return;
+    }
+
+    initUltraWideSettings();
 })();
