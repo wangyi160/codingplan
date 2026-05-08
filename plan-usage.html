@@ -519,11 +519,11 @@
             align-items: flex-end;
             justify-content: space-between;
             gap: 18px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
 
         .records-filters {
-            flex: 0 1 auto;
+            flex: 0 0 auto;
             display: grid;
             grid-template-columns: repeat(2, minmax(108px, 150px));
             gap: 10px 12px;
@@ -566,7 +566,9 @@
             display: flex;
             align-items: flex-end;
             gap: 14px;
-            flex-wrap: wrap;
+            flex: 0 0 auto;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
         }
 
         .token-unit-field {
@@ -937,6 +939,23 @@
             to { transform: rotate(360deg); }
         }
 
+        @media (max-width: 720px) {
+            .records-toolbar {
+                flex-wrap: wrap;
+                align-items: stretch;
+            }
+
+            .records-filters {
+                grid-template-columns: 1fr;
+            }
+
+            .records-toolbar-right {
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+        }
+
         @media (max-width: 768px) {
             body { padding: 24px 16px; }
             .submit-card,
@@ -963,12 +982,6 @@
             .field-help-trigger-wrap.is-open .field-help-popover {
                 transform: translateY(0);
             }
-            .records-filters { grid-template-columns: 1fr; }
-            .records-toolbar-right {
-                width: 100%;
-                justify-content: space-between;
-            }
-            .records-toolbar,
             .records-meta,
             .pagination-row {
                 align-items: stretch;
