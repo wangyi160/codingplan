@@ -1,7 +1,7 @@
 {
   "header": {
     "title": "AI Coding Plan 对比",
-    "updateDate": "更新日期2026.4.30 | 字节方舟上新模型 & MiMo V2.5系列",
+    "updateDate": "更新日期2026.5.8 | 字节方舟上线AgentPlan，CodingPlan禁止购买",
     "subtitle": "十大平台 智谱AI、Kimi、MiniMax、小米·MiMo、字节·方舟、阿里·百炼、百度·千帆、腾讯云、京东云、讯飞·星火，全面对比\n支持GLM-5.1，Qwen-3.6-Plus，Kimi-K2.6，MiniMax-M2.7，Doubao-Seed-2.0，MiMo-V2-Pro等模型",
     "models": "整体趋势已经开始用TokenPlan替换CodingPlan了，且买且珍惜",
     "watermarkUrl": "vibecoding.dreamfree.space",
@@ -37,15 +37,6 @@
       ]
     },
     {
-      "name": "字节·方舟",
-      "rating": 4,
-      "reasons": [
-        "独占Doubao-Seed-2.0系列，支持GLM-5.1，K-2.6，M2.7。+1",
-        "赠送真OpenClaw。+1",
-        "普遍反馈用量减得很快，倍率不清晰。-1"
-      ]
-    },
-    {
       "name": "Kimi",
       "rating": 3.5,
       "reasons": [
@@ -53,25 +44,9 @@
         "提供实验性专业数据库功能。+0.5",
         "用量不明确，推测是比其他家用量要少。-1"
       ]
-    },
-    {
-      "name": "小米·MiMo",
-      "rating": 3,
-      "reasons": [
-        "独占Mimo V2.5系列。+1",
-        "降低了模型倍率，但Token Plan性价比仍略低。-1"
-      ]
-    },
-    {
-      "name": "阿里·百炼",
-      "rating": 3,
-      "reasons": [
-        "独占Qwen-3.6-Plus模型，但无Max模型。+1",
-        "只有Pro套餐了，且需要抢购。-1"
-      ]
     }
   ],
-  "ratingGuide": "基准3颗星，价格优势劣势1分，模型优势或独占模型1分，其他优势1分",
+  "ratingGuide": "基准3颗星，价格优势劣势1分，模型优势或独占模型1分，其他优势1分。TokenPlan因性价比较低，暂不推荐，能买CodingPlan尽量买CodingPlan",
   "notes": [
     "包季/包年价格中的划线数字表示原始价格（包月×3 或 包月×12），未划线的为实际优惠价格。",
     "使用表格邀请链接，部分平台可享优惠",
@@ -80,8 +55,7 @@
   "accountSale": {
     "title": "出纯手工账号",
     "description": "低价出字节火山账号，都是邀请得来的代金券。",
-    "accounts": [
-    ],
+    "accounts": [],
     "contact": {
       "label": "微信",
       "id": "wp3xpqakcggz22"
@@ -126,6 +100,12 @@
     "apply": "确定"
   },
   "updates": [
+    {
+      "date": "2026.5.8",
+      "items": [
+        "字节方舟上线AgentPlan，CodingPlan禁止购买"
+      ]
+    },
     {
       "date": "2026.4.30",
       "items": [
