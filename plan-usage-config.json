@@ -142,6 +142,7 @@
     "sampleCountTemplate": "有效提交：{n}",
     "tableVendor": "平台",
     "tablePlan": "套餐",
+    "tablePrice": "套餐价格",
     "tableReadTokensK": "Input(K Tokens)",
     "tableReadTokensM": "Input(M Tokens)",
     "tableCacheHitTokensK": "缓存命中(K Tokens)",

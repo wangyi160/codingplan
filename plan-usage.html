@@ -1315,6 +1315,7 @@
                                 <tr>
                                     <th id="estimatesVendorHeading"></th>
                                     <th id="estimatesPlanHeading"></th>
+                                    <th id="estimatesPriceHeading"></th>
                                     <th id="estimatesReadTokensHeading"></th>
                                     <th id="estimatesCacheHitTokensHeading"></th>
                                     <th id="estimatesWriteTokensHeading"></th>
@@ -1675,6 +1676,7 @@
             setText('estimatesSectionHint', estimatesText.sectionHint);
             setText('estimatesVendorHeading', estimatesText.tableVendor);
             setText('estimatesPlanHeading', estimatesText.tablePlan);
+            setText('estimatesPriceHeading', estimatesText.tablePrice);
 
             setPlaceholder('windowStartInput', formText.windowStartPlaceholder);
             setPlaceholder('usagePercentInput', formText.usagePercentPlaceholder);
@@ -2177,7 +2179,7 @@
 
         function buildEstimateStatusRow(message, kind) {
             var extraClass = kind ? ' ' + kind : '';
-            return '<tr class="status-row"><td colspan="6"><div class="status-text' + extraClass + '">' + escapeHtml(message) + '</div></td></tr>';
+            return '<tr class="status-row"><td colspan="7"><div class="status-text' + extraClass + '">' + escapeHtml(message) + '</div></td></tr>';
         }
 
         function buildEstimateTokenMetricCell(metric) {
@@ -2224,6 +2226,56 @@
                 + '</td>';
         }
 
+        function findPlanCatalogEntry(vendor, plan) {
+            var vendorName = (vendor || '').trim();
+            var planName = (plan || '').trim();
+            if (!vendorName || !planName) {
+                return null;
+            }
+            for (var i = 0; i < planRows.length; i += 1) {
+                var item = planRows[i] || {};
+                if ((item.vendor || '').trim() === vendorName && (item.plan || '').trim() === planName) {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        function formatPlanPrice(entry) {
+            if (!entry) {
+                return '-';
+            }
+            var price = entry.monthlyPrice;
+            if (price == null) {
+                return '-';
+            }
+            if (typeof price === 'string') {
+                var trimmed = price.trim();
+                if (!trimmed || trimmed === '-') {
+                    return '-';
+                }
+                var numericString = Number(trimmed);
+                if (!Number.isFinite(numericString)) {
+                    return trimmed;
+                }
+                price = numericString;
+            }
+            var numericPrice = Number(price);
+            if (!Number.isFinite(numericPrice)) {
+                return '-';
+            }
+            var currency = typeof entry.currency === 'string' && entry.currency.trim() ? entry.currency.trim() : '¥';
+            return currency + numericPrice.toLocaleString('zh-CN', {
+                maximumFractionDigits: 2,
+                minimumFractionDigits: numericPrice % 1 === 0 ? 0 : 2
+            }) + '/月';
+        }
+
+        function buildEstimatePriceCell(vendor, plan) {
+            var priceText = formatPlanPrice(findPlanCatalogEntry(vendor, plan));
+            return '<td><div class="cell-primary">' + escapeHtml(priceText) + '</div></td>';
+        }
+
         function renderEstimatesTable() {
             if (!estimatesTableBody) {
                 return;
@@ -2260,6 +2312,7 @@
                     + '<td><div class="cell-primary">' + escapeHtml(item.vendor || '') + '</div></td>'
                     + '<td><div class="cell-primary">' + escapeHtml(item.plan || '') + '</div>'
                     + '<div class="cell-subtext">' + escapeHtml(sampleLine) + '</div></td>'
+                    + buildEstimatePriceCell(item.vendor, item.plan)
                     + buildEstimateTokenMetricCell(item.read_tokens)
                     + buildEstimateTokenMetricCell(item.cache_hit_tokens)
                     + buildEstimateTokenMetricCell(item.write_tokens)
