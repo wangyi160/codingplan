@@ -764,7 +764,57 @@
         }
 
         .estimates-table {
-            min-width: 780px;
+            min-width: 860px;
+        }
+
+        .estimate-pin-col,
+        .estimate-pin-cell {
+            width: 56px;
+            text-align: center !important;
+            vertical-align: middle !important;
+        }
+
+        .estimate-pin-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.2s;
+        }
+
+        .estimate-pin-btn:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateY(-1px);
+        }
+
+        .estimate-pin-btn:focus-visible {
+            outline: 2px solid rgba(99, 102, 241, 0.22);
+            outline-offset: 2px;
+        }
+
+        .estimate-pin-btn.is-pinned {
+            border-color: rgba(99, 102, 241, 0.28);
+            background: rgba(99, 102, 241, 0.10);
+            color: var(--accent-primary);
+        }
+
+        .estimate-pin-icon {
+            display: block;
+            width: 15px;
+            height: 15px;
+            fill: currentColor;
+        }
+
+        .pinned-row td {
+            background: rgba(99, 102, 241, 0.035);
         }
 
         .estimate-metric-cell {
@@ -1313,6 +1363,7 @@
                         <table class="records-table estimates-table" id="estimatesTable">
                             <thead>
                                 <tr>
+                                    <th class="estimate-pin-col" id="estimatesPinHeading"></th>
                                     <th id="estimatesVendorHeading"></th>
                                     <th id="estimatesPlanHeading"></th>
                                     <th id="estimatesPriceHeading"></th>
@@ -1455,6 +1506,7 @@
         };
         var estimatesState = {
             allItems: [],
+            pinnedRowIds: [],
             loading: false,
             error: '',
             fetched: false
@@ -1499,6 +1551,7 @@
         planOptions.addEventListener('click', handlePlanSelect);
         listVendorOptions.addEventListener('click', handleListVendorSelect);
         listPlanOptions.addEventListener('click', handleListPlanSelect);
+        estimatesTableBody.addEventListener('click', handleEstimateTableClick);
         selectAllModelsBtn.addEventListener('click', selectAllModels);
         clearModelsBtn.addEventListener('click', clearSelectedModels);
         resetListFiltersBtn.addEventListener('click', resetSubmissionFilters);
@@ -1674,6 +1727,7 @@
             setText('nextPageBtn', listText.nextPage);
             setText('estimatesSectionTitle', estimatesText.sectionTitle);
             setText('estimatesSectionHint', estimatesText.sectionHint);
+            setText('estimatesPinHeading', estimatesText.tablePin);
             setText('estimatesVendorHeading', estimatesText.tableVendor);
             setText('estimatesPlanHeading', estimatesText.tablePlan);
             setText('estimatesPriceHeading', estimatesText.tablePrice);
@@ -2177,9 +2231,46 @@
             });
         }
 
+        function getEstimatePinId(vendor, plan) {
+            var vendorName = (vendor || '').trim();
+            var planName = (plan || '').trim();
+            if (!vendorName || !planName) {
+                return '';
+            }
+            return vendorName + '|' + planName;
+        }
+
+        function isEstimatePinned(pinId) {
+            return !!pinId && estimatesState.pinnedRowIds.indexOf(pinId) >= 0;
+        }
+
+        function togglePinnedEstimateRow(pinId) {
+            var index;
+            if (!pinId) {
+                return;
+            }
+            index = estimatesState.pinnedRowIds.indexOf(pinId);
+            if (index >= 0) {
+                estimatesState.pinnedRowIds.splice(index, 1);
+            } else {
+                estimatesState.pinnedRowIds.push(pinId);
+            }
+            renderEstimatesTable();
+        }
+
+        function handleEstimateTableClick(event) {
+            var pinButton = event.target.closest('.estimate-pin-btn');
+            if (!pinButton) {
+                return;
+            }
+            event.preventDefault();
+            event.stopPropagation();
+            togglePinnedEstimateRow(pinButton.getAttribute('data-pin-id') || '');
+        }
+
         function buildEstimateStatusRow(message, kind) {
             var extraClass = kind ? ' ' + kind : '';
-            return '<tr class="status-row"><td colspan="7"><div class="status-text' + extraClass + '">' + escapeHtml(message) + '</div></td></tr>';
+            return '<tr class="status-row"><td colspan="8"><div class="status-text' + extraClass + '">' + escapeHtml(message) + '</div></td></tr>';
         }
 
         function buildEstimateTokenMetricCell(metric) {
@@ -2276,7 +2367,17 @@
             return '<td><div class="cell-primary">' + escapeHtml(priceText) + '</div></td>';
         }
 
+        function buildEstimatePinCell(pinId, pinned) {
+            var actionLabel = pinned ? getEstimatesText('unpinAction') : getEstimatesText('pinAction');
+            return '<td class="estimate-pin-cell"><button class="estimate-pin-btn' + (pinned ? ' is-pinned' : '') + '" type="button" data-pin-id="' + escapeHtml(pinId) + '" aria-pressed="' + (pinned ? 'true' : 'false') + '" title="' + escapeHtml(actionLabel) + '" aria-label="' + escapeHtml(actionLabel) + '"><svg class="estimate-pin-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10.59 1.5c.22 0 .41.14.48.34l.78 2.33 1.87 1.88a.5.5 0 0 1-.35.85h-2.25v3.35a.5.5 0 0 1-.85.35L8.5 8.83 6.73 10.6a.5.5 0 0 1-.85-.35V6.9H3.63a.5.5 0 0 1-.35-.85l1.87-1.88.78-2.33a.5.5 0 0 1 .47-.34h4.19zM7.1 12.22a.5.5 0 0 1 .71 0l.97.97a.5.5 0 0 1-.7.71l-.98-.97a.5.5 0 0 1 0-.71z"></path></svg></button></td>';
+        }
+
         function renderEstimatesTable() {
+            var rows;
+            var pinnedRows;
+            var regularRows;
+            var orderedRows;
+
             if (!estimatesTableBody) {
                 return;
             }
@@ -2297,18 +2398,33 @@
                 return;
             }
 
-            var rows = filterEstimatesRows();
+            rows = filterEstimatesRows();
             if (!rows.length) {
                 estimatesTableBody.innerHTML = buildEstimateStatusRow(getEstimatesText('emptyFiltered'));
                 return;
             }
 
-            estimatesTableBody.innerHTML = rows.map(function(item) {
+            pinnedRows = [];
+            regularRows = [];
+            rows.forEach(function(item) {
+                var pinId = getEstimatePinId(item.vendor, item.plan);
+                if (isEstimatePinned(pinId)) {
+                    pinnedRows.push(item);
+                } else {
+                    regularRows.push(item);
+                }
+            });
+            orderedRows = pinnedRows.concat(regularRows);
+
+            estimatesTableBody.innerHTML = orderedRows.map(function(item) {
                 var sc = Number(item.sample_count);
+                var pinId = getEstimatePinId(item.vendor, item.plan);
+                var pinned = isEstimatePinned(pinId);
                 var sampleLine = formatTemplate(getEstimatesText('sampleCountTemplate'), {
                     n: Number.isFinite(sc) ? formatInteger(sc) : '0'
                 });
-                return '<tr>'
+                return '<tr' + (pinned ? ' class="pinned-row"' : '') + ' data-pin-id="' + escapeHtml(pinId) + '">' 
+                    + buildEstimatePinCell(pinId, pinned)
                     + '<td><div class="cell-primary">' + escapeHtml(item.vendor || '') + '</div></td>'
                     + '<td><div class="cell-primary">' + escapeHtml(item.plan || '') + '</div>'
                     + '<div class="cell-subtext">' + escapeHtml(sampleLine) + '</div></td>'

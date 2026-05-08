@@ -139,7 +139,8 @@
     "emptyAll": "暂无用量统计数据（尚无可用提交，或有效提交不足以计算）。",
     "emptyFiltered": "当前筛选条件下没有匹配的用量统计行。",
     "ciUnavailable": "—",
-    "sampleCountTemplate": "有效提交：{n}",
+    "sampleCountTemplate": "提交：{n}",
+    "tablePin": "置顶",
     "tableVendor": "平台",
     "tablePlan": "套餐",
     "tablePrice": "套餐价格",
@@ -149,7 +150,11 @@
     "tableCacheHitTokensM": "缓存命中(M Tokens)",
     "tableWriteTokensK": "Output(K Tokens)",
     "tableWriteTokensM": "Output(M Tokens)",
-    "tableRequestCount": "请求次数"
+    "tableRequestCount": "请求次数",
+    "pinButton": "置顶",
+    "pinnedButton": "已置顶",
+    "pinAction": "置顶该行",
+    "unpinAction": "取消置顶"
   },
   "messages": {
     "submitFailedTitle": "提交失败",
