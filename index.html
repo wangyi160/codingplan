@@ -3094,7 +3094,7 @@
             const hasHalf = (rating - fullStars) >= 0.5;
             const halfStars = hasHalf ? 1 : 0;
             const emptyStars = total - fullStars - halfStars;
-            return '★'.repeat(fullStars) + '⯪'.repeat(halfStars) + '☆'.repeat(emptyStars);
+            return '★'.repeat(fullStars) + '✫'.repeat(halfStars) + '☆'.repeat(emptyStars);
         }
 
         // 表头排序点击
