@@ -9,7 +9,7 @@
   "header": {
     "githubText": "GitHub",
     "title": "Coding Plan用量提交",
-    "subtitle": "提交您的套餐额度数据，帮助大家更好地了解各平台真实额度消耗情况"
+    "subtitle": "提交您的套餐额度数据，帮助大家更好地了解各平台套餐真实额度消耗情况"
   },
   "settings": {
     "buttonTitle": "设置",
@@ -22,7 +22,7 @@
   ],
   "form": {
     "sectionTitle": "提交",
-    "sectionDescription": "请按同一个 5 小时额度窗口填写一条记录；带 ? 的字段可点开查看示例说明。",
+    "sectionDescription": "强烈推荐使用cc-switch进行用量统计；点击?可查看示例说明。",
     "vendorLabel": "厂商",
     "vendorPlaceholder": "请选择厂商",
     "planLabel": "套餐",
