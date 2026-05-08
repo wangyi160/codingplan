@@ -743,6 +743,96 @@
     "monthlyRequests": 90000,
     "tokenLimit": "无限制",
     "benefits": [],
+    "note": "开始限量购买了，不确定每天放不放，放多少"
+  },
+  {
+    "vendor": "百度·千帆",
+    "plan": "Lite",
+    "type": "Coding Plan",
+    "action": "https://api.dreamfree.space/c/s/cpyqqianfan",
+    "firstMonthPrice": "-",
+    "monthlyPrice": 40,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "GLM-5",
+      "Kimi-K2.5",
+      "MiniMax-M2.5",
+      "DeepSeek-V3.2"
+    ],
+    "fiveHoursRequests": 1200,
+    "weeklyRequests": 9000,
+    "monthlyRequests": 18000,
+    "tokenLimit": "无限制",
+    "benefits": [],
+    "note": "使用 https://console.bce.baidu.com/qianfan/resource/subscribe 链接可以获得百度搜索额度，支持Baidu Search Skill"
+  },
+  {
+    "vendor": "百度·千帆",
+    "plan": "Pro",
+    "type": "Coding Plan",
+    "action": "https://api.dreamfree.space/c/s/cpyqqianfan",
+    "firstMonthPrice": "-",
+    "monthlyPrice": 200,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "GLM-5",
+      "Kimi-K2.5",
+      "MiniMax-M2.5",
+      "DeepSeek-V3.2"
+    ],
+    "fiveHoursRequests": 6000,
+    "weeklyRequests": 45000,
+    "monthlyRequests": 90000,
+    "tokenLimit": "无限制",
+    "benefits": [],
+    "note": "使用 https://console.bce.baidu.com/qianfan/resource/subscribe 链接可以获得百度搜索额度，支持Baidu Search Skill"
+  },
+  {
+    "vendor": "京东云",
+    "plan": "Lite",
+    "type": "Coding Plan",
+    "action": "https://api.dreamfree.space/c/s/cpyqjingdong",
+    "firstMonthPrice": 19.9,
+    "monthlyPrice": 40,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "Kimi-K2.5",
+      "GLM-5",
+      "MiniMax-M2.5",
+      "DeepSeek-V3.2",
+      "Qwen-3-Coder"
+    ],
+    "fiveHoursRequests": 1200,
+    "weeklyRequests": 9000,
+    "monthlyRequests": 18000,
+    "tokenLimit": "无限制",
+    "benefits": [],
+    "note": ""
+  },
+  {
+    "vendor": "京东云",
+    "plan": "Pro",
+    "type": "Coding Plan",
+    "action": "https://api.dreamfree.space/c/s/cpyqqianfan",
+    "firstMonthPrice": 99.9,
+    "monthlyPrice": 200,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "Kimi-K2.5",
+      "GLM-5",
+      "MiniMax-M2.5",
+      "DeepSeek-V3.2",
+      "Qwen-3-Coder"
+    ],
+    "fiveHoursRequests": 6000,
+    "weeklyRequests": 45000,
+    "monthlyRequests": 90000,
+    "tokenLimit": "无限制",
+    "benefits": [],
     "note": ""
   },
   {
@@ -880,95 +970,5 @@
     "tokenLimit": 650,
     "benefits": [],
     "note": "注意此为TokenPlan，而非CodingPlan。650M(6.5亿) Tokens 额度"
-  },
-  {
-    "vendor": "百度·千帆",
-    "plan": "Lite",
-    "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqqianfan",
-    "firstMonthPrice": "-",
-    "monthlyPrice": 40,
-    "quarterlyPrice": "-",
-    "yearlyPrice": "-",
-    "models": [
-      "GLM-5",
-      "Kimi-K2.5",
-      "MiniMax-M2.5",
-      "DeepSeek-V3.2"
-    ],
-    "fiveHoursRequests": 1200,
-    "weeklyRequests": 9000,
-    "monthlyRequests": 18000,
-    "tokenLimit": "无限制",
-    "benefits": [],
-    "note": "使用 https://console.bce.baidu.com/qianfan/resource/subscribe 链接可以获得百度搜索额度，支持Baidu Search Skill"
-  },
-  {
-    "vendor": "百度·千帆",
-    "plan": "Pro",
-    "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqqianfan",
-    "firstMonthPrice": "-",
-    "monthlyPrice": 200,
-    "quarterlyPrice": "-",
-    "yearlyPrice": "-",
-    "models": [
-      "GLM-5",
-      "Kimi-K2.5",
-      "MiniMax-M2.5",
-      "DeepSeek-V3.2"
-    ],
-    "fiveHoursRequests": 6000,
-    "weeklyRequests": 45000,
-    "monthlyRequests": 90000,
-    "tokenLimit": "无限制",
-    "benefits": [],
-    "note": "使用 https://console.bce.baidu.com/qianfan/resource/subscribe 链接可以获得百度搜索额度，支持Baidu Search Skill"
-  },
-  {
-    "vendor": "京东云",
-    "plan": "Lite",
-    "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqjingdong",
-    "firstMonthPrice": 19.9,
-    "monthlyPrice": 40,
-    "quarterlyPrice": "-",
-    "yearlyPrice": "-",
-    "models": [
-      "Kimi-K2.5",
-      "GLM-5",
-      "MiniMax-M2.5",
-      "DeepSeek-V3.2",
-      "Qwen-3-Coder"
-    ],
-    "fiveHoursRequests": 1200,
-    "weeklyRequests": 9000,
-    "monthlyRequests": 18000,
-    "tokenLimit": "无限制",
-    "benefits": [],
-    "note": ""
-  },
-  {
-    "vendor": "京东云",
-    "plan": "Pro",
-    "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqqianfan",
-    "firstMonthPrice": 99.9,
-    "monthlyPrice": 200,
-    "quarterlyPrice": "-",
-    "yearlyPrice": "-",
-    "models": [
-      "Kimi-K2.5",
-      "GLM-5",
-      "MiniMax-M2.5",
-      "DeepSeek-V3.2",
-      "Qwen-3-Coder"
-    ],
-    "fiveHoursRequests": 6000,
-    "weeklyRequests": 45000,
-    "monthlyRequests": 90000,
-    "tokenLimit": "无限制",
-    "benefits": [],
-    "note": ""
   }
 ]
