@@ -625,10 +625,6 @@
             color: var(--text-primary);
         }
 
-        tbody tr:hover td.rating-stars {
-            color: #f59e0b;
-        }
-
         /* 冻结列的 td */
         td.sticky-first,
         td.sticky-second {
@@ -3047,7 +3043,7 @@
                             跳转开通
                         </a>
                     </td>
-                    <td class="rating-stars">${renderStars(plan.rating || 0)}</td>
+                    <td class="rating-stars">${'★'.repeat(plan.rating || 0)}${'☆'.repeat(5 - (plan.rating || 0))}</td>
                     <td><span class="price">${plan.currency||'¥'}${formatPrice(plan.firstMonthPrice)} <span class="unit">/ 首月</span></span></td>
                     <td><span class="price-monthly">${plan.currency||'¥'}${formatPrice(plan.monthlyPrice)} <span class="unit">/ 月</span></span></td>
                     <td><span class="price-normal">${plan.currency||'¥'}${formatPrice(plan.quarterlyPrice)} <span class="price-original">${plan.currency||'¥'}${formatPrice(plan.monthlyPrice * 3)}</span> <span class="unit">/ 季</span></span></td>
@@ -3085,16 +3081,6 @@
                 return value.toLocaleString();
             }
             return value;
-        }
-
-        // 渲染星星：实心=1颗，空心=半颗
-        function renderStars(rating) {
-            const total = 5;
-            const fullStars = Math.floor(rating);
-            const hasHalf = (rating - fullStars) >= 0.5;
-            const halfStars = hasHalf ? 1 : 0;
-            const emptyStars = total - fullStars - halfStars;
-            return '★'.repeat(fullStars) + '✫'.repeat(halfStars) + '☆'.repeat(emptyStars);
         }
 
         // 表头排序点击
