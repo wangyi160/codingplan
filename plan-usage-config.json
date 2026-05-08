@@ -9,7 +9,7 @@
   "header": {
     "githubText": "GitHub",
     "title": "Coding Plan用量提交",
-    "subtitle": "提交您的套餐额度数据，帮助大家更好地了解各平台套餐真实额度消耗情况"
+    "subtitle": "分享您的套餐额度数据，帮助大家更好地了解各平台套餐真实额度消耗情况"
   },
   "settings": {
     "buttonTitle": "设置",
@@ -23,18 +23,19 @@
   "form": {
     "sectionTitle": "提交",
     "sectionDescription": "强烈推荐使用cc-switch进行用量统计；点击?可查看示例说明。",
-    "vendorLabel": "厂商",
-    "vendorPlaceholder": "请选择厂商",
+    "vendorLabel": "平台",
+    "vendorPlaceholder": "请选择平台",
     "planLabel": "套餐",
     "planPlaceholder": "请选择套餐",
-    "planDisabledPlaceholder": "请先选择厂商",
+    "planDisabledPlaceholder": "请先选择平台",
+    "planDisabledOptionSuffix": "（Token Plan，暂不支持提交）",
     "modelLabel": "主力模型",
     "modelPlaceholder": "请选择一个或多个模型",
-    "modelDisabledVendorPlaceholder": "请先选择厂商",
+    "modelDisabledVendorPlaceholder": "请先选择平台",
     "modelDisabledPlanPlaceholder": "请先选择套餐",
     "modelSelectAll": "全选",
     "modelClear": "清空",
-    "modelEmpty": "当前厂商和套餐下暂无预置模型",
+    "modelEmpty": "当前平台和套餐下暂无预置模型",
     "modelOtherOption": "其他",
     "windowStartLabel": "5小时额度开始时间",
     "windowStartPlaceholder": "请使用日期时间选择器，例如 2026-05-30 23:00:00",
@@ -50,9 +51,9 @@
     "requestCountPlaceholder": "5小时额度时间范围内的请求次数",
     "fieldHelp": {
       "vendor": {
-        "text": "目前只支持以下平台，其他平台敬请期待",
+        "text": "选择平台，其他平台敬请期待",
         "image": "assets/plan-usage-help/vendor.png",
-        "imageAlt": "厂商字段说明示例图"
+        "imageAlt": "平台字段说明示例图"
       },
       "plan": {
         "text": "选择平台后，即可选择套餐",
@@ -65,17 +66,17 @@
         "imageAlt": "主力模型字段说明示例图"
       },
       "windowStart": {
-        "text": "填写该次提交对应的 5 小时额度窗口开始时间。\n请尽量按控制台、账单或额度页面里显示的起始时间填写。",
+        "text": "填写目前 5 小时额度窗口开始时间。并且在ccswitch的设置->使用统计里选择相同的时间范围进行统计。",
         "image": "assets/plan-usage-help/window-start.png",
         "imageAlt": "5小时额度开始时间字段说明示例图"
       },
       "usagePercent": {
-        "text": "填写这个 5 小时窗口内已经消耗掉的额度百分比。\n例如输入 17.5，表示该窗口额度已经用了 17.5%。",
+        "text": "填写这个 5 小时窗口内已经消耗掉的额度百分比。请尽量多使用一些再提交，会更加准确。",
         "image": "assets/plan-usage-help/usage-percent.png",
         "imageAlt": "5小时额度消耗百分比字段说明示例图"
       },
       "requestCount": {
-        "text": "填写同一 5 小时额度时间范围内的请求总次数。\n如果平台页面展示的是累计请求数，请换算出该时间窗口内的实际次数。",
+        "text": "填写这个 5 小时额度时间范围内的请求总次数。",
         "image": "assets/plan-usage-help/request-count.png",
         "imageAlt": "请求次数字段说明示例图"
       },
@@ -90,7 +91,7 @@
         "imageAlt": "缓存命中字段说明示例图"
       },
       "writeTokens": {
-        "text": "填写 Output token 总量，单位是 K Token。\n请与同一时间窗口内的 Input、缓存命中和请求次数保持口径一致。",
+        "text": "填写 Output token 总量，单位是 K Token。",
         "image": "assets/plan-usage-help/write-tokens.png",
         "imageAlt": "Output 字段说明示例图"
       }
@@ -101,15 +102,15 @@
   },
   "list": {
     "sectionTitle": "最近提交",
-    "vendorFilterLabel": "厂商",
-    "vendorFilterPlaceholder": "全部厂商",
+    "vendorFilterLabel": "平台",
+    "vendorFilterPlaceholder": "全部平台",
     "planFilterLabel": "套餐",
     "planFilterPlaceholder": "全部套餐",
     "resetFilters": "重置筛选",
     "tokenUnitLabel": "Input / 缓存 / Output 单位",
     "tokenUnitOptionK": "K Tokens",
     "tokenUnitOptionM": "M Tokens",
-    "tableVendor": "厂商",
+    "tableVendor": "平台",
     "tablePlan": "套餐",
     "tableUsagePercent": "5小时额度消耗",
     "tableReadTokensK": "Input(K Tokens)",
@@ -132,14 +133,14 @@
   },
   "estimates": {
     "sectionTitle": "用量统计",
-    "sectionHint": "以下为按 100% 额度归一化后的统计；主数字为中位数，下一行为 95% 置信区间。",
+    "sectionHint": "以下数据为把5小时额度用满的情况下，5小时的数据",
     "loading": "正在加载用量统计…",
     "loadError": "用量统计加载失败，请稍后重试。",
     "emptyAll": "暂无用量统计数据（尚无可用提交，或有效提交不足以计算）。",
     "emptyFiltered": "当前筛选条件下没有匹配的用量统计行。",
     "ciUnavailable": "—",
     "sampleCountTemplate": "有效提交：{n}",
-    "tableVendor": "厂商",
+    "tableVendor": "平台",
     "tablePlan": "套餐",
     "tableReadTokensK": "Input(K Tokens)",
     "tableReadTokensM": "Input(M Tokens)",
@@ -151,7 +152,7 @@
   },
   "messages": {
     "submitFailedTitle": "提交失败",
-    "vendorPlanRequired": "厂商和套餐都不能为空。",
+    "vendorPlanRequired": "平台和套餐都不能为空。",
     "modelRequired": "请至少选择一个主力模型。",
     "windowStartRequired": "5小时额度开始时间不能为空。",
     "usagePercentInvalid": "近 5小时套餐消耗百分比必须在 0 到 100 之间。",
@@ -161,7 +162,7 @@
     "submitSuccessToastTitle": "提交成功",
     "submitSuccessToastBody": "提交已入库",
     "recordIdPrefix": "记录 ID: ",
-    "vendorPrefix": "厂商: ",
+    "vendorPrefix": "平台: ",
     "planPrefix": "套餐: "
   }
 }

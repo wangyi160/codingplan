@@ -440,6 +440,15 @@
             font: inherit;
         }
 
+        .single-select-option:disabled {
+            color: var(--text-tertiary);
+            cursor: not-allowed;
+        }
+
+        .single-select-option:disabled:hover {
+            background: transparent;
+        }
+
         .single-select-option.selected {
             background: rgba(99, 102, 241, 0.08);
             color: var(--accent-primary);
@@ -2351,8 +2360,11 @@
             var planList = collectPlanOptions(selectedVendor);
             var modelList;
             var selectedModels = getSelectedModelList();
+            var disabledPlanSuffix = getFormText('planDisabledOptionSuffix');
 
-            if (selectedPlan && planList.indexOf(selectedPlan) < 0) {
+            if (selectedPlan && !planList.some(function(item) {
+                return item.value === selectedPlan && !item.disabled;
+            })) {
                 selectedPlan = '';
             }
             if (!selectedVendor) {
@@ -2360,8 +2372,12 @@
             }
 
             planOptions.innerHTML = planList.length ? planList.map(function(item) {
-                var selected = item === selectedPlan ? ' selected' : '';
-                return '<button class="multi-select-option single-select-option' + selected + '" type="button" data-value="' + encodeURIComponent(item) + '">' + escapeHtml(item) + '</button>';
+                var selected = item.value === selectedPlan ? ' selected' : '';
+                var disabled = item.disabled ? ' disabled aria-disabled="true"' : '';
+                var label = item.disabled && disabledPlanSuffix
+                    ? item.value + disabledPlanSuffix
+                    : item.value;
+                return '<button class="multi-select-option single-select-option' + selected + '" type="button" data-value="' + encodeURIComponent(item.value) + '"' + disabled + '>' + escapeHtml(label) + '</button>';
             }).join('') : '<div class="multi-select-empty">' + escapeHtml(getFormText('planDisabledPlaceholder')) + '</div>';
 
             modelList = selectedVendor && selectedPlan ? collectModelOptions(selectedVendor, selectedPlan) : [];
@@ -2392,13 +2408,23 @@
                 .filter(function(item) {
                     return !vendor || (item.vendor || '').trim() === vendor;
                 })
-                .map(function(item) { return (item.plan || '').trim(); })
+                .map(function(item) {
+                    return {
+                        value: (item.plan || '').trim(),
+                        disabled: (item.type || '').trim() !== 'Coding Plan'
+                    };
+                })
                 .filter(function(item) {
-                    if (!item || seen[item]) return false;
-                    seen[item] = true;
+                    if (!item.value || seen[item.value]) return false;
+                    seen[item.value] = true;
                     return true;
                 })
-                .sort();
+                .sort(function(a, b) {
+                    if (a.disabled !== b.disabled) {
+                        return a.disabled ? 1 : -1;
+                    }
+                    return a.value.localeCompare(b.value, 'zh-CN');
+                });
         }
 
         function collectModelOptions(vendor, plan) {
@@ -2534,7 +2560,7 @@
 
         function handlePlanSelect(event) {
             var option = event.target.closest('.single-select-option');
-            if (!option || !selectedVendor) {
+            if (!option || !selectedVendor || option.disabled) {
                 return;
             }
             selectedPlan = decodeURIComponent(option.getAttribute('data-value') || '');
