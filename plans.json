@@ -496,7 +496,7 @@
     "benefits": [
       "联网搜索 150次/月"
     ],
-    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。",
+    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。\n• 有5小时、周、月的Token限制，没有请求次数限制，表格里按照最优模型，每次请求11KToken计算。",
     "rating": 3
   },
   {
@@ -524,7 +524,7 @@
     "benefits": [
       "联网搜索 400次/月"
     ],
-    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。",
+    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。\n• 有5小时、周、月的Token限制，没有请求次数限制，表格里按照最优模型，每次请求11KToken计算。",
     "rating": 3
   },
   {
@@ -552,7 +552,7 @@
     "benefits": [
       "联网搜索 800次/月"
     ],
-    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。",
+    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。\n• 有5小时、周、月的Token限制，没有请求次数限制，表格里按照最优模型，每次请求11KToken计算。",
     "rating": 3
   },
   {
