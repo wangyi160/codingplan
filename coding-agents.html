@@ -13,6 +13,11 @@
         .header .subtitle {
             width: min(980px, 100%);
             margin: 0 auto;
+            text-wrap: balance;
+        }
+
+        .header h1 {
+            text-wrap: balance;
         }
 
         .section-title {
@@ -73,6 +78,8 @@
 
         .table-wrapper {
             overflow-x: auto;
+            overscroll-behavior-x: contain;
+            scrollbar-gutter: stable both-edges;
         }
 
         .comparison-table {
@@ -83,6 +90,62 @@
 
         .comparison-table--plans {
             min-width: 1180px;
+        }
+
+        #agentsTable th:nth-child(1),
+        #agentsTable td:nth-child(1) {
+            min-width: 220px;
+        }
+
+        #agentsTable th:nth-child(2),
+        #agentsTable td:nth-child(2) {
+            min-width: 190px;
+        }
+
+        #agentsTable th:nth-child(4),
+        #agentsTable td:nth-child(4),
+        #agentsTable th:nth-child(8),
+        #agentsTable td:nth-child(8) {
+            min-width: 220px;
+        }
+
+        #agentsTable th:nth-child(5),
+        #agentsTable td:nth-child(5),
+        #agentsTable th:nth-child(6),
+        #agentsTable td:nth-child(6),
+        #agentsTable th:nth-child(9),
+        #agentsTable td:nth-child(9),
+        #agentsTable th:nth-child(10),
+        #agentsTable td:nth-child(10),
+        #agentsTable th:nth-child(11),
+        #agentsTable td:nth-child(11) {
+            min-width: 240px;
+        }
+
+        #plansTable th:nth-child(1),
+        #plansTable td:nth-child(1) {
+            min-width: 130px;
+        }
+
+        #plansTable th:nth-child(2),
+        #plansTable td:nth-child(2) {
+            min-width: 220px;
+        }
+
+        #plansTable th:nth-child(3),
+        #plansTable td:nth-child(3) {
+            min-width: 140px;
+        }
+
+        #plansTable th:nth-child(4),
+        #plansTable td:nth-child(4),
+        #plansTable th:nth-child(5),
+        #plansTable td:nth-child(5),
+        #plansTable th:nth-child(6),
+        #plansTable td:nth-child(6),
+        #plansTable th:nth-child(7),
+        #plansTable td:nth-child(7) {
+            min-width: 240px;
         }
 
         .comparison-table th,
@@ -201,6 +264,8 @@
             font-size: 12px;
             line-height: 1.5;
             padding: 4px 0;
+            white-space: normal;
+            overflow-wrap: anywhere;
         }
 
         .source-link:hover,
@@ -209,9 +274,25 @@
         }
 
         .site-link {
+            display: block;
             color: var(--accent-primary);
             text-decoration: none;
-            word-break: break-all;
+            line-height: 1.6;
+            word-break: normal;
+            overflow-wrap: anywhere;
+        }
+
+        .site-link-host {
+            display: block;
+            font-weight: 600;
+        }
+
+        .site-link-path {
+            display: block;
+            margin-top: 2px;
+            color: var(--text-secondary);
+            font-size: 12px;
+            line-height: 1.5;
         }
 
         .compact-list {
@@ -284,6 +365,10 @@
             .notes-card,
             .updates-card {
                 padding: 18px 18px;
+            }
+
+            .table-wrapper {
+                scrollbar-gutter: auto;
             }
 
             .comparison-table th,
@@ -417,6 +502,24 @@
             }
         }
 
+        function formatWebsiteDisplay(url) {
+            try {
+                const parsed = new URL(url, window.location.href);
+                const path = parsed.pathname && parsed.pathname !== '/'
+                    ? parsed.pathname.replace(/\/$/, '')
+                    : '';
+                return {
+                    host: parsed.host,
+                    path
+                };
+            } catch (error) {
+                return {
+                    host: url || '—',
+                    path: ''
+                };
+            }
+        }
+
         function getConfigValue(path, fallback = '') {
             const parts = path.split('.');
             let current = pageConfig;
@@ -526,7 +629,13 @@
             if (!url) {
                 return '<span class="text-block">—</span>';
             }
-            return `<a class="site-link" href="${escapeHtml(safeUrl(url))}" target="_blank" rel="noreferrer">${escapeHtml(url)}</a>`;
+            const display = formatWebsiteDisplay(url);
+            return `
+                <a class="site-link" href="${escapeHtml(safeUrl(url))}" target="_blank" rel="noreferrer" title="${escapeHtml(url)}">
+                    <span class="site-link-host">${escapeHtml(display.host)}</span>
+                    ${display.path ? `<span class="site-link-path">${escapeHtml(display.path)}</span>` : ''}
+                </a>
+            `;
         }
 
         function renderRegionCell(row) {
