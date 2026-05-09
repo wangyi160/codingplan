@@ -1,0 +1,79 @@
+{
+  "pageTitle": "编程 Agent 对比",
+  "nav": {
+    "home": "Coding Plan",
+    "planUsage": "Coding Plan用量提交",
+    "codingAgents": "编程 Agent",
+    "relays": "中转站",
+    "relayDetect": "中转站检测"
+  },
+  "header": {
+    "githubText": "GitHub",
+    "title": "编程 Agent 对比",
+    "updateDate": "更新日期 2026.5.9",
+    "subtitle": "聚焦个人版，对比 Claude Code、Cursor、GitHub Copilot、Codex、Gemini、OpenCode、Qoder、Trae国内版、Trae国际版 的计费方式、额度、功能与中国大陆可用性。",
+    "info": [
+      "仅比较个人版，不含团队版、企业版、Business 版。",
+      "名称统一按本站固定集合展示，不追求官网命名空格和大小写完全一致。",
+      "来源标签分为 官方、二级来源、未明确；首版不做高级筛选和排序。"
+    ]
+  },
+  "settings": {
+    "buttonTitle": "设置",
+    "panelTitle": "显示设置",
+    "ultraWideLabel": "超宽屏模式"
+  },
+  "sections": {
+    "scopeTitle": "口径说明",
+    "scopeDescription": "优先引用官方资料；支付方式、地区限制等官网未明确时，允许用二级来源补充，并明确标记。",
+    "agentsTableTitle": "工具总表",
+    "agentsTableDescription": "看整体产品形态、计费方式、购买与地区限制，适合先做第一轮排除。",
+    "plansTableTitle": "套餐订阅表",
+    "plansTableDescription": "看每个个人套餐的价格、额度、额外功能与官方是否给出可量化的轮次或请求上限。",
+    "notesTitle": "说明",
+    "updatesTitle": "更新日志"
+  },
+  "tableLabels": {
+    "agents": {
+      "name": "名称",
+      "website": "官网",
+      "formFactor": "形态",
+      "modelSupport": "模型支持",
+      "billingMode": "计费方式",
+      "planSummary": "套餐",
+      "extraFeatures": "额外的功能",
+      "purchaseMethods": "购买方式",
+      "regionRestriction": "地区限制",
+      "supportsCustomApi": "是否支持自己的Url/API Key",
+      "remarks": "备注"
+    },
+    "plans": {
+      "agentName": "名称",
+      "planName": "套餐名称",
+      "price": "价格",
+      "usageIncluded": "包含的使用额度/用量限制",
+      "conversationEstimate": "官方的对话轮数",
+      "extraFeatures": "额外的功能",
+      "remarks": "备注"
+    }
+  },
+  "badges": {
+    "official": "官方",
+    "secondary": "二级来源",
+    "unknown": "未明确",
+    "yes": "支持",
+    "no": "不支持",
+    "partial": "部分支持",
+    "na": "不适用",
+    "mainlandYes": "中国大陆可用",
+    "mainlandNo": "中国大陆不可直接使用",
+    "mainlandPartial": "中国大陆需自测",
+    "mainlandUnknown": "中国大陆未明确"
+  },
+  "messages": {
+    "loading": "加载中...",
+    "loadError": "数据加载失败，请稍后重试。",
+    "emptyAgents": "暂无工具数据。",
+    "emptyPlans": "暂无套餐数据。"
+  }
+}

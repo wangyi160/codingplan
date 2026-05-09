@@ -2,6 +2,7 @@
   "pageTitle": "Coding Plan用量提交",
   "nav": {
     "home": "Coding Plan",
+    "codingAgents": "编程 Agent",
     "relays": "中转站",
     "relayDetect": "中转站检测",
     "planUsage": "Coding Plan用量提交"
