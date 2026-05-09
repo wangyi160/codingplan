@@ -75,7 +75,7 @@
 
         .selection-row {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 18px 20px;
         }
 
@@ -84,6 +84,14 @@
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px 20px;
+        }
+
+        .metric-row.metric-row-single {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .metric-row.metric-row-quad {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
         }
 
         .field-group {
@@ -1195,62 +1203,26 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="field-group">
+                                <div class="field-label-row">
+                                    <label class="field-label" for="usagePercentInput" id="usagePercentLabel"></label>
+                                    <span class="field-help-trigger-wrap" data-field-help="usagePercent">
+                                        <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverUsagePercent">?</button>
+                                        <span class="field-help-popover" id="fieldHelpPopoverUsagePercent" role="tooltip" aria-hidden="true">
+                                            <span class="field-help-content">
+                                                <span class="field-help-text"></span>
+                                                <span class="field-help-image-wrap">
+                                                    <img class="field-help-image" alt="">
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
+                                <input class="form-input" id="usagePercentInput" type="number" min="0.01" max="100" step="0.01" placeholder="" required>
+                            </div>
                         </div>
                     </div>
-                    <div class="metric-row">
-                        <div class="field-group">
-                            <div class="field-label-row">
-                                <label class="field-label" for="windowStartInput" id="windowStartLabel"></label>
-                                <span class="field-help-trigger-wrap" data-field-help="windowStart">
-                                    <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverWindowStart">?</button>
-                                    <span class="field-help-popover" id="fieldHelpPopoverWindowStart" role="tooltip" aria-hidden="true">
-                                        <span class="field-help-content">
-                                            <span class="field-help-text"></span>
-                                            <span class="field-help-image-wrap">
-                                                <img class="field-help-image" alt="">
-                                            </span>
-                                        </span>
-                                    </span>
-                                </span>
-                            </div>
-                            <input class="form-input" id="windowStartInput" type="datetime-local" step="1" required>
-                        </div>
-                        <div class="field-group">
-                            <div class="field-label-row">
-                                <label class="field-label" for="usagePercentInput" id="usagePercentLabel"></label>
-                                <span class="field-help-trigger-wrap" data-field-help="usagePercent">
-                                    <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverUsagePercent">?</button>
-                                    <span class="field-help-popover" id="fieldHelpPopoverUsagePercent" role="tooltip" aria-hidden="true">
-                                        <span class="field-help-content">
-                                            <span class="field-help-text"></span>
-                                            <span class="field-help-image-wrap">
-                                                <img class="field-help-image" alt="">
-                                            </span>
-                                        </span>
-                                    </span>
-                                </span>
-                            </div>
-                            <input class="form-input" id="usagePercentInput" type="number" min="0.01" max="100" step="0.01" placeholder="" required>
-                        </div>
-                        <div class="field-group">
-                            <div class="field-label-row">
-                                <label class="field-label" for="requestCountInput" id="requestCountLabel"></label>
-                                <span class="field-help-trigger-wrap" data-field-help="requestCount">
-                                    <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverRequestCount">?</button>
-                                    <span class="field-help-popover" id="fieldHelpPopoverRequestCount" role="tooltip" aria-hidden="true">
-                                        <span class="field-help-content">
-                                            <span class="field-help-text"></span>
-                                            <span class="field-help-image-wrap">
-                                                <img class="field-help-image" alt="">
-                                            </span>
-                                        </span>
-                                    </span>
-                                </span>
-                            </div>
-                            <input class="form-input" id="requestCountInput" type="number" min="0" step="1" placeholder="" required>
-                        </div>
-                    </div>
-                    <div class="metric-row">
+                    <div class="metric-row metric-row-quad">
                         <div class="field-group">
                             <div class="field-label-row">
                                 <label class="field-label" for="readTokensInput" id="readTokensLabel"></label>
@@ -1301,6 +1273,23 @@
                                 </span>
                             </div>
                             <input class="form-input" id="writeTokensInput" type="number" min="0" step="0.1" placeholder="" required>
+                        </div>
+                        <div class="field-group">
+                            <div class="field-label-row">
+                                <label class="field-label" for="requestCountInput" id="requestCountLabel"></label>
+                                <span class="field-help-trigger-wrap" data-field-help="requestCount">
+                                    <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverRequestCount">?</button>
+                                    <span class="field-help-popover" id="fieldHelpPopoverRequestCount" role="tooltip" aria-hidden="true">
+                                        <span class="field-help-content">
+                                            <span class="field-help-text"></span>
+                                            <span class="field-help-image-wrap">
+                                                <img class="field-help-image" alt="">
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </div>
+                            <input class="form-input" id="requestCountInput" type="number" min="0" step="1" placeholder="" required>
                         </div>
                     </div>
                 </div>
@@ -1422,6 +1411,8 @@
         'use strict';
 
         var API_BASE = (window.PLAN_USAGE_CONFIG && window.PLAN_USAGE_CONFIG.apiBase) || '';
+        var DEFAULT_WINDOW_START_STR = '20000101 00:00:00';
+        var DEFAULT_MODEL_WHEN_EMPTY = '未填写';
         var planRows = [];
         var pageContent = null;
         var selectedVendor = '';
@@ -1588,7 +1579,8 @@
             var vendor = selectedVendor;
             var plan = selectedPlan;
             var selectedModels = getSelectedModelList();
-            var windowStartStr = formatWindowStartInput('windowStartInput');
+            var submittedModels = selectedModels.length ? selectedModels : [DEFAULT_MODEL_WHEN_EMPTY];
+            var windowStartStr = DEFAULT_WINDOW_START_STR;
             var fiveHourUsagePercent = Number(document.getElementById('usagePercentInput').value);
             var readTokens = parseKTokenInput('readTokensInput');
             var cacheHitTokens = parseKTokenInput('cacheHitTokensInput');
@@ -1597,14 +1589,6 @@
 
             if (!vendor || !plan) {
                 showResult('error', getMessage('submitFailedTitle'), getMessage('vendorPlanRequired'));
-                return;
-            }
-            if (!windowStartStr) {
-                showResult('error', getMessage('submitFailedTitle'), getMessage('windowStartRequired'));
-                return;
-            }
-            if (!selectedModels.length) {
-                showResult('error', getMessage('submitFailedTitle'), getMessage('modelRequired'));
                 return;
             }
             if (!Number.isFinite(fiveHourUsagePercent) || fiveHourUsagePercent <= 0 || fiveHourUsagePercent > 100) {
@@ -1621,7 +1605,7 @@
                 body: JSON.stringify({
                     vendor: vendor,
                     plan: plan,
-                    model_list: selectedModels,
+                    model_list: submittedModels,
                     window_start_str: windowStartStr,
                     five_hour_usage_percent: fiveHourUsagePercent,
                     read_tokens: readTokens,
