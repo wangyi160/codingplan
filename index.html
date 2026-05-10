@@ -1560,35 +1560,7 @@
 </head>
 <body>
     <div class="container">
-
-        <!-- 页面导航 Tab -->
-        <nav class="page-nav">
-            <a href="index.html" class="page-tab active">Coding Plan</a>
-            <!-- 临时隐藏 -->
-            <!-- <a href="tools.html" class="page-tab">AI 编程工具</a> -->
-            <a href="plan-usage.html" class="page-tab">Coding Plan用量提交</a>
-            <a href="coding-agents.html" class="page-tab">编程 Agent</a>
-            <a href="relays.html" class="page-tab">中转站</a>
-            <a href="relay-detect.html" class="page-tab">中转站检测</a>
-            <div class="settings-wrapper">
-                <button class="settings-btn" id="settingsBtn" title="设置" aria-label="设置">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="3"/>
-                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                    </svg>
-                </button>
-                <div class="settings-panel" id="settingsPanel" hidden>
-                    <div class="settings-panel-title">显示设置</div>
-                    <div class="settings-toggle-row">
-                        <label for="ultraWideToggle">超宽屏模式</label>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="ultraWideToggle">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <div id="pageNavMount"></div>
 
         <!-- 顶部标题 -->
         <div class="header">
@@ -3667,6 +3639,14 @@
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
+            renderPageNav('pageNavMount', {
+                activeKey: 'index',
+                settings: {
+                    panelTitle: '显示设置',
+                    ultraWideLabel: '超宽屏模式'
+                }
+            });
+
             await loadConfig();
 
             // 设置水印域名，截图分享时可溯源
