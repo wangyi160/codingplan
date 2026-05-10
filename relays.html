@@ -25,24 +25,6 @@
         }
         .notes-section li { line-height: 1.65; }
 
-        /* ── 区块标题 ── */
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border-color);
-        }
-
         /* ── 快速对比矩阵 ── */
         .matrix-section {
             margin-bottom: 48px;
@@ -50,19 +32,11 @@
 
         .matrix-wrapper {
             overflow-x: auto;
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-color);
-            background: var(--bg-secondary);
         }
 
         .matrix-filter-bar {
             margin-bottom: 14px;
             padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            background: var(--bg-secondary);
-            box-shadow: var(--shadow-sm);
         }
 
         .matrix-filter-head {
@@ -729,10 +703,6 @@
         }
 
         .relay-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-md);
             overflow: hidden;
             transition: box-shadow 0.3s;
             scroll-margin-top: 24px;
@@ -850,9 +820,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 4px;
-            border-radius: var(--radius-lg);
             overflow: hidden;
-            border: 1px solid var(--border-color);
         }
 
         .models-mini-table thead th {
@@ -1072,29 +1040,12 @@
 
         .section-title {
             font-size: 28px;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-        }
-
-        .section-title::after {
-            background: linear-gradient(90deg, rgba(23, 32, 51, 0.16), rgba(23, 32, 51, 0));
         }
 
         .section-info {
             line-height: 1.75;
             color: var(--text-secondary);
             margin-bottom: 18px;
-        }
-
-        .matrix-filter-bar,
-        .matrix-wrapper,
-        .relay-card,
-        .models-mini-table {
-            background: rgba(255, 251, 245, 0.84);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            border-radius: 28px;
-            box-shadow: var(--shadow-md);
-            backdrop-filter: blur(8px);
         }
 
         .matrix-filter-bar {
@@ -1323,8 +1274,8 @@
         <!-- 快速对比矩阵 -->
         <div class="matrix-section">
             <h2 class="section-title" id="matrixSectionTitle">sections.matrixTitle</h2>
-            <div class="matrix-filter-bar" id="matrixFilterBar"></div>
-            <div class="matrix-wrapper" id="matrixWrapper">
+            <div class="matrix-filter-bar surface-panel" id="matrixFilterBar"></div>
+            <div class="matrix-wrapper surface-panel" id="matrixWrapper">
                 <div class="loading-state" id="matrixLoadingState">messages.loading</div>
             </div>
         </div>
@@ -1335,8 +1286,8 @@
         <div class="model-matrix-section">
             <h2 class="section-title" id="modelMatrixSectionTitle">sections.modelMatrixTitle</h2>
             <div class="section-info" id="modelMatrixSectionInfo">sections.modelMatrixInfo</div>
-            <div class="matrix-filter-bar" id="modelMatrixFilterBar"></div>
-            <div class="matrix-wrapper" id="modelMatrixWrapper">
+            <div class="matrix-filter-bar surface-panel" id="modelMatrixFilterBar"></div>
+            <div class="matrix-wrapper surface-panel" id="modelMatrixWrapper">
                 <div class="loading-state" id="modelMatrixLoadingState">messages.loading</div>
             </div>
         </div>
@@ -2601,7 +2552,7 @@
                 const modelsSection = modelsRows ? `
                     <div class="relay-section">
                         <h4>${escapeHtml(getRelayPageText('sections.detailPricingTitle'))}</h4>
-                        <table class="models-mini-table">
+                        <table class="models-mini-table surface-panel">
                             <thead>
                                 <tr>
                                     <th>${escapeHtml(getRelayPageText('tableLabels.model'))}</th>
@@ -2624,7 +2575,7 @@
                 ` : '';
 
                 return `
-                    <div class="relay-card" id="relay-${escapeHtml(relay.id)}">
+                    <div class="relay-card surface-panel" id="relay-${escapeHtml(relay.id)}">
                         <div class="relay-card-header">
                             <div class="relay-card-title">
                                 <span class="relay-name-lg">${escapeHtml(relay.name)}</span>

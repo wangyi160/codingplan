@@ -496,6 +496,53 @@ body {
     line-height: 1.76;
 }
 
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+}
+
+.section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(23, 32, 51, 0.16), rgba(23, 32, 51, 0));
+}
+
+.surface-panel {
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: rgba(255, 251, 245, 0.84);
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(8px);
+}
+
+.surface-panel--padded {
+    padding: 24px 28px;
+}
+
+.surface-panel--compact {
+    padding: 22px 24px;
+}
+
+.surface-control {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(23, 32, 51, 0.08);
+    border-radius: 18px;
+    box-shadow: 0 10px 20px rgba(23, 32, 51, 0.05);
+}
+
+.surface-popover {
+    background: rgba(255, 251, 245, 0.96);
+    border-radius: 18px;
+    box-shadow: var(--shadow-lg);
+}
+
 @media (max-width: 1200px) {
     body {
         padding: 24px 22px 56px;

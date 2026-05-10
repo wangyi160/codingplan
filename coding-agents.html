@@ -376,17 +376,6 @@
             line-height: 1.7;
         }
 
-        .highlights-section,
-        .scope-card,
-        .table-card,
-        .notes-card {
-            border-radius: 28px;
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            background: rgba(255, 251, 245, 0.84);
-            box-shadow: var(--shadow-md);
-            backdrop-filter: blur(8px);
-        }
-
         .highlights-section {
             margin-bottom: 28px;
             padding: 26px;
@@ -398,20 +387,7 @@
 
         .section-title {
             margin-bottom: 14px;
-            font-size: 27px;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
             gap: 14px;
-        }
-
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(23, 32, 51, 0.16), rgba(23, 32, 51, 0));
         }
 
         .section-description {
@@ -988,7 +964,7 @@
             </div>
         </header>
 
-        <section class="highlights-section" id="insightsSection">
+        <section class="highlights-section surface-panel" id="insightsSection">
             <div class="section-header">
                 <div class="section-title" id="summaryTitle"></div>
                 <p class="section-description" id="summaryDescription"></p>
@@ -997,7 +973,7 @@
             <div class="decision-grid" id="decisionGrid"></div>
         </section>
 
-        <section class="scope-card">
+        <section class="scope-card surface-panel">
             <div class="section-title" id="scopeTitle"></div>
             <p class="section-description" id="scopeDescription"></p>
             <ul id="scopeList"></ul>
@@ -1006,7 +982,7 @@
         <section class="table-section" id="agentsSection">
             <div class="section-title" id="agentsTableTitle"></div>
             <p class="section-description" id="agentsTableDescription"></p>
-            <div class="table-card">
+            <div class="table-card surface-panel">
                 <div class="table-toolbar" id="agentsHints"></div>
                 <div class="table-wrapper">
                     <table class="comparison-table" id="agentsTable">
@@ -1022,7 +998,7 @@
         <section class="table-section" id="plansSection">
             <div class="section-title" id="plansTableTitle"></div>
             <p class="section-description" id="plansTableDescription"></p>
-            <div class="table-card">
+            <div class="table-card surface-panel">
                 <div class="table-toolbar" id="plansHints"></div>
                 <div class="table-wrapper">
                     <table class="comparison-table comparison-table--plans" id="plansTable">
@@ -1035,7 +1011,7 @@
             </div>
         </section>
 
-        <section class="notes-card" id="notesSection"></section>
+        <section class="notes-card surface-panel" id="notesSection"></section>
     </div>
 
     <script>

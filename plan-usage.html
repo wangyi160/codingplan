@@ -14,18 +14,7 @@
             margin-bottom: 10px;
         }
 
-        .intro-card,
-        .submit-card,
-        .result-card,
-        .records-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-md);
-        }
-
         .intro-card {
-            padding: 24px 28px;
             margin-bottom: 28px;
         }
 
@@ -37,27 +26,6 @@
 
         .intro-card p:last-child {
             margin-bottom: 0;
-        }
-
-        .submit-card {
-            padding: 30px 32px;
-        }
-
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 22px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border-color);
         }
 
         .section-description {
@@ -1071,34 +1039,6 @@
             margin-top: -2px;
         }
 
-        .intro-card,
-        .submit-card,
-        .result-card,
-        .records-card {
-            border-radius: 28px;
-            background: rgba(255, 251, 245, 0.84);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            box-shadow: var(--shadow-md);
-            backdrop-filter: blur(8px);
-        }
-
-        .intro-card,
-        .submit-card,
-        .records-card {
-            padding: 24px 28px;
-        }
-
-        .section-title {
-            font-size: 27px;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            margin-bottom: 16px;
-        }
-
-        .section-title::after {
-            background: linear-gradient(90deg, rgba(23, 32, 51, 0.16), rgba(23, 32, 51, 0));
-        }
-
         .section-description,
         .intro-card p,
         .submit-note,
@@ -1224,10 +1164,6 @@
             background: rgba(232, 246, 243, 1);
         }
 
-        .result-card {
-            padding: 22px 24px;
-        }
-
         .result-title {
             font-size: 22px;
             font-weight: 800;
@@ -1311,12 +1247,12 @@
             </article>
         </div>
 
-        <div class="intro-card" id="introCard">
+        <div class="intro-card surface-panel surface-panel--padded" id="introCard">
             <p id="introParagraph1"></p>
             <p id="introParagraph2"></p>
         </div>
 
-        <div class="submit-card">
+        <div class="submit-card surface-panel surface-panel--padded">
             <div class="section-title" id="formSectionTitle"></div>
             <p class="section-description" id="formSectionDescription"></p>
             <form id="planUsageForm" autocomplete="off">
@@ -1496,13 +1432,13 @@
             </form>
         </div>
 
-        <div class="result-card" id="resultCard">
+        <div class="result-card surface-panel surface-panel--compact" id="resultCard">
             <div class="result-title" id="resultTitle"></div>
             <div class="result-body" id="resultBody"></div>
             <div class="meta-list" id="resultMeta"></div>
         </div>
 
-        <div class="records-card">
+        <div class="records-card surface-panel surface-panel--padded">
             <div class="records-toolbar">
                 <div class="records-filters">
                     <div class="field-group">
@@ -3195,12 +3131,6 @@
             });
         }
 
-        function escapeHtml(text) {
-            if (text === null || text === undefined) return '';
-            var div = document.createElement('div');
-            div.textContent = String(text);
-            return div.innerHTML;
-        }
     })();
     </script>
 </body>

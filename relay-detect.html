@@ -14,30 +14,8 @@
 
         .header .subtitle { margin-bottom: 8px; }
 
-        /* ── 区块标题 ── */
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border-color);
-        }
-
         /* ── 表单卡片 ── */
         .detect-form-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-xl);
-            padding: 32px;
-            box-shadow: var(--shadow-md);
             margin-bottom: 48px;
         }
         .form-group {
@@ -513,29 +491,8 @@
             margin-top: -2px;
         }
 
-        .detect-form-card,
-        .history-section,
-        .history-detail-card {
-            background: rgba(255, 251, 245, 0.84);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            border-radius: 28px;
-            box-shadow: var(--shadow-md);
-            backdrop-filter: blur(8px);
-        }
-
-        .detect-form-card,
-        .history-section {
-            padding: 24px 28px;
-        }
-
         .section-title {
             font-size: 26px;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-        }
-
-        .section-title::after {
-            background: linear-gradient(90deg, rgba(23, 32, 51, 0.16), rgba(23, 32, 51, 0));
         }
 
         .form-label,
@@ -742,7 +699,7 @@
         </div>
 
         <!-- 检测表单 -->
-        <div class="detect-form-card">
+        <div class="detect-form-card surface-panel surface-panel--padded">
             <form id="detectForm" autocomplete="off">
                 <div class="form-row">
                     <div class="form-group form-group-half">
@@ -784,7 +741,7 @@
         <div class="detect-result" id="detectResult" style="display:none"></div>
 
         <!-- 检测历史 -->
-        <div class="history-section">
+        <div class="history-section surface-panel surface-panel--padded">
             <div class="section-title">
                 <span id="historySectionTitle"></span>
                 <button class="history-clear-btn" id="clearHistoryBtn" style="display:none" title=""></button>
@@ -922,13 +879,6 @@
         });
 
         // ── 工具函数 ──
-        function escapeHtml(text) {
-            if (text === null || text === undefined) return '';
-            var div = document.createElement('div');
-            div.textContent = String(text);
-            return div.innerHTML;
-        }
-
         function formatTime(isoStr) {
             var d = new Date(isoStr);
             var pad = function(n) { return n < 10 ? '0' + n : n; };
@@ -1384,7 +1334,7 @@
                 if (e.target === overlay) overlay.remove();
             });
 
-            var html = '<div class="history-detail-card">';
+            var html = '<div class="history-detail-card surface-panel surface-panel--padded">';
             html += '<button class="history-detail-close" title="' + escapeHtml(t('historyDetailCloseTitle')) + '">&times;</button>';
             html += '<h3>' + escapeHtml(t('historyDetailTitle')) + '</h3>';
 
