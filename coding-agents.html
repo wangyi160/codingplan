@@ -555,7 +555,7 @@
 
         function renderSourceSummary(sources) {
             if (!Array.isArray(sources) || sources.length === 0) {
-                return `<div class="meta-stack"><div class="badge-list"><span class="source-pill source-pill--unknown">${escapeHtml(getConfigValue('badges.unknown', '未明确'))}</span></div></div>`;
+                return `<div class="meta-stack"><div class="badge-list"><span class="source-pill source-pill--unknown">${escapeHtml(getConfigValue('badges.unknown', '待核实'))}</span></div></div>`;
             }
 
             const seenTypes = new Set();

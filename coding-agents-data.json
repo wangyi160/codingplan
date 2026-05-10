@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-09",
+  "generatedAt": "2026-05-12",
   "introNotes": [
-    "本页首版强调可读性，先把最常问的价格、额度、地区和 BYOK 情况做成双表格。",
-    "Gemini 的消费者订阅价格页在公开抓取时容易落到登录态页面，因此首版对 Gemini 价格采用谨慎展示策略，不强填未核验美元价格。"
+    "表格按可横向对比的计费维度整理（订阅价、tokens、请求、credits、时段额度等）；「对话轮数」列说明官方是否给出该口径。",
+    "Gemini 美国区公开标价来自 gemini.google/subscriptions（United States）；其他国家与币种以同页切换地区后为准。Google AI Plus/Pro 是否可在您所在国家/地区购买，以 Google One 帮助中心列出的支持国家为准（英文列表含港澳台等，但不包含「中国大陆」）。"
   ],
   "agents": [
     {
@@ -25,8 +25,7 @@
         "Slack 集成"
       ],
       "purchaseMethods": [
-        "信用卡（官方明确）",
-        "支付宝 / 微信 / 银联：官方未明确"
+        "信用卡或借记卡（Anthropic《Paid Plan Billing FAQs》：Pro / Max 仅接受 credit or debit cards）。"
       ],
       "mainlandAvailability": {
         "status": "no",
@@ -39,7 +38,7 @@
       },
       "remarks": [
         "Claude Code 的 usage 与 claude.ai / Claude Desktop 共用。",
-        "官方未提供固定对话轮数，只给 Pro 与 Max 的倍数关系。"
+        "用量以官方 usage limit 与 Pro / Max 倍率描述，不提供「每聊天固定轮数」。"
       ],
       "sources": [
         {
@@ -66,6 +65,11 @@
           "type": "official",
           "label": "Anthropic supported countries",
           "url": "https://www.anthropic.com/supported-countries"
+        },
+        {
+          "type": "official",
+          "label": "Paid Plan Billing FAQs（支付方式）",
+          "url": "https://support.anthropic.com/en/articles/8325618-paid-plan-billing-faqs"
         }
       ]
     },
@@ -90,16 +94,16 @@
         "MCP / Skills / Hooks"
       ],
       "purchaseMethods": [
-        "官方未明确个人版支付方式"
+        "信用卡或借记卡；通过 Stripe 客户门户管理扣款（见 Cursor Docs：Billing and payments、Payment issues）。"
       ],
       "mainlandAvailability": {
         "status": "partial",
-        "text": "官方未明确；中国大陆网络与支付情况需自测。"
+        "text": "公开文档未列国家/地区禁运表；订阅由 Stripe 处理，能否成功取决于账单地址、发卡行跨境策略与本地网络环境。"
       },
-      "regionRestriction": "官方价格页与模型定价页未列出国家/地区限制。",
+      "regionRestriction": "定价与模型文档未给出单独的国家/地区矩阵；以账户与 Stripe 门户实际限制为准。",
       "supportsCustomApi": {
-        "status": "unknown",
-        "text": "个人版公开价格资料未明确 BYOK / 自定义 URL 规则。"
+        "status": "partial",
+        "text": "官方文档支持在设置中为 OpenAI、Anthropic、Google、Azure OpenAI、AWS Bedrock 等添加自有 API Key，聊天模型按各厂商计费；Tab 补全仍使用 Cursor 内置模型，且请求会经 Cursor 后端转发（非全路径本地化 BYOK）。"
       },
       "remarks": [
         "个人版至少包含 20 美元 API 用量，高档位包含更多。",
@@ -115,6 +119,21 @@
           "type": "official",
           "label": "Cursor 模型与价格",
           "url": "https://cursor.com/cn/docs/models-and-pricing"
+        },
+        {
+          "type": "official",
+          "label": "Bring your own API key（Cursor Docs）",
+          "url": "https://cursor.com/docs/settings/api-keys"
+        },
+        {
+          "type": "official",
+          "label": "Billing and payments（Cursor Docs）",
+          "url": "https://cursor.com/docs/account/billing"
+        },
+        {
+          "type": "official",
+          "label": "Payment issues（Cursor Docs）",
+          "url": "https://cursor.com/help/account-and-billing/payment-issues"
         }
       ]
     },
@@ -140,19 +159,20 @@
         "多平台集成"
       ],
       "purchaseMethods": [
-        "官方计划页未明确个人版支付方式"
+        "个人账号：银行卡或 PayPal（GitHub Docs：Managing your payment and billing information）。"
       ],
       "mainlandAvailability": {
         "status": "partial",
-        "text": "官方计划页未单列中国大陆限制；实际可用性取决于账号、网络和结算环境。"
+        "text": "Copilot 随 GitHub 账户计费；GitHub 服务在中国大陆网络环境可能受限，且需可跨境结算的支付方式。"
       },
-      "regionRestriction": "官方计划页未给出完整地区限制说明。",
+      "regionRestriction": "计划营销页未列完整地区矩阵；出口管制、账户地区与 GitHub Billing 政策见 GitHub 文档与条款。",
       "supportsCustomApi": {
         "status": "no",
         "text": "个人版不提供自定义推理 URL 或 BYOK 模式。"
       },
       "remarks": [
-        "Pro 含 300 premium requests。",
+        "GitHub Docs《About billing for individual GitHub Copilot plans》记载：自 2026-04-20 起个人 Copilot Pro / Pro+ / 学生计划新订阅曾暂停；自 2026-06-01 起个人计费向用量制过渡；以该页最新说明为准。",
+        "Pro 含 300 premium requests（在现行 request 制下，见计划页）。",
         "Pro+ 含 Pro 的 5 倍 premium requests，并开放更多模型。"
       ],
       "sources": [
@@ -165,6 +185,16 @@
           "type": "official",
           "label": "Supported AI models in Copilot",
           "url": "https://docs.github.com/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot"
+        },
+        {
+          "type": "official",
+          "label": "About billing for individual Copilot plans",
+          "url": "https://docs.github.com/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/billing-and-payments/about-billing-for-individual-copilot-plans"
+        },
+        {
+          "type": "official",
+          "label": "Managing payment and billing information",
+          "url": "https://docs.github.com/billing/managing-your-billing/managing-your-payment-and-billing-information"
         }
       ]
     },
@@ -250,20 +280,20 @@
         "大上下文窗口"
       ],
       "purchaseMethods": [
-        "官方公开帮助页未列出具体支付方式"
+        "随 Google 账户在 Google One / Google Play 等标准渠道扣款；常见为银行卡（Visa、Mastercard 等），部分地区支持 PayPal 等（Google Play 帮助：Accepted payment methods，因国家/地区而异）。"
       ],
       "mainlandAvailability": {
-        "status": "unknown",
-        "text": "官方帮助页公开抓取结果未能确认中国大陆是否在支持地区内。"
+        "status": "partial",
+        "text": "Google One 帮助中心公布的「Google AI Plus」「Google AI Pro」支持国家与地区列表均不含「中国大陆」（含香港、澳门、台湾及多数其他国家/地区）。Gemini Web 国家列表另将「中国大陆」标为「仅限 Workspace」，与消费者个人订阅不是同一路径。"
       },
-      "regionRestriction": "Google AI Plus / Pro / Ultra 仅在官方支持国家/地区推出，且不同计划覆盖范围不同。",
+      "regionRestriction": "各档位支持国家以 Google One / Gemini 帮助中心列表为准；Ultra 另见 Gemini 应用帮助中的 Ultra 支持国家说明。",
       "supportsCustomApi": {
         "status": "no",
         "text": "这里对比的是 Gemini 应用订阅，不是 Gemini API / AI Studio。"
       },
       "remarks": [
-        "Gemini 价格页公开抓取容易落到登录页，首版不强填未核验价格。",
-        "这里比较的是 Gemini 应用个人订阅，不是 Gemini Code Assist。"
+        "美国区订阅页（United States）公开标价：Google AI Plus $7.99/月、Google AI Pro $19.99/月、Google AI Ultra $249.99/月（gemini.google/subscriptions）。",
+        "本行对比 Gemini 应用个人订阅；订阅权益中还包含 Google One 存储等捆绑项，以官网说明为准。"
       ],
       "sources": [
         {
@@ -273,8 +303,28 @@
         },
         {
           "type": "official",
-          "label": "Gemini subscriptions",
+          "label": "Gemini subscriptions（标价）",
           "url": "https://gemini.google/subscriptions"
+        },
+        {
+          "type": "official",
+          "label": "Gemini Web 支持的国家和地区",
+          "url": "https://support.google.com/gemini/answer/13575153?hl=zh-Hans"
+        },
+        {
+          "type": "official",
+          "label": "Google AI Plus 支持国家",
+          "url": "https://support.google.com/googleone/answer/16548195?hl=en"
+        },
+        {
+          "type": "official",
+          "label": "Google AI Pro 支持国家",
+          "url": "https://support.google.com/googleone/answer/16476811?hl=en"
+        },
+        {
+          "type": "official",
+          "label": "Google Play accepted payment methods",
+          "url": "https://support.google.com/googleplay/answer/2651410"
         }
       ]
     },
@@ -302,13 +352,13 @@
         "免费模型兜底"
       ],
       "purchaseMethods": [
-        "官方未明确公开支付方式"
+        "在 OpenCode Zen 控制台订阅 Go；官方文档未逐条列出卡组织，订阅按美元计价，以结账页实际支持的支付方式为准。"
       ],
       "mainlandAvailability": {
         "status": "partial",
-        "text": "官方称主要为国际用户设计，中国大陆可用性与支付路径需自测。"
+        "text": "官方文档写明主要面向国际用户、模型托管在美/欧/新；无单独「中国大陆可购」声明，能否完成美元订阅取决于支付通道与风控。"
       },
-      "regionRestriction": "模型托管在 US / EU / Singapore，官方未给出更细的地区白名单。",
+      "regionRestriction": "模型托管在美国、欧盟、新加坡；公开资料未提供按国家/地区的细粒度白名单。",
       "supportsCustomApi": {
         "status": "yes",
         "text": "提供 API Key 与 API endpoint，可在其他 agent 中使用。"
@@ -365,7 +415,7 @@
         "status": "yes",
         "text": "官方支持支付宝，面向中文用户较友好。"
       },
-      "regionRestriction": "官方价格页未列出地区禁用清单。",
+      "regionRestriction": "公开价格页未列出国家或地区禁用表。",
       "supportsCustomApi": {
         "status": "yes",
         "text": "支持自有 API Key / Custom Models；部分固定功能仍消耗 Qoder Credits。"
@@ -422,8 +472,8 @@
       },
       "regionRestriction": "国内版站点与文档面向中国大陆；公开个人付费套餐未见单独价格页。",
       "supportsCustomApi": {
-        "status": "unknown",
-        "text": "公开个人版资料未明确是否支持自定义模型或 API Key。"
+        "status": "partial",
+        "text": "TRAE CN 文档含「模型管理」等说明，IDE 内一般可配置自有或第三方模型凭据；个人免费档权益页未单独展开 BYOK 文案，以当前版本设置项为准。"
       },
       "remarks": [
         "首版仅纳入个人免费版，不纳入企业版 49 / 99 / 199 元档。",
@@ -434,6 +484,11 @@
           "type": "official",
           "label": "Trae 国内版 Pricing",
           "url": "https://www.trae.cn/pricing"
+        },
+        {
+          "type": "secondary",
+          "label": "TRAE CN 文档：模型管理",
+          "url": "https://docs.trae.cn/ide/model-settings-for-trae-enterprise"
         }
       ]
     },
@@ -464,11 +519,11 @@
         "自定义请求地址"
       ],
       "purchaseMethods": [
-        "多数主流支付方式（官网未逐项列明）"
+        "定价页 FAQ 写明升级支持 most payment methods；细则以 trae.ai 结账页与 https://docs.trae.ai/ide/billing 为准。"
       ],
       "mainlandAvailability": {
         "status": "partial",
-        "text": "国际版公开资料未单列中国大陆可用性，网络和结算需自测。"
+        "text": "国际站未单独列出中国大陆政策；访问 GitHub 系服务与跨境支付是否可行取决于网络环境与发卡行。"
       },
       "regionRestriction": "部分模型有地区差异，例如文档注明部分模型在美国不可用。",
       "supportsCustomApi": {
@@ -494,6 +549,11 @@
           "type": "official",
           "label": "Trae Pricing docs",
           "url": "https://docs.trae.ai/pricing"
+        },
+        {
+          "type": "official",
+          "label": "Trae IDE billing",
+          "url": "https://docs.trae.ai/ide/billing"
         }
       ]
     }
@@ -506,7 +566,7 @@
       "planName": "Pro",
       "price": "$20/月 或 $17/月（年付折算）",
       "usageIncluded": "包含 Claude Code、Claude Cowork 与更多 Claude 使用额度；支持 Sonnet 4.6 和 Opus 4.7。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "Research",
         "Projects",
@@ -536,7 +596,7 @@
       "planName": "Max 5x",
       "price": "$100/月",
       "usageIncluded": "大约为 Pro 的 5 倍使用额度。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "更高输出上限",
         "高峰时段优先访问"
@@ -559,7 +619,7 @@
       "planName": "Max 20x",
       "price": "$200/月",
       "usageIncluded": "大约为 Pro 的 20 倍使用额度。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "更高输出上限",
         "高峰时段优先访问",
@@ -583,7 +643,7 @@
       "planName": "Hobby",
       "price": "$0/月",
       "usageIncluded": "有限的智能体请求次数，有限的 Tab 补全次数。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "无需信用卡",
         "基础体验"
@@ -606,7 +666,7 @@
       "planName": "Pro",
       "price": "$20/月",
       "usageIncluded": "$20 API 用量，外加充足的 Auto / Composer 用量、无限 Tab 补全与扩展 Agent 限额。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "MCP / Skills / Hooks",
         "Cloud Agents",
@@ -635,7 +695,7 @@
       "planName": "Pro+",
       "price": "$60/月",
       "usageIncluded": "$70 API 用量，约为 Pro 的 3 倍高端模型使用量。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "优先体验更多模型用量"
       ],
@@ -662,7 +722,7 @@
       "planName": "Ultra",
       "price": "$200/月",
       "usageIncluded": "$400 API 用量，约为 Pro 的 20 倍高端模型使用量。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "优先使用新功能"
       ],
@@ -689,7 +749,7 @@
       "planName": "Free",
       "price": "$0/月",
       "usageIncluded": "50 次 agent mode 或 chat 请求 / 月，2,000 次 completions / 月。",
-      "conversationEstimate": "官方未给对话轮数换算。",
+      "conversationEstimate": "无「轮数」维度；计量以 premium requests 等为准。",
       "extraFeatures": [
         "Copilot CLI",
         "Haiku 4.5 / GPT-5 mini 等模型访问"
@@ -712,7 +772,7 @@
       "planName": "Pro",
       "price": "$10/月",
       "usageIncluded": "300 premium requests，GPT-5 mini 的 agent mode / chats 无上限，inline suggestions 无上限。",
-      "conversationEstimate": "官方未给对话轮数换算。",
+      "conversationEstimate": "无「轮数」维度；计量以 premium requests 等为准。",
       "extraFeatures": [
         "Copilot cloud agent",
         "Copilot code review",
@@ -736,7 +796,7 @@
       "planName": "Pro+",
       "price": "$39/月",
       "usageIncluded": "Pro 的 5 倍 premium requests，含 Opus 4.7 等全部模型访问。",
-      "conversationEstimate": "官方未给对话轮数换算。",
+      "conversationEstimate": "无「轮数」维度；计量以 premium requests 等为准。",
       "extraFeatures": [
         "全模型访问",
         "GitHub Spark"
@@ -759,7 +819,7 @@
       "planName": "Free",
       "price": "$0/月",
       "usageIncluded": "限量体验 Codex，旗舰模型与消息、上传、图片生成、深入研究均有限。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "限量使用 GPT-5.3"
       ],
@@ -781,7 +841,7 @@
       "planName": "Go",
       "price": "$8/月",
       "usageIncluded": "比免费版更高的 Codex 使用量、更高消息量、更高上传量与图片生成配额。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "访问最新模型"
       ],
@@ -904,7 +964,7 @@
       "planName": "Free",
       "price": "$0/月",
       "usageIncluded": "Gemini 应用基础访问，免费层也有提示与功能上限。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "Gemini 基础体验"
       ],
@@ -924,15 +984,15 @@
       "agentSortOrder": 5,
       "planSortOrder": 2,
       "planName": "Google AI Plus",
-      "price": "按地区定价（公开抓取未稳定拿到价格）",
+      "price": "$7.99/月（美国区 United States，gemini.google/subscriptions 公开标价；其他地区以同页为准）",
       "usageIncluded": "比免费层更高的 Gemini 3.1 Pro 访问与功能配额；Google 公开文案说明覆盖 160+ 国家。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "更高访问量",
         "更多新功能"
       ],
       "remarks": [
-        "首版不填未核验美元价格。"
+        "可购国家与地区见 Google One 帮助「Get a Google AI Plus membership」列表；该列表不含中国大陆。"
       ],
       "sources": [
         {
@@ -944,6 +1004,11 @@
           "type": "official",
           "label": "Gemini 应用用量限额与升级",
           "url": "https://support.google.com/gemini/answer/16275805?hl=zh-Hans"
+        },
+        {
+          "type": "official",
+          "label": "Google AI Plus 支持国家",
+          "url": "https://support.google.com/googleone/answer/16548195?hl=en"
         }
       ]
     },
@@ -952,15 +1017,15 @@
       "agentSortOrder": 5,
       "planSortOrder": 3,
       "planName": "Google AI Pro",
-      "price": "按地区定价（公开抓取未稳定拿到价格）",
+      "price": "$19.99/月（美国区 United States，gemini.google/subscriptions 公开标价；其他地区以同页为准）",
       "usageIncluded": "更高的每日提示上限、更大的上下文窗口，以及更高的 Deep Research、视频、图片等能力配额。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "Gemini 3.1 Pro",
         "更高 Deep Research 配额"
       ],
       "remarks": [
-        "帮助中心公开写明 Pro 和 Ultra 已在 150+ 国家推出。"
+        "可购国家与地区见 Google One 帮助「Get a Google AI Pro membership」列表；该列表不含中国大陆。"
       ],
       "sources": [
         {
@@ -972,6 +1037,11 @@
           "type": "official",
           "label": "Gemini subscriptions",
           "url": "https://gemini.google/subscriptions"
+        },
+        {
+          "type": "official",
+          "label": "Google AI Pro 支持国家",
+          "url": "https://support.google.com/googleone/answer/16476811?hl=en"
         }
       ]
     },
@@ -980,15 +1050,16 @@
       "agentSortOrder": 5,
       "planSortOrder": 4,
       "planName": "Google AI Ultra",
-      "price": "按地区定价（公开抓取未稳定拿到价格）",
+      "price": "$249.99/月（美国区 United States，gemini.google/subscriptions 公开标价；其他地区以同页为准）",
       "usageIncluded": "最高档访问量与配额，官方帮助页列出最高的 Agent、Deep Think、视频和图片上限。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "Deep Think",
         "最高 Agent 配额",
         "最高视频 / 图片配额"
       ],
       "remarks": [
+        "订阅页注明部分能力（如 Deep Think、Gemini Agent）为 US only、English only；Ultra 支持国家另见 Gemini 帮助。",
         "适合把 Gemini 当主力通用 AI 工作台的重度用户。"
       ],
       "sources": [
@@ -1011,7 +1082,7 @@
       "planName": "Go",
       "price": "$5 首月，之后 $10/月",
       "usageIncluded": "5 小时 12 美元额度、每周 30 美元额度、每月 60 美元额度；按模型不同约等于每 5 小时 880 到 31,650 次请求。",
-      "conversationEstimate": "官方给的是按模型估算请求数，不是固定对话轮数。",
+      "conversationEstimate": "无「轮数」口径；官方给按模型的估算请求数区间。",
       "extraFeatures": [
         "API Key",
         "任意 agent 接入",
@@ -1041,7 +1112,7 @@
       "planName": "社区版",
       "price": "$0/月",
       "usageIncluded": "14 天 Pro 试用 + 300 Credits，基础模型可免费使用，但消息和补全有限。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "支持自有 API Key",
         "限量补全与 NES 预测"
@@ -1069,7 +1140,7 @@
       "planName": "Pro",
       "price": "$20/月",
       "usageIncluded": "每月 2,000 Credits；提供更多代码补全、智能问答和智能体请求。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "Quest Mode",
         "Repo Wiki"
@@ -1092,7 +1163,7 @@
       "planName": "Pro+",
       "price": "$60/月",
       "usageIncluded": "每月 6,000 Credits。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "更多高级模型额度",
         "优先体验新功能"
@@ -1115,7 +1186,7 @@
       "planName": "Ultra",
       "price": "$200/月",
       "usageIncluded": "每月 20,000 Credits。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "最高个人额度",
         "优先体验新功能"
@@ -1138,13 +1209,13 @@
       "planName": "个人版",
       "price": "¥0/月",
       "usageIncluded": "公开权益对比显示个人版支持免费使用，约 30M 会话 Tokens + 10M 补全 Tokens。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "Chat / Builder / Agent / MCP / Rules",
         "TRAE IDE"
       ],
       "remarks": [
-        "未见公开个人付费套餐；企业版价格不纳入本页。"
+        "本页只写个人免费档；企业版定价见同页企业方案。"
       ],
       "sources": [
         {
@@ -1161,7 +1232,7 @@
       "planName": "Free",
       "price": "$0/月",
       "usageIncluded": "Monthly Basic Usage limited，Autocomplete 5,000 / 月，2 个并发 cloud tasks。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "Limited SOLO",
         "基础体验"
@@ -1184,7 +1255,7 @@
       "planName": "Lite",
       "price": "$3/月",
       "usageIncluded": "$5 Basic usage + Bonus usage，无限 Autocomplete，最多 2 个并发 cloud tasks。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "付费入口最低档"
       ],
@@ -1206,7 +1277,7 @@
       "planName": "Pro",
       "price": "$10/月",
       "usageIncluded": "$20 Basic usage + Bonus usage，无限 Autocomplete，TRAE IDE - SOLO mode，最多 10 个并发 cloud tasks。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "TRAE SOLO",
         "Fast queue"
@@ -1229,7 +1300,7 @@
       "planName": "Pro+",
       "price": "$30/月",
       "usageIncluded": "$90 Basic usage + Bonus usage，约为 Pro 的 3.5 倍使用量，最多 15 个并发 cloud tasks。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "更高并发任务数"
       ],
@@ -1251,7 +1322,7 @@
       "planName": "Ultra",
       "price": "$100/月",
       "usageIncluded": "$400 Basic usage + Bonus usage，约为 Pro 的 20 倍使用量，最多 20 个并发 cloud tasks。",
-      "conversationEstimate": "官方未提供固定轮数。",
+      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
       "extraFeatures": [
         "Model Early Access",
         "最高并发任务数"
@@ -1269,12 +1340,36 @@
     }
   ],
   "notes": [
-    "价格、模型和限制可能频繁变动，请以官方最新页面为准。",
-    "本页优先用官方资料；如果某些字段只能用二级来源补齐，会在行内标注“二级来源”。",
-    "Gemini 的消费者价格页在公开抓取时容易要求登录，因此首版先以额度、功能和地区说明为主，不强填未核验价格。",
-    "“是否支持自己的 Url/API Key” 字段按个人版常见使用路径理解：如果只是另有 API 产品，但当前个人订阅本身不走 BYOK，也会标为“不支持”或“部分支持”。"
+    "价格、模型与限额会变动，以各产品官网与账户内展示为准。",
+    "行内「二级来源」表示该要点来自社区或文档镜像，与官网不一致时请以官网为准。",
+    "Gemini：美国区标价取自 gemini.google/subscriptions；Google AI Plus/Pro 是否在本地可购以 Google One 帮助中心列出的支持国家为准（当前英文列表均不含中国大陆）。",
+    "「是否支持自己的 Url/API Key」按个人版主路径理解：聊天可走自有 Key 但补全仍走官方池的，标为「部分支持」；另有独立 API 产品但个人订阅不主打开关的，标为「不支持」或「部分支持」并写在说明里。"
   ],
   "updates": [
+    {
+      "date": "2026.5.12",
+      "items": [
+        "按官网核对支付方式：Claude（Anthropic FAQ 仅卡）、Cursor（Stripe 卡类）、GitHub Copilot（卡/PayPal）、Gemini（Google Play 帮助列常见卡与 PayPal 等）、OpenCode（Zen 美元结账）、Trae 国际（定价页 FAQ most payment methods）。",
+        "写入 Gemini 美国区公开标价（Plus/Pro/Ultra）并引用 Google One 国家列表说明中国大陆不在 Google AI Plus/Pro 可购列表。",
+        "补充 GitHub Copilot 个人计费文档中的政策节点（如新订阅暂停、向用量制过渡等，以 GitHub Docs 为准）。"
+      ]
+    },
+    {
+      "date": "2026.5.11",
+      "items": [
+        "统一收紧措辞：含糊说法改为指向官网、结账流与账户地区的表述。",
+        "套餐表「对话轮数」列改为说明与官方计量口径的关系；Gemini 价格改为「见订阅页」占位。",
+        "配置里灰标文案调整：如「中国大陆条件型」「待核实」等，避免读者误以为整页不可靠。"
+      ]
+    },
+    {
+      "date": "2026.5.10",
+      "items": [
+        "据 Cursor 官方文档：自有 API Key 标为「部分支持」（聊天可用自有 Key，Tab 补全仍走内置模型）。",
+        "据 Google Gemini 帮助页：中国大陆在 Web 端列表中标为「仅限 Workspace」。",
+        "Trae 国内版「自有 API」补充 TRAE CN 文档链接并标为「部分支持」。"
+      ]
+    },
     {
       "date": "2026.5.9",
       "items": [
