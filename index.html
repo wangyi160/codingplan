@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Plan 对比工具 - 国内主流AI平台套餐对比</title>
     <link rel="icon" href="/favicon.ico?v=260418" type="image/x-icon">
-    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/shared.css?v=260510">
     <style>
         .header .models {
             color: var(--text-tertiary);
@@ -1308,6 +1308,260 @@
             }
         }
 
+        .hero-summary {
+            margin-top: -2px;
+        }
+
+        .hero-summary-card strong {
+            color: var(--text-primary);
+        }
+
+        .header .models {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .filter-bar {
+            margin-bottom: 24px;
+            padding: 18px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 28px;
+            background: rgba(255, 251, 245, 0.84);
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(8px);
+        }
+
+        .filter-btn,
+        .reset-btn,
+        .checkbox-label,
+        .stats-bar {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(23, 32, 51, 0.08);
+            box-shadow: 0 10px 20px rgba(23, 32, 51, 0.05);
+        }
+
+        .filter-btn,
+        .reset-btn {
+            min-height: 42px;
+            border-radius: 999px;
+        }
+
+        .filter-btn:hover,
+        .checkbox-label:hover {
+            background: rgba(15, 118, 110, 0.08);
+            border-color: rgba(15, 118, 110, 0.2);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, rgba(15, 118, 110, 0.12), rgba(198, 107, 26, 0.12));
+            border-color: rgba(15, 118, 110, 0.2);
+            color: #154d77;
+        }
+
+        .filter-btn .count {
+            background: linear-gradient(135deg, #173753, #0f766e);
+            box-shadow: 0 4px 10px rgba(23, 55, 83, 0.18);
+        }
+
+        .dropdown-menu {
+            background: rgba(255, 251, 245, 0.95);
+            border-radius: 22px;
+        }
+
+        .radio-label,
+        .account-card,
+        .contact-section {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(23, 32, 51, 0.08);
+            border-radius: 18px;
+        }
+
+        .radio-label:hover,
+        .dropdown-btn.secondary:hover {
+            background: rgba(15, 118, 110, 0.08);
+            border-color: rgba(15, 118, 110, 0.18);
+        }
+
+        .dropdown-btn.primary {
+            background: linear-gradient(135deg, #173753, #0f766e);
+        }
+
+        .reset-btn:hover {
+            background: rgba(198, 107, 26, 0.08);
+            border-color: rgba(198, 107, 26, 0.2);
+            color: #945512;
+        }
+
+        .checkbox-label {
+            min-height: 42px;
+            padding: 0 14px;
+            border-radius: 999px;
+        }
+
+        .checkbox-label:has(input:checked) {
+            background: rgba(15, 118, 110, 0.12);
+            border-color: rgba(15, 118, 110, 0.2);
+        }
+
+        .stats-bar {
+            min-height: 42px;
+            padding: 0 14px;
+            border-radius: 999px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        .stats-bar strong {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .table-wrapper {
+            background: rgba(255, 251, 245, 0.84);
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(8px);
+        }
+
+        .table-watermark-line {
+            opacity: 0.09;
+        }
+
+        thead {
+            background: transparent;
+        }
+
+        th,
+        th.sticky-first,
+        th.sticky-second {
+            background: rgba(20, 35, 55, 0.96);
+            color: rgba(248, 252, 255, 0.86);
+            border-bottom: 1px solid rgba(23, 32, 51, 0.08);
+            letter-spacing: 0.04em;
+        }
+
+        th:hover {
+            background: rgba(20, 35, 55, 0.96);
+            color: rgba(248, 252, 255, 0.86);
+        }
+
+        td {
+            background: rgba(255, 251, 245, 0.92);
+        }
+
+        tbody tr:nth-child(even) td {
+            background: rgba(248, 242, 231, 0.9);
+        }
+
+        tbody tr:hover td {
+            background: rgba(232, 246, 243, 1);
+        }
+
+        td.sticky-first,
+        td.sticky-second {
+            background: linear-gradient(90deg, rgba(255, 251, 245, 1) 0%, rgba(255, 251, 245, 1) 86%, rgba(255, 251, 245, 0) 100%);
+        }
+
+        tbody tr:nth-child(even) td.sticky-first,
+        tbody tr:nth-child(even) td.sticky-second {
+            background: linear-gradient(90deg, rgba(248, 242, 231, 1) 0%, rgba(248, 242, 231, 1) 86%, rgba(248, 242, 231, 0) 100%);
+        }
+
+        tbody tr:hover td.sticky-first,
+        tbody tr:hover td.sticky-second {
+            background: linear-gradient(90deg, rgba(232, 246, 243, 1) 0%, rgba(232, 246, 243, 1) 86%, rgba(232, 246, 243, 0) 100%);
+            box-shadow: none;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #173753, #0f766e);
+            border: 1px solid transparent;
+            border-radius: 999px;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(23, 55, 83, 0.18);
+        }
+
+        .action-btn:hover {
+            background: linear-gradient(135deg, #122d45, #0b5c56);
+            border-color: transparent;
+        }
+
+        .recommendation-card {
+            background: rgba(255, 251, 245, 0.84);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 28px;
+            backdrop-filter: blur(8px);
+        }
+
+        .recommendation-card:hover {
+            border-color: rgba(15, 118, 110, 0.2);
+        }
+
+        .recommendation-header {
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .recommendation-name-link:hover {
+            color: #154d77;
+        }
+
+        .rating-guide {
+            padding: 16px 18px;
+            border-radius: 20px;
+            background: rgba(255, 251, 245, 0.84);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: var(--shadow-sm);
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        .account-sale-section {
+            margin-top: 30px;
+            padding: 24px 28px;
+            border-top: none;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            background: rgba(255, 251, 245, 0.84);
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(8px);
+        }
+
+        .account-sale-section h3 {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .account-sale-section .description {
+            line-height: 1.75;
+        }
+
+        @media (max-width: 1200px) {
+            .stats-bar {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .filter-bar {
+                padding: 16px;
+            }
+
+            .hero-summary {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .filter-bar,
+            .table-wrapper,
+            .account-sale-section,
+            .recommendation-card {
+                border-radius: 22px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1354,6 +1608,24 @@
             <div class="update-date" id="updateDate">更新日期2026.3</div>
             <div class="subtitle" id="subtitle">火山引擎方舟、阿里云百炼、Kimi、智谱、MiniMax Coding Plan，全面对比</div>
             <div class="models" id="models">支持Doubao Seed 2.0，Qwen 3.5，MiniMax M2.5、GLM-5、Kimi-k2.5等模型</div>
+        </div>
+
+        <div class="hero-summary">
+            <article class="hero-summary-card hero-summary-card--accent">
+                <div class="hero-summary-kicker">How To Choose</div>
+                <h2 class="hero-summary-title">先看推荐，再用筛选器缩小范围</h2>
+                <p class="hero-summary-body">这页最适合做第一轮排除。先看平台推荐和趋势判断，再按价格、请求数、Token 上限和模型把候选压到 2 到 3 个。</p>
+            </article>
+            <article class="hero-summary-card">
+                <div class="hero-summary-kicker">What Matters</div>
+                <h2 class="hero-summary-title">别只盯月费，额度口径更关键</h2>
+                <p class="hero-summary-body">不同平台会把价值藏在请求数、Token 上限、模型独占和附加权益里。真正影响体感的是你常用工作流能跑多久。</p>
+            </article>
+            <article class="hero-summary-card hero-summary-card--warm">
+                <div class="hero-summary-kicker">Market Signal</div>
+                <h2 class="hero-summary-title">Coding Plan 正在收缩，替代方案要提前看</h2>
+                <p class="hero-summary-body">如果目标平台已经开始转向 Token Plan，就要顺手评估它的长期成本和补位平台，避免后面只能被动切换。</p>
+            </article>
         </div>
 
         <!-- 平台推荐 -->

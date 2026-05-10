@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="pageTitle"></title>
     <link rel="icon" href="/favicon.ico?v=260418" type="image/x-icon">
-    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/shared.css?v=260510">
     <script src="scripts/relay-detect-config.local.js"></script>
     <script src="scripts/relay-detect-config.js"></script>
     <script src="scripts/shared.js"></script>
@@ -509,6 +509,176 @@
             .history-table tbody td { padding: 8px 10px; }
             .form-row { flex-direction: column; gap: 0; }
         }
+        .hero-summary {
+            margin-top: -2px;
+        }
+
+        .detect-form-card,
+        .history-section,
+        .history-detail-card {
+            background: rgba(255, 251, 245, 0.84);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 28px;
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(8px);
+        }
+
+        .detect-form-card,
+        .history-section {
+            padding: 24px 28px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        .section-title::after {
+            background: linear-gradient(90deg, rgba(23, 32, 51, 0.16), rgba(23, 32, 51, 0));
+        }
+
+        .form-label,
+        .form-label .form-hint,
+        .verdict-info p,
+        .matrix-filter-result,
+        .context-bar,
+        .history-empty,
+        .result-error p {
+            line-height: 1.72;
+        }
+
+        .form-input,
+        .combo-input,
+        .history-clear-btn {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(23, 32, 51, 0.08);
+            border-radius: 18px;
+            box-shadow: 0 10px 20px rgba(23, 32, 51, 0.05);
+        }
+
+        .form-input,
+        .combo-input {
+            min-height: 46px;
+            padding: 12px 16px;
+        }
+
+        .form-input:focus,
+        .combo-input:focus,
+        .combo-toggle-btn:focus-visible {
+            border-color: rgba(15, 118, 110, 0.28);
+            box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.08);
+        }
+
+        .combo-dropdown {
+            margin-top: 8px;
+            background: rgba(255, 251, 245, 0.96);
+            border-radius: 18px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .combo-option:hover,
+        .combo-option.highlighted {
+            background: rgba(15, 118, 110, 0.08);
+        }
+
+        .combo-custom-option {
+            color: #154d77;
+        }
+
+        .submit-btn {
+            min-height: 48px;
+            padding: 12px 24px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #173753, #0f766e);
+            box-shadow: 0 12px 24px rgba(23, 55, 83, 0.18);
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #122d45, #0b5c56);
+        }
+
+        .verdict-card {
+            padding: 22px 24px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.68);
+            border-color: rgba(23, 32, 51, 0.08);
+            box-shadow: 0 10px 20px rgba(23, 32, 51, 0.05);
+        }
+
+        .verdict-card.pass {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(255, 255, 255, 0.7));
+        }
+
+        .verdict-card.warning {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(255, 255, 255, 0.7));
+        }
+
+        .verdict-card.fail {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(255, 255, 255, 0.7));
+        }
+
+        .eval-item,
+        .context-bar,
+        .result-error,
+        .history-table,
+        .history-detail-card {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(23, 32, 51, 0.08);
+            box-shadow: 0 10px 20px rgba(23, 32, 51, 0.05);
+        }
+
+        .eval-item {
+            border-radius: 18px;
+        }
+
+        .context-bar {
+            border-radius: 18px;
+            background: rgba(239, 246, 244, 0.8);
+        }
+
+        .history-table {
+            overflow: hidden;
+            border-radius: 24px;
+        }
+
+        .history-table thead th {
+            background: rgba(20, 35, 55, 0.96);
+            color: rgba(248, 252, 255, 0.86);
+            letter-spacing: 0.04em;
+        }
+
+        .history-table tbody td {
+            background: rgba(255, 251, 245, 0.92);
+        }
+
+        .history-table tbody tr:nth-child(even) td {
+            background: rgba(248, 242, 231, 0.9);
+        }
+
+        .history-table tbody tr:hover td {
+            background: rgba(232, 246, 243, 1);
+        }
+
+        .history-clear-btn {
+            padding: 8px 14px;
+            border-radius: 999px;
+        }
+
+        .history-clear-btn:hover {
+            background: rgba(239, 68, 68, 0.08);
+            border-color: rgba(239, 68, 68, 0.24);
+        }
+
+        .history-detail-card {
+            padding: 28px;
+        }
+
+        @media (max-width: 900px) {
+            .hero-summary {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -551,6 +721,24 @@
             </a>
             <h1 id="pageHeading"></h1>
             <p class="subtitle" id="pageSubtitle"></p>
+        </div>
+
+        <div class="hero-summary">
+            <article class="hero-summary-card hero-summary-card--accent">
+                <div class="hero-summary-kicker">Quick Check</div>
+                <h2 class="hero-summary-title">先测接口路径和模型，再决定是否继续充值</h2>
+                <p class="hero-summary-body">这页适合做上线前排雷。填入 base URL、模型和 key 后，可以先判断它是不是你预期的那种中转能力，而不是先买再踩坑。</p>
+            </article>
+            <article class="hero-summary-card">
+                <div class="hero-summary-kicker">Reading Result</div>
+                <h2 class="hero-summary-title">看总判定，也看每项评估的分布</h2>
+                <p class="hero-summary-body">最终结论只是入口，真正有用的是每个评估项的通过、警告和失败分布，这能帮助你定位是模型、协议还是服务商策略在出问题。</p>
+            </article>
+            <article class="hero-summary-card hero-summary-card--warm">
+                <div class="hero-summary-kicker">History</div>
+                <h2 class="hero-summary-title">保留本地历史，方便横向复检</h2>
+                <p class="hero-summary-body">做完一次检测后，建议顺手和别的 base URL、别的模型对比。历史记录保留下来之后，差异会更容易看出来。</p>
+            </article>
         </div>
 
         <!-- 检测表单 -->

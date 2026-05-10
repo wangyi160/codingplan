@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="pageTitle"></title>
     <link rel="icon" href="/favicon.ico?v=260418" type="image/x-icon">
-    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/shared.css?v=260510">
     <script src="scripts/plan-usage-config.local.js"></script>
     <script src="scripts/plan-usage-config.js"></script>
     <script src="scripts/shared.js"></script>
@@ -1067,6 +1067,183 @@
                 max-width: none;
             }
         }
+        .hero-summary {
+            margin-top: -2px;
+        }
+
+        .intro-card,
+        .submit-card,
+        .result-card,
+        .records-card {
+            border-radius: 28px;
+            background: rgba(255, 251, 245, 0.84);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(8px);
+        }
+
+        .intro-card,
+        .submit-card,
+        .records-card {
+            padding: 24px 28px;
+        }
+
+        .section-title {
+            font-size: 27px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .section-title::after {
+            background: linear-gradient(90deg, rgba(23, 32, 51, 0.16), rgba(23, 32, 51, 0));
+        }
+
+        .section-description,
+        .intro-card p,
+        .submit-note,
+        .records-meta-secondary,
+        .cell-subtext,
+        .field-help-text,
+        .estimates-hint {
+            line-height: 1.78;
+            color: var(--text-secondary);
+        }
+
+        .field-label {
+            font-size: 13px;
+            letter-spacing: 0.02em;
+        }
+
+        .field-help-trigger {
+            border-color: rgba(15, 118, 110, 0.25);
+            background: rgba(15, 118, 110, 0.08);
+            color: var(--accent-primary);
+        }
+
+        .field-help-trigger:hover,
+        .field-help-trigger-wrap.is-open .field-help-trigger,
+        .field-help-trigger:focus-visible {
+            background: rgba(15, 118, 110, 0.14);
+            border-color: rgba(15, 118, 110, 0.42);
+            color: #154d77;
+        }
+
+        .field-help-popover,
+        .multi-select-panel {
+            background: rgba(255, 251, 245, 0.96);
+            border-radius: 18px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select-trigger,
+        .segmented-control,
+        .secondary-btn,
+        .pagination-btn {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(23, 32, 51, 0.08);
+            border-radius: 18px;
+            box-shadow: 0 10px 20px rgba(23, 32, 51, 0.05);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select-trigger {
+            padding: 13px 16px;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select-trigger:focus,
+        .multi-select.open .form-select-trigger {
+            border-color: rgba(15, 118, 110, 0.28);
+            box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.08);
+        }
+
+        .multi-select-option:hover,
+        .single-select-option.selected,
+        .segment-btn.active {
+            background: rgba(15, 118, 110, 0.1);
+            color: #154d77;
+        }
+
+        .submit-btn {
+            min-height: 48px;
+            padding: 12px 24px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #173753, #0f766e);
+            box-shadow: 0 12px 24px rgba(23, 55, 83, 0.18);
+        }
+
+        .secondary-btn,
+        .pagination-btn {
+            border-radius: 999px;
+        }
+
+        .secondary-btn:hover,
+        .pagination-btn:hover:not(:disabled) {
+            color: #154d77;
+            border-color: rgba(15, 118, 110, 0.2);
+            background: rgba(15, 118, 110, 0.08);
+        }
+
+        .records-toolbar {
+            gap: 22px;
+        }
+
+        .table-wrapper {
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.62);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .records-table thead {
+            background: transparent;
+        }
+
+        .records-table th {
+            background: rgba(20, 35, 55, 0.96);
+            color: rgba(248, 252, 255, 0.86);
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .records-table td {
+            background: rgba(255, 251, 245, 0.9);
+        }
+
+        .records-table tbody tr:nth-child(even) td {
+            background: rgba(248, 242, 231, 0.9);
+        }
+
+        .records-table tbody tr:hover td {
+            background: rgba(232, 246, 243, 1);
+        }
+
+        .result-card {
+            padding: 22px 24px;
+        }
+
+        .result-title {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .meta-pill {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(23, 32, 51, 0.08);
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 900px) {
+            .hero-summary {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1114,6 +1291,24 @@
             </a>
             <h1 id="headerTitle"></h1>
             <p class="subtitle" id="headerSubtitle"></p>
+        </div>
+
+        <div class="hero-summary">
+            <article class="hero-summary-card hero-summary-card--accent">
+                <div class="hero-summary-kicker">Submit Usage</div>
+                <h2 class="hero-summary-title">把真实消耗补进来，估算才会越来越准</h2>
+                <p class="hero-summary-body">这页不是算一个孤立结果，而是把大家的真实使用情况沉淀成可复用的经验数据。填得越准，后面的估算越有价值。</p>
+            </article>
+            <article class="hero-summary-card">
+                <div class="hero-summary-kicker">What You Get</div>
+                <h2 class="hero-summary-title">提交后能立刻看到套餐估算区间</h2>
+                <p class="hero-summary-body">除了单次提交结果，你还能看到按平台和套餐汇总出来的中位数区间，适合拿来判断自己下一档该买什么。</p>
+            </article>
+            <article class="hero-summary-card hero-summary-card--warm">
+                <div class="hero-summary-kicker">Data Quality</div>
+                <h2 class="hero-summary-title">优先填写接近真实工作流的数据</h2>
+                <p class="hero-summary-body">如果只是为了试填，参考价值会很低。尽量用近期真实会话的 Token 与请求数，让估算真正能指导购买。</p>
+            </article>
         </div>
 
         <div class="intro-card" id="introCard">
