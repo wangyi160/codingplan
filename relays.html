@@ -1420,11 +1420,6 @@
             return String(val);
         }
 
-        function escapeHtmlPreserveBreaks(raw) {
-            const normalized = String(raw).replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-            return escapeHtml(normalized).replace(/\n/g, '<br>');
-        }
-
         function parsePriceValue(raw) {
             const text = String(raw || '').trim();
             if (!text) {
@@ -2603,28 +2598,27 @@
 
         // ── 渲染底部说明 ──
         function renderNotes(notes) {
-            if (!notes || !notes.length) return;
-            document.getElementById('notesSection').innerHTML = `
-                <h3>${escapeHtml(getRelayPageText('sections.notesTitle'))}</h3>
-                <ul>${notes.map(n => `<li>${escapeHtml(n)}</li>`).join('')}</ul>
-            `;
+            renderNotesSection('notesSection', {
+                title: getRelayPageText('sections.notesTitle'),
+                items: notes,
+                renderItem: function(note) {
+                    return escapeHtml(note);
+                }
+            });
         }
 
         // ── 渲染更新日志 ──
         function renderUpdates(updates) {
-            if (!updates || !updates.length) return;
-            const items = updates.map(u => `
-                <li class="update-item">
-                    <div class="log-date">${escapeHtml(u.date)}</div>
-                    <ul class="update-items">
-                        ${u.items.map(i => `<li>${escapeHtml(i)}</li>`).join('')}
-                    </ul>
-                </li>
-            `).join('');
-            document.getElementById('updatesSection').innerHTML = `
-                <h3>${escapeHtml(getRelayPageText('sections.updatesTitle'))}</h3>
-                <ul class="updates-list">${items}</ul>
-            `;
+            renderUpdatesSection('updatesSection', {
+                title: getRelayPageText('sections.updatesTitle'),
+                updates: updates,
+                renderDate: function(date) {
+                    return escapeHtml(date);
+                },
+                renderItem: function(item) {
+                    return escapeHtml(item);
+                }
+            });
         }
 
         // ── 应用配置 ──

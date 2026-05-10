@@ -1084,14 +1084,6 @@
             notes: []
         };
 
-        function safeUrl(url) {
-            try {
-                return new URL(url, window.location.href).href;
-            } catch (error) {
-                return '#';
-            }
-        }
-
         function formatWebsiteDisplay(url) {
             try {
                 const parsed = new URL(url, window.location.href);
@@ -1177,12 +1169,12 @@
 
             const primaryLinks = sources.slice(0, 2).map((source) => {
                 const label = source.label || source.url || '来源';
-                return `<a class="source-link" href="${escapeHtml(safeUrl(source.url || '#'))}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`;
+                return `<a class="source-link" href="${escapeHtml(sanitizeHttpUrl(source.url || '#', '#'))}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`;
             }).join('');
 
             const allLinks = sources.map((source) => {
                 const label = source.label || source.url || '来源';
-                return `<a class="source-link" href="${escapeHtml(safeUrl(source.url || '#'))}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`;
+                return `<a class="source-link" href="${escapeHtml(sanitizeHttpUrl(source.url || '#', '#'))}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`;
             }).join('');
 
             const disclosure = sources.length > 2
@@ -1247,7 +1239,7 @@
             }
             const display = formatWebsiteDisplay(url);
             return `
-                <a class="site-link" href="${escapeHtml(safeUrl(url))}" target="_blank" rel="noreferrer" title="${escapeHtml(url)}">
+                <a class="site-link" href="${escapeHtml(sanitizeHttpUrl(url, '#'))}" target="_blank" rel="noreferrer" title="${escapeHtml(url)}">
                     <span class="site-link-host">${escapeHtml(display.host)}</span>
                     ${display.path ? `<span class="site-link-path">${escapeHtml(display.path)}</span>` : ''}
                 </a>
@@ -1469,20 +1461,19 @@
         }
 
         function renderNotes() {
-            const notesSection = document.getElementById('notesSection');
-            const title = escapeHtml(getConfigValue('sections.notesTitle', '补充说明'));
+            const title = getConfigValue('sections.notesTitle', '补充说明');
             const notes = Array.isArray(pageData.notes) ? pageData.notes : [];
 
-            if (notes.length === 0) {
-                notesSection.hidden = true;
-                return;
-            }
-
-            notesSection.hidden = false;
-            notesSection.innerHTML = `
-                <div class="section-title">${title}</div>
-                <ul>${notes.map((item) => `<li>${formatInlineContent(item)}</li>`).join('')}</ul>
-            `;
+            renderNotesSection('notesSection', {
+                title: title,
+                titleTag: 'div',
+                titleClass: 'section-title',
+                items: notes,
+                emptyBehavior: 'hide',
+                renderItem: function(item) {
+                    return formatInlineContent(item);
+                }
+            });
         }
 
         function applyConfig() {
