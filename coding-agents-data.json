@@ -1,7 +1,7 @@
 {
   "introNotes": [
     "从价格、用量计费方式、地区与是否自带 API Key 等维度，方便个人选购时对照。",
-    "「对话轮数」一列说明各产品是否用「固定轮数」描述用量；多数产品实际按请求、tokens 或时段额度计费。",
+    "「对话/消息」列尽量写入各官网给出的**按日、按 5 小时或按模型的消息/提示条数区间**；未写死「一轮」的产品会说明官方实际采用的计量方式。",
     "Gemini 美国区标价见 gemini.google/subscriptions；其他地区以页面切换为准。Google AI Plus/Pro 能否购买以 Google One 帮助中心列出的支持国家为准（英文列表含港澳台，不含中国大陆）。"
   ],
   "agents": [
@@ -657,7 +657,7 @@
       "planName": "Pro",
       "price": "$20/月 或 $17/月（年付折算）",
       "usageIncluded": "包含 Claude Code、Claude Cowork 与更多 Claude 使用额度；支持 Sonnet 4.6 和 Opus 4.7。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "Anthropic 将用量描述为跨对话的「消息预算」：**不公布每套餐固定条数**；每条消息消耗随模型（Opus 通常远高于 Sonnet）、长度与工具调用变化。见 Claude 用量说明与 Claude Code「Models, usage, and limits」。",
       "extraFeatures": [
         "Research",
         "Projects",
@@ -687,7 +687,7 @@
       "planName": "Max 5x",
       "price": "$100/月",
       "usageIncluded": "大约为 Pro 的 5 倍使用额度。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "同上：**约为 Pro 的 5 倍消息预算**，仍无「固定轮数」；单轮消耗取决于模型与任务复杂度。",
       "extraFeatures": [
         "更高输出上限",
         "高峰时段优先访问"
@@ -710,7 +710,7 @@
       "planName": "Max 20x",
       "price": "$200/月",
       "usageIncluded": "大约为 Pro 的 20 倍使用额度。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "同上：**约为 Pro 的 20 倍消息预算**；无固定「每聊天轮数」口径。",
       "extraFeatures": [
         "更高输出上限",
         "高峰时段优先访问",
@@ -734,7 +734,7 @@
       "planName": "Hobby",
       "price": "$0/月",
       "usageIncluded": "有限的智能体请求次数，有限的 Tab 补全次数。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "官方按 **Agent 请求 / Tab 补全** 等计量，**不按「轮」**；免费档仅标为有限次数，无与付费档同页的逐模型「条/5 小时」表。",
       "extraFeatures": [
         "无需信用卡",
         "基础体验"
@@ -757,7 +757,7 @@
       "planName": "Pro",
       "price": "$20/月",
       "usageIncluded": "$20 API 用量，外加充足的 Auto / Composer 用量、无限 Tab 补全与扩展 Agent 限额。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "计费以 **美元 API 额度 + 各模型 $/token（或等价）** 为主；官网「模型与价格」用典型月用量场景说明「能覆盖多少工作」，**不是固定对话轮数**。",
       "extraFeatures": [
         "MCP / Skills / Hooks",
         "Cloud Agents",
@@ -786,7 +786,7 @@
       "planName": "Pro+",
       "price": "$60/月",
       "usageIncluded": "$70 API 用量，约为 Pro 的 3 倍高端模型使用量。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "同上：**$70 API 额度**，用量仍随所选模型与单次 token 数变化；无「每轮」固定换算。",
       "extraFeatures": [
         "优先体验更多模型用量"
       ],
@@ -813,7 +813,7 @@
       "planName": "Ultra",
       "price": "$200/月",
       "usageIncluded": "$400 API 用量，约为 Pro 的 20 倍高端模型使用量。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "同上：**$400 API 额度**；对话「能发多少条」取决于模型单价与上下文长度。",
       "extraFeatures": [
         "优先使用新功能"
       ],
@@ -840,7 +840,7 @@
       "planName": "Free",
       "price": "$0/月",
       "usageIncluded": "50 次 agent mode 或 chat 请求 / 月，2,000 次 completions / 月。",
-      "conversationEstimate": "无「轮数」维度；计量以 premium requests 等为准。",
+      "conversationEstimate": "计划页：**50 次/月** agent mode 或 chat；**2,000 次/月** inline completions。",
       "extraFeatures": [
         "Copilot CLI",
         "Haiku 4.5 / GPT-5 mini 等模型访问"
@@ -863,7 +863,7 @@
       "planName": "Pro",
       "price": "$10/月",
       "usageIncluded": "300 premium requests，GPT-5 mini 的 agent mode / chats 无上限，inline suggestions 无上限。",
-      "conversationEstimate": "无「轮数」维度；计量以 premium requests 等为准。",
+      "conversationEstimate": "计划页：**300 premium requests/月**；标称 GPT-5 mini 的 agent/chats **无上限**（以官网当前条款为准）。",
       "extraFeatures": [
         "Copilot cloud agent",
         "Copilot code review",
@@ -887,7 +887,7 @@
       "planName": "Pro+",
       "price": "$39/月",
       "usageIncluded": "Pro 的 5 倍 premium requests，含 Opus 4.7 等全部模型访问。",
-      "conversationEstimate": "无「轮数」维度；计量以 premium requests 等为准。",
+      "conversationEstimate": "计划页：约为 Pro 的 **5 倍 premium requests**（即约 **1,500/月** 量级，以账户显示为准）。",
       "extraFeatures": [
         "全模型访问",
         "GitHub Spark"
@@ -910,7 +910,7 @@
       "planName": "Free",
       "price": "$0/月",
       "usageIncluded": "限量体验 Codex，旗舰模型与消息、上传、图片生成、深入研究均有限。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "开发者定价页未给出与 Plus 同结构的「每 5 小时 Local Messages」数字；**免费档为限量体验**，条数随模型与任务大小变化。",
       "extraFeatures": [
         "限量使用 GPT-5.3"
       ],
@@ -932,7 +932,7 @@
       "planName": "Go",
       "price": "$8/月",
       "usageIncluded": "比免费版更高的 Codex 使用量、更高消息量、更高上传量与图片生成配额。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "介于 Free 与 Plus 的付费入口；**具体条数/窗口以 ChatGPT 侧 Codex 定价与账户用量页为准**，官方强调随模型与任务复杂度变化。",
       "extraFeatures": [
         "访问最新模型"
       ],
@@ -954,7 +954,7 @@
       "planName": "Plus",
       "price": "$20/月",
       "usageIncluded": "适合每周几次深度编程会话；不同模型有不同的 5 小时上限，例如 GPT-5.5 为 15-80，本地 GPT-5.3-Codex 为 30-150。",
-      "conversationEstimate": "官方给的是 5 小时本地消息 / 云任务 / Code Review 区间，不是固定轮数。",
+      "conversationEstimate": "OpenAI：**每 5 小时滑动窗口**内 **Local Messages（本地消息）** 按模型给区间——例如 GPT-5.5 **15–80**、GPT-5.4 **20–100**、GPT-5.4-mini **60–350**、GPT-5.3-Codex **30–150**；后者另有 **Cloud Tasks 10–60**、**Code Review 20–50**/5h。本地消息与云任务**共用**该 5 小时窗口。",
       "extraFeatures": [
         "Web / CLI / IDE / iOS",
         "GitHub 代码审查",
@@ -983,7 +983,7 @@
       "planName": "Pro ($100 tier)",
       "price": "$100/月",
       "usageIncluded": "标准为 Plus 的 5 倍用量；当前官方促销到 2026-05-31 为 10 倍。",
-      "conversationEstimate": "官方仍以 5 小时限额和 credits 表示。",
+      "conversationEstimate": "基线为 **Pro 5× Plus** 表：每 5h Local Messages 如 GPT-5.5 **80–400**、GPT-5.4 **100–500**、mini **300–1750**、GPT-5.3-Codex **150–750**；Cloud **50–300**、Code Review **100–250**。官网写明 **2026-05-31 前 $100 档为表上 Pro 5× 的 2 倍**（约 10× Plus）。",
       "extraFeatures": [
         "GPT-5.3-Codex-Spark（研究预览）"
       ],
@@ -1005,7 +1005,7 @@
       "planName": "Pro ($200 tier)",
       "price": "$200/月",
       "usageIncluded": "标准为 Plus 的 20 倍用量；当前仍保留更高的 5 小时限额促销。",
-      "conversationEstimate": "官方仍以 5 小时限额和 credits 表示。",
+      "conversationEstimate": "基线为 **Pro 20× Plus** 表：每 5h Local Messages 如 GPT-5.5 **300–1600**、GPT-5.4 **400–2000**、mini **1200–7000**、GPT-5.3-Codex **600–3000**；Cloud **200–1200**、Code Review **400–1000**。促销期是否高于该表以 OpenAI 当前说明为准。",
       "extraFeatures": [
         "最高档个人使用额度"
       ],
@@ -1055,7 +1055,7 @@
       "planName": "Free",
       "price": "$0/月",
       "usageIncluded": "Gemini 应用基础访问，免费层也有提示与功能上限。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "Google 帮助页「Gemini 应用升级」：**每天最多约 30 条提示**；**Agent** 约 **200 次请求/天**、最多 **3** 个并发 Agent 任务（限额会调整，以页面为准）。",
       "extraFeatures": [
         "Gemini 基础体验"
       ],
@@ -1077,7 +1077,7 @@
       "planName": "Google AI Plus",
       "price": "$7.99/月（美国区 United States，gemini.google/subscriptions 公开标价；其他地区以同页为准）",
       "usageIncluded": "比免费层更高的 Gemini 3.1 Pro 访问与功能配额；Google 公开文案说明覆盖 160+ 国家。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "同页 **Plus** 列：**「思考」每天最多约 90 条提示**；另有 **每天最多约 10 条提示、约 19.2 万 token 上下文**等档；Agent、音视频等分项见表。**Pro 3.1 的 100/500 条/日**在同表 **Pro / Ultra** 列，不自动等同 Plus。",
       "extraFeatures": [
         "更高访问量",
         "更多新功能"
@@ -1110,7 +1110,7 @@
       "planName": "Google AI Pro",
       "price": "$19.99/月（美国区 United States，gemini.google/subscriptions 公开标价；其他地区以同页为准）",
       "usageIncluded": "更高的每日提示上限、更大的上下文窗口，以及更高的 Deep Research、视频、图片等能力配额。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "帮助页 **Pro** 列示例：**Pro 3.1 每天最多约 100 条提示**；**「思考」每天最多约 300 条提示**；另有 Deep Research、Agent、图片/视频等按日或按月上限（见同表）。",
       "extraFeatures": [
         "Gemini 3.1 Pro",
         "更高 Deep Research 配额"
@@ -1143,7 +1143,7 @@
       "planName": "Google AI Ultra",
       "price": "$249.99/月（美国区 United States，gemini.google/subscriptions 公开标价；其他地区以同页为准）",
       "usageIncluded": "最高档访问量与配额，官方帮助页列出最高的 Agent、Deep Think、视频和图片上限。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "帮助页 **Ultra** 列示例：**Pro 3.1 每天最多约 500 条提示**；**「思考」每天最多约 1,500 条提示**；其余 Agent、Deep Research、图片/视频等为表中更高档。",
       "extraFeatures": [
         "Deep Think",
         "最高 Agent 配额",
@@ -1173,7 +1173,7 @@
       "planName": "Go",
       "price": "$5 首月，之后 $10/月",
       "usageIncluded": "5 小时 12 美元额度、每周 30 美元额度、每月 60 美元额度；按模型不同约等于每 5 小时 880 到 31,650 次请求。",
-      "conversationEstimate": "无「轮数」口径；官方给按模型的估算请求数区间。",
+      "conversationEstimate": "OpenCode 文档按典型 token 用量估算：**每 5 小时**约 **880～31,650 次请求**（随所选模型与单价变化，与左列美元额度一致）。",
       "extraFeatures": [
         "API Key",
         "任意 agent 接入",
@@ -1203,7 +1203,7 @@
       "planName": "社区版",
       "price": "$0/月",
       "usageIncluded": "14 天 Pro 试用 + 300 Credits，基础模型可免费使用，但消息和补全有限。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "官方以 **Credits** 计量（如赠送 **300 Credits**），**未公布「一轮对话 = 固定条数或固定 Credits」**；不同模型与功能扣减不同。",
       "extraFeatures": [
         "支持自有 API Key",
         "限量补全与 NES 预测"
@@ -1231,7 +1231,7 @@
       "planName": "Pro",
       "price": "$20/月",
       "usageIncluded": "每月 2,000 Credits；提供更多代码补全、智能问答和智能体请求。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "官方：**2,000 Credits/月**；用量按功能与模型折算为 Credits，**非固定「对话轮数」**。",
       "extraFeatures": [
         "Quest Mode",
         "Repo Wiki"
@@ -1254,7 +1254,7 @@
       "planName": "Pro+",
       "price": "$60/月",
       "usageIncluded": "每月 6,000 Credits。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "官方：**6,000 Credits/月**；同上按 Credits 扣减。",
       "extraFeatures": [
         "更多高级模型额度",
         "优先体验新功能"
@@ -1277,7 +1277,7 @@
       "planName": "Ultra",
       "price": "$200/月",
       "usageIncluded": "每月 20,000 Credits。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "官方：**20,000 Credits/月**；同上按 Credits 扣减。",
       "extraFeatures": [
         "最高个人额度",
         "优先体验新功能"
@@ -1300,7 +1300,7 @@
       "planName": "个人版",
       "price": "¥0/月",
       "usageIncluded": "公开权益对比显示个人版支持免费使用，约 30M 会话 Tokens + 10M 补全 Tokens。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "定价页权益：**约 30M 会话 tokens + 约 10M 补全 tokens**（按 token 计，**非固定对话轮数**）。",
       "extraFeatures": [
         "Chat / Builder / Agent / MCP / Rules",
         "TRAE IDE"
@@ -1323,7 +1323,7 @@
       "planName": "Free",
       "price": "$0/月",
       "usageIncluded": "Monthly Basic Usage limited，Autocomplete 5,000 / 月，2 个并发 cloud tasks。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "定价页：**Autocomplete 5,000 次/月**；Basic/SOLO 用量为 **limited**；**2** 路并发 cloud tasks。",
       "extraFeatures": [
         "Limited SOLO",
         "基础体验"
@@ -1346,7 +1346,7 @@
       "planName": "Lite",
       "price": "$3/月",
       "usageIncluded": "$5 Basic usage + Bonus usage，无限 Autocomplete，最多 2 个并发 cloud tasks。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "含 **$5 Basic + Bonus** 美元用量；**Autocomplete 无上限**；**2** 路并发 cloud tasks（对话条数随模型与任务消耗该额度）。",
       "extraFeatures": [
         "付费入口最低档"
       ],
@@ -1368,7 +1368,7 @@
       "planName": "Pro",
       "price": "$10/月",
       "usageIncluded": "$20 Basic usage + Bonus usage，无限 Autocomplete，TRAE IDE - SOLO mode，最多 10 个并发 cloud tasks。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "含 **$20 Basic + Bonus**；**Autocomplete 无上限**；**10** 路并发 cloud tasks；无「每轮」固定官方数字。",
       "extraFeatures": [
         "TRAE SOLO",
         "Fast queue"
@@ -1391,7 +1391,7 @@
       "planName": "Pro+",
       "price": "$30/月",
       "usageIncluded": "$90 Basic usage + Bonus usage，约为 Pro 的 3.5 倍使用量，最多 15 个并发 cloud tasks。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "含 **$90 Basic + Bonus**；**15** 路并发 cloud tasks；用量随 SOLO/云端任务消耗美元额度。",
       "extraFeatures": [
         "更高并发任务数"
       ],
@@ -1413,7 +1413,7 @@
       "planName": "Ultra",
       "price": "$100/月",
       "usageIncluded": "$400 Basic usage + Bonus usage，约为 Pro 的 20 倍使用量，最多 20 个并发 cloud tasks。",
-      "conversationEstimate": "无「每聊天固定轮数」；计量见左列。",
+      "conversationEstimate": "含 **$400 Basic + Bonus**；**20** 路并发 cloud tasks；同上按额度与任务计。",
       "extraFeatures": [
         "Model Early Access",
         "最高并发任务数"

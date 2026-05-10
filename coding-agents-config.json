@@ -27,7 +27,7 @@
     "agentsTableTitle": "工具总表",
     "agentsTableDescription": "看整体产品形态、计费方式、购买与地区限制，适合先做第一轮排除。",
     "plansTableTitle": "套餐订阅表",
-    "plansTableDescription": "各档价格、包含用量与额外功能；「对话轮数」列说明该产品是否用「固定轮数」描述用量。",
+    "plansTableDescription": "各档价格、包含用量与额外功能。「对话/消息」列汇总官方是否给出按日、按 5 小时滑动窗口或按模型的条数/区间；仍会因单次对话长度与模型选择而变化。",
     "notesTitle": "说明"
   },
   "tableLabels": {
@@ -49,7 +49,7 @@
       "planName": "套餐名称",
       "price": "价格",
       "usageIncluded": "包含的使用额度/用量限制",
-      "conversationEstimate": "对话轮数口径",
+      "conversationEstimate": "对话/消息（官方）",
       "extraFeatures": "额外的功能",
       "remarks": "备注"
     }
