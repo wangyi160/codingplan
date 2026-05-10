@@ -45,8 +45,7 @@
 
         .scope-card,
         .table-card,
-        .notes-card,
-        .updates-card {
+        .notes-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-xl);
@@ -306,29 +305,15 @@
             margin-top: 4px;
         }
 
-        .notes-card,
-        .updates-card {
+        .notes-card {
             padding: 24px 28px;
             margin-bottom: 28px;
         }
 
-        .notes-card ul,
-        .updates-group ul {
+        .notes-card ul {
             padding-left: 20px;
             color: var(--text-secondary);
             line-height: 1.75;
-        }
-
-        .updates-group + .updates-group {
-            margin-top: 18px;
-            padding-top: 18px;
-            border-top: 1px solid var(--border-light);
-        }
-
-        .updates-date {
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
         }
 
         .empty-state {
@@ -362,8 +347,7 @@
 
         @media (max-width: 640px) {
             .scope-card,
-            .notes-card,
-            .updates-card {
+            .notes-card {
                 padding: 18px 18px;
             }
 
@@ -454,7 +438,6 @@
         </section>
 
         <section class="notes-card" id="notesSection"></section>
-        <section class="updates-card" id="updatesSection"></section>
     </div>
 
     <script>
@@ -490,8 +473,7 @@
             introNotes: [],
             agents: [],
             plans: [],
-            notes: [],
-            updates: []
+            notes: []
         };
 
         function safeUrl(url) {
@@ -736,21 +718,6 @@
             `;
         }
 
-        function renderUpdates() {
-            const updatesSection = document.getElementById('updatesSection');
-            const title = escapeHtml(getConfigValue('sections.updatesTitle', '更新日志'));
-            const updates = Array.isArray(pageData.updates) ? pageData.updates : [];
-            updatesSection.innerHTML = `
-                <div class="section-title">${title}</div>
-                ${updates.map((update) => `
-                    <div class="updates-group">
-                        <div class="updates-date">${escapeHtml(update.date || '')}</div>
-                        <ul>${(Array.isArray(update.items) ? update.items : []).map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
-                    </div>
-                `).join('')}
-            `;
-        }
-
         function applyConfig() {
             document.title = getConfigValue('pageTitle', '编程 Agent 对比');
             setText('pageTitle', getConfigValue('pageTitle', '编程 Agent 对比'));
@@ -809,9 +776,7 @@
                 renderAgentsTable();
                 renderPlansTable();
                 renderNotes();
-                renderUpdates();
             } catch (error) {
-                console.error('加载编程 Agent 页面失败:', error);
                 renderLoadError();
             }
         }

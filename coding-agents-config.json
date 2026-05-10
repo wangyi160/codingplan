@@ -13,9 +13,7 @@
     "updateDate": "更新日期 2026.5.13",
     "subtitle": "聚焦个人版，对比 Claude Code、Cursor、GitHub Copilot、Codex、Gemini、OpenCode、Qoder、Trae国内版、Trae国际版 的计费方式、额度、功能与中国大陆可用性。",
     "info": [
-      "仅比较个人版，不含团队版、企业版、Business 版。",
-      "名称统一按本站固定集合展示，不追求官网命名空格和大小写完全一致。",
-      "来源以官网为主；引用镜像或社区整理时会标「二级来源」。本表不做高级筛选和排序。"
+      "仅比较所列产品的个人常见档位；不含团队版、企业版。"
     ]
   },
   "settings": {
@@ -25,13 +23,12 @@
   },
   "sections": {
     "scopeTitle": "口径说明",
-    "scopeDescription": "优先引用官网。营销页若未汇总支付方式或地区，以各自结账页、账户地区与帮助中心最新说明为准；必要时用二级来源并在行内标出。",
+    "scopeDescription": "数据以各产品官网与帮助中心为主；支付方式、地区等若营销页写不全，以结账页和账户内显示为准。",
     "agentsTableTitle": "工具总表",
     "agentsTableDescription": "看整体产品形态、计费方式、购买与地区限制，适合先做第一轮排除。",
     "plansTableTitle": "套餐订阅表",
-    "plansTableDescription": "看每个个人套餐的价格、额度与额外功能。多数产品用 tokens、请求数或时段额度计费，本页「对话轮数」列说明其与「轮数」口径的关系。",
-    "notesTitle": "说明",
-    "updatesTitle": "更新日志"
+    "plansTableDescription": "各档价格、包含用量与额外功能；「对话轮数」列说明该产品是否用「固定轮数」描述用量。",
+    "notesTitle": "说明"
   },
   "tableLabels": {
     "agents": {
@@ -59,7 +56,7 @@
   },
   "badges": {
     "official": "官方",
-    "secondary": "二级来源",
+    "secondary": "社区参考",
     "unknown": "待核实",
     "yes": "支持",
     "no": "不支持",
