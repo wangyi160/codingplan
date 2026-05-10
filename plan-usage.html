@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="pageTitle"></title>
     <link rel="icon" href="/favicon.ico?v=260418" type="image/x-icon">
-    <link rel="stylesheet" href="styles/shared.css?v=260510">
+    <link rel="stylesheet" href="styles/shared.css?v=260513">
     <script src="scripts/plan-usage-config.local.js"></script>
     <script src="scripts/plan-usage-config.js"></script>
-    <script src="scripts/shared.js"></script>
+    <script src="scripts/shared.js?v=260512"></script>
     <style>
         .header .subtitle {
             margin-bottom: 10px;
@@ -633,6 +633,8 @@
 
         .table-scroll {
             overflow-x: auto;
+            max-width: 100%;
+            -webkit-overflow-scrolling: touch;
         }
 
         .records-table {
@@ -992,6 +994,8 @@
         }
 
         @media (max-width: 768px) {
+            html,
+            body { overflow-x: hidden; }
             body { padding: 24px 16px; }
             .submit-card,
             .intro-card,

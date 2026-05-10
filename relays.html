@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>中转站对比</title>
     <link rel="icon" href="/favicon.ico?v=260418" type="image/x-icon">
-    <link rel="stylesheet" href="styles/shared.css?v=260510">
+    <link rel="stylesheet" href="styles/shared.css?v=260513">
     <style>
         /* relays.html 覆盖 shared.css 的差异值 */
         html { scroll-behavior: smooth; }
@@ -1008,7 +1008,7 @@
         @media (max-width: 768px) {
             body { padding: 24px 16px; }
             .container { max-width: 100%; }
-            .header { margin-bottom: 24px; padding: 24px 0; }
+            .header { margin-bottom: 24px; padding: 24px 20px; }
             .header h1 { font-size: 24px; }
             .header .subtitle { font-size: 14px; }
             .header-info { font-size: 12px; padding: 10px 12px; }
@@ -1019,10 +1019,11 @@
 
         @media (max-width: 480px) {
             body { padding: 16px 12px; }
-            .header { padding: 16px 0; }
+            .header { padding: 18px 16px; }
             .header h1 { font-size: 20px; }
             .github-link span { display: none; }
             .page-tab { padding: 8px 12px; font-size: 13px; }
+            .header-info { margin-top: 18px; }
         }
 
         .hero-summary {
@@ -2692,6 +2693,6 @@
         });
 
     </script>
-    <script src="scripts/shared.js"></script>
+    <script src="scripts/shared.js?v=260512"></script>
 </body>
 </html>
