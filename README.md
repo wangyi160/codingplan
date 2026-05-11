@@ -11,7 +11,7 @@
 
 ### 在线访问
 
-直接访问：[https://api.dreamfree.space/c/s/cpgh](https://api.dreamfree.space/c/s/cpgh)
+直接访问：[https://codingplan.fyi](https://codingplan.fyi)
 
 
 ## 平台推荐

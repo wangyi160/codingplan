@@ -11,7 +11,7 @@ const allPlans = JSON.parse(fs.readFileSync(plansPath, 'utf8'));
 const plans = allPlans.filter(plan => !plan.discontinued);
 
 // 硬编码内容
-const ONLINE_URL = 'https://api.dreamfree.space/c/s/cpgh';
+const ONLINE_URL = 'https://codingplan.fyi';
 const FOOTER = '由扣子编程开发';
 
 // 生成星星
