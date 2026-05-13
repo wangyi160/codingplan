@@ -140,8 +140,10 @@ function renderPageNav(target, options = {}) {
     }
 
     container.innerHTML = `
-        <nav class="page-nav">
+        <div class="page-nav-cluster">
+            <nav class="page-nav" aria-label="站点导航">
             ${tabs.map(renderTab).join('')}
+            </nav>
             <div class="settings-wrapper">
                 <button class="settings-btn" id="settingsBtn" title="${escapeHtml(settings.buttonTitle || '设置')}" aria-label="${escapeHtml(settings.buttonAriaLabel || settings.buttonTitle || '设置')}">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -160,7 +162,7 @@ function renderPageNav(target, options = {}) {
                     </div>
                 </div>
             </div>
-        </nav>
+        </div>
     `;
     return true;
 }

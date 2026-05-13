@@ -56,8 +56,8 @@ body {
     margin: 34px 0;
 }
 
-/* ── 页面导航 Tab ── */
-.page-nav {
+/* ── 页面导航 Tab（外层不裁切，设置面板挂在 cluster 上） ── */
+.page-nav-cluster {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -71,8 +71,21 @@ body {
     position: sticky;
     top: 14px;
     z-index: 40;
+    overflow: visible;
+}
+
+.page-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
     overflow-x: auto;
     scrollbar-width: none;
+}
+
+.page-nav::-webkit-scrollbar {
+    display: none;
 }
 
 .page-tab {
@@ -89,10 +102,6 @@ body {
     transition: all 0.2s;
     white-space: nowrap;
     flex-shrink: 0;
-}
-
-.page-nav::-webkit-scrollbar {
-    display: none;
 }
 
 .page-tab:hover {
@@ -550,11 +559,14 @@ body {
 }
 
 @media (max-width: 860px) {
-    .page-nav {
+    .page-nav-cluster {
         gap: 8px;
-        overflow-x: auto;
         padding: 10px;
         border-radius: 24px;
+    }
+
+    .page-nav {
+        gap: 8px;
     }
 
     .page-tab {
@@ -574,11 +586,17 @@ body {
         padding: 18px 14px 40px;
     }
 
-    .page-nav {
+    .page-nav-cluster {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         overflow: visible;
         padding: 12px;
+    }
+
+    .page-nav {
+        grid-column: 1 / -1;
+        flex-wrap: wrap;
+        overflow-x: visible;
     }
 
     .page-tab {
@@ -617,7 +635,7 @@ body {
 }
 
 @media (max-width: 420px) {
-    .page-nav {
+    .page-nav-cluster {
         grid-template-columns: 1fr;
     }
 
