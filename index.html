@@ -1312,6 +1312,86 @@
             margin-top: -2px;
         }
 
+        /* 延伸阅读独占一整行，下方三卡沿用 shared 的 auto-fit 栅格 */
+        .hero-summary--lede .hero-summary-card--reading {
+            grid-column: 1 / -1;
+            min-width: 0;
+        }
+
+        .hero-summary-lede-inner {
+            display: flex;
+            align-items: stretch;
+            gap: 20px;
+            min-height: 0;
+        }
+
+        .hero-summary-lede-media {
+            flex: 0 0 44%;
+            min-width: 0;
+            align-self: center;
+        }
+
+        .hero-summary-lede-media a {
+            display: block;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(23, 32, 51, 0.1);
+            box-shadow: 0 10px 26px rgba(23, 32, 51, 0.08);
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        .hero-summary-lede-media a:hover {
+            box-shadow: 0 14px 34px rgba(23, 32, 51, 0.12);
+            transform: translateY(-1px);
+        }
+
+        .hero-summary-lede-media img {
+            display: block;
+            width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        .hero-summary-lede-copy {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-summary-lede-copy .hero-summary-title {
+            font-size: 19px;
+        }
+
+        /* 延伸阅读：与主站三卡同栅格，弱区分样式 */
+        .hero-summary-card--reading {
+            background: linear-gradient(165deg, rgba(15, 118, 110, 0.07), rgba(255, 251, 245, 0.92));
+            border-color: rgba(15, 118, 110, 0.16);
+        }
+
+        .hero-summary-card--reading .hero-summary-kicker {
+            color: #0f766e;
+            background: rgba(15, 118, 110, 0.12);
+        }
+
+        .hero-summary-readmore {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 14px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-primary);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s ease, color 0.15s ease;
+        }
+
+        .hero-summary-readmore:hover {
+            color: #0d9488;
+            border-bottom-color: rgba(13, 148, 136, 0.45);
+        }
+
         .hero-summary-card strong {
             color: var(--text-primary);
         }
@@ -1546,6 +1626,15 @@
             .hero-summary {
                 grid-template-columns: 1fr;
             }
+
+            .hero-summary-lede-inner {
+                flex-direction: column;
+            }
+
+            .hero-summary-lede-media {
+                flex-basis: auto;
+                max-width: 100%;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1576,7 +1665,22 @@
             <div class="models" id="models">支持Doubao Seed 2.0，Qwen 3.5，MiniMax M2.5、GLM-5、Kimi-k2.5等模型</div>
         </div>
 
-        <div class="hero-summary">
+        <div class="hero-summary hero-summary--lede">
+            <article class="hero-summary-card hero-summary-card--reading">
+                <div class="hero-summary-lede-inner">
+                    <div class="hero-summary-lede-media">
+                        <a href="articles/models_comparition_20260513/index.html" aria-label="阅读全文：国产模型 Agentic 与 Coding Agent 能力速览">
+                            <img src="articles/models_comparition_20260513/assets/agentic-index.png" alt="Artificial Analysis Agentic Index 榜单截图" width="1200" height="800" loading="lazy" decoding="async" />
+                        </a>
+                    </div>
+                    <div class="hero-summary-lede-copy">
+                        <div class="hero-summary-kicker">延伸阅读</div>
+                        <h2 class="hero-summary-title">国产模型 Agentic 与 Coding Agent 能力速览</h2>
+                        <p class="hero-summary-body">基于 Artificial Analysis 公开榜单，横向对比智谱、DeepSeek、MiniMax、Kimi、Qwen、MiMo 等与海外头部差距，并附个人 Coding Plan / OpenClaw 场景的选型参考。</p>
+                        <a class="hero-summary-readmore" href="articles/models_comparition_20260513/index.html">阅读全文 →</a>
+                    </div>
+                </div>
+            </article>
             <article class="hero-summary-card hero-summary-card--accent">
                 <div class="hero-summary-kicker">How To Choose</div>
                 <h2 class="hero-summary-title">先看推荐，再用筛选器缩小范围</h2>
