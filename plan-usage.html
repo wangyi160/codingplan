@@ -5,27 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="pageTitle"></title>
     <link rel="icon" href="/favicon.ico?v=260418" type="image/x-icon">
-    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/shared.css?v=260515">
     <script src="scripts/plan-usage-config.local.js"></script>
     <script src="scripts/plan-usage-config.js"></script>
-    <script src="scripts/shared.js"></script>
+    <script src="scripts/shared.js?v=260512"></script>
     <style>
         .header .subtitle {
             margin-bottom: 10px;
         }
 
-        .intro-card,
-        .submit-card,
-        .result-card,
-        .records-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-md);
-        }
-
         .intro-card {
-            padding: 24px 28px;
             margin-bottom: 28px;
         }
 
@@ -37,27 +26,6 @@
 
         .intro-card p:last-child {
             margin-bottom: 0;
-        }
-
-        .submit-card {
-            padding: 30px 32px;
-        }
-
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 22px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border-color);
         }
 
         .section-description {
@@ -75,7 +43,7 @@
 
         .selection-row {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 18px 20px;
         }
 
@@ -84,6 +52,14 @@
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px 20px;
+        }
+
+        .metric-row.metric-row-single {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .metric-row.metric-row-quad {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
         }
 
         .field-group {
@@ -657,6 +633,8 @@
 
         .table-scroll {
             overflow-x: auto;
+            max-width: 100%;
+            -webkit-overflow-scrolling: touch;
         }
 
         .records-table {
@@ -1016,6 +994,8 @@
         }
 
         @media (max-width: 768px) {
+            html,
+            body { overflow-x: hidden; }
             body { padding: 24px 16px; }
             .submit-card,
             .intro-card,
@@ -1059,6 +1039,151 @@
                 max-width: none;
             }
         }
+        .hero-summary {
+            margin-top: -2px;
+        }
+
+        .section-description,
+        .intro-card p,
+        .submit-note,
+        .records-meta-secondary,
+        .cell-subtext,
+        .field-help-text,
+        .estimates-hint {
+            line-height: 1.78;
+            color: var(--text-secondary);
+        }
+
+        .field-label {
+            font-size: 13px;
+            letter-spacing: 0.02em;
+        }
+
+        .field-help-trigger {
+            border-color: rgba(15, 118, 110, 0.25);
+            background: rgba(15, 118, 110, 0.08);
+            color: var(--accent-primary);
+        }
+
+        .field-help-trigger:hover,
+        .field-help-trigger-wrap.is-open .field-help-trigger,
+        .field-help-trigger:focus-visible {
+            background: rgba(15, 118, 110, 0.14);
+            border-color: rgba(15, 118, 110, 0.42);
+            color: #154d77;
+        }
+
+        .field-help-popover,
+        .multi-select-panel {
+            background: rgba(255, 251, 245, 0.96);
+            border-radius: 18px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select-trigger,
+        .segmented-control,
+        .secondary-btn,
+        .pagination-btn {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(23, 32, 51, 0.08);
+            border-radius: 18px;
+            box-shadow: 0 10px 20px rgba(23, 32, 51, 0.05);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select-trigger {
+            padding: 13px 16px;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select-trigger:focus,
+        .multi-select.open .form-select-trigger {
+            border-color: rgba(15, 118, 110, 0.28);
+            box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.08);
+        }
+
+        .multi-select-option:hover,
+        .single-select-option.selected,
+        .segment-btn.active {
+            background: rgba(15, 118, 110, 0.1);
+            color: #154d77;
+        }
+
+        .submit-btn {
+            min-height: 48px;
+            padding: 12px 24px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #173753, #0f766e);
+            box-shadow: 0 12px 24px rgba(23, 55, 83, 0.18);
+        }
+
+        .secondary-btn,
+        .pagination-btn {
+            border-radius: 999px;
+        }
+
+        .secondary-btn:hover,
+        .pagination-btn:hover:not(:disabled) {
+            color: #154d77;
+            border-color: rgba(15, 118, 110, 0.2);
+            background: rgba(15, 118, 110, 0.08);
+        }
+
+        .records-toolbar {
+            gap: 22px;
+        }
+
+        .table-wrapper {
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.62);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .records-table thead {
+            background: transparent;
+        }
+
+        .records-table th {
+            background: rgba(20, 35, 55, 0.96);
+            color: rgba(248, 252, 255, 0.86);
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .records-table td {
+            background: rgba(255, 251, 245, 0.9);
+        }
+
+        .records-table tbody tr:nth-child(even) td {
+            background: rgba(248, 242, 231, 0.9);
+        }
+
+        .records-table tbody tr:hover td {
+            background: rgba(232, 246, 243, 1);
+        }
+
+        .result-title {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .meta-pill {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(23, 32, 51, 0.08);
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 900px) {
+            .hero-summary {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1071,30 +1196,7 @@
     </div>
     <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
     <div class="container">
-        <nav class="page-nav">
-            <a href="index.html" class="page-tab" id="navHome"></a>
-            <a href="plan-usage.html" class="page-tab active" id="navPlanUsage"></a>
-            <a href="relays.html" class="page-tab" id="navRelays"></a>
-            <a href="relay-detect.html" class="page-tab" id="navRelayDetect"></a>
-            <div class="settings-wrapper">
-                <button class="settings-btn" id="settingsBtn" title="" aria-label="">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="3"/>
-                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                    </svg>
-                </button>
-                <div class="settings-panel" id="settingsPanel" hidden>
-                    <div class="settings-panel-title" id="settingsPanelTitle"></div>
-                    <div class="settings-toggle-row">
-                        <label for="ultraWideToggle" id="ultraWideToggleLabel"></label>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="ultraWideToggle">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <div id="pageNavMount"></div>
 
         <div class="header">
             <a href="https://github.com/wmpeng/codingplan" target="_blank" rel="noopener noreferrer" class="github-link">
@@ -1107,12 +1209,30 @@
             <p class="subtitle" id="headerSubtitle"></p>
         </div>
 
-        <div class="intro-card" id="introCard">
+        <div class="hero-summary">
+            <article class="hero-summary-card hero-summary-card--accent">
+                <div class="hero-summary-kicker">Submit Usage</div>
+                <h2 class="hero-summary-title">把真实消耗补进来，估算才会越来越准</h2>
+                <p class="hero-summary-body">这页不是算一个孤立结果，而是把大家的真实使用情况沉淀成可复用的经验数据。填得越准，后面的估算越有价值。</p>
+            </article>
+            <article class="hero-summary-card">
+                <div class="hero-summary-kicker">What You Get</div>
+                <h2 class="hero-summary-title">提交后能立刻看到套餐估算区间</h2>
+                <p class="hero-summary-body">除了单次提交结果，你还能看到按平台和套餐汇总出来的中位数区间，适合拿来判断自己下一档该买什么。</p>
+            </article>
+            <article class="hero-summary-card hero-summary-card--warm">
+                <div class="hero-summary-kicker">Data Quality</div>
+                <h2 class="hero-summary-title">优先填写接近真实工作流的数据</h2>
+                <p class="hero-summary-body">如果只是为了试填，参考价值会很低。尽量用近期真实会话的 Token 与请求数，让估算真正能指导购买。</p>
+            </article>
+        </div>
+
+        <div class="intro-card surface-panel surface-panel--padded" id="introCard">
             <p id="introParagraph1"></p>
             <p id="introParagraph2"></p>
         </div>
 
-        <div class="submit-card">
+        <div class="submit-card surface-panel surface-panel--padded">
             <div class="section-title" id="formSectionTitle"></div>
             <p class="section-description" id="formSectionDescription"></p>
             <form id="planUsageForm" autocomplete="off">
@@ -1195,62 +1315,26 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="field-group">
+                                <div class="field-label-row">
+                                    <label class="field-label" for="usagePercentInput" id="usagePercentLabel"></label>
+                                    <span class="field-help-trigger-wrap" data-field-help="usagePercent">
+                                        <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverUsagePercent">?</button>
+                                        <span class="field-help-popover" id="fieldHelpPopoverUsagePercent" role="tooltip" aria-hidden="true">
+                                            <span class="field-help-content">
+                                                <span class="field-help-text"></span>
+                                                <span class="field-help-image-wrap">
+                                                    <img class="field-help-image" alt="">
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
+                                <input class="form-input" id="usagePercentInput" type="number" min="0.01" max="100" step="0.01" placeholder="" required>
+                            </div>
                         </div>
                     </div>
-                    <div class="metric-row">
-                        <div class="field-group">
-                            <div class="field-label-row">
-                                <label class="field-label" for="windowStartInput" id="windowStartLabel"></label>
-                                <span class="field-help-trigger-wrap" data-field-help="windowStart">
-                                    <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverWindowStart">?</button>
-                                    <span class="field-help-popover" id="fieldHelpPopoverWindowStart" role="tooltip" aria-hidden="true">
-                                        <span class="field-help-content">
-                                            <span class="field-help-text"></span>
-                                            <span class="field-help-image-wrap">
-                                                <img class="field-help-image" alt="">
-                                            </span>
-                                        </span>
-                                    </span>
-                                </span>
-                            </div>
-                            <input class="form-input" id="windowStartInput" type="datetime-local" step="1" required>
-                        </div>
-                        <div class="field-group">
-                            <div class="field-label-row">
-                                <label class="field-label" for="usagePercentInput" id="usagePercentLabel"></label>
-                                <span class="field-help-trigger-wrap" data-field-help="usagePercent">
-                                    <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverUsagePercent">?</button>
-                                    <span class="field-help-popover" id="fieldHelpPopoverUsagePercent" role="tooltip" aria-hidden="true">
-                                        <span class="field-help-content">
-                                            <span class="field-help-text"></span>
-                                            <span class="field-help-image-wrap">
-                                                <img class="field-help-image" alt="">
-                                            </span>
-                                        </span>
-                                    </span>
-                                </span>
-                            </div>
-                            <input class="form-input" id="usagePercentInput" type="number" min="0.01" max="100" step="0.01" placeholder="" required>
-                        </div>
-                        <div class="field-group">
-                            <div class="field-label-row">
-                                <label class="field-label" for="requestCountInput" id="requestCountLabel"></label>
-                                <span class="field-help-trigger-wrap" data-field-help="requestCount">
-                                    <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverRequestCount">?</button>
-                                    <span class="field-help-popover" id="fieldHelpPopoverRequestCount" role="tooltip" aria-hidden="true">
-                                        <span class="field-help-content">
-                                            <span class="field-help-text"></span>
-                                            <span class="field-help-image-wrap">
-                                                <img class="field-help-image" alt="">
-                                            </span>
-                                        </span>
-                                    </span>
-                                </span>
-                            </div>
-                            <input class="form-input" id="requestCountInput" type="number" min="0" step="1" placeholder="" required>
-                        </div>
-                    </div>
-                    <div class="metric-row">
+                    <div class="metric-row metric-row-quad">
                         <div class="field-group">
                             <div class="field-label-row">
                                 <label class="field-label" for="readTokensInput" id="readTokensLabel"></label>
@@ -1302,6 +1386,23 @@
                             </div>
                             <input class="form-input" id="writeTokensInput" type="number" min="0" step="0.1" placeholder="" required>
                         </div>
+                        <div class="field-group">
+                            <div class="field-label-row">
+                                <label class="field-label" for="requestCountInput" id="requestCountLabel"></label>
+                                <span class="field-help-trigger-wrap" data-field-help="requestCount">
+                                    <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverRequestCount">?</button>
+                                    <span class="field-help-popover" id="fieldHelpPopoverRequestCount" role="tooltip" aria-hidden="true">
+                                        <span class="field-help-content">
+                                            <span class="field-help-text"></span>
+                                            <span class="field-help-image-wrap">
+                                                <img class="field-help-image" alt="">
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </div>
+                            <input class="form-input" id="requestCountInput" type="number" min="0" step="1" placeholder="" required>
+                        </div>
                     </div>
                 </div>
                 <div class="submit-row">
@@ -1311,13 +1412,13 @@
             </form>
         </div>
 
-        <div class="result-card" id="resultCard">
+        <div class="result-card surface-panel surface-panel--compact" id="resultCard">
             <div class="result-title" id="resultTitle"></div>
             <div class="result-body" id="resultBody"></div>
             <div class="meta-list" id="resultMeta"></div>
         </div>
 
-        <div class="records-card">
+        <div class="records-card surface-panel surface-panel--padded">
             <div class="records-toolbar">
                 <div class="records-filters">
                     <div class="field-group">
@@ -1421,7 +1522,24 @@
     (function() {
         'use strict';
 
+        renderPageNav('pageNavMount', {
+            activeKey: 'plan-usage',
+            tabs: [
+                { key: 'index', href: 'index.html', id: 'navHome' },
+                { key: 'plan-usage', href: 'plan-usage.html', id: 'navPlanUsage' },
+                { key: 'coding-agents', href: 'coding-agents.html', id: 'navCodingAgents' },
+                { key: 'relays', href: 'relays.html', id: 'navRelays' },
+                { key: 'relay-detect', href: 'relay-detect.html', id: 'navRelayDetect' }
+            ],
+            settings: {
+                panelTitleId: 'settingsPanelTitle',
+                ultraWideLabelId: 'ultraWideToggleLabel'
+            }
+        });
+
         var API_BASE = (window.PLAN_USAGE_CONFIG && window.PLAN_USAGE_CONFIG.apiBase) || '';
+        var DEFAULT_WINDOW_START_STR = '20000101 00:00:00';
+        var DEFAULT_MODEL_WHEN_EMPTY = '未填写';
         var planRows = [];
         var pageContent = null;
         var selectedVendor = '';
@@ -1588,7 +1706,8 @@
             var vendor = selectedVendor;
             var plan = selectedPlan;
             var selectedModels = getSelectedModelList();
-            var windowStartStr = formatWindowStartInput('windowStartInput');
+            var submittedModels = selectedModels.length ? selectedModels : [DEFAULT_MODEL_WHEN_EMPTY];
+            var windowStartStr = DEFAULT_WINDOW_START_STR;
             var fiveHourUsagePercent = Number(document.getElementById('usagePercentInput').value);
             var readTokens = parseKTokenInput('readTokensInput');
             var cacheHitTokens = parseKTokenInput('cacheHitTokensInput');
@@ -1597,14 +1716,6 @@
 
             if (!vendor || !plan) {
                 showResult('error', getMessage('submitFailedTitle'), getMessage('vendorPlanRequired'));
-                return;
-            }
-            if (!windowStartStr) {
-                showResult('error', getMessage('submitFailedTitle'), getMessage('windowStartRequired'));
-                return;
-            }
-            if (!selectedModels.length) {
-                showResult('error', getMessage('submitFailedTitle'), getMessage('modelRequired'));
                 return;
             }
             if (!Number.isFinite(fiveHourUsagePercent) || fiveHourUsagePercent <= 0 || fiveHourUsagePercent > 100) {
@@ -1621,7 +1732,7 @@
                 body: JSON.stringify({
                     vendor: vendor,
                     plan: plan,
-                    model_list: selectedModels,
+                    model_list: submittedModels,
                     window_start_str: windowStartStr,
                     five_hour_usage_percent: fiveHourUsagePercent,
                     read_tokens: readTokens,
@@ -1681,6 +1792,7 @@
 
             setText('pageTitle', content.pageTitle);
             setText('navHome', nav.home);
+            setText('navCodingAgents', nav.codingAgents);
             setText('navRelays', nav.relays);
             setText('navRelayDetect', nav.relayDetect);
             setText('navPlanUsage', nav.planUsage);
@@ -3014,12 +3126,6 @@
             });
         }
 
-        function escapeHtml(text) {
-            if (text === null || text === undefined) return '';
-            var div = document.createElement('div');
-            div.textContent = String(text);
-            return div.innerHTML;
-        }
     })();
     </script>
 </body>

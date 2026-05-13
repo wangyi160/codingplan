@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>中转站对比</title>
     <link rel="icon" href="/favicon.ico?v=260418" type="image/x-icon">
-    <link rel="stylesheet" href="styles/shared.css">
+    <link rel="stylesheet" href="styles/shared.css?v=260515">
     <style>
         /* relays.html 覆盖 shared.css 的差异值 */
         html { scroll-behavior: smooth; }
@@ -25,24 +25,6 @@
         }
         .notes-section li { line-height: 1.65; }
 
-        /* ── 区块标题 ── */
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border-color);
-        }
-
         /* ── 快速对比矩阵 ── */
         .matrix-section {
             margin-bottom: 48px;
@@ -50,19 +32,11 @@
 
         .matrix-wrapper {
             overflow-x: auto;
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-color);
-            background: var(--bg-secondary);
         }
 
         .matrix-filter-bar {
             margin-bottom: 14px;
             padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            background: var(--bg-secondary);
-            box-shadow: var(--shadow-sm);
         }
 
         .matrix-filter-head {
@@ -729,10 +703,6 @@
         }
 
         .relay-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-md);
             overflow: hidden;
             transition: box-shadow 0.3s;
             scroll-margin-top: 24px;
@@ -850,9 +820,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 4px;
-            border-radius: var(--radius-lg);
             overflow: hidden;
-            border: 1px solid var(--border-color);
         }
 
         .models-mini-table thead th {
@@ -1040,7 +1008,7 @@
         @media (max-width: 768px) {
             body { padding: 24px 16px; }
             .container { max-width: 100%; }
-            .header { margin-bottom: 24px; padding: 24px 0; }
+            .header { margin-bottom: 24px; padding: 24px 20px; }
             .header h1 { font-size: 24px; }
             .header .subtitle { font-size: 14px; }
             .header-info { font-size: 12px; padding: 10px 12px; }
@@ -1051,43 +1019,197 @@
 
         @media (max-width: 480px) {
             body { padding: 16px 12px; }
-            .header { padding: 16px 0; }
+            .header { padding: 18px 16px; }
             .header h1 { font-size: 20px; }
             .github-link span { display: none; }
             .page-tab { padding: 8px 12px; font-size: 13px; }
+            .header-info { margin-top: 18px; }
         }
 
+        .hero-summary {
+            margin-top: -2px;
+        }
+
+        .header-info {
+            width: min(920px, 100%);
+            margin: 24px 0 0;
+            border-radius: 22px;
+            border: 1px solid rgba(23, 32, 51, 0.08);
+            background: rgba(255, 255, 255, 0.66);
+            box-shadow: 0 10px 20px rgba(23, 32, 51, 0.05);
+        }
+
+        .section-title {
+            font-size: 28px;
+        }
+
+        .section-info {
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+        }
+
+        .matrix-filter-bar {
+            padding: 18px 20px;
+            margin-bottom: 18px;
+        }
+
+        .matrix-filter-item input,
+        .matrix-filter-item select,
+        .matrix-multi-btn,
+        .matrix-filter-reset,
+        .platform-action-btn,
+        .pricing-link,
+        .home-link {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(23, 32, 51, 0.08);
+            border-radius: 18px;
+            box-shadow: 0 10px 20px rgba(23, 32, 51, 0.05);
+        }
+
+        .matrix-filter-reset,
+        .platform-action-btn,
+        .pricing-link,
+        .home-link {
+            border-radius: 999px;
+        }
+
+        .matrix-filter-item input:focus,
+        .matrix-filter-item select:focus,
+        .matrix-multi.open .matrix-multi-btn {
+            outline: none;
+            border-color: rgba(15, 118, 110, 0.28);
+            box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.08);
+        }
+
+        .matrix-multi-menu,
+        .matrix-help-bubble {
+            background: rgba(255, 251, 245, 0.96);
+            border-radius: 18px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .matrix-filter-reset:hover,
+        .platform-action-btn:hover,
+        .pricing-link:hover,
+        .home-link:hover,
+        .matrix-multi-option:hover {
+            background: rgba(15, 118, 110, 0.08);
+            border-color: rgba(15, 118, 110, 0.2);
+            color: #154d77;
+        }
+
+        .matrix-filter-check {
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(23, 32, 51, 0.08);
+        }
+
+        .slider-track {
+            background: rgba(23, 32, 51, 0.12);
+        }
+
+        .slider-range {
+            background: linear-gradient(135deg, #173753, #0f766e);
+        }
+
+        .slider-thumb {
+            border-color: #0f766e;
+            box-shadow: 0 8px 18px rgba(15, 118, 110, 0.18);
+        }
+
+        .matrix-table thead th,
+        .models-mini-table thead th {
+            background: rgba(20, 35, 55, 0.96);
+            color: rgba(248, 252, 255, 0.86);
+            border-bottom-color: rgba(23, 32, 51, 0.08);
+        }
+
+        .matrix-table thead th:first-child,
+        .platform-label,
+        .model-label {
+            background: rgba(20, 35, 55, 0.92);
+            color: rgba(248, 252, 255, 0.72);
+            border-right-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .matrix-table tbody td,
+        .models-mini-table tbody td {
+            background: rgba(255, 251, 245, 0.92);
+        }
+
+        .matrix-table tbody tr:nth-child(even) td,
+        .models-mini-table tbody tr:nth-child(even) td {
+            background: rgba(248, 242, 231, 0.9);
+        }
+
+        .matrix-table tbody tr:hover td,
+        .models-mini-table tbody tr:hover td {
+            background: rgba(232, 246, 243, 1);
+        }
+
+        .matrix-table tbody tr:hover .platform-label,
+        .model-matrix-table tbody tr:hover .model-label {
+            background: #173753;
+        }
+
+        .matrix-table thead th.matrix-col-rating {
+            color: #f7f4ea;
+            border-left-color: rgba(255, 205, 96, 0.55);
+            border-right-color: rgba(15, 118, 110, 0.42);
+            background: linear-gradient(165deg, rgba(23, 55, 83, 0.98) 0%, rgba(15, 118, 110, 0.92) 100%);
+            box-shadow: inset 0 -3px 0 rgba(255, 205, 96, 0.16), 8px 0 24px -8px rgba(15, 118, 110, 0.2);
+        }
+
+        .matrix-table tbody td.matrix-col-rating {
+            border-left-color: rgba(15, 118, 110, 0.38);
+            border-right-color: rgba(198, 107, 26, 0.28);
+            background-color: rgba(15, 118, 110, 0.08);
+            box-shadow: 8px 0 24px -10px rgba(15, 118, 110, 0.14);
+        }
+
+        .matrix-table tbody td.matrix-col-rating.matrix-star-tier-low {
+            background-color: rgba(239, 68, 68, 0.1);
+        }
+
+        .matrix-table tbody td.matrix-col-rating.matrix-star-tier-top {
+            background-color: rgba(16, 185, 129, 0.1);
+        }
+
+        .matrix-tag--1,
+        .matrix-tag--2,
+        .matrix-tag--3,
+        .matrix-tag--type-official,
+        .matrix-tag--type-platform,
+        .matrix-tag--type-mixed,
+        .protocol-tag,
+        .model-price-label {
+            box-shadow: none;
+        }
+
+        .relay-card-header {
+            background: linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(198, 107, 26, 0.05));
+            border-bottom-color: rgba(23, 32, 51, 0.08);
+        }
+
+        .relay-section p,
+        .relay-section-notes p,
+        .model-summary-meta,
+        .model-price-note {
+            line-height: 1.75;
+        }
+
+        @media (max-width: 900px) {
+            .hero-summary {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-
-        <!-- 页面导航 Tab -->
-        <nav class="page-nav">
-            <a href="index.html" class="page-tab">Coding Plan</a>
-            <!-- <a href="tools.html" class="page-tab">AI 编程工具</a> -->
-            <a href="plan-usage.html" class="page-tab">Coding Plan用量提交</a>
-            <a href="relays.html" class="page-tab active">中转站</a>
-            <a href="relay-detect.html" class="page-tab">中转站检测</a>
-            <div class="settings-wrapper">
-                <button class="settings-btn" id="settingsBtn" title="设置" aria-label="设置">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="3"/>
-                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                    </svg>
-                </button>
-                <div class="settings-panel" id="settingsPanel" hidden>
-                    <div class="settings-panel-title">显示设置</div>
-                    <div class="settings-toggle-row">
-                        <label for="ultraWideToggle">超宽屏模式</label>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="ultraWideToggle">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <div id="pageNavMount"></div>
 
         <!-- 顶部标题 -->
         <div class="header">
@@ -1103,13 +1225,31 @@
             <div class="header-info" id="headerInfo">header.info</div>
         </div>
 
+        <div class="hero-summary">
+            <article class="hero-summary-card hero-summary-card--accent">
+                <div class="hero-summary-kicker">Quick Scan</div>
+                <h2 class="hero-summary-title">先看矩阵，再点进单个中转站读细节</h2>
+                <p class="hero-summary-body">这一页适合做第一轮横向筛选。先用快速矩阵看价格、稳定性、模型覆盖和协议支持，再去详情卡里确认注意事项。</p>
+            </article>
+            <article class="hero-summary-card">
+                <div class="hero-summary-kicker">Pricing Logic</div>
+                <h2 class="hero-summary-title">不要只看单价，要连带看模型可用性</h2>
+                <p class="hero-summary-body">同样是便宜，中转站可能差在是否有热门模型、是否限协议、是否存在额外门槛。价格矩阵和模型矩阵要一起看才完整。</p>
+            </article>
+            <article class="hero-summary-card hero-summary-card--warm">
+                <div class="hero-summary-kicker">Selection Rule</div>
+                <h2 class="hero-summary-title">先缩小候选，再做一到两个备份方案</h2>
+                <p class="hero-summary-body">中转站波动通常比官方服务更频繁。建议至少选一个主力候选和一个备用候选，避免某一家状态变化后临时断档。</p>
+            </article>
+        </div>
+
         <hr class="section-divider">
 
         <!-- 快速对比矩阵 -->
         <div class="matrix-section">
             <h2 class="section-title" id="matrixSectionTitle">sections.matrixTitle</h2>
-            <div class="matrix-filter-bar" id="matrixFilterBar"></div>
-            <div class="matrix-wrapper" id="matrixWrapper">
+            <div class="matrix-filter-bar surface-panel" id="matrixFilterBar"></div>
+            <div class="matrix-wrapper surface-panel" id="matrixWrapper">
                 <div class="loading-state" id="matrixLoadingState">messages.loading</div>
             </div>
         </div>
@@ -1120,8 +1260,8 @@
         <div class="model-matrix-section">
             <h2 class="section-title" id="modelMatrixSectionTitle">sections.modelMatrixTitle</h2>
             <div class="section-info" id="modelMatrixSectionInfo">sections.modelMatrixInfo</div>
-            <div class="matrix-filter-bar" id="modelMatrixFilterBar"></div>
-            <div class="matrix-wrapper" id="modelMatrixWrapper">
+            <div class="matrix-filter-bar surface-panel" id="modelMatrixFilterBar"></div>
+            <div class="matrix-wrapper surface-panel" id="modelMatrixWrapper">
                 <div class="loading-state" id="modelMatrixLoadingState">messages.loading</div>
             </div>
         </div>
@@ -1252,11 +1392,6 @@
                 return `${stars != null ? String(stars) : ''} ${textPart}`.trim();
             }
             return String(val);
-        }
-
-        function escapeHtmlPreserveBreaks(raw) {
-            const normalized = String(raw).replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-            return escapeHtml(normalized).replace(/\n/g, '<br>');
         }
 
         function parsePriceValue(raw) {
@@ -2386,7 +2521,7 @@
                 const modelsSection = modelsRows ? `
                     <div class="relay-section">
                         <h4>${escapeHtml(getRelayPageText('sections.detailPricingTitle'))}</h4>
-                        <table class="models-mini-table">
+                        <table class="models-mini-table surface-panel">
                             <thead>
                                 <tr>
                                     <th>${escapeHtml(getRelayPageText('tableLabels.model'))}</th>
@@ -2409,7 +2544,7 @@
                 ` : '';
 
                 return `
-                    <div class="relay-card" id="relay-${escapeHtml(relay.id)}">
+                    <div class="relay-card surface-panel" id="relay-${escapeHtml(relay.id)}">
                         <div class="relay-card-header">
                             <div class="relay-card-title">
                                 <span class="relay-name-lg">${escapeHtml(relay.name)}</span>
@@ -2437,28 +2572,27 @@
 
         // ── 渲染底部说明 ──
         function renderNotes(notes) {
-            if (!notes || !notes.length) return;
-            document.getElementById('notesSection').innerHTML = `
-                <h3>${escapeHtml(getRelayPageText('sections.notesTitle'))}</h3>
-                <ul>${notes.map(n => `<li>${escapeHtml(n)}</li>`).join('')}</ul>
-            `;
+            renderNotesSection('notesSection', {
+                title: getRelayPageText('sections.notesTitle'),
+                items: notes,
+                renderItem: function(note) {
+                    return escapeHtml(note);
+                }
+            });
         }
 
         // ── 渲染更新日志 ──
         function renderUpdates(updates) {
-            if (!updates || !updates.length) return;
-            const items = updates.map(u => `
-                <li class="update-item">
-                    <div class="log-date">${escapeHtml(u.date)}</div>
-                    <ul class="update-items">
-                        ${u.items.map(i => `<li>${escapeHtml(i)}</li>`).join('')}
-                    </ul>
-                </li>
-            `).join('');
-            document.getElementById('updatesSection').innerHTML = `
-                <h3>${escapeHtml(getRelayPageText('sections.updatesTitle'))}</h3>
-                <ul class="updates-list">${items}</ul>
-            `;
+            renderUpdatesSection('updatesSection', {
+                title: getRelayPageText('sections.updatesTitle'),
+                updates: updates,
+                renderDate: function(date) {
+                    return escapeHtml(date);
+                },
+                renderItem: function(item) {
+                    return escapeHtml(item);
+                }
+            });
         }
 
         // ── 应用配置 ──
@@ -2544,6 +2678,14 @@
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
+            renderPageNav('pageNavMount', {
+                activeKey: 'relays',
+                settings: {
+                    panelTitle: '显示设置',
+                    ultraWideLabel: '超宽屏模式'
+                }
+            });
+
             bindMatrixResizeObserver();
             bindModelMatrixResizeObserver();
             await loadConfig();
@@ -2551,6 +2693,6 @@
         });
 
     </script>
-    <script src="scripts/shared.js"></script>
+    <script src="scripts/shared.js?v=260512"></script>
 </body>
 </html>

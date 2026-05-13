@@ -2,6 +2,7 @@
   "pageTitle": "Coding Plan用量提交",
   "nav": {
     "home": "Coding Plan",
+    "codingAgents": "编程 Agent",
     "relays": "中转站",
     "relayDetect": "中转站检测",
     "planUsage": "Coding Plan用量提交"
@@ -29,8 +30,8 @@
     "planPlaceholder": "请选择套餐",
     "planDisabledPlaceholder": "请先选择平台",
     "planDisabledOptionSuffix": "（Token Plan，暂不支持提交）",
-    "modelLabel": "主力模型",
-    "modelPlaceholder": "请选择一个或多个模型",
+    "modelLabel": "主力模型（非必填）",
+    "modelPlaceholder": "非必填，不填则自动记为“未填写”",
     "modelDisabledVendorPlaceholder": "请先选择平台",
     "modelDisabledPlanPlaceholder": "请先选择套餐",
     "modelSelectAll": "全选",
@@ -61,7 +62,7 @@
         "imageAlt": "套餐字段说明示例图"
       },
       "model": {
-        "text": "请选择 5 小时窗口内主要在使用的模型，可多选。",
+        "text": "可选填写 5 小时窗口内主要在使用的模型，可多选；如果留空，系统会自动记为“未填写”。",
         "image": "assets/plan-usage-help/model.png",
         "imageAlt": "主力模型字段说明示例图"
       },
