@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>国产大模型核心能力评测：聚焦 Agentic 与编码</title>
+  <title>国产大模型核心能力评测：智谱、DeepSeek、MiniMax、Kimi、千问 Qwen、小米 MiMo</title>
   <link rel="icon" href="../../favicon.ico?v=260418" type="image/x-icon" />
   <link rel="stylesheet" href="../../styles/shared.css?v=260513" />
   <style>
@@ -63,13 +63,29 @@
       letter-spacing: -0.02em;
       color: var(--text-primary);
       margin: 0 0 1.1rem;
-      max-width: 20em;
+      max-width: 28em;
     }
 
     article.doc .lead {
       font-size: 0.98em;
       color: var(--text-secondary);
+      margin: 0 0 0.65rem;
+    }
+
+    article.doc .doc-intro-list {
       margin: 0 0 1rem;
+      padding-left: 1.35rem;
+      font-size: 0.98em;
+      color: var(--text-secondary);
+      line-height: 1.72;
+    }
+
+    article.doc .doc-intro-list li {
+      margin-bottom: 0.4rem;
+    }
+
+    article.doc .doc-intro-list li::marker {
+      color: rgba(15, 118, 110, 0.45);
     }
 
     article.doc p {
@@ -204,69 +220,74 @@
   <div class="doc-wrap">
     <article class="doc">
       <p class="doc-kicker">评测摘录 · OpenClaw</p>
-      <h1>国产大模型核心能力评测：聚焦 Agentic 与编码，适配 OpenClaw 生态</h1>
-      <p class="lead">基于独立评测机构 Artificial Analysis 发布的最新 AI 模型基准测试结果，本文围绕 <strong>Agentic 智能指数</strong> 与 <strong>编码代理指数</strong> 两大核心维度展开横向对比。这两项指标与 OpenClaw 生态的日常运营及技术开发需求高度契合：Agentic 能力直接决定模型自主规划复杂任务、调度外部工具、驱动自动化流程的水平；编码能力则是评估模型代码生成、调试优化、代码库理解效率的核心依据。普通文字对话能力并非本文关注重点，所有分析均围绕 OpenClaw 生态的实际落地需求展开。</p>
+      <h1>国产大模型核心能力评测：智谱、DeepSeek、MiniMax、Kimi、千问 Qwen、小米 MiMo</h1>
+      <p class="lead">基于独立评测机构 Artificial Analysis 发布的最新 AI 模型基准测试结果，本文围绕 <strong>Agentic 智能指数</strong> 与 <strong>Coding Agent 指数</strong> 两大核心维度展开横向对比。这两项指标与日常代码开发需求和 OpenClaw、Harness 等通用 Agent 场景高度契合：</p>
+      <ul class="doc-intro-list">
+        <li>Agentic 能力直接决定模型自主规划复杂任务、调度外部工具、驱动自动化流程的水平</li>
+        <li>Coding Agent 能力则是评估模型代码生成、调试优化、代码库理解效率的核心依据。</li>
+      </ul>
       <p>从测试数据来看，国产头部大模型已全面跻身全球第一梯队，与 OpenAI、Anthropic 等海外厂商的顶尖产品差距显著缩小，且在性价比、国内生态适配性方面具备独特优势。</p>
 
       <h2>一、整体格局：国产第一梯队全面对标海外顶尖水平</h2>
 
-      <h3>1. Agentic 智能指数（OpenClaw 自动化运营核心指标）</h3>
+      <h3>1. Agentic 智能指数（通用 Agent 核心指标）</h3>
       <figure>
-        <img src="assets/agentic-index.png" alt="Artificial Analysis Agentic Index：各模型在 GDPval-AA 与 τ²-Bench Telecom 上的综合得分柱状图" width="1200" height="800" loading="lazy" decoding="async" />
-        <figcaption>Artificial Analysis Agentic Index：GDPval-AA 与 τ²-Bench Telecom 等综合表现（分数越高越好）。<span class="doc-chart-original"><a href="https://artificialanalysis.ai/?intelligence=agentic-index&amp;models=gpt-5-5%2Cgpt-5-5-pro%2Cmuse-spark%2Cgemini-3-1-pro-preview%2Cgemini-3-flash-reasoning%2Cclaude-opus-4-7%2Cclaude-sonnet-4-6-adaptive%2Cdeepseek-v4-flash%2Cdeepseek-v4-pro%2Cgrok-4-3%2Cminimax-m2-7%2Ckimi-k2-6%2Cmimo-v2-5-pro%2Cglm-5-1%2Cqwen3-6-max%2Cqwen3-6-plus%2Cgpt-5-4%2Cdeepseek-v3-2-reasoning" rel="noopener noreferrer">原始页面（与截图相同模型筛选）</a></span></figcaption>
+        <img src="assets/agentic-index.png" alt="Artificial Analysis Agentic Index：GDPval-AA 与 τ²-Bench Telecom 等综合表现（分数越高越好）。" width="1200" height="800" loading="lazy" decoding="async" />
+        <figcaption>Artificial Analysis Agentic Index：GDPval-AA 与 τ²-Bench Telecom 等综合表现（分数越高越好）。<span class="doc-chart-original"><a href="https://artificialanalysis.ai/?intelligence=agentic-index&amp;models=gpt-5-5%2Cgpt-5-5-pro%2Cmuse-spark%2Cgemini-3-1-pro-preview%2Cgemini-3-flash-reasoning%2Cclaude-opus-4-7%2Cclaude-sonnet-4-6-adaptive%2Cdeepseek-v4-flash%2Cdeepseek-v4-pro%2Cgrok-4-3%2Cminimax-m2-7%2Ckimi-k2-6%2Cmimo-v2-5-pro%2Cglm-5-1%2Cqwen3-6-max%2Cqwen3-6-plus%2Cgpt-5-4%2Cdeepseek-v3-2-reasoning#intelligence-tabs" rel="noopener noreferrer">Artificial Analysis Agentic 指数</a></span></figcaption>
       </figure>
       <p>该指数综合 GDPval-AA 真实世界任务执行能力与 τ²-Bench Telecom 工具调用能力两大基准，量化评估模型自主完成多步骤复杂任务的表现，是衡量 OpenClaw 自动化运营潜力的核心标准。</p>
       <ul>
-        <li>全球头部阵营：GPT-5.5（74 分）、Claude Opus 4.7（71 分）、GPT-5.4（68 分）占据前三</li>
-        <li>国产第一梯队（65 分及以上）：<strong>MiMo-V2.5-Pro、DeepSeek V4 Pro (Max)、GLM-5.1</strong> 以 67 分并列全球第四，<strong>Kimi K2.6（66 分）、Qwen3.6 Max Preview（65 分）</strong> 紧随其后，与 GPT-5.4 的差距仅为 1–3 分</li>
-        <li>国产第二梯队：Qwen3.6 Plus（62 分）、MiniMax-M2.7（61 分）、DeepSeek V4 Flash (Max)（61 分）</li>
+        <li>全球头部阵营：GPT-5.5（74 分）、Claude Opus 4.7（71 分）占据前二</li>
+        <li>国产第一梯队（65 分及以上）：<strong>MiMo-V2.5-Pro、DeepSeek V4 Pro (Max)、GLM-5.1</strong> 以 67 分并列全球第四，<strong>Kimi K2.6（66 分）、Qwen3.6 Max Preview（65 分）</strong> 紧随其后，与 GPT-5.4 的差距仅为 1–3 分。超过 Claude Sonnect 4.6。</li>
+        <li>国产第二梯队：Qwen3.6 Plus（62 分）、MiniMax-M2.7（61 分）、DeepSeek V4 Flash (Max)（61 分）。与 Claude Sonnect 4.6 基本持平。</li>
       </ul>
 
-      <h3>2. 编码代理指数（技术开发与工具搭建核心指标）</h3>
+      <h3>2. Coding Agent 指数（代码核心指标）</h3>
       <figure>
-        <img src="assets/coding-agent-index.png" alt="Artificial Analysis Coding Agent Index：各编码代理组合在 SWE-Bench-Pro-Hard-AA 等综合基准上的得分" width="1200" height="800" loading="lazy" decoding="async" />
-        <figcaption>Artificial Analysis Coding Agent Index：SWE-Bench-Pro-Hard-AA、Terminal-Bench v2、SWE-Atlas-QnA 等综合 pass@1（分数越高越好）。<span class="doc-chart-original"><a href="https://artificialanalysis.ai/agents/coding-agents?coding-agents-performance-chart=index&amp;agents=claude-code-opus-4-7-medium%2Cclaude-code-sonnet-4-6-medium%2Cclaude-code-deepseek-v4-pro-high%2Cclaude-code-glm-5-1%2Cclaude-code-kimi-k2-6%2Ccodex-gpt-5-5-medium%2Ccursor-cli-opus-4-7-medium%2Ccursor-cli-composer-2%2Ccursor-cli-gpt-5-5-medium%2Cgemini-cli-gemini-3-1-pro-high%2Cclaude-code-opus-4-6-medium%2Ccodex-gpt-5-4-medium%2Ccursor-cli-gpt-5-4-medium" rel="noopener noreferrer">原始页面（与截图相同代理筛选）</a></span></figcaption>
+        <img src="assets/coding-agent-index.png" alt="Artificial Analysis Coding Agent Index：SWE-Bench-Pro-Hard-AA、Terminal-Bench v2、SWE-Atlas-QnA 等综合 pass@1（分数越高越好）。" width="1200" height="800" loading="lazy" decoding="async" />
+        <figcaption>Artificial Analysis Coding Agent Index：SWE-Bench-Pro-Hard-AA、Terminal-Bench v2、SWE-Atlas-QnA 等综合 pass@1（分数越高越好）。<span class="doc-chart-original"><a href="https://artificialanalysis.ai/agents/coding-agents?coding-agents-performance-chart=index&amp;agents=claude-code-opus-4-7-medium%2Cclaude-code-sonnet-4-6-medium%2Cclaude-code-deepseek-v4-pro-high%2Cclaude-code-glm-5-1%2Cclaude-code-kimi-k2-6%2Ccodex-gpt-5-5-medium%2Ccursor-cli-opus-4-7-medium%2Ccursor-cli-composer-2%2Ccursor-cli-gpt-5-5-medium%2Cgemini-cli-gemini-3-1-pro-high%2Cclaude-code-opus-4-6-medium%2Ccodex-gpt-5-4-medium%2Ccursor-cli-gpt-5-4-medium" rel="noopener noreferrer">Artificial Analysis Coding Agent 指数</a></span></figcaption>
       </figure>
       <p>该指数整合 SWE-Bench-Pro-Hard-AA 代码生成修复、Terminal-Bench v2 终端工具使用、SWE-Atlas-QnA 代码库理解三大测试维度，全面评估模型端到端完成软件工程任务的能力。</p>
       <ul>
-        <li>全球头部阵营：Cursor CLI / Opus 4.7（61 分）、Codex / GPT-5.5（60 分）、Claude Code / Opus 4.7（60 分）位列前三</li>
-        <li>国产第一梯队：<strong>GLM-5.1</strong> 以 53 分排名全球第五，为国产模型首位</li>
-        <li>国产第二梯队：<strong>Kimi K2.6、DeepSeek V4 Pro (High)</strong> 以 50 分并列</li>
-        <li>注：本次编码代理指数共评测 13 款模型/代理组合，MiniMax、Qwen、MiMo 对应版本未纳入本次评测范围。</li>
+        <li>全球头部阵营：Cursor CLI Opus 4.7（61 分）、Codex GPT-5.5（60 分）、Claude Code Opus 4.7（60 分）位列前三</li>
+        <li>国产第一梯队：<strong>GLM-5.1</strong> 以 53 分排名全球第五，为国产模型首位。与 GPT-5.4 和 Opus 4.6 基本持平。</li>
+        <li>国产第二梯队：<strong>Kimi K2.6、DeepSeek V4 Pro (High)</strong> 以 50 分并列全球第七</li>
+        <li>注：本次编码代理指数共评测 13 款模型/代理组合，MiniMax、Qwen、MiMo 对应版本未纳入本次评测范围。待 Artificial Analysis 更新评测结果后，将更新本文。</li>
       </ul>
 
       <h2>二、国产核心厂商模型深度解析</h2>
 
-      <h3>1. GLM-5.1（智谱 AI）：编码能力领跑国产，综合实力均衡</h3>
-      <p>作为国产编码能力的标杆，GLM-5.1 在 Claude Code 框架下的代码生成、漏洞修复及大型代码库解读能力均领先其他国产模型，是技术开发场景的首选方案。其 Agentic 智能指数同样达到国产顶尖水平，能够同时支撑 OpenClaw 复杂流程的自主调度与底层工具的开发搭建。性能方面，模型输出速度稳定，定价处于行业中等偏上水平，综合适配运营与开发双重核心需求。</p>
+      <h3>1. GLM-5.1（智谱AI）：编码能力领跑国产，综合实力均衡</h3>
+      <p>作为国产编码能力的标杆，GLM-5.1 在 Claude Code 框架下的代码生成、漏洞修复及大型代码库解读能力均领先其他国产模型，是技术开发场景的首选方案。其 Agentic 智能指数同样达到国产顶尖水平，能够同时支撑 OpenClaw 复杂流程的自主调度与底层工具的开发搭建。定价处于行业中等偏上水平，但如果能够购买 CodingPlan 个人使用，则依然划算，综合适配运营与开发双重核心需求。</p>
+      <p>缺点是算力瓶颈比较严重，CodingPlan 需要抢购，很难买到。</p>
 
       <h3>2. MiniMax-M2.7（稀宇科技）：低幻觉高可靠，响应效率优异</h3>
-      <p>MiniMax-M2.7 的核心优势在于生成内容的事实准确性，幻觉率显著低于行业平均水平，能够有效避免因错误信息导致的流程异常。模型响应速度流畅，日常交互与信息整理体验出色，适合作为辅助工具承担日常信息汇总、流程记录、常规咨询答疑等标准化任务。</p>
+      <p>MiniMax-M2.7 的核心优势模型参数量比其他模型小，使得 CodingPlan 套餐最实惠、额度限制最小、倍率最高的。极速版套餐模型输出 Token 速率高，很少出现 429，可用性高于其他平台套餐。日常交互体验出色，适合作为 OpenClaw 等 Agent 场景中完成日常任务，作为辅助工具承担日常信息汇总、流程记录、常规咨询答疑等标准化任务。</p>
 
       <h3>3. DeepSeek（深度求索）：全梯度产品线覆盖，兼顾性能与成本</h3>
-      <p>DeepSeek 构建了完整的产品矩阵，能够满足不同层级的需求。旗舰款 V4 Pro (Max) 综合能力均衡，Agentic 与编码能力均处于国产第一梯队，可胜任 OpenClaw 核心复杂任务与开发工作；轻量款 V4 Flash (Max) 输出速度高达 75 tokens/s，超过 GPT-5.5，且成本极低，适合高并发、低延迟的常规任务调度；入门款 V3.2 则具备极高的性价比，适合大规模轻量化部署。</p>
+      <p>DeepSeek 构建了完整的产品矩阵，能够满足不同层级的需求。旗舰款 V4 Pro (Max) 综合能力均衡，Agentic 与编码能力均处于国产第一梯队，可胜任代码开发工作及 OpenClaw 核心复杂任务与调度；轻量款 V4 Flash (Max) 输出速度高达 75 tokens/s，成本极低，适合高并发、低延迟的常规任务调度。</p>
+      <p>同时由于 DeepSeek 独特的缓存技术，使得缓存命中率高，缓存价格低，按用量计费首选。</p>
 
       <h3>4. Kimi K2.6（月之暗面）：长上下文能力突出，编码功底扎实</h3>
-      <p>Kimi K2.6 以超长上下文理解能力著称，能够一次性处理完整的项目文档、日志报告及大型代码库，无需拆分分段。其编码能力稳居国产第二梯队，代码调试与项目维护表现稳定，尤其适合长周期数据复盘、大型项目代码库维护等需要处理海量文本的场景。</p>
+      <p>Kimi K2.6 能力均衡，支持图像输入，模型代码能力优，较高强度的日常开发够用。购买 CodingPlan 送专属龙虾。Allegretto ￥199/月性价比高最高，适合作为代码开发场景主力使用。</p>
 
       <h3>5. Qwen（通义千问，阿里）：企业级生态完善，定制化能力强</h3>
-      <p>Qwen3.6 Max Preview 的 Agentic 表现优秀，指令遵循能力与多场景适配性突出。依托阿里云生态，Qwen 系列提供完善的企业级服务，支持私有化部署与深度定制，能够为企业级 OpenClaw 平台提供从模型到基础设施的一站式解决方案。性价比款 Qwen3.6 Plus 则进一步降低了使用门槛，适合大规模日常应用。</p>
+      <p>Qwen3.6 Max Preview 的 Agentic 表现优秀，指令遵循能力与多场景适配性突出。性价比款 Qwen3.6 Plus 则进一步降低了使用门槛，适合大规模日常应用。但目前只剩下 Token Plan 套餐，性价比较低，个人使用不推荐。</p>
 
       <h3>6. MiMo-V2.5-Pro（小米）：Agentic 能力国产顶尖，性价比优势显著</h3>
-      <p>MiMo-V2.5-Pro 的 Agentic 智能指数与 DeepSeek V4 Pro、GLM-5.1 并列国产第一，在多工具协同调度、复杂自主流程执行方面表现接近 GPT-5.4，是驱动 OpenClaw 全流程自动化的最优选择之一。同时，该模型定价仅为海外顶级大模型的约 1/7，日常高频使用的成本优势极为明显。</p>
+      <p>MiMo-V2.5-Pro 的 Agentic 智能指数与 DeepSeek V4 Pro、GLM-5.1 并列国产第一，在多工具协同调度、复杂自主流程执行方面表现接近 GPT-5.4，是驱动 OpenClaw 全流程自动化的最优选择之一。</p>
 
-      <h2>三、选型参考指南</h2>
-      <p>结合 OpenClaw 生态的运营与开发需求，可根据具体场景针对性选择：</p>
+      <h2>三、个人使用选型参考指南</h2>
+      <p>结合代码开发需求及 OpenClaw 场景，可根据具体场景针对性选择：</p>
       <ul>
-        <li><strong>OpenClaw 核心自动化与复杂任务调度</strong>：优先选择 MiMo-V2.5-Pro、DeepSeek V4 Pro、GLM-5.1，三者 Agentic 能力均处于国产顶尖水平，能稳定支撑多工具协同与自主流程执行。</li>
-        <li><strong>代码开发与工具搭建</strong>：首选 GLM-5.1，其编码能力全面领先；Kimi K2.6 与 DeepSeek V4 Pro 可作为备选，满足常规开发与调试需求。</li>
-        <li><strong>长文档处理与数据复盘</strong>：推荐 Kimi K2.6，其超长上下文能力能够高效处理完整的项目文档与运行日志。</li>
-        <li><strong>高并发实时任务处理</strong>：选择 DeepSeek V4 Flash，凭借极快的响应速度与低廉的成本，适配高频次的常规指令执行。</li>
-        <li><strong>企业级私有化部署</strong>：优先考虑 Qwen3.6 系列，依托完善的阿里云生态，提供稳定的企业级服务与定制化支持。</li>
-        <li><strong>日常辅助与信息整理</strong>：MiniMax-M2.7 是理想选择，低幻觉率与流畅的响应能够满足标准化的日常办公需求。</li>
+        <li><strong>复杂代码开发与生产级系统搭建</strong>：首选 GLM-5.1，其编码能力全面领先；Kimi K2.6 与 DeepSeek V4 Pro 可作为备选，满足常规开发与调试需求。</li>
+        <li><strong>OpenClaw 核心与复杂任务</strong>：优先选择 GLM-5.1、DeepSeek V4 Pro、Kimi K2.6，三者 Agentic 能力均处于国产顶尖水平，能稳定支撑多工具协同与自主流程执行。</li>
+        <li><strong>OpenClaw 日常任务</strong>：优先选择 MiniMax-M2.7 和 DeepSeek V4 Flash，其流畅的响应和高用量限制，能够满足标准化的日常助力需求。</li>
+        <li><strong>其他专业需求综合</strong>：MiniMax-M2.7 是理想选择，便宜的价格和全天候流畅的响应在使用感受上最好。</li>
+        <li><strong>日常聊天</strong>：其实推荐直接用豆包、千问，没必要自己搭建。</li>
       </ul>
 
-      <p class="doc-source">图表站点：<a href="https://artificialanalysis.ai/" rel="noopener noreferrer">Artificial Analysis</a>。与上文截图完全一致的原始筛选链接：<a href="https://artificialanalysis.ai/?intelligence=agentic-index&amp;models=gpt-5-5%2Cgpt-5-5-pro%2Cmuse-spark%2Cgemini-3-1-pro-preview%2Cgemini-3-flash-reasoning%2Cclaude-opus-4-7%2Cclaude-sonnet-4-6-adaptive%2Cdeepseek-v4-flash%2Cdeepseek-v4-pro%2Cgrok-4-3%2Cminimax-m2-7%2Ckimi-k2-6%2Cmimo-v2-5-pro%2Cglm-5-1%2Cqwen3-6-max%2Cqwen3-6-plus%2Cgpt-5-4%2Cdeepseek-v3-2-reasoning" rel="noopener noreferrer">Agentic Index</a> · <a href="https://artificialanalysis.ai/agents/coding-agents?coding-agents-performance-chart=index&amp;agents=claude-code-opus-4-7-medium%2Cclaude-code-sonnet-4-6-medium%2Cclaude-code-deepseek-v4-pro-high%2Cclaude-code-glm-5-1%2Cclaude-code-kimi-k2-6%2Ccodex-gpt-5-5-medium%2Ccursor-cli-opus-4-7-medium%2Ccursor-cli-composer-2%2Ccursor-cli-gpt-5-5-medium%2Cgemini-cli-gemini-3-1-pro-high%2Cclaude-code-opus-4-6-medium%2Ccodex-gpt-5-4-medium%2Ccursor-cli-gpt-5-4-medium" rel="noopener noreferrer">Coding Agents</a>。</p>
+      <p class="doc-source">图表站点：<a href="https://artificialanalysis.ai/" rel="noopener noreferrer">Artificial Analysis</a>。与上文截图完全一致的原始筛选链接：<a href="https://artificialanalysis.ai/?intelligence=agentic-index&amp;models=gpt-5-5%2Cgpt-5-5-pro%2Cmuse-spark%2Cgemini-3-1-pro-preview%2Cgemini-3-flash-reasoning%2Cclaude-opus-4-7%2Cclaude-sonnet-4-6-adaptive%2Cdeepseek-v4-flash%2Cdeepseek-v4-pro%2Cgrok-4-3%2Cminimax-m2-7%2Ckimi-k2-6%2Cmimo-v2-5-pro%2Cglm-5-1%2Cqwen3-6-max%2Cqwen3-6-plus%2Cgpt-5-4%2Cdeepseek-v3-2-reasoning#intelligence-tabs" rel="noopener noreferrer">Agentic Index</a> · <a href="https://artificialanalysis.ai/agents/coding-agents?coding-agents-performance-chart=index&amp;agents=claude-code-opus-4-7-medium%2Cclaude-code-sonnet-4-6-medium%2Cclaude-code-deepseek-v4-pro-high%2Cclaude-code-glm-5-1%2Cclaude-code-kimi-k2-6%2Ccodex-gpt-5-5-medium%2Ccursor-cli-opus-4-7-medium%2Ccursor-cli-composer-2%2Ccursor-cli-gpt-5-5-medium%2Cgemini-cli-gemini-3-1-pro-high%2Cclaude-code-opus-4-6-medium%2Ccodex-gpt-5-4-medium%2Ccursor-cli-gpt-5-4-medium" rel="noopener noreferrer">Coding Agents</a>。</p>
     </article>
   </div>
 </body>
