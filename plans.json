@@ -1,110 +1,5 @@
 [
   {
-    "vendor": "MiniMax",
-    "plan": "Starter",
-    "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
-    "rating": 5,
-    "firstMonthPrice": 26.1,
-    "monthlyPrice": 29,
-    "quarterlyPrice": "-",
-    "yearlyPrice": 290,
-    "models": [
-      "MiniMax-M2.7",
-      "MiniMax-M2.5"
-    ],
-    "fiveHoursRequests": 600,
-    "weeklyRequests": 6000,
-    "monthlyRequests": 24000,
-    "tokenLimit": "无限制",
-    "benefits": [],
-    "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算"
-  },
-  {
-    "vendor": "MiniMax",
-    "plan": "Plus",
-    "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
-    "rating": 5,
-    "firstMonthPrice": 44.1,
-    "monthlyPrice": 49,
-    "quarterlyPrice": "-",
-    "yearlyPrice": 490,
-    "models": [
-      "MiniMax-M2.7",
-      "MiniMax-M2.5"
-    ],
-    "fiveHoursRequests": 1500,
-    "weeklyRequests": 15000,
-    "monthlyRequests": 60000,
-    "tokenLimit": "无限制",
-    "benefits": [],
-    "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算"
-  },
-  {
-    "vendor": "MiniMax",
-    "plan": "Max",
-    "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
-    "rating": 5,
-    "firstMonthPrice": 107.1,
-    "monthlyPrice": 119,
-    "quarterlyPrice": "-",
-    "yearlyPrice": 1190,
-    "models": [
-      "MiniMax-M2.7",
-      "MiniMax-M2.5"
-    ],
-    "fiveHoursRequests": 4500,
-    "weeklyRequests": 45000,
-    "monthlyRequests": 180000,
-    "tokenLimit": "无限制",
-    "benefits": [],
-    "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算"
-  },
-  {
-    "vendor": "MiniMax",
-    "plan": "Plus-极速",
-    "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
-    "rating": 5,
-    "firstMonthPrice": 88.2,
-    "monthlyPrice": 98,
-    "quarterlyPrice": "-",
-    "yearlyPrice": 980,
-    "models": [
-      "MiniMax-M2.7-highspeed",
-      "MiniMax-M2.5-highspeed"
-    ],
-    "fiveHoursRequests": 1500,
-    "weeklyRequests": 15000,
-    "monthlyRequests": 60000,
-    "tokenLimit": "无限制",
-    "benefits": [],
-    "note": "• 约100TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算"
-  },
-  {
-    "vendor": "MiniMax",
-    "plan": "Max-极速",
-    "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
-    "rating": 5,
-    "firstMonthPrice": 179.1,
-    "monthlyPrice": 199,
-    "quarterlyPrice": "-",
-    "yearlyPrice": 1990,
-    "models": [
-      "MiniMax-M2.7-highspeed",
-      "MiniMax-M2.5-highspeed"
-    ],
-    "fiveHoursRequests": 4500,
-    "weeklyRequests": 45000,
-    "monthlyRequests": 180000,
-    "tokenLimit": "无限制",
-    "benefits": [],
-    "note": "• 约100TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算"
-  },
-    {
     "vendor": "智谱AI",
     "plan": "Lite",
     "type": "Coding Plan",
@@ -248,6 +143,111 @@
       "免费MCP次数"
     ],
     "note": "• 4倍Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+  },
+    {
+    "vendor": "MiniMax",
+    "plan": "Starter",
+    "type": "Coding Plan",
+    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
+    "rating": 5,
+    "firstMonthPrice": 26.1,
+    "monthlyPrice": 29,
+    "quarterlyPrice": "-",
+    "yearlyPrice": 290,
+    "models": [
+      "MiniMax-M2.7",
+      "MiniMax-M2.5"
+    ],
+    "fiveHoursRequests": 600,
+    "weeklyRequests": 6000,
+    "monthlyRequests": 24000,
+    "tokenLimit": "无限制",
+    "benefits": [],
+    "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+  },
+  {
+    "vendor": "MiniMax",
+    "plan": "Plus",
+    "type": "Coding Plan",
+    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
+    "rating": 5,
+    "firstMonthPrice": 44.1,
+    "monthlyPrice": 49,
+    "quarterlyPrice": "-",
+    "yearlyPrice": 490,
+    "models": [
+      "MiniMax-M2.7",
+      "MiniMax-M2.5"
+    ],
+    "fiveHoursRequests": 1500,
+    "weeklyRequests": 15000,
+    "monthlyRequests": 60000,
+    "tokenLimit": "无限制",
+    "benefits": [],
+    "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+  },
+  {
+    "vendor": "MiniMax",
+    "plan": "Max",
+    "type": "Coding Plan",
+    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
+    "rating": 5,
+    "firstMonthPrice": 107.1,
+    "monthlyPrice": 119,
+    "quarterlyPrice": "-",
+    "yearlyPrice": 1190,
+    "models": [
+      "MiniMax-M2.7",
+      "MiniMax-M2.5"
+    ],
+    "fiveHoursRequests": 4500,
+    "weeklyRequests": 45000,
+    "monthlyRequests": 180000,
+    "tokenLimit": "无限制",
+    "benefits": [],
+    "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+  },
+  {
+    "vendor": "MiniMax",
+    "plan": "Plus-极速",
+    "type": "Coding Plan",
+    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
+    "rating": 5,
+    "firstMonthPrice": 88.2,
+    "monthlyPrice": 98,
+    "quarterlyPrice": "-",
+    "yearlyPrice": 980,
+    "models": [
+      "MiniMax-M2.7-highspeed",
+      "MiniMax-M2.5-highspeed"
+    ],
+    "fiveHoursRequests": 1500,
+    "weeklyRequests": 15000,
+    "monthlyRequests": 60000,
+    "tokenLimit": "无限制",
+    "benefits": [],
+    "note": "• 约100TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+  },
+  {
+    "vendor": "MiniMax",
+    "plan": "Max-极速",
+    "type": "Coding Plan",
+    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
+    "rating": 5,
+    "firstMonthPrice": 179.1,
+    "monthlyPrice": 199,
+    "quarterlyPrice": "-",
+    "yearlyPrice": 1990,
+    "models": [
+      "MiniMax-M2.7-highspeed",
+      "MiniMax-M2.5-highspeed"
+    ],
+    "fiveHoursRequests": 4500,
+    "weeklyRequests": 45000,
+    "monthlyRequests": 180000,
+    "tokenLimit": "无限制",
+    "benefits": [],
+    "note": "• 约100TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算"
   },
   {
     "vendor": "讯飞·星火",
