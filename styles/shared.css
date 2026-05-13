@@ -175,14 +175,13 @@ body {
 }
 
 .header h1 {
-    max-width: 12ch;
+    max-width: calc(100% - 140px);
     font-size: clamp(40px, 6vw, 68px);
     color: var(--text-primary);
     margin-bottom: 16px;
     font-weight: 800;
     letter-spacing: -0.04em;
     line-height: 1.02;
-    text-wrap: balance;
 }
 
 .update-date {
@@ -200,18 +199,19 @@ body {
 }
 
 .header .subtitle {
-    width: min(960px, 100%);
+    width: 100%;
+    max-width: 100%;
     color: #39465a;
     font-size: clamp(17px, 2vw, 21px);
     margin-bottom: 18px;
     font-weight: 500;
     line-height: 1.72;
-    text-wrap: pretty;
 }
 
 .header .models,
 .header-info {
-    width: min(960px, 100%);
+    width: 100%;
+    max-width: 100%;
     margin-top: 22px;
     padding: 14px 16px;
     border: 1px solid rgba(23, 32, 51, 0.08);
@@ -546,10 +546,6 @@ body {
 @media (max-width: 1200px) {
     body {
         padding: 24px 22px 56px;
-    }
-
-    .header h1 {
-        max-width: none;
     }
 }
 
