@@ -296,7 +296,7 @@
     "monthlyRequests": 90000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• GLM5.1已恢复200K上下文"
+    "note": "• GLM-5.1已恢复200K上下文"
   },
   {
     "vendor": "Kimi",
@@ -1184,7 +1184,7 @@
       "GLM-5.1",
       "GLM-5",
       "MiniMax-M2.5",
-      "Qwen3.5-397B-A17B",
+      "Qwen-3.5-Plus",
       "Kimi-K2.5"
     ],
     "fiveHoursRequests": 1200,
@@ -1210,7 +1210,7 @@
       "GLM-5.1",
       "GLM-5",
       "MiniMax-M2.5",
-      "Qwen3.5-397B-A17B",
+      "Qwen-3.5-Plus",
       "Kimi-K2.5"
     ],
     "fiveHoursRequests": 6000,
@@ -1405,7 +1405,7 @@
     "yearlyPrice": "-",
     "models": [
       "MiniMax-M2.5",
-      "Qwen3-235B-A22B"
+      "Qwen-3-235B-A22B"
     ],
     "fiveHoursRequests": 1200,
     "weeklyRequests": 9000,
@@ -1426,7 +1426,7 @@
     "yearlyPrice": "-",
     "models": [
       "MiniMax-M2.5",
-      "Qwen3-235B-A22B"
+      "Qwen-3-235B-A22B"
     ],
     "fiveHoursRequests": 6000,
     "weeklyRequests": 45000,
@@ -1458,7 +1458,7 @@
     "monthlyRequests": 12000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• 当前售罄\n• 支持 GLM-5.1、MiniMax-M2.7，在新增平台里模型覆盖还可以，但没有 Kimi-K2.6、DeepSeek-V4-Pro、Qwen3.6",
+    "note": "• 当前售罄\n• 支持 GLM-5.1、MiniMax-M2.7，在新增平台里模型覆盖还可以，但没有 Kimi-K2.6、DeepSeek-V4-Pro、Qwen-3.6-Plus",
     "discontinued": true
   },
   {
@@ -1484,7 +1484,7 @@
     "monthlyRequests": 60000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• 当前售罄\n• 支持 GLM-5.1、MiniMax-M2.7，在新增平台里模型覆盖还可以，但没有 Kimi-K2.6、DeepSeek-V4-Pro、Qwen3.6",
+    "note": "• 当前售罄\n• 支持 GLM-5.1、MiniMax-M2.7，在新增平台里模型覆盖还可以，但没有 Kimi-K2.6、DeepSeek-V4-Pro、Qwen-3.6-Plus",
     "discontinued": true
   },
   {
@@ -1760,8 +1760,8 @@
       "Kimi-K2.6",
       "MiMo-V2.5-Pro",
       "MiMo-V2.5",
-      "Qwen3.5 Plus",
-      "Qwen3.6 Plus",
+      "Qwen-3.5-Plus",
+      "Qwen-3.6-Plus",
       "MiniMax-M2.7",
       "MiniMax-M2.5",
       "DeepSeek-V4-Pro",
@@ -1775,7 +1775,7 @@
     "benefits": [
       "首月半价"
     ],
-    "note": "• 支持 GLM-5.1、Kimi-K2.6、MiniMax-M2.7、DeepSeek-V4-Pro、Qwen3.6 五个热门模型\n• 套餐额度按美元 Credits 计：基础 12 美元、周额度 30 美元、月额度 60 美元\n• 实际计费按 token 消耗"
+    "note": "• 套餐额度按美元 Credits 计：基础 12 美元、周额度 30 美元、月额度 60 美元\n• 实际计费按 token 消耗"
   },
   {
     "vendor": "Ollama",
@@ -1791,10 +1791,10 @@
       "Kimi-K2.6",
       "GLM-5.1",
       "DeepSeek-V4-Pro",
-      "DeepSeek-V4-flash",
+      "DeepSeek-V4-Flash",
       "MiniMax-M2.7",
-      "Qwen3-Coder",
-      "Qwen3-Coder-next",
+      "Qwen-3-Coder",
+      "Qwen-3-Coder-next",
       "Gemini-3-Flash-Preview",
       "Mistral-Large-3"
     ],
@@ -1822,10 +1822,10 @@
       "Kimi-K2.6",
       "GLM-5.1",
       "DeepSeek-V4-Pro",
-      "DeepSeek-V4-flash",
+      "DeepSeek-V4-Flash",
       "MiniMax-M2.7",
-      "Qwen3-Coder",
-      "Qwen3-Coder-next",
+      "Qwen-3-Coder",
+      "Qwen-3-Coder-next",
       "Gemini-3-Flash-Preview",
       "Mistral-Large-3"
     ],
@@ -1865,7 +1865,7 @@
     "benefits": [
       "可购买额外积分"
     ],
-    "note": "• 原生 Codex 套餐，但不以 GLM-5.1、Kimi-K2.6、MiniMax-M2.7、DeepSeek-V4-Pro、Qwen3.6 为主\n• 官方按 5 小时与每周额度管理；免费版和 Go 套餐每周也有少量体验额度"
+    "note": "• 原生 Codex 套餐\n• 官方按 5 小时与每周额度管理；免费版和 Go 套餐每周也有少量体验额度"
   },
   {
     "vendor": "OpenAI Codex",
@@ -1893,7 +1893,7 @@
     "benefits": [
       "可购买额外积分"
     ],
-    "note": "• 原生 Codex 套餐，但不以 GLM-5.1、Kimi-K2.6、MiniMax-M2.7、DeepSeek-V4-Pro、Qwen3.6 为主\n• 截至 5 月 31 日前，官方标注可限时享 Plus 的 10 倍额度"
+    "note": "• 原生 Codex 套餐\n• 截至 5 月 31 日前，官方标注可限时享 Plus 的 10 倍额度\n• 6月1日起改按Token计费"
   },
   {
     "vendor": "OpenAI Codex",
@@ -1921,7 +1921,7 @@
     "benefits": [
       "可购买额外积分"
     ],
-    "note": "• 原生 Codex 套餐，但不以 GLM-5.1、Kimi-K2.6、MiniMax-M2.7、DeepSeek-V4-Pro、Qwen3.6 为主\n• 官方按 5 小时与每周额度管理"
+    "note": "• 原生 Codex 套餐\n• 官方按 5 小时与每周额度管理"
   },
   {
     "vendor": "Claude Code",
@@ -2061,7 +2061,7 @@
     "benefits": [
       "1000 积分"
     ],
-    "note": "• 不以 GLM-5.1、Kimi-K2.6、MiniMax-M2.7、DeepSeek-V4-Pro、Qwen3.6 为主，但多模型选择丰富\n• 存在周限额和 session 限额；不同模型有不同高级模型扣减倍率\n• 目前暂时关闭新用户订阅权益激活，已有用户升级暂不受影响"
+    "note": "• 不以 GLM-5.1、Kimi-K2.6、MiniMax-M2.7、DeepSeek-V4-Pro、Qwen-3.6-Plus 为主，但多模型选择丰富\n• 存在周限额和 session 限额；不同模型有不同高级模型扣减倍率\n• 目前暂时关闭新用户订阅权益激活，已有用户升级暂不受影响"
   },
   {
     "vendor": "GitHub Copilot",
@@ -2089,6 +2089,6 @@
     "benefits": [
       "3900 积分"
     ],
-    "note": "• 不以 GLM-5.1、Kimi-K2.6、MiniMax-M2.7、DeepSeek-V4-Pro、Qwen3.6 为主，但多模型选择丰富\n• 存在周限额和 session 限额；不同模型有不同高级模型扣减倍率\n• 官方说明自 6 月 1 日起统一改用 token 计费模式"
+    "note": "• 不以 GLM-5.1、Kimi-K2.6、MiniMax-M2.7、DeepSeek-V4-Pro、Qwen-3.6-Plus 为主，但多模型选择丰富\n• 存在周限额和 session 限额；不同模型有不同高级模型扣减倍率\n• 官方说明自 6 月 1 日起统一改用 token 计费模式"
   }
 ]
