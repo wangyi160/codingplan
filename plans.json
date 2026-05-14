@@ -1225,7 +1225,7 @@
     "plan": "个人 Lite",
     "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqunicomtp",
-    "rating": 2,
+    "rating": 1,
     "firstMonthPrice": "-",
     "monthlyPrice": 15,
     "quarterlyPrice": "-",
@@ -1239,14 +1239,14 @@
     "monthlyRequests": "无限制",
     "tokenLimit": 6,
     "benefits": [],
-    "note": "• 参考文档https://support.cucloud.cn/document/127/591/2357.html?id=2357&arcid=7080\n• 上下文窗口目前仅支持 200K\n• 以 DeepSeek-V4-Pro 为例 25,000 credits约为 2亿tokens"
+    "note": "• 参考文档https://support.cucloud.cn/document/127/591/2357.html?id=2357&arcid=7080\n• 上下文窗口目前仅支持 200K\n"
   },
   {
     "vendor": "联通云",
     "plan": "个人 Pro",
     "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqunicomtp",
-    "rating": 2,
+    "rating": 1,
     "firstMonthPrice": "-",
     "monthlyPrice": 30,
     "quarterlyPrice": "-",
@@ -1261,14 +1261,14 @@
     "tokenLimit": 12,
     "benefits": [
     ],
-    "note": "• 参考文档https://support.cucloud.cn/document/127/591/2357.html?id=2357&arcid=7080\n• 上下文窗口目前仅支持 200K\n• 以 DeepSeek-V4-Pro 为例 25,000 credits约为 2亿tokens"
+    "note": "• 参考文档https://support.cucloud.cn/document/127/591/2357.html?id=2357&arcid=7080\n• 上下文窗口目前仅支持 200K\n"
   },
   {
     "vendor": "联通云",
     "plan": "个人 Max",
     "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqunicomtp",
-    "rating": 2,
+    "rating": 1,
     "firstMonthPrice": "-",
     "monthlyPrice": 45,
     "quarterlyPrice": "-",
@@ -1282,7 +1282,7 @@
     "monthlyRequests": "无限制",
     "tokenLimit": 18,
     "benefits": [],
-    "note": "• 参考文档https://support.cucloud.cn/document/127/591/2357.html?id=2357&arcid=7080\n• 上下文窗口目前仅支持 200K\n• 以 DeepSeek-V4-Pro 为例 25,000 credits约为 2亿tokens"
+    "note": "• 参考文档https://support.cucloud.cn/document/127/591/2357.html?id=2357&arcid=7080\n• 上下文窗口目前仅支持 200K\n"
   },
   {
     "vendor": "联通云",
@@ -1302,7 +1302,7 @@
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
     "monthlyRequests": "无限制",
-    "tokenLimit": "未公开",
+    "tokenLimit": 200,
     "benefits": [
     ],
     "note": "• 参考文档https://support.cucloud.cn/document/127/591/2357.html?id=2357&arcid=7080\n• 上下文窗口目前仅支持 200K\n• 以 DeepSeek-V4-Pro 为例 25,000 credits约为 2亿tokens"
@@ -1325,7 +1325,7 @@
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
     "monthlyRequests": "无限制",
-    "tokenLimit": "未公开",
+    "tokenLimit": 800,
     "benefits": [
     ],
     "note": "• 参考文档https://support.cucloud.cn/document/127/591/2357.html?id=2357&arcid=7080\n• 上下文窗口目前仅支持 200K\n• 以 DeepSeek-V4-Pro 为例 25,000 credits约为 2亿tokens"
@@ -1348,7 +1348,7 @@
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
     "monthlyRequests": "无限制",
-    "tokenLimit": "未公开",
+    "tokenLimit": 2000,
     "benefits": [
     ],
     "note": "• 参考文档https://support.cucloud.cn/document/127/591/2357.html?id=2357&arcid=7080\n• 上下文窗口目前仅支持 200K\n• 以 DeepSeek-V4-Pro 为例 25,000 credits约为 2亿tokens"
@@ -1371,14 +1371,14 @@
     "monthlyRequests": 18000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• Coding Plan，价格很低，但当前仅支持 MiniMax-M2.5\n• 活动价首月 7.9 元，标准价 40 元/月"
+    "note": "• 模型较弱\n• 活动价首月 7.9 元，标准价 40 元/月，仅购买一个月时建议购买，不建议长期使用"
   },
   {
     "vendor": "移动云",
     "plan": "Pro",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqmobilecp",
-    "rating": 3,
+    "rating": 2,
     "firstMonthPrice": 39.9,
     "monthlyPrice": 200,
     "quarterlyPrice": "-",
@@ -1391,7 +1391,7 @@
     "monthlyRequests": 90000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• Coding Plan，价格很低，但当前仅支持 MiniMax-M2.5\n• 活动价首月 39.9 元，标准价 200 元/月"
+    "note": "• 模型较弱\n• 活动价首月 7.9 元，标准价 40 元/月，仅购买一个月时建议购买，不建议长期使用"
   },
   {
     "vendor": "超算互联网",
@@ -1412,7 +1412,7 @@
     "monthlyRequests": 18000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "当前仅支持 MiniMax-M2.5、Qwen3-235B-A22B，不覆盖 GLM-5.1、Kimi-K2.6、MiniMax-M2.7、DeepSeek-V4-Pro、Qwen3.6"
+    "note": "• 模型较弱"
   },
   {
     "vendor": "超算互联网",
@@ -1433,7 +1433,7 @@
     "monthlyRequests": 90000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "当前仅支持 MiniMax-M2.5、Qwen3-235B-A22B，不覆盖 GLM-5.1、Kimi-K2.6、MiniMax-M2.7、DeepSeek-V4-Pro、Qwen3.6"
+    "note": "• 模型较弱"
   },
   {
     "vendor": "无问芯穹",
@@ -1448,10 +1448,8 @@
     "models": [
       "DeepSeek-V3.2",
       "Kimi-K2.5",
-      "MiniMax-M2.1",
       "MiniMax-M2.5",
       "MiniMax-M2.7",
-      "GLM-4.7",
       "GLM-5",
       "GLM-5.1"
     ],
@@ -1476,10 +1474,8 @@
     "models": [
       "DeepSeek-V3.2",
       "Kimi-K2.5",
-      "MiniMax-M2.1",
       "MiniMax-M2.5",
       "MiniMax-M2.7",
-      "GLM-4.7",
       "GLM-5",
       "GLM-5.1"
     ],
@@ -1645,7 +1641,7 @@
     "vendor": "摩尔线程",
     "plan": "Free Trial",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqjdmeta",
+    "action": "https://api.dreamfree.space/c/s/cpmoorefree",
     "rating": 3,
     "firstMonthPrice": 0,
     "monthlyPrice": 0,
@@ -1659,7 +1655,7 @@
     "monthlyRequests": "未公开",
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• 仅支持 GLM-4.7，不覆盖这批较新的热门模型\n• Free Trial 每天上午 10:00 发放，限量 100 名，30 天有效\n• 京东购买兑换码后需到卡券兑换页面兑换"
+    "note": "• 模型较弱\n• Free Trial 每天上午 10:00 发放，限量 100 名，30 天有效\n• 京东购买兑换码后需到卡券兑换页面兑换"
   },
   {
     "vendor": "摩尔线程",
@@ -1727,7 +1723,7 @@
   {
     "vendor": "商汤·日日新",
     "plan": "Free（公测）",
-    "type": "Token Plan",
+    "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqsensenova",
     "rating": 3,
     "firstMonthPrice": 0,
@@ -1739,14 +1735,14 @@
       "SenseNova U1 Fast",
       "DeepSeek-V4-Flash"
     ],
-    "fiveHoursRequests": "未公开",
+    "fiveHoursRequests": 1500,
     "weeklyRequests": "未公开",
     "monthlyRequests": "未公开",
     "tokenLimit": "未公开",
     "benefits": [
       "256K 上下文"
     ],
-    "note": "• 免费公测，当前是 Token Plan，不是 Coding Plan\n• 日额度：SenseNova 6.7 Flash-Lite 1500 次、SenseNova U1 Fast 1500 次、DeepSeek-V4-Flash 150 次\n• SenseNova U1 Fast 主要面向信息图场景；Lite / Pro 套餐已列出但仍待公布"
+    "note": "• 模型较弱\n• 免费公测，Lite / Pro 未上线\n• 日额度：SenseNova 6.7 Flash-Lite 1500 次、SenseNova U1 Fast 1500 次、DeepSeek-V4-Flash 150 次"
   },
   {
     "vendor": "OpenCode Go",
@@ -1761,18 +1757,15 @@
     "models": [
       "GLM-5.1",
       "GLM-5",
-      "Kimi-K2.5",
       "Kimi-K2.6",
-      "MiMo-V2-Pro",
-      "MiMo-V2-Omni",
       "MiMo-V2.5-Pro",
       "MiMo-V2.5",
       "Qwen3.5 Plus",
       "Qwen3.6 Plus",
-      "MiniMax M2.7",
-      "MiniMax M2.5",
-      "DeepSeek V4 Pro",
-      "DeepSeek V4 Flash"
+      "MiniMax-M2.7",
+      "MiniMax-M2.5",
+      "DeepSeek-V4-Pro",
+      "DeepSeek-V4-Flash"
     ],
     "fiveHoursRequests": "未公开",
     "weeklyRequests": "未公开",
@@ -1789,21 +1782,21 @@
     "plan": "Pro",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqollama",
-    "rating": 5,
+    "rating": 3,
     "firstMonthPrice": "-",
     "monthlyPrice": 20,
     "quarterlyPrice": "-",
     "yearlyPrice": 200,
     "models": [
-      "kimi-k2.6",
-      "glm-5.1",
-      "deepseek-v4-pro",
-      "deepseek-v4-flash",
-      "minimax-m2.7",
-      "qwen3-coder",
-      "qwen3-coder-next",
-      "gemini-3-flash-preview",
-      "mistral-large-3"
+      "Kimi-K2.6",
+      "GLM-5.1",
+      "DeepSeek-V4-Pro",
+      "DeepSeek-V4-flash",
+      "MiniMax-M2.7",
+      "Qwen3-Coder",
+      "Qwen3-Coder-next",
+      "Gemini-3-Flash-Preview",
+      "Mistral-Large-3"
     ],
     "fiveHoursRequests": "未公开",
     "weeklyRequests": "未公开",
@@ -1820,21 +1813,21 @@
     "plan": "Max",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqollama",
-    "rating": 5,
+    "rating": 3,
     "firstMonthPrice": "-",
     "monthlyPrice": 100,
     "quarterlyPrice": "-",
     "yearlyPrice": "-",
     "models": [
-      "kimi-k2.6",
-      "glm-5.1",
-      "deepseek-v4-pro",
-      "deepseek-v4-flash",
-      "minimax-m2.7",
-      "qwen3-coder",
-      "qwen3-coder-next",
-      "gemini-3-flash-preview",
-      "mistral-large-3"
+      "Kimi-K2.6",
+      "GLM-5.1",
+      "DeepSeek-V4-Pro",
+      "DeepSeek-V4-flash",
+      "MiniMax-M2.7",
+      "Qwen3-Coder",
+      "Qwen3-Coder-next",
+      "Gemini-3-Flash-Preview",
+      "Mistral-Large-3"
     ],
     "fiveHoursRequests": "未公开",
     "weeklyRequests": "未公开",
@@ -2019,7 +2012,7 @@
     "plan": "学生",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqghstudent",
-    "rating": 4,
+    "rating": 5,
     "firstMonthPrice": 0,
     "monthlyPrice": 0,
     "quarterlyPrice": "-",
