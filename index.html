@@ -2329,6 +2329,58 @@
         const totalCount = document.getElementById('totalCount');
         const tableScroll = document.getElementById('tableScroll');
 
+        /** 按数据中的出现顺序去重，用于平台下拉等 */
+        function uniqueStringsInOrder(strings) {
+            const seen = new Set();
+            const out = [];
+            for (const s of strings) {
+                if (s === undefined || s === null) continue;
+                if (seen.has(s)) continue;
+                seen.add(s);
+                out.push(s);
+            }
+            return out;
+        }
+
+        /**
+         * 模型筛选下拉：GLM、Kimi、MiniMax、DeepSeek、Qwen、MiMo、Doubao、GPT、Claude、Step 开头的在前
+         * （前缀顺序如上；同一前缀内保持 plans 中的出现顺序）；其余按 zh-CN 字典序在后。
+         */
+        function modelFilterPrefixRank(name) {
+            const n = String(name);
+            if (n.startsWith('GLM')) return 0;
+            if (n.startsWith('Kimi')) return 1;
+            if (n.startsWith('MiniMax')) return 2;
+            if (n.startsWith('DeepSeek')) return 3;
+            if (n.startsWith('Qwen')) return 4;
+            if (/^mimo/i.test(n)) return 5;
+            if (n.startsWith('Doubao')) return 6;
+            if (n.startsWith('GPT')) return 7;
+            if (n.startsWith('Claude')) return 8;
+            if (/^step/i.test(n)) return 9;
+            return -1;
+        }
+
+        function sortModelsForFilterDropdown(modelsInDataOrder) {
+            const priority = [];
+            const rest = [];
+            for (const m of modelsInDataOrder) {
+                if (modelFilterPrefixRank(m) >= 0) {
+                    priority.push(m);
+                } else {
+                    rest.push(m);
+                }
+            }
+            priority.sort((a, b) => {
+                const ra = modelFilterPrefixRank(a);
+                const rb = modelFilterPrefixRank(b);
+                if (ra !== rb) return ra - rb;
+                return modelsInDataOrder.indexOf(a) - modelsInDataOrder.indexOf(b);
+            });
+            rest.sort((a, b) => a.localeCompare(b, 'zh-CN'));
+            return priority.concat(rest);
+        }
+
         // 初始化筛选器
         function initFilters() {
             // 类型筛选
@@ -2343,7 +2395,7 @@
                 typeCheckboxes.appendChild(div);
             });
 
-            const vendors = [...new Set(allPlans.map(p => p['vendor']))].sort();
+            const vendors = uniqueStringsInOrder(allPlans.map(p => p['vendor']));
             vendors.forEach(vendor => {
                 const div = document.createElement('div');
                 div.className = 'checkbox-item';
@@ -2354,7 +2406,9 @@
                 vendorCheckboxes.appendChild(div);
             });
 
-            const models = [...new Set(allPlans.flatMap(p => p.models))].sort();
+            const models = sortModelsForFilterDropdown(
+                uniqueStringsInOrder(allPlans.flatMap(p => p.models || []))
+            );
             models.forEach(model => {
                 const div = document.createElement('div');
                 div.className = 'checkbox-item';

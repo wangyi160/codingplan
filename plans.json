@@ -1509,7 +1509,7 @@
     "monthlyRequests": 1900,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "\n• 倍率：DeepSeek-V3.2 x1，DeepSeek-V4-Flash x1，MiniMax-M2.7 x2，Kimi-K2.6 x5，GLM-5.1 x6\n• 限流：3 并发",
+    "note": "• 倍率：DeepSeek-V3.2 x1，DeepSeek-V4-Flash x1，MiniMax-M2.7 x2，Kimi-K2.6 x5，GLM-5.1 x6\n• 限流：3 并发",
     "discontinued": false
   },
   {
@@ -1534,7 +1534,7 @@
     "monthlyRequests": 3800,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "\n• 倍率：DeepSeek-V3.2 x1，DeepSeek-V4-Flash x1，MiniMax-M2.7 x2，Kimi-K2.6 x5，GLM-5.1 x6\n• 限流：5 并发",
+    "note": "• 倍率：DeepSeek-V3.2 x1，DeepSeek-V4-Flash x1，MiniMax-M2.7 x2，Kimi-K2.6 x5，GLM-5.1 x6\n• 限流：5 并发",
     "discontinued": false
   },
   {
@@ -1559,7 +1559,7 @@
     "monthlyRequests": 7600,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "\n• 倍率：DeepSeek-V3.2 x1，DeepSeek-V4-Flash x1，MiniMax-M2.7 x2，Kimi-K2.6 x5，GLM-5.1 x6\n• 限流：10 并发",
+    "note": "• 倍率：DeepSeek-V3.2 x1，DeepSeek-V4-Flash x1，MiniMax-M2.7 x2，Kimi-K2.6 x5，GLM-5.1 x6\n• 限流：10 并发",
     "discontinued": false
   },
   {
@@ -1584,7 +1584,7 @@
     "monthlyRequests": 19000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "\n• 倍率：DeepSeek-V3.2 x1，DeepSeek-V4-Flash x1，MiniMax-M2.7 x2，Kimi-K2.6 x5，GLM-5.1 x6\n• 限流：10 并发",
+    "note": "• 倍率：DeepSeek-V3.2 x1，DeepSeek-V4-Flash x1，MiniMax-M2.7 x2，Kimi-K2.6 x5，GLM-5.1 x6\n• 限流：10 并发",
     "discontinued": false
   },
   {
@@ -1609,7 +1609,7 @@
     "monthlyRequests": 31000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "\n• 倍率：DeepSeek-V3.2 x1，DeepSeek-V4-Flash x1，MiniMax-M2.7 x2，Kimi-K2.6 x5，GLM-5.1 x6\n• 限流：10 并发",
+    "note": "• 倍率：DeepSeek-V3.2 x1，DeepSeek-V4-Flash x1，MiniMax-M2.7 x2，Kimi-K2.6 x5，GLM-5.1 x6\n• 限流：10 并发",
     "discontinued": false
   },
   {
@@ -1634,7 +1634,7 @@
     "monthlyRequests": 39000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "\n• 倍率：DeepSeek-V3.2 x1，DeepSeek-V4-Flash x1，MiniMax-M2.7 x2，Kimi-K2.6 x5，GLM-5.1 x6\n• 限流：10 并发",
+    "note": "• 倍率：DeepSeek-V3.2 x1，DeepSeek-V4-Flash x1，MiniMax-M2.7 x2，Kimi-K2.6 x5，GLM-5.1 x6\n• 限流：10 并发",
     "discontinued": false
   },
   {
