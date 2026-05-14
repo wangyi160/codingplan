@@ -251,7 +251,7 @@
   },
   {
     "vendor": "讯飞·星火",
-    "plan": "Pro",
+    "plan": "专业版",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqxunfei",
     "rating": 3,
@@ -260,7 +260,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": "-",
     "models": [
-      "GLM-5",
+      "GLM-5.1",
       "Qwen-3.5-Plus",
       "MiniMax-M2.5",
       "Kimi-K2.5",
@@ -275,7 +275,7 @@
   },
   {
     "vendor": "讯飞·星火",
-    "plan": "Max",
+    "plan": "高效版",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqxunfei",
     "rating": 4,
