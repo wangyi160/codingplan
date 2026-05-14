@@ -19,6 +19,22 @@
       margin: 0 auto;
     }
 
+    .back-home-btn {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.4rem 1rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      transition: all 0.2s;
+    }
+    .back-home-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--text-secondary);
+    }
+
     article.doc {
       position: relative;
       padding: clamp(1.5rem, 4.2vw, 2.85rem);
@@ -231,6 +247,7 @@
 </head>
 <body class="article-page">
   <div class="doc-wrap">
+    <a href="../../" class="back-home-btn">← 返回主页</a>
     <article class="doc">
       <p class="doc-kicker">评测摘录 · OpenClaw</p>
       <h1>国产大模型核心能力评测：智谱、DeepSeek、MiniMax、Kimi、千问 Qwen、小米 MiMo</h1>
