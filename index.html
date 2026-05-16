@@ -30,6 +30,52 @@
             position: relative;
         }
 
+        .preset-tag-filters {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 6px 4px;
+        }
+
+        .preset-tag-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+        }
+
+        .preset-tag-chip {
+            appearance: none;
+            border: 1px solid rgba(23, 32, 51, 0.12);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(244, 236, 223, 0.92));
+            color: var(--text-secondary);
+            border-radius: 999px;
+            min-height: 40px;
+            padding: 0 16px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+            box-shadow: 0 10px 20px rgba(23, 32, 51, 0.06);
+            white-space: nowrap;
+        }
+
+        .preset-tag-chip:hover {
+            transform: translateY(-1px);
+            border-color: rgba(198, 107, 26, 0.28);
+            color: var(--text-primary);
+            box-shadow: 0 14px 24px rgba(23, 32, 51, 0.08);
+        }
+
+        .preset-tag-chip.active {
+            background: linear-gradient(135deg, #173753, #0f766e);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 14px 24px rgba(23, 55, 83, 0.18);
+        }
+
         .filter-btn {
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
@@ -768,6 +814,42 @@
             margin-bottom: 6px;
             font-weight: 400;
             border: 1px solid var(--border-color);
+        }
+
+        .plan-tags-cell {
+            min-width: 150px;
+            white-space: normal;
+        }
+
+        .plan-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .plan-tag {
+            display: inline-flex;
+            align-items: center;
+            min-height: 24px;
+            padding: 0 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            border: 1px solid transparent;
+            white-space: nowrap;
+        }
+
+        .plan-tag--model-strong {
+            background: rgba(23, 55, 83, 0.12);
+            border-color: rgba(23, 55, 83, 0.2);
+            color: #173753;
+        }
+
+        .plan-tag--value-rich {
+            background: rgba(15, 118, 110, 0.12);
+            border-color: rgba(15, 118, 110, 0.2);
+            color: #0f766e;
         }
 
         /* 请求数 */
@@ -1624,6 +1706,17 @@
                 padding: 16px;
             }
 
+            .preset-tag-filters {
+                width: 100%;
+                padding: 0;
+            }
+
+            .preset-tag-chip {
+                min-height: 36px;
+                padding: 0 14px;
+                font-size: 12px;
+            }
+
             .hero-summary {
                 grid-template-columns: 1fr;
             }
@@ -2060,6 +2153,11 @@
                 </div>
             </div>
 
+            <div class="preset-tag-filters" id="tagPresetFilters" aria-label="标签筛选">
+                <button type="button" class="preset-tag-chip" data-tag-filter="模型强">模型强</button>
+                <button type="button" class="preset-tag-chip" data-tag-filter="性价比高用量足">性价比高用量足</button>
+            </div>
+
             <!-- 显示已下线套餐 -->
             <div class="filter-checkbox">
                 <label class="checkbox-label">
@@ -2095,6 +2193,7 @@
                             <th>类型</th>
                             <th>跳转链接</th>
                             <th class="sortable" data-column="rating">评分</th>
+                            <th>标签</th>
                             <th class="sortable" data-column="firstMonthPrice">首月价格</th>
                             <th class="sortable" data-column="monthlyPrice">连续包月</th>
                             <th class="sortable" data-column="quarterlyPrice">连续包季</th>
@@ -2221,6 +2320,7 @@
         let selectedVendors = new Set();
         let selectedModels = new Set();
         let selectedTypes = new Set();
+        let selectedTags = new Set();
         let priceFilters = {
             firstMonth: { min: null, max: null },
             monthly: { min: null, max: null },
@@ -2272,6 +2372,7 @@
         const modelCheckboxes = document.getElementById('modelCheckboxes');
         const vendorCount = document.getElementById('vendorCount');
         const modelCount = document.getElementById('modelCount');
+        const presetTagButtons = Array.from(document.querySelectorAll('[data-tag-filter]'));
         
         // 首月价格
         const firstMonthPriceBtn = document.getElementById('firstMonthPriceBtn');
@@ -2379,6 +2480,38 @@
             });
             rest.sort((a, b) => a.localeCompare(b, 'zh-CN'));
             return priority.concat(rest);
+        }
+
+        function getPlanTags(plan) {
+            return Array.isArray(plan.tags) ? plan.tags : [];
+        }
+
+        function getTagClass(tag) {
+            if (tag === '模型强') return 'plan-tag--model-strong';
+            if (tag === '性价比高用量足') return 'plan-tag--value-rich';
+            return '';
+        }
+
+        function renderPlanTags(plan) {
+            const tags = getPlanTags(plan);
+            if (tags.length === 0) return '';
+            return `<div class="plan-tags">${tags.map(tag => `<span class="plan-tag ${getTagClass(tag)}">${escapeHtml(tag)}</span>`).join('')}</div>`;
+        }
+
+        function updatePresetTagButtons() {
+            presetTagButtons.forEach(button => {
+                button.classList.toggle('active', selectedTags.has(button.dataset.tagFilter));
+            });
+        }
+
+        function togglePresetTag(tag) {
+            if (selectedTags.has(tag)) {
+                selectedTags.delete(tag);
+            } else {
+                selectedTags.add(tag);
+            }
+            updatePresetTagButtons();
+            applyFilters();
         }
 
         // 初始化筛选器
@@ -2616,6 +2749,12 @@
             toggleDropdown(modelBtn, modelDropdown, 'model');
         });
 
+        presetTagButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                togglePresetTag(button.dataset.tagFilter);
+            });
+        });
+
         document.addEventListener('click', () => {
             closeDropdownWithoutFilter();
         });
@@ -2824,6 +2963,12 @@
                 if (selectedModels.size > 0) {
                     const hasModel = [...selectedModels].some(model => plan.models.includes(model));
                     if (!hasModel) return false;
+                }
+
+                if (selectedTags.size > 0) {
+                    const planTags = getPlanTags(plan);
+                    const hasAllTags = [...selectedTags].every(tag => planTags.includes(tag));
+                    if (!hasAllTags) return false;
                 }
 
                 // 首月价格筛选
@@ -3403,9 +3548,13 @@
             resetTokenLimitFilter();
 
             selectedTypes.clear();
+            selectedTags.clear();
             updateTypeCount();
             selectedVendors.clear();
             updateVendorCount();
+            selectedModels.clear();
+            updateModelCount();
+            updatePresetTagButtons();
             updateFirstMonthPriceCount();
             updateMonthlyPriceCount();
             updateQuarterlyPriceCount();
@@ -3547,7 +3696,7 @@
             if (filteredPlans.length === 0) {
                 tableBody.innerHTML = `
                     <tr>
-                        <td colspan="16">
+                        <td colspan="18">
                             <div class="empty-state">
                                 <div class="empty-state-icon">📭</div>
                                 <div class="empty-state-text">没有找到符合条件的套餐</div>
@@ -3570,6 +3719,7 @@
                         </a>
                     </td>
                     <td class="rating-stars">${'★'.repeat(plan.rating || 0)}${'☆'.repeat(5 - (plan.rating || 0))}</td>
+                    <td class="plan-tags-cell">${renderPlanTags(plan)}</td>
                     <td><span class="price">${plan.currency||'¥'}${formatPrice(plan.firstMonthPrice)} <span class="unit">/ 首月</span></span></td>
                     <td><span class="price-monthly">${plan.currency||'¥'}${formatPrice(plan.monthlyPrice)} <span class="unit">/ 月</span></span></td>
                     <td><span class="price-normal">${plan.currency||'¥'}${formatPrice(plan.quarterlyPrice)} <span class="price-original">${plan.currency||'¥'}${formatPrice(plan.monthlyPrice * 3)}</span> <span class="unit">/ 季</span></span></td>
@@ -3865,6 +4015,7 @@
 
             return {
                 ...item,
+                tags: Array.isArray(item.tags) ? item.tags.filter(tag => typeof tag === 'string') : [],
                 firstMonthPrice,
                 monthlyPrice,
                 quarterlyPrice,
@@ -3878,7 +4029,7 @@
             try {
                 tableBody.innerHTML = `
                     <tr>
-                        <td colspan="16">
+                        <td colspan="18">
                             <div class="loading">加载数据中</div>
                         </td>
                     </tr>
@@ -3897,6 +4048,7 @@
                 initFilters();
                 initPriceSliders();
                 initRequestSliders();
+                updatePresetTagButtons();
                 applyFilters();
 
                 // 数据加载后重新渲染推荐卡片（此时 allPlans 已有数据，可匹配链接）
@@ -3909,7 +4061,7 @@
                 console.error('加载数据失败:', error);
                 tableBody.innerHTML = `
                     <tr>
-                        <td colspan="16">
+                        <td colspan="18">
                             <div class="empty-state">
                                 <div class="empty-state-icon">❌</div>
                                 <div class="empty-state-text">数据加载失败</div>
