@@ -3001,7 +3001,7 @@
 
                 // 标签筛选
                 if (selectedTags.size > 0) {
-                    const hasTag = [...selectedTags].every(tag => (plan.resolvedTags || []).includes(tag));
+                    const hasTag = [...selectedTags].some(tag => (plan.resolvedTags || []).includes(tag));
                     if (!hasTag) return false;
                 }
 
