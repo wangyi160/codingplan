@@ -4,9 +4,11 @@ const path = require('path');
 // 读取数据文件
 const configPath = path.join(__dirname, '../../config.json');
 const plansPath = path.join(__dirname, '../../plans.json');
+const indexPath = path.join(__dirname, '../../index.html');
 
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 const allPlans = JSON.parse(fs.readFileSync(plansPath, 'utf8'));
+const indexHtml = fs.readFileSync(indexPath, 'utf8');
 // 过滤掉已下线的套餐
 const plans = allPlans.filter(plan => !plan.discontinued);
 
@@ -37,6 +39,44 @@ function generateRatingGuide(ratingGuide) {
     return `\n**评分标准**: ${ratingGuide}\n`;
 }
 
+function normalizeWhitespace(text) {
+    return String(text || '').replace(/\s+/g, ' ').trim();
+}
+
+function parseFeaturedArticle(html) {
+    const articleMatch = html.match(/<article class="hero-summary-card hero-summary-card--reading">([\s\S]*?)<\/article>/);
+    if (!articleMatch) return null;
+
+    const articleHtml = articleMatch[1];
+    const hrefMatch = articleHtml.match(/<a[^>]*class="hero-summary-readmore"[^>]*href="([^"]+)"/);
+    const titleMatch = articleHtml.match(/<h2 class="hero-summary-title">([\s\S]*?)<\/h2>/);
+    const bodyMatch = articleHtml.match(/<p class="hero-summary-body">([\s\S]*?)<\/p>/);
+    const imgMatch = articleHtml.match(/<img[^>]*src="([^"]+)"[^>]*alt="([^"]*)"/);
+
+    if (!hrefMatch || !titleMatch) return null;
+
+    return {
+        href: hrefMatch[1],
+        title: normalizeWhitespace(titleMatch[1]),
+        body: bodyMatch ? normalizeWhitespace(bodyMatch[1]) : '',
+        image: imgMatch ? imgMatch[1] : '',
+        imageAlt: imgMatch ? normalizeWhitespace(imgMatch[2]) : ''
+    };
+}
+
+function generateFeaturedArticle(article) {
+    if (!article) return '';
+
+    const imageLine = article.image
+        ? `![${article.imageAlt || article.title}](${article.image})\n\n`
+        : '';
+
+    return `## 延伸阅读\n\n` +
+        `- [${article.title}](${article.href})\n` +
+        `${article.body}\n` +
+        imageLine;
+}
+
 // 格式化价格
 function formatPrice(price, currency = '¥') {
     if (price === '-') return '-';
@@ -63,8 +103,29 @@ function formatStrikethrough(price, originalPrice, currency = '¥') {
 // 清理表格单元格内容（移除换行符，防止破坏表格格式）
 function escapeTableCell(text) {
     if (!text) return '-';
-    // 将换行符替换为空格
-    return String(text).replace(/\n/g, ' ').trim() || '-';
+    return String(text)
+        .replace(/\|/g, '\\|')
+        .replace(/\n/g, ' <br> ')
+        .trim() || '-';
+}
+
+function formatSubtitle(text) {
+    return String(text || '').split('\n').map(line => line.trim()).filter(Boolean).join('  \n');
+}
+
+function formatTags(tags) {
+    if (!Array.isArray(tags) || tags.length === 0) return '-';
+    return escapeTableCell(tags.join(' / '));
+}
+
+function formatTokenLimit(value) {
+    if (typeof value === 'number') return `${value.toLocaleString()}M Tokens`;
+    if (value === undefined || value === null || value === '') return '-';
+    return escapeTableCell(String(value));
+}
+
+function formatStatus(discontinued) {
+    return discontinued ? '已下线' : '在售';
 }
 
 // 计算原始价格（包月×3 或 包月×12）
@@ -75,14 +136,16 @@ function getOriginalPrice(currentPrice, multiplier) {
 
 // 生成套餐对比表
 function generateTable(plans) {
-    let md = '| 平台 | 套餐 | 类型 | 链接 | 首月价格 | 连续包月 | 连续包季 | 连续包年 | 支持模型 | 5小时请求数 | 每周请求数 | 每月总请求数 | 其他权益 | 备注 |\n';
-    md += '|------|------|------|---------|---------|---------|---------|---------|---------|-----------|-----------|-----------|---------|------|\n';
+    let md = '| 平台 | 套餐 | 类型 | 链接 | 评分 | 标签 | 首月价格 | 连续包月 | 连续包季 | 连续包年 | 5小时请求数 | 每周请求数 | 每月总请求数 | Token上限 | 支持模型 | 其他权益 | 状态 | 备注 |\n';
+    md += '|------|------|------|------|------|------|---------|---------|---------|---------|-----------|-----------|-----------|-----------|---------|---------|------|------|\n';
     
     plans.forEach(plan => {
         const vendor = plan.vendor;
         const planName = plan.plan;
         const type = plan.type || 'Coding Plan';
         const link = `[跳转](${plan.action})`;
+        const rating = plan.rating ? `${generateStars(plan.rating)} ${plan.rating}` : '-';
+        const tags = formatTags(plan.tags);
         const currency = plan.currency || '¥';
         const firstMonth = formatPrice(plan.firstMonthPrice, currency);
         const monthly = formatPrice(plan.monthlyPrice, currency);
@@ -94,14 +157,16 @@ function generateTable(plans) {
         const yearly = plan.yearlyPrice !== '-'
             ? formatStrikethrough(plan.yearlyPrice, getOriginalPrice(plan.monthlyPrice, 12), currency) + ' / 年'
             : '- / 年';
-        const models = plan.models.join(', ');
+        const tokenLimit = formatTokenLimit(plan.tokenLimit);
+        const models = escapeTableCell(plan.models.join(', '));
         const fiveHoursRequests = plan.fiveHoursRequests?.toLocaleString() || '未公开';
         const weeklyRequests = plan.weeklyRequests?.toLocaleString() || '-';
         const monthlyRequests = plan.monthlyRequests?.toLocaleString() || '未公开';
-        const benefits = escapeTableCell(plan.benefits?.join(', '));
+        const benefits = escapeTableCell(plan.benefits?.join(' / '));
+        const status = formatStatus(plan.discontinued);
         const note = escapeTableCell(plan.note);
 
-        md += `| ${vendor} | ${planName} | ${type} | ${link} | ${firstMonth} | ${monthly} | ${quarterly} | ${yearly} | ${models} | ${fiveHoursRequests} | ${weeklyRequests} | ${monthlyRequests} | ${benefits} | ${note} |\n`;
+        md += `| ${vendor} | ${planName} | ${type} | ${link} | ${rating} | ${tags} | ${firstMonth} | ${monthly} | ${quarterly} | ${yearly} | ${fiveHoursRequests} | ${weeklyRequests} | ${monthlyRequests} | ${tokenLimit} | ${models} | ${benefits} | ${status} | ${note} |\n`;
     });
     
     return md;
@@ -113,7 +178,7 @@ function generateAccountSale(accountSale) {
         return '';
     }
     
-    let md = `# ${accountSale.title}\n\n`;
+    let md = `## ${accountSale.title}\n\n`;
     md += `${accountSale.description}\n\n`;
     
     accountSale.accounts.forEach(acc => {
@@ -128,24 +193,43 @@ function generateAccountSale(accountSale) {
     return md;
 }
 
+function generateUpdates(updates) {
+    if (!Array.isArray(updates) || updates.length === 0) {
+        return '';
+    }
+
+    let md = '## 📝 更新日志\n\n';
+    updates.forEach(update => {
+        md += `### ${update.date}\n\n`;
+        (update.items || []).forEach(item => {
+            md += `- ${item}\n`;
+        });
+        md += '\n';
+    });
+    return md;
+}
+
 // 生成完整 README
 function generateReadme() {
-    const { recommendations, notes, accountSale } = config;
+    const { recommendations, notes, accountSale, updates, header } = config;
+    const featuredArticle = parseFeaturedArticle(indexHtml);
     
-    let md = `# AI Coding Plan 对比工具
+    let md = `# ${header.title}
 
-> ${config.header.updateDate}
+> ${header.updateDate}
 
 ## 📖 简介
 
-${config.header.subtitle}
+${formatSubtitle(header.subtitle)}
 
-${config.header.models}
+${header.models}
 
 ### 在线访问
 
 直接访问：[${ONLINE_URL}](${ONLINE_URL})
 
+
+${generateFeaturedArticle(featuredArticle)}
 
 ## 平台推荐
 
@@ -159,7 +243,7 @@ ${generateTable(plans)}
 
 ${notes.map(n => `- ${n}`).join('\n')}
 
-${generateAccountSale(accountSale)}## 🤝 贡献
+${generateUpdates(updates)}${generateAccountSale(accountSale)}## 🤝 贡献
 
 欢迎提交 Issue 或 Pull Request 来完善本项目的数据和功能。
 
