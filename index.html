@@ -96,48 +96,6 @@
             box-shadow: 0 2px 4px rgba(99, 102, 241, 0.3);
         }
 
-        .tag-filter-group {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            min-height: 40px;
-        }
-
-        .tag-filter-chip {
-            appearance: none;
-            border: 1px solid rgba(14, 116, 144, 0.18);
-            background: linear-gradient(135deg, rgba(240, 249, 255, 0.96), rgba(236, 253, 245, 0.92));
-            color: #155e75;
-            border-radius: 999px;
-            padding: 0 14px;
-            height: 40px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            font-weight: 600;
-            line-height: 1;
-            white-space: nowrap;
-            box-sizing: border-box;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 8px 18px rgba(14, 116, 144, 0.08);
-        }
-
-        .tag-filter-chip:hover {
-            transform: translateY(-1px);
-            border-color: rgba(14, 116, 144, 0.32);
-            box-shadow: 0 12px 24px rgba(14, 116, 144, 0.12);
-        }
-
-        .tag-filter-chip.active {
-            background: linear-gradient(135deg, #0f766e, #0891b2);
-            border-color: transparent;
-            color: white;
-            box-shadow: 0 12px 24px rgba(8, 145, 178, 0.24);
-        }
-
         /* 下拉菜单 */
         .dropdown-menu {
             position: absolute;
@@ -812,19 +770,6 @@
             border: 1px solid var(--border-color);
         }
 
-        .plan-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, rgba(14, 116, 144, 0.12), rgba(13, 148, 136, 0.12));
-            color: #0f766e;
-            padding: 4px 10px;
-            border-radius: 999px;
-            font-size: 11px;
-            margin-right: 6px;
-            margin-bottom: 6px;
-            font-weight: 600;
-            border: 1px solid rgba(14, 116, 144, 0.18);
-        }
-
         /* 请求数 */
         .request-count {
             color: var(--text-primary);
@@ -1062,8 +1007,7 @@
         .plan-row.discontinued .vendor-name,
         .plan-row.discontinued .plan-name,
         .plan-row.discontinued .model-tag,
-        .plan-row.discontinued .benefit,
-        .plan-row.discontinued .plan-tag {
+        .plan-row.discontinued .benefit {
             color: var(--text-tertiary);
         }
 
@@ -1339,13 +1283,9 @@
                 font-size: 11px;
             }
 
-            .model-tag, .benefit, .plan-tag {
+            .model-tag, .benefit {
                 font-size: 10px;
                 padding: 3px 8px;
-            }
-
-            .tag-filter-group {
-                width: 100%;
             }
 
             .price {
@@ -2120,11 +2060,6 @@
                 </div>
             </div>
 
-            <div class="tag-filter-group" aria-label="标签筛选">
-                <button class="tag-filter-chip" type="button" data-tag="模型强">模型强</button>
-                <button class="tag-filter-chip" type="button" data-tag="性价比高用量足">性价比高用量足</button>
-            </div>
-
             <!-- 显示已下线套餐 -->
             <div class="filter-checkbox">
                 <label class="checkbox-label">
@@ -2160,7 +2095,6 @@
                             <th>类型</th>
                             <th>跳转链接</th>
                             <th class="sortable" data-column="rating">评分</th>
-                            <th>标签</th>
                             <th class="sortable" data-column="firstMonthPrice">首月价格</th>
                             <th class="sortable" data-column="monthlyPrice">连续包月</th>
                             <th class="sortable" data-column="quarterlyPrice">连续包季</th>
@@ -2287,7 +2221,6 @@
         let selectedVendors = new Set();
         let selectedModels = new Set();
         let selectedTypes = new Set();
-        let selectedTags = new Set();
         let priceFilters = {
             firstMonth: { min: null, max: null },
             monthly: { min: null, max: null },
@@ -2339,7 +2272,6 @@
         const modelCheckboxes = document.getElementById('modelCheckboxes');
         const vendorCount = document.getElementById('vendorCount');
         const modelCount = document.getElementById('modelCount');
-        const tagFilterChips = document.querySelectorAll('.tag-filter-chip');
         
         // 首月价格
         const firstMonthPriceBtn = document.getElementById('firstMonthPriceBtn');
@@ -2447,98 +2379,6 @@
             });
             rest.sort((a, b) => a.localeCompare(b, 'zh-CN'));
             return priority.concat(rest);
-        }
-
-        function getPlanPriceInCny(plan, field) {
-            const value = plan[field];
-            if (typeof value !== 'number' || Number.isNaN(value)) {
-                return null;
-            }
-            return plan.currency === '$' ? value * 7 : value;
-        }
-
-        function hasStrongModel(models) {
-            return (models || []).some(model => {
-                const modelName = String(model || '');
-                return modelName === 'DeepSeek-V4-Pro'
-                    || modelName === 'GLM-5.1'
-                    || modelName === 'Kimi-K2.6'
-                    || modelName.startsWith('GPT')
-                    || modelName.startsWith('Claude');
-            });
-        }
-
-        function compareValuePlans(a, b) {
-            const keys = ['monthlyRequests', 'weeklyRequests', 'fiveHoursRequests'];
-            for (const key of keys) {
-                const diff = b[key] - a[key];
-                if (diff !== 0) {
-                    return diff;
-                }
-            }
-            return 0;
-        }
-
-        function computeAutoTags(plans) {
-            const autoTagsByIndex = new Map();
-            const codingPlanGroups = new Map();
-
-            plans.forEach(plan => {
-                const autoTags = [];
-
-                if (hasStrongModel(plan.models)) {
-                    autoTags.push('模型强');
-                }
-
-                if ((plan.type || 'Coding Plan') === 'Coding Plan') {
-                    const priceKey = getPlanPriceInCny(plan, 'monthlyPrice');
-                    const numericUsage = ['monthlyRequests', 'weeklyRequests', 'fiveHoursRequests']
-                        .every(key => typeof plan[key] === 'number');
-                    if (priceKey !== null && numericUsage) {
-                        if (!codingPlanGroups.has(priceKey)) {
-                            codingPlanGroups.set(priceKey, []);
-                        }
-                        codingPlanGroups.get(priceKey).push(plan);
-                    }
-                }
-
-                autoTagsByIndex.set(plan.originalIndex, autoTags);
-            });
-
-            codingPlanGroups.forEach(group => {
-                const rankedGroup = [...group].sort(compareValuePlans);
-                const bestPlan = rankedGroup[0];
-                if (!bestPlan) {
-                    return;
-                }
-
-                group.forEach(plan => {
-                    if (compareValuePlans(plan, bestPlan) === 0) {
-                        autoTagsByIndex.get(plan.originalIndex).push('性价比高用量足');
-                    }
-                });
-            });
-
-            return autoTagsByIndex;
-        }
-
-        function mergeTags(manualTags, autoTags) {
-            const merged = [];
-            const seen = new Set();
-            [...(manualTags || []), ...(autoTags || [])].forEach(tag => {
-                if (!tag || seen.has(tag)) {
-                    return;
-                }
-                seen.add(tag);
-                merged.push(tag);
-            });
-            return merged;
-        }
-
-        function updateTagFilterChips() {
-            tagFilterChips.forEach(chip => {
-                chip.classList.toggle('active', selectedTags.has(chip.dataset.tag));
-            });
         }
 
         // 初始化筛选器
@@ -2776,19 +2616,6 @@
             toggleDropdown(modelBtn, modelDropdown, 'model');
         });
 
-        tagFilterChips.forEach(chip => {
-            chip.addEventListener('click', () => {
-                const tag = chip.dataset.tag;
-                if (selectedTags.has(tag)) {
-                    selectedTags.delete(tag);
-                } else {
-                    selectedTags.add(tag);
-                }
-                updateTagFilterChips();
-                applyFilters();
-            });
-        });
-
         document.addEventListener('click', () => {
             closeDropdownWithoutFilter();
         });
@@ -2997,12 +2824,6 @@
                 if (selectedModels.size > 0) {
                     const hasModel = [...selectedModels].some(model => plan.models.includes(model));
                     if (!hasModel) return false;
-                }
-
-                // 标签筛选
-                if (selectedTags.size > 0) {
-                    const hasTag = [...selectedTags].some(tag => (plan.resolvedTags || []).includes(tag));
-                    if (!hasTag) return false;
                 }
 
                 // 首月价格筛选
@@ -3585,8 +3406,6 @@
             updateTypeCount();
             selectedVendors.clear();
             updateVendorCount();
-            selectedTags.clear();
-            updateTagFilterChips();
             updateFirstMonthPriceCount();
             updateMonthlyPriceCount();
             updateQuarterlyPriceCount();
@@ -3728,7 +3547,7 @@
             if (filteredPlans.length === 0) {
                 tableBody.innerHTML = `
                     <tr>
-                        <td colspan="17">
+                        <td colspan="16">
                             <div class="empty-state">
                                 <div class="empty-state-icon">📭</div>
                                 <div class="empty-state-text">没有找到符合条件的套餐</div>
@@ -3751,9 +3570,6 @@
                         </a>
                     </td>
                     <td class="rating-stars">${'★'.repeat(plan.rating || 0)}${'☆'.repeat(5 - (plan.rating || 0))}</td>
-                    <td>
-                        ${(plan.resolvedTags || []).map(tag => `<span class="plan-tag">${escapeHtml(tag)}</span>`).join('')}
-                    </td>
                     <td><span class="price">${plan.currency||'¥'}${formatPrice(plan.firstMonthPrice)} <span class="unit">/ 首月</span></span></td>
                     <td><span class="price-monthly">${plan.currency||'¥'}${formatPrice(plan.monthlyPrice)} <span class="unit">/ 月</span></span></td>
                     <td><span class="price-normal">${plan.currency||'¥'}${formatPrice(plan.quarterlyPrice)} <span class="price-original">${plan.currency||'¥'}${formatPrice(plan.monthlyPrice * 3)}</span> <span class="unit">/ 季</span></span></td>
@@ -4049,7 +3865,6 @@
 
             return {
                 ...item,
-                tags: Array.isArray(item.tags) ? item.tags : [],
                 firstMonthPrice,
                 monthlyPrice,
                 quarterlyPrice,
@@ -4077,11 +3892,6 @@
                 }
                 const plansData = await response.json();
                 allPlans = plansData.map((item, index) => processPrices(item, index));
-                const autoTagsByIndex = computeAutoTags(allPlans);
-                allPlans = allPlans.map(plan => ({
-                    ...plan,
-                    resolvedTags: mergeTags(plan.tags, autoTagsByIndex.get(plan.originalIndex) || [])
-                }));
                 filteredPlans = [...allPlans];
 
                 initFilters();
@@ -4099,7 +3909,7 @@
                 console.error('加载数据失败:', error);
                 tableBody.innerHTML = `
                     <tr>
-                        <td colspan="17">
+                        <td colspan="16">
                             <div class="empty-state">
                                 <div class="empty-state-icon">❌</div>
                                 <div class="empty-state-text">数据加载失败</div>
