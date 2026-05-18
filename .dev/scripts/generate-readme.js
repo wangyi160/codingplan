@@ -144,7 +144,7 @@ function generateTable(plans) {
         const planName = plan.plan;
         const type = plan.type || 'Coding Plan';
         const link = `[跳转](${plan.action})`;
-        const rating = plan.rating ? `${generateStars(plan.rating)} ${plan.rating}` : '-';
+        const rating = plan.rating ? `${generateStars(plan.rating)}` : '-';
         const tags = formatTags(plan.tags);
         const currency = plan.currency || '¥';
         const firstMonth = formatPrice(plan.firstMonthPrice, currency);
