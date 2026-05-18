@@ -23,7 +23,7 @@
   ],
   "form": {
     "sectionTitle": "提交",
-    "sectionDescription": "强烈推荐使用cc-switch进行用量统计；点击?可查看示例说明。",
+    "sectionDescription": "强烈推荐使用cc-switch进行用量统计；Input 请填写总输入 token，点击?可查看示例说明。",
     "vendorLabel": "平台",
     "vendorPlaceholder": "请选择平台",
     "planLabel": "套餐",
@@ -42,14 +42,14 @@
     "windowStartPlaceholder": "请使用日期时间选择器，例如 2026-05-30 23:00:00",
     "usagePercentLabel": "5小时额度消耗百分比",
     "usagePercentPlaceholder": "例如 17.5，表示套餐的5小时额度消耗了17.5%",
-    "readTokensLabel": "Input(K Tokens)",
-    "readTokensPlaceholder": "例如 250，表示 250K token",
+    "readTokensLabel": "Input 总量(K Tokens)",
+    "readTokensPlaceholder": "例如 250，表示总共输入了 250K token",
     "cacheHitTokensLabel": "缓存命中(K Tokens)",
     "cacheHitTokensPlaceholder": "例如 250，表示 250K token",
     "writeTokensLabel": "Output(K Tokens)",
     "writeTokensPlaceholder": "例如 18，表示 18K token",
-    "requestCountLabel": "请求次数",
-    "requestCountPlaceholder": "5小时额度时间范围内的请求次数",
+    "requestCountLabel": "请求次数（非必填）",
+    "requestCountPlaceholder": "选填，填写 5 小时额度时间范围内的请求次数",
     "fieldHelp": {
       "vendor": {
         "text": "选择平台，其他平台敬请期待",
@@ -77,12 +77,12 @@
         "imageAlt": "5小时额度消耗百分比字段说明示例图"
       },
       "requestCount": {
-        "text": "填写这个 5 小时额度时间范围内的请求总次数。",
+        "text": "选填这个 5 小时额度时间范围内的请求总次数。未填写会按未提供处理。",
         "image": "assets/plan-usage-help/request-count.png",
         "imageAlt": "请求次数字段说明示例图"
       },
       "readTokens": {
-        "text": "填写 Input token 总量，单位是 K Token。\n这里不包含缓存命中的输入 token，缓存命中部分请单独填到“缓存命中”字段。",
+        "text": "填写总 Input token，单位是 K Token。\n这里直接填写总输入量即可，不需要再区分缓存命中和非命中的部分。",
         "image": "assets/plan-usage-help/read-tokens.png",
         "imageAlt": "Input 字段说明示例图"
       },

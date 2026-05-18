@@ -1334,7 +1334,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="metric-row metric-row-quad">
+                    <div class="metric-row">
                         <div class="field-group">
                             <div class="field-label-row">
                                 <label class="field-label" for="readTokensInput" id="readTokensLabel"></label>
@@ -1351,23 +1351,6 @@
                                 </span>
                             </div>
                             <input class="form-input" id="readTokensInput" type="number" min="0" step="0.1" placeholder="" required>
-                        </div>
-                        <div class="field-group">
-                            <div class="field-label-row">
-                                <label class="field-label" for="cacheHitTokensInput" id="cacheHitTokensLabel"></label>
-                                <span class="field-help-trigger-wrap" data-field-help="cacheHitTokens">
-                                    <button class="field-help-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fieldHelpPopoverCacheHitTokens">?</button>
-                                    <span class="field-help-popover" id="fieldHelpPopoverCacheHitTokens" role="tooltip" aria-hidden="true">
-                                        <span class="field-help-content">
-                                            <span class="field-help-text"></span>
-                                            <span class="field-help-image-wrap">
-                                                <img class="field-help-image" alt="">
-                                            </span>
-                                        </span>
-                                    </span>
-                                </span>
-                            </div>
-                            <input class="form-input" id="cacheHitTokensInput" type="number" min="0" step="0.1" placeholder="" required>
                         </div>
                         <div class="field-group">
                             <div class="field-label-row">
@@ -1401,7 +1384,7 @@
                                     </span>
                                 </span>
                             </div>
-                            <input class="form-input" id="requestCountInput" type="number" min="0" step="1" placeholder="" required>
+                            <input class="form-input" id="requestCountInput" type="number" min="0" step="1" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -1710,9 +1693,10 @@
             var windowStartStr = DEFAULT_WINDOW_START_STR;
             var fiveHourUsagePercent = Number(document.getElementById('usagePercentInput').value);
             var readTokens = parseKTokenInput('readTokensInput');
-            var cacheHitTokens = parseKTokenInput('cacheHitTokensInput');
+            var cacheHitTokens = 0;
             var writeTokens = parseKTokenInput('writeTokensInput');
-            var requestCount = Number(document.getElementById('requestCountInput').value);
+            var requestCountValue = document.getElementById('requestCountInput').value.trim();
+            var requestCount = requestCountValue ? Number(requestCountValue) : 0;
 
             if (!vendor || !plan) {
                 showResult('error', getMessage('submitFailedTitle'), getMessage('vendorPlanRequired'));
@@ -1814,7 +1798,6 @@
             setText('windowStartLabel', formText.windowStartLabel);
             setText('usagePercentLabel', formText.usagePercentLabel);
             setText('readTokensLabel', formText.readTokensLabel);
-            setText('cacheHitTokensLabel', formText.cacheHitTokensLabel);
             setText('writeTokensLabel', formText.writeTokensLabel);
             setText('requestCountLabel', formText.requestCountLabel);
             setText('submitBtn', formText.submitButton);
@@ -1847,7 +1830,6 @@
             setPlaceholder('windowStartInput', formText.windowStartPlaceholder);
             setPlaceholder('usagePercentInput', formText.usagePercentPlaceholder);
             setPlaceholder('readTokensInput', formText.readTokensPlaceholder);
-            setPlaceholder('cacheHitTokensInput', formText.cacheHitTokensPlaceholder);
             setPlaceholder('writeTokensInput', formText.writeTokensPlaceholder);
             setPlaceholder('requestCountInput', formText.requestCountPlaceholder);
             renderSubmissionMeta();
@@ -2601,10 +2583,18 @@
                     + '<td class="numeric-cell">' + escapeHtml(formatListTokenAmount(item.read_tokens)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(formatListTokenAmount(item.cache_hit_tokens)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(formatListTokenAmount(item.write_tokens)) + '</td>'
-                    + '<td class="numeric-cell">' + escapeHtml(formatInteger(item.request_count)) + '</td>'
+                    + '<td class="numeric-cell">' + escapeHtml(formatRequestCountForList(item.request_count)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(submittedAt) + '</td>'
                     + '</tr>';
             }).join('');
+        }
+
+        function formatRequestCountForList(value) {
+            var numericValue = Number(value);
+            if (!Number.isFinite(numericValue) || numericValue === 0) {
+                return '-';
+            }
+            return formatInteger(numericValue);
         }
 
         function buildStatusRow(message, kind) {
