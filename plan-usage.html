@@ -47,11 +47,23 @@
             gap: 18px 20px;
         }
 
+        .selection-row.selection-row-triple {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
         .metric-row {
             grid-column: 1 / -1;
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px 20px;
+        }
+
+        .metric-row.metric-row-dual {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .is-hidden-field {
+            display: none !important;
         }
 
         .metric-row.metric-row-single {
@@ -1240,7 +1252,7 @@
             <form id="planUsageForm" autocomplete="off">
                 <div class="form-grid">
                     <div class="field-group full-width">
-                        <div class="selection-row">
+                        <div class="selection-row selection-row-triple">
                             <div class="field-group">
                                 <div class="field-label-row">
                                     <label class="field-label" for="vendorInput" id="vendorLabel"></label>
@@ -1289,7 +1301,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="field-group">
+                            <div class="field-group is-hidden-field" aria-hidden="true">
                                 <div class="field-label-row">
                                     <label class="field-label" for="modelInput" id="modelLabel"></label>
                                     <span class="field-help-trigger-wrap" data-field-help="model">
@@ -1336,7 +1348,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="metric-row">
+                    <div class="metric-row metric-row-dual">
                         <div class="field-group">
                             <div class="field-label-row">
                                 <label class="field-label" for="readTokensInput" id="readTokensLabel"></label>
@@ -1371,7 +1383,7 @@
                             </div>
                             <input class="form-input" id="writeTokensInput" type="number" min="0" step="0.1" placeholder="" required>
                         </div>
-                        <div class="field-group">
+                        <div class="field-group is-hidden-field" aria-hidden="true">
                             <div class="field-label-row">
                                 <label class="field-label" for="requestCountInput" id="requestCountLabel"></label>
                                 <span class="field-help-trigger-wrap" data-field-help="requestCount">
@@ -1455,7 +1467,6 @@
                                     <th id="estimatesPriceHeading"></th>
                                     <th id="estimatesReadTokensHeading"></th>
                                     <th id="estimatesWriteTokensHeading"></th>
-                                    <th id="estimatesRequestCountHeading"></th>
                                 </tr>
                             </thead>
                             <tbody id="estimatesTableBody"></tbody>
@@ -1481,7 +1492,6 @@
                                 <th class="sortable" data-sort="five_hour_usage_percent" id="recordsUsageHeading"></th>
                                 <th class="sortable" data-sort="read_tokens" id="recordsReadTokensHeading"></th>
                                 <th class="sortable" data-sort="write_tokens" id="recordsWriteTokensHeading"></th>
-                                <th class="sortable" data-sort="request_count" id="recordsRequestCountHeading"></th>
                                 <th class="sortable" data-sort="ctime" id="recordsSubmittedAtHeading"></th>
                             </tr>
                         </thead>
@@ -1815,7 +1825,6 @@
             setText('recordsPlanHeading', listText.tablePlan);
             setText('recordsUsageHeading', listText.tableUsagePercent);
             refreshListTokenColumnHeaders();
-            setText('recordsRequestCountHeading', listText.tableRequestCount);
             setText('recordsSubmittedAtHeading', listText.tableSubmittedAt);
             setText('prevPageBtn', listText.previousPage);
             setText('nextPageBtn', listText.nextPage);
@@ -2363,7 +2372,7 @@
 
         function buildEstimateStatusRow(message, kind) {
             var extraClass = kind ? ' ' + kind : '';
-            return '<tr class="status-row"><td colspan="7"><div class="status-text' + extraClass + '">' + escapeHtml(message) + '</div></td></tr>';
+            return '<tr class="status-row"><td colspan="6"><div class="status-text' + extraClass + '">' + escapeHtml(message) + '</div></td></tr>';
         }
 
         function buildEstimateTokenMetricCell(metric) {
@@ -2381,28 +2390,6 @@
             var medianStr = formatListTokenAmount(med);
             var ciStr = (Number.isFinite(Number(lo)) && Number.isFinite(Number(hi)))
                 ? formatListTokenAmount(lo) + ' – ' + formatListTokenAmount(hi)
-                : getEstimatesText('ciUnavailable');
-            return '<td class="numeric-cell estimate-metric-cell">'
-                + '<div class="estimate-median">' + escapeHtml(medianStr) + '</div>'
-                + '<div class="cell-subtext estimate-ci">' + escapeHtml(ciStr) + '</div>'
-                + '</td>';
-        }
-
-        function buildEstimateRequestMetricCell(metric) {
-            if (metric == null) {
-                var dashR = getEstimatesText('ciUnavailable');
-                return '<td class="numeric-cell estimate-metric-cell">'
-                    + '<div class="estimate-median">' + escapeHtml(dashR) + '</div>'
-                    + '<div class="cell-subtext estimate-ci">' + escapeHtml(dashR) + '</div>'
-                    + '</td>';
-            }
-            var m = metric;
-            var lo = m.range_lower;
-            var hi = m.range_upper;
-            var med = m.median;
-            var medianStr = formatInteger(med);
-            var ciStr = (Number.isFinite(Number(lo)) && Number.isFinite(Number(hi)))
-                ? formatInteger(lo) + ' – ' + formatInteger(hi)
                 : getEstimatesText('ciUnavailable');
             return '<td class="numeric-cell estimate-metric-cell">'
                 + '<div class="estimate-median">' + escapeHtml(medianStr) + '</div>'
@@ -2524,7 +2511,6 @@
                     + buildEstimatePriceCell(item.vendor, item.plan)
                     + buildEstimateTokenMetricCell(item.read_tokens)
                     + buildEstimateTokenMetricCell(item.write_tokens)
-                    + buildEstimateRequestMetricCell(item.request_count)
                     + '</tr>';
             }).join('');
         }
@@ -2580,23 +2566,14 @@
                     + '<td class="numeric-cell">' + escapeHtml(formatPercent(item.five_hour_usage_percent)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(formatListTokenAmount(item.read_tokens)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(formatListTokenAmount(item.write_tokens)) + '</td>'
-                    + '<td class="numeric-cell">' + escapeHtml(formatRequestCountForList(item.request_count)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(submittedAt) + '</td>'
                     + '</tr>';
             }).join('');
         }
 
-        function formatRequestCountForList(value) {
-            var numericValue = Number(value);
-            if (!Number.isFinite(numericValue) || numericValue === 0) {
-                return '-';
-            }
-            return formatInteger(numericValue);
-        }
-
         function buildStatusRow(message, kind) {
             var extraClass = kind ? ' ' + kind : '';
-            return '<tr class="status-row"><td colspan="7"><div class="status-text' + extraClass + '">' + escapeHtml(message) + '</div></td></tr>';
+            return '<tr class="status-row"><td colspan="6"><div class="status-text' + extraClass + '">' + escapeHtml(message) + '</div></td></tr>';
         }
 
         function updateListSortHeaders() {
@@ -3062,7 +3039,6 @@
             var suffix = listTokenUnit === 'm' ? 'M' : 'K';
             setText('estimatesReadTokensHeading', getEstimatesText('tableReadTokens' + suffix));
             setText('estimatesWriteTokensHeading', getEstimatesText('tableWriteTokens' + suffix));
-            setText('estimatesRequestCountHeading', getEstimatesText('tableRequestCount'));
         }
 
         function handleListTokenUnitClick(unit) {
