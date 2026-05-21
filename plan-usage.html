@@ -1452,7 +1452,6 @@
                                     <th id="estimatesPlanHeading"></th>
                                     <th id="estimatesPriceHeading"></th>
                                     <th id="estimatesReadTokensHeading"></th>
-                                    <th id="estimatesCacheHitTokensHeading"></th>
                                     <th id="estimatesWriteTokensHeading"></th>
                                     <th id="estimatesRequestCountHeading"></th>
                                 </tr>
@@ -2362,7 +2361,7 @@
 
         function buildEstimateStatusRow(message, kind) {
             var extraClass = kind ? ' ' + kind : '';
-            return '<tr class="status-row"><td colspan="8"><div class="status-text' + extraClass + '">' + escapeHtml(message) + '</div></td></tr>';
+            return '<tr class="status-row"><td colspan="7"><div class="status-text' + extraClass + '">' + escapeHtml(message) + '</div></td></tr>';
         }
 
         function buildEstimateTokenMetricCell(metric) {
@@ -2522,7 +2521,6 @@
                     + '<div class="cell-subtext">' + escapeHtml(sampleLine) + '</div></td>'
                     + buildEstimatePriceCell(item.vendor, item.plan)
                     + buildEstimateTokenMetricCell(item.read_tokens)
-                    + buildEstimateTokenMetricCell(item.cache_hit_tokens)
                     + buildEstimateTokenMetricCell(item.write_tokens)
                     + buildEstimateRequestMetricCell(item.request_count)
                     + '</tr>';
@@ -3061,7 +3059,6 @@
         function refreshEstimatesTokenHeaders() {
             var suffix = listTokenUnit === 'm' ? 'M' : 'K';
             setText('estimatesReadTokensHeading', getEstimatesText('tableReadTokens' + suffix));
-            setText('estimatesCacheHitTokensHeading', getEstimatesText('tableCacheHitTokens' + suffix));
             setText('estimatesWriteTokensHeading', getEstimatesText('tableWriteTokens' + suffix));
             setText('estimatesRequestCountHeading', getEstimatesText('tableRequestCount'));
         }

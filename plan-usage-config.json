@@ -108,7 +108,7 @@
     "planFilterLabel": "套餐",
     "planFilterPlaceholder": "全部套餐",
     "resetFilters": "重置筛选",
-    "tokenUnitLabel": "Input / 缓存 / Output 单位",
+    "tokenUnitLabel": "Input / Output 单位",
     "tokenUnitOptionK": "K Tokens",
     "tokenUnitOptionM": "M Tokens",
     "tableVendor": "平台",
