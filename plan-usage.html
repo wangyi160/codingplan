@@ -1479,7 +1479,6 @@
                                 <th id="recordsPlanHeading"></th>
                                 <th class="sortable" data-sort="five_hour_usage_percent" id="recordsUsageHeading"></th>
                                 <th class="sortable" data-sort="read_tokens" id="recordsReadTokensHeading"></th>
-                                <th class="sortable" data-sort="cache_hit_tokens" id="recordsCacheHitTokensHeading"></th>
                                 <th class="sortable" data-sort="write_tokens" id="recordsWriteTokensHeading"></th>
                                 <th class="sortable" data-sort="request_count" id="recordsRequestCountHeading"></th>
                                 <th class="sortable" data-sort="ctime" id="recordsSubmittedAtHeading"></th>
@@ -2580,7 +2579,6 @@
                     + '<td><div class="cell-primary">' + escapeHtml(item.plan || '') + '</div></td>'
                     + '<td class="numeric-cell">' + escapeHtml(formatPercent(item.five_hour_usage_percent)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(formatListTokenAmount(item.read_tokens)) + '</td>'
-                    + '<td class="numeric-cell">' + escapeHtml(formatListTokenAmount(item.cache_hit_tokens)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(formatListTokenAmount(item.write_tokens)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(formatRequestCountForList(item.request_count)) + '</td>'
                     + '<td class="numeric-cell">' + escapeHtml(submittedAt) + '</td>'
@@ -2598,7 +2596,7 @@
 
         function buildStatusRow(message, kind) {
             var extraClass = kind ? ' ' + kind : '';
-            return '<tr class="status-row"><td colspan="8"><div class="status-text' + extraClass + '">' + escapeHtml(message) + '</div></td></tr>';
+            return '<tr class="status-row"><td colspan="7"><div class="status-text' + extraClass + '">' + escapeHtml(message) + '</div></td></tr>';
         }
 
         function updateListSortHeaders() {
@@ -3048,7 +3046,6 @@
         function refreshListTokenColumnHeaders() {
             var suffix = listTokenUnit === 'm' ? 'M' : 'K';
             setText('recordsReadTokensHeading', getListText('tableReadTokens' + suffix));
-            setText('recordsCacheHitTokensHeading', getListText('tableCacheHitTokens' + suffix));
             setText('recordsWriteTokensHeading', getListText('tableWriteTokens' + suffix));
             if (listTokenUnitKBtn) {
                 listTokenUnitKBtn.classList.toggle('active', listTokenUnit === 'k');
