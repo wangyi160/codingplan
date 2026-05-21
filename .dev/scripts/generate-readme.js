@@ -13,7 +13,7 @@ const indexHtml = fs.readFileSync(indexPath, 'utf8');
 const plans = allPlans.filter(plan => !plan.discontinued);
 
 // 硬编码内容
-const ONLINE_URL = 'https://codingplan.fyi';
+const ONLINE_URL = 'https://www.codingplan.fyi';
 const FOOTER = '由扣子编程开发';
 
 // 生成星星
