@@ -2,15 +2,12 @@
     var DERIVED_FILE_PATH = './index-usage-derived.json';
     var panel = document.getElementById('planUsagePanel');
     var stateEl = document.getElementById('planUsageState');
-    var chartEl = document.getElementById('planUsageChart');
-    var generatedAtEl = document.getElementById('planUsageGeneratedAt');
-    var coverageEl = document.getElementById('planUsageCoverage');
-    var vendorCountEl = document.getElementById('planUsageVendorCount');
-    var planCountEl = document.getElementById('planUsagePlanCount');
-    var warningCountEl = document.getElementById('planUsageWarningCount');
+    var valueChartEl = document.getElementById('planUsageValueChart');
+    var costChartEl = document.getElementById('planUsageCostChart');
     var windowButtons = Array.prototype.slice.call(document.querySelectorAll('[data-usage-window]'));
     var currentWindow = 'fiveHours';
-    var chart = null;
+    var valueChart = null;
+    var costChart = null;
     var usagePayload = null;
 
     function escapeHtmlSafe(text) {
@@ -67,6 +64,18 @@
         return '5 小时';
     }
 
+    function buildVendorPalette(items) {
+        var vendors = Array.from(new Set(items.map(function (item) {
+            return item.vendor;
+        })));
+        var palette = ['#0f766e', '#c66b1a', '#1d4ed8', '#be123c', '#7c3aed', '#0369a1', '#b45309', '#047857'];
+        var colorMap = {};
+        vendors.forEach(function (vendor, vendorIndex) {
+            colorMap[vendor] = palette[vendorIndex % palette.length];
+        });
+        return colorMap;
+    }
+
     function computeMedian(values) {
         if (!values.length) {
             return 0;
@@ -99,7 +108,37 @@
         });
     }
 
-    function buildVendorSeries(items) {
+    function buildValueSeries(items, colorMap) {
+        var vendors = Array.from(new Set(items.map(function (item) {
+            return item.vendor;
+        })));
+        return {
+            vendors: vendors,
+            points: items.map(function (item) {
+                var windowMetrics = item.windows[currentWindow] || {};
+                return {
+                    value: [item.vendor, Number(windowMetrics.tokenPerCny || 0)],
+                    vendor: item.vendor,
+                    plan: item.plan,
+                    monthlyPrice: item.monthlyPrice,
+                    seedPlan: item.seedPlan,
+                    seedSourceNote: item.seedSourceNote,
+                    fiveHours: item.windows.fiveHours,
+                    weekly: item.windows.weekly,
+                    monthly: item.windows.monthly,
+                    itemStyle: {
+                        color: colorMap[item.vendor],
+                        borderColor: 'rgba(255,255,255,0.95)',
+                        borderWidth: 1.5,
+                        shadowBlur: 14,
+                        shadowColor: 'rgba(23, 32, 51, 0.12)'
+                    }
+                };
+            })
+        };
+    }
+
+    function buildCostSeries(items, colorMap) {
         var grouped = new Map();
         items.forEach(function (item) {
             if (!grouped.has(item.vendor)) {
@@ -109,11 +148,9 @@
         });
 
         var vendors = Array.from(grouped.keys());
-        var palette = ['#0f766e', '#c66b1a', '#1d4ed8', '#be123c', '#7c3aed', '#0369a1', '#b45309', '#047857'];
         var priceValues = [];
         var tokenValues = [];
         var series = vendors.map(function (vendor, vendorIndex) {
-            var color = palette[vendorIndex % palette.length];
             var points = (grouped.get(vendor) || []).map(function (item) {
                 var windowMetrics = item.windows[currentWindow] || {};
                 var monthlyPrice = Number(item.monthlyPrice || 0);
@@ -131,7 +168,7 @@
                     weekly: item.windows.weekly,
                     monthly: item.windows.monthly,
                     itemStyle: {
-                        color: color,
+                        color: colorMap[vendor],
                         borderColor: 'rgba(255,255,255,0.95)',
                         borderWidth: 1.5,
                         shadowBlur: 14,
@@ -198,40 +235,132 @@
         };
     }
 
-    function renderChart() {
-        if (!usagePayload || !chartEl) {
-            return;
-        }
-        var activeItems = (usagePayload.items || []).filter(function (item) {
-            return !item.discontinued;
-        });
-        if (!activeItems.length) {
-            setState('当前没有可展示的套餐使用量数据。', false);
-            chartEl.hidden = true;
-            return;
-        }
+    function ensureCharts() {
         if (!window.echarts) {
-            setState('图表组件加载失败，当前仅保留用量说明。', true);
-            chartEl.hidden = true;
             return;
         }
-
-        var built = buildVendorSeries(activeItems);
-        chartEl.hidden = false;
-        if (stateEl) {
-            stateEl.hidden = true;
+        if (!valueChart && valueChartEl) {
+            valueChart = window.echarts.init(valueChartEl, null, { renderer: 'canvas' });
         }
+        if (!costChart && costChartEl) {
+            costChart = window.echarts.init(costChartEl, null, { renderer: 'canvas' });
+        }
+    }
 
-        if (!chart) {
-            chart = window.echarts.init(chartEl, null, { renderer: 'canvas' });
-            window.addEventListener('resize', function () {
-                if (chart) {
-                    chart.resize();
+    function renderValueChart(activeItems, colorMap) {
+        if (!valueChartEl || !valueChart) {
+            return;
+        }
+        var built = buildValueSeries(activeItems, colorMap);
+        valueChartEl.hidden = false;
+        valueChart.setOption({
+            animationDuration: 420,
+            animationDurationUpdate: 220,
+            grid: {
+                left: 86,
+                right: 24,
+                top: 28,
+                bottom: 66
+            },
+            tooltip: {
+                trigger: 'item',
+                backgroundColor: 'rgba(255, 252, 246, 0.96)',
+                borderColor: 'rgba(23, 32, 51, 0.08)',
+                borderWidth: 1,
+                textStyle: {
+                    color: '#172033'
+                },
+                formatter: function (params) {
+                    var data = params.data || {};
+                    return [
+                        '<div style="min-width:220px">',
+                        '<div style="font-size:14px;font-weight:800;margin-bottom:6px;">' + escapeHtmlSafe(data.vendor) + ' · ' + escapeHtmlSafe(data.plan) + '</div>',
+                        '<div style="font-size:12px;line-height:1.7;">',
+                        '<div><strong>月价：</strong>¥' + escapeHtmlSafe(formatPrice(data.monthlyPrice)) + '</div>',
+                        '<div><strong>' + escapeHtmlSafe(getWindowLabel(currentWindow)) + ' 每元 Token：</strong>' + escapeHtmlSafe(formatCompactTokens(data[currentWindow].tokenPerCny)) + '</div>',
+                        '<div><strong>' + escapeHtmlSafe(getWindowLabel(currentWindow)) + ' Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data[currentWindow].tokenLimit)) + '</div>',
+                        '<div style="margin-top:6px;color:#5f6879;"><strong>基准样本：</strong>' + escapeHtmlSafe(data.seedPlan) + '</div>',
+                        '<div style="color:#5f6879;">' + escapeHtmlSafe(data.seedSourceNote || '') + '</div>',
+                        '</div>',
+                        '</div>'
+                    ].join('');
                 }
-            });
-        }
+            },
+            xAxis: {
+                type: 'category',
+                data: built.vendors,
+                boundaryGap: true,
+                axisLabel: {
+                    color: '#5f6879',
+                    fontSize: 12,
+                    fontWeight: 700,
+                    interval: 0,
+                    margin: 14
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: 'rgba(23, 32, 51, 0.08)'
+                    }
+                },
+                axisTick: {
+                    alignWithLabel: true
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: 'rgba(23, 32, 51, 0.16)'
+                    }
+                }
+            },
+            yAxis: {
+                type: 'value',
+                name: getWindowLabel(currentWindow) + ' 每 1 元可支持的 Token 数',
+                nameTextStyle: {
+                    color: '#5f6879',
+                    fontSize: 12,
+                    fontWeight: 700,
+                    padding: [0, 0, 8, 0]
+                },
+                axisLabel: {
+                    color: '#5f6879',
+                    formatter: function (value) {
+                        return formatCompactTokens(value);
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: 'rgba(23, 32, 51, 0.08)',
+                        type: 'dashed'
+                    }
+                }
+            },
+            dataZoom: built.vendors.length > 6 ? [{
+                type: 'slider',
+                xAxisIndex: 0,
+                height: 18,
+                bottom: 20,
+                brushSelect: false
+            }] : [],
+            series: [{
+                name: '每元 Token',
+                type: 'scatter',
+                symbolSize: 16,
+                data: built.points,
+                emphasis: {
+                    scale: 1.18
+                }
+            }]
+        }, true);
+        valueChart.resize();
+    }
 
-        chart.setOption({
+    function renderCostChart(activeItems, colorMap) {
+        if (!costChartEl || !costChart) {
+            return;
+        }
+        var built = buildCostSeries(activeItems, colorMap);
+        costChartEl.hidden = false;
+        costChart.setOption({
             animationDuration: 450,
             animationDurationUpdate: 240,
             grid: {
@@ -353,36 +482,52 @@
             }],
             series: built.series
         }, true);
+        costChart.resize();
+    }
 
-        chart.resize();
+    function renderCharts() {
+        if (!usagePayload) {
+            return;
+        }
+        var activeItems = (usagePayload.items || []).filter(function (item) {
+            return !item.discontinued;
+        });
+        if (!activeItems.length) {
+            setState('当前没有可展示的套餐使用量数据。', false);
+            if (valueChartEl) {
+                valueChartEl.hidden = true;
+            }
+            if (costChartEl) {
+                costChartEl.hidden = true;
+            }
+            return;
+        }
+        if (!window.echarts) {
+            setState('图表组件加载失败，当前仅保留用量说明。', true);
+            if (valueChartEl) {
+                valueChartEl.hidden = true;
+            }
+            if (costChartEl) {
+                costChartEl.hidden = true;
+            }
+            return;
+        }
+
+        ensureCharts();
+        if (!valueChart || !costChart) {
+            return;
+        }
+        if (stateEl) {
+            stateEl.hidden = true;
+        }
+        var colorMap = buildVendorPalette(activeItems);
+        renderValueChart(activeItems, colorMap);
+        renderCostChart(activeItems, colorMap);
     }
 
     function applyPayload(payload) {
         usagePayload = payload;
-        var activeItems = (payload.items || []).filter(function (item) {
-            return !item.discontinued;
-        });
-        var vendorNames = Array.from(new Set(activeItems.map(function (item) {
-            return item.vendor;
-        })));
-
-        if (generatedAtEl) {
-            generatedAtEl.textContent = formatDate(payload.generatedAt);
-        }
-        if (vendorCountEl) {
-            vendorCountEl.textContent = String(vendorNames.length);
-        }
-        if (planCountEl) {
-            planCountEl.textContent = String(activeItems.length);
-        }
-        if (warningCountEl) {
-            warningCountEl.textContent = String((payload.warnings || []).length);
-        }
-        if (coverageEl) {
-            coverageEl.innerHTML = '<strong>当前覆盖：</strong>' + escapeHtmlSafe(vendorNames.join(' / ')) + '。未配置样本的平台暂不展示。';
-        }
-
-        renderChart();
+        renderCharts();
     }
 
     function loadUsageData() {
@@ -416,11 +561,19 @@
                 return;
             }
             setButtonState(nextWindow);
-            renderChart();
+            renderCharts();
         });
     });
 
     setButtonState(currentWindow);
+    window.addEventListener('resize', function () {
+        if (valueChart) {
+            valueChart.resize();
+        }
+        if (costChart) {
+            costChart.resize();
+        }
+    });
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', loadUsageData, { once: true });
     } else {

@@ -1891,7 +1891,7 @@
             <div class="plan-usage-header">
                 <div class="plan-usage-copy">
                     <div class="plan-usage-kicker">套餐使用量</div>
-                    <h2 class="plan-usage-title" id="planUsageTitle">价格 vs Token 量：越靠左上越值得优先看</h2>
+                    <h2 class="plan-usage-title" id="planUsageTitle">套餐使用量双视角对比</h2>
                 </div>
                 <div class="plan-usage-actions">
                     <div class="plan-usage-actions-label">观察窗口</div>
@@ -1902,9 +1902,25 @@
                     </div>
                 </div>
             </div>
-            <div class="plan-usage-chart" id="planUsageChart" hidden></div>
+            <div class="plan-usage-state" id="planUsageState" hidden></div>
+            <div class="plan-usage-chart-stack">
+                <section class="plan-usage-chart-block" aria-labelledby="planUsageValueTitle">
+                    <div class="plan-usage-chart-header">
+                        <h3 class="plan-usage-chart-title" id="planUsageValueTitle">每 1 元人民币能换来多少 Token</h3>
+                        <p class="plan-usage-chart-subtitle">这是 main 分支原先的视角：横轴按平台分组，纵轴看当前窗口下的每元 token 支持量。</p>
+                    </div>
+                    <div class="plan-usage-chart" id="planUsageValueChart" hidden></div>
+                </section>
+                <section class="plan-usage-chart-block" aria-labelledby="planUsageCostTitle">
+                    <div class="plan-usage-chart-header">
+                        <h3 class="plan-usage-chart-title" id="planUsageCostTitle">价格 vs Token 量四象限</h3>
+                        <p class="plan-usage-chart-subtitle">这是当前分支的新视角：横轴是包月价格，纵轴是当前窗口下的 Token 上限，越靠左上越值得优先看。</p>
+                    </div>
+                    <div class="plan-usage-chart" id="planUsageCostChart" hidden></div>
+                </section>
+            </div>
             <div class="plan-usage-footer">
-                <div class="plan-usage-footnote">横轴是原价包月价格，纵轴是当前观察窗口下的 Token 上限。中位线会把图分成四个区域，左上角代表更便宜且用量更高。第一版不展示 Token Plan，也不对美元套餐做汇率换算。</div>
+                <div class="plan-usage-footnote">上图适合先看性价比密度，下图适合同时看价格与绝对额度。两张图都只展示人民币计价的 Coding Plan，不展示 Token Plan，也不对美元套餐做汇率换算。</div>
             </div>
         </section>
 

@@ -175,6 +175,42 @@
     display: none;
 }
 
+.plan-usage-chart-stack {
+    display: grid;
+    gap: 20px;
+}
+
+.plan-usage-chart-block {
+    padding: 18px 18px 16px;
+    border-radius: 22px;
+    border: 1px solid rgba(23, 32, 51, 0.08);
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.plan-usage-chart-header {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+}
+
+.plan-usage-chart-title {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.3;
+    color: var(--text-primary);
+    min-width: 0;
+}
+
+.plan-usage-chart-subtitle {
+    margin: 0;
+    max-width: 100%;
+    color: var(--text-tertiary);
+    font-size: 12px;
+    line-height: 1.7;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
 .plan-usage-footer {
     margin-top: 14px;
     display: flex;
