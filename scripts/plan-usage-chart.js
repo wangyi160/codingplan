@@ -76,18 +76,34 @@
         return colorMap;
     }
 
-    function computeMedian(values) {
+    function computeThresholdPivot(values, direction) {
         if (!values.length) {
             return 0;
         }
         var sorted = values.slice().sort(function (left, right) {
             return left - right;
         });
-        var middleIndex = Math.floor(sorted.length / 2);
-        if (sorted.length % 2 === 0) {
-            return (sorted[middleIndex - 1] + sorted[middleIndex]) / 2;
+        var middleIndex = Math.floor((sorted.length - 1) / 2);
+        var fallbackStep = Math.max(Math.abs(sorted[middleIndex]) * 0.001, 0.001);
+
+        if (direction === 'lower') {
+            var lowerBaseIndex = Math.ceil((sorted.length - 1) / 2);
+            var lowerBaseValue = sorted[lowerBaseIndex];
+            for (var prevIndex = lowerBaseIndex - 1; prevIndex >= 0; prevIndex -= 1) {
+                if (sorted[prevIndex] !== lowerBaseValue) {
+                    return (sorted[prevIndex] + lowerBaseValue) / 2;
+                }
+            }
+            return Math.max(0, lowerBaseValue - fallbackStep);
         }
-        return sorted[middleIndex];
+
+        var higherBaseValue = sorted[middleIndex];
+        for (var nextIndex = middleIndex + 1; nextIndex < sorted.length; nextIndex += 1) {
+            if (sorted[nextIndex] !== higherBaseValue) {
+                return (higherBaseValue + sorted[nextIndex]) / 2;
+            }
+        }
+        return higherBaseValue + fallbackStep;
     }
 
     function setState(message, isError) {
@@ -217,8 +233,8 @@
         var xMax = priceValues.length ? Math.ceil(Math.max.apply(null, priceValues) * 1.12) : 1;
         var yMaxValue = tokenValues.length ? Math.max.apply(null, tokenValues) : 0;
         var yMax = yMaxValue > 0 ? Math.ceil(yMaxValue * 1.18) : 1;
-        var medianPrice = computeMedian(priceValues);
-        var medianTokens = computeMedian(tokenValues);
+        var medianPrice = computeThresholdPivot(priceValues, 'higher');
+        var medianTokens = computeThresholdPivot(tokenValues, 'lower');
 
         if (series.length) {
             series[0].markArea = {
