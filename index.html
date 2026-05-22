@@ -8,6 +8,7 @@
     <title>Coding Plan 对比工具 - 国内25大主流AI平台套餐对比 智谱、Kimi、MiniMax、阿里百炼Qwen、小米Mimo、讯飞星火、阶跃星辰、无问芯穹、联通云、天翼云、移动云</title>
     <link rel="icon" href="/favicon.ico?v=260418" type="image/x-icon">
     <link rel="stylesheet" href="styles/shared.css?v=260515">
+    <link rel="stylesheet" href="styles/plan-usage.css?v=260522">
     <style>
         .header .models {
             color: var(--text-tertiary);
@@ -1885,6 +1886,36 @@
         <div class="rating-guide" id="ratingGuide">基准3颗星，价格优势劣势1分，模型优势或独占模型1分，其他优势1分。TokenPlan因性价比较低，暂不推荐，能买CodingPlan尽量买CodingPlan</div>
 
         <hr class="section-divider">
+
+        <section class="plan-usage-panel surface-panel" id="planUsagePanel" aria-labelledby="planUsageTitle">
+            <div class="plan-usage-header">
+                <div class="plan-usage-copy">
+                    <div class="plan-usage-kicker">套餐使用量</div>
+                    <h2 class="plan-usage-title" id="planUsageTitle">不同平台每 1 元人民币能换来多少 Token</h2>
+                    <p class="plan-usage-description">这部分只看人民币计价的 Coding Plan。我们先录入每个平台一个套餐的 5 小时实测 token 数，再按该平台原始 5 小时 / 周 / 月请求数比例外推到其他套餐，并统一用原价包月价格计算每 1 元人民币能支持的 token 数。</p>
+                    <div class="plan-usage-meta">
+                        <span class="plan-usage-chip"><strong id="planUsageVendorCount">0</strong>个平台</span>
+                        <span class="plan-usage-chip"><strong id="planUsagePlanCount">0</strong>个套餐</span>
+                        <span class="plan-usage-chip"><strong id="planUsageWarningCount">0</strong>个平台待补样本</span>
+                        <span class="plan-usage-chip"><strong id="planUsageGeneratedAt">未知</strong>更新</span>
+                    </div>
+                </div>
+                <div class="plan-usage-actions">
+                    <div class="plan-usage-actions-label">观察窗口</div>
+                    <div class="segmented-control" role="group" aria-label="套餐使用量观察窗口切换">
+                        <button type="button" class="segment-btn active" data-usage-window="fiveHours" aria-pressed="true">5 小时</button>
+                        <button type="button" class="segment-btn" data-usage-window="weekly" aria-pressed="false">每周</button>
+                        <button type="button" class="segment-btn" data-usage-window="monthly" aria-pressed="false">每月</button>
+                    </div>
+                </div>
+            </div>
+            <div class="plan-usage-state" id="planUsageState">正在加载套餐使用量对比…</div>
+            <div class="plan-usage-chart" id="planUsageChart" hidden></div>
+            <div class="plan-usage-footer">
+                <div class="plan-usage-footnote">图里每个点对应一个套餐。相同平台的多个套餐会落在同一平台刻度附近，横向轻微错开以便比较。第一版不展示 Token Plan，也不对美元套餐做汇率换算。</div>
+                <div class="plan-usage-coverage" id="planUsageCoverage"></div>
+            </div>
+        </section>
 
         <!-- 顶部筛选栏 -->
         <div class="filter-bar surface-panel">
@@ -4131,5 +4162,7 @@
 
     </script>
     <script src="scripts/shared.js?v=260512"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script src="scripts/plan-usage-chart.js?v=260522"></script>
 </body>
 </html>

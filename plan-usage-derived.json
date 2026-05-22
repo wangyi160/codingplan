@@ -1,0 +1,328 @@
+{
+  "generatedAt": "2026-05-22T10:56:56.456863Z",
+  "source": {
+    "plans": "codingplan/plans.json",
+    "seeds": "codingplan/plan-usage-seeds.json"
+  },
+  "summary": {
+    "includedVendorCount": 4,
+    "includedPlanCount": 12,
+    "seedCount": 4,
+    "warningCount": 11
+  },
+  "warnings": [
+    "Missing seed for vendor: 讯飞·星火",
+    "Missing seed for vendor: 联通云",
+    "Missing seed for vendor: 百度·千帆",
+    "Missing seed for vendor: 京东云",
+    "Missing seed for vendor: 腾讯云",
+    "Missing seed for vendor: 优云智算",
+    "Missing seed for vendor: 阶跃星辰",
+    "Missing seed for vendor: 天翼云",
+    "Missing seed for vendor: 移动云",
+    "Missing seed for vendor: 超算互联网",
+    "Missing seed for vendor: 无问芯穹"
+  ],
+  "items": [
+    {
+      "vendor": "智谱AI",
+      "plan": "Lite",
+      "monthlyPrice": 49.0,
+      "discontinued": false,
+      "seedPlan": "Pro",
+      "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
+      "seedSourceNote": "参考 GLM Coding Plan Pro（glm-5.1）5h 约 3000 万 token",
+      "vendorOrder": 0,
+      "planOrder": 0,
+      "windows": {
+        "fiveHours": {
+          "tokenLimit": 6000000,
+          "tokenPerCny": 122448.98
+        },
+        "weekly": {
+          "tokenLimit": 30000000,
+          "tokenPerCny": 612244.9
+        },
+        "monthly": {
+          "tokenLimit": 120000000,
+          "tokenPerCny": 2448979.59
+        }
+      }
+    },
+    {
+      "vendor": "智谱AI",
+      "plan": "Pro",
+      "monthlyPrice": 149.0,
+      "discontinued": false,
+      "seedPlan": "Pro",
+      "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
+      "seedSourceNote": "参考 GLM Coding Plan Pro（glm-5.1）5h 约 3000 万 token",
+      "vendorOrder": 0,
+      "planOrder": 1,
+      "windows": {
+        "fiveHours": {
+          "tokenLimit": 30000000,
+          "tokenPerCny": 201342.28
+        },
+        "weekly": {
+          "tokenLimit": 150000000,
+          "tokenPerCny": 1006711.41
+        },
+        "monthly": {
+          "tokenLimit": 600000000,
+          "tokenPerCny": 4026845.64
+        }
+      }
+    },
+    {
+      "vendor": "智谱AI",
+      "plan": "Max",
+      "monthlyPrice": 469.0,
+      "discontinued": false,
+      "seedPlan": "Pro",
+      "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
+      "seedSourceNote": "参考 GLM Coding Plan Pro（glm-5.1）5h 约 3000 万 token",
+      "vendorOrder": 0,
+      "planOrder": 2,
+      "windows": {
+        "fiveHours": {
+          "tokenLimit": 120000000,
+          "tokenPerCny": 255863.54
+        },
+        "weekly": {
+          "tokenLimit": 600000000,
+          "tokenPerCny": 1279317.7
+        },
+        "monthly": {
+          "tokenLimit": 2400000000,
+          "tokenPerCny": 5117270.79
+        }
+      }
+    },
+    {
+      "vendor": "MiniMax",
+      "plan": "Starter",
+      "monthlyPrice": 29.0,
+      "discontinued": false,
+      "seedPlan": "Plus",
+      "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
+      "seedSourceNote": "参考 MiniMax Coding Plan Plus（minimax-m2.7）5h 约 6000 万 token",
+      "vendorOrder": 6,
+      "planOrder": 0,
+      "windows": {
+        "fiveHours": {
+          "tokenLimit": 24000000,
+          "tokenPerCny": 827586.21
+        },
+        "weekly": {
+          "tokenLimit": 240000000,
+          "tokenPerCny": 8275862.07
+        },
+        "monthly": {
+          "tokenLimit": 960000000,
+          "tokenPerCny": 33103448.28
+        }
+      }
+    },
+    {
+      "vendor": "MiniMax",
+      "plan": "Plus",
+      "monthlyPrice": 49.0,
+      "discontinued": false,
+      "seedPlan": "Plus",
+      "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
+      "seedSourceNote": "参考 MiniMax Coding Plan Plus（minimax-m2.7）5h 约 6000 万 token",
+      "vendorOrder": 6,
+      "planOrder": 1,
+      "windows": {
+        "fiveHours": {
+          "tokenLimit": 60000000,
+          "tokenPerCny": 1224489.8
+        },
+        "weekly": {
+          "tokenLimit": 600000000,
+          "tokenPerCny": 12244897.96
+        },
+        "monthly": {
+          "tokenLimit": 2400000000,
+          "tokenPerCny": 48979591.84
+        }
+      }
+    },
+    {
+      "vendor": "MiniMax",
+      "plan": "Max",
+      "monthlyPrice": 119.0,
+      "discontinued": false,
+      "seedPlan": "Plus",
+      "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
+      "seedSourceNote": "参考 MiniMax Coding Plan Plus（minimax-m2.7）5h 约 6000 万 token",
+      "vendorOrder": 6,
+      "planOrder": 2,
+      "windows": {
+        "fiveHours": {
+          "tokenLimit": 180000000,
+          "tokenPerCny": 1512605.04
+        },
+        "weekly": {
+          "tokenLimit": 1800000000,
+          "tokenPerCny": 15126050.42
+        },
+        "monthly": {
+          "tokenLimit": 7200000000,
+          "tokenPerCny": 60504201.68
+        }
+      }
+    },
+    {
+      "vendor": "MiniMax",
+      "plan": "Plus-极速",
+      "monthlyPrice": 98.0,
+      "discontinued": false,
+      "seedPlan": "Plus",
+      "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
+      "seedSourceNote": "参考 MiniMax Coding Plan Plus（minimax-m2.7）5h 约 6000 万 token",
+      "vendorOrder": 6,
+      "planOrder": 3,
+      "windows": {
+        "fiveHours": {
+          "tokenLimit": 60000000,
+          "tokenPerCny": 612244.9
+        },
+        "weekly": {
+          "tokenLimit": 600000000,
+          "tokenPerCny": 6122448.98
+        },
+        "monthly": {
+          "tokenLimit": 2400000000,
+          "tokenPerCny": 24489795.92
+        }
+      }
+    },
+    {
+      "vendor": "MiniMax",
+      "plan": "Max-极速",
+      "monthlyPrice": 199.0,
+      "discontinued": false,
+      "seedPlan": "Plus",
+      "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
+      "seedSourceNote": "参考 MiniMax Coding Plan Plus（minimax-m2.7）5h 约 6000 万 token",
+      "vendorOrder": 6,
+      "planOrder": 4,
+      "windows": {
+        "fiveHours": {
+          "tokenLimit": 180000000,
+          "tokenPerCny": 904522.61
+        },
+        "weekly": {
+          "tokenLimit": 1800000000,
+          "tokenPerCny": 9045226.13
+        },
+        "monthly": {
+          "tokenLimit": 7200000000,
+          "tokenPerCny": 36180904.52
+        }
+      }
+    },
+    {
+      "vendor": "字节·方舟",
+      "plan": "Lite",
+      "monthlyPrice": 40.0,
+      "discontinued": false,
+      "seedPlan": "Lite",
+      "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
+      "seedSourceNote": "参考 火山方舟 Coding Plan Lite（doubao-seed-2.0-pro）5h 约 1000 万 token",
+      "vendorOrder": 17,
+      "planOrder": 0,
+      "windows": {
+        "fiveHours": {
+          "tokenLimit": 10000000,
+          "tokenPerCny": 250000.0
+        },
+        "weekly": {
+          "tokenLimit": 75000000,
+          "tokenPerCny": 1875000.0
+        },
+        "monthly": {
+          "tokenLimit": 150000000,
+          "tokenPerCny": 3750000.0
+        }
+      }
+    },
+    {
+      "vendor": "字节·方舟",
+      "plan": "Pro",
+      "monthlyPrice": 200.0,
+      "discontinued": false,
+      "seedPlan": "Lite",
+      "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
+      "seedSourceNote": "参考 火山方舟 Coding Plan Lite（doubao-seed-2.0-pro）5h 约 1000 万 token",
+      "vendorOrder": 17,
+      "planOrder": 1,
+      "windows": {
+        "fiveHours": {
+          "tokenLimit": 50000000,
+          "tokenPerCny": 250000.0
+        },
+        "weekly": {
+          "tokenLimit": 375000000,
+          "tokenPerCny": 1875000.0
+        },
+        "monthly": {
+          "tokenLimit": 750000000,
+          "tokenPerCny": 3750000.0
+        }
+      }
+    },
+    {
+      "vendor": "阿里·百炼",
+      "plan": "Lite",
+      "monthlyPrice": 40.0,
+      "discontinued": true,
+      "seedPlan": "Lite",
+      "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
+      "seedSourceNote": "参考 阿里云 Coding Plan Lite 基础套餐（qwen-3.5-plus）5h 约 4000 万 token",
+      "vendorOrder": 26,
+      "planOrder": 0,
+      "windows": {
+        "fiveHours": {
+          "tokenLimit": 40000000,
+          "tokenPerCny": 1000000.0
+        },
+        "weekly": {
+          "tokenLimit": 300000000,
+          "tokenPerCny": 7500000.0
+        },
+        "monthly": {
+          "tokenLimit": 600000000,
+          "tokenPerCny": 15000000.0
+        }
+      }
+    },
+    {
+      "vendor": "阿里·百炼",
+      "plan": "Pro",
+      "monthlyPrice": 200.0,
+      "discontinued": false,
+      "seedPlan": "Lite",
+      "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
+      "seedSourceNote": "参考 阿里云 Coding Plan Lite 基础套餐（qwen-3.5-plus）5h 约 4000 万 token",
+      "vendorOrder": 26,
+      "planOrder": 1,
+      "windows": {
+        "fiveHours": {
+          "tokenLimit": 200000000,
+          "tokenPerCny": 1000000.0
+        },
+        "weekly": {
+          "tokenLimit": 1500000000,
+          "tokenPerCny": 7500000.0
+        },
+        "monthly": {
+          "tokenLimit": 3000000000,
+          "tokenPerCny": 15000000.0
+        }
+      }
+    }
+  ]
+}
