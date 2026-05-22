@@ -187,6 +187,18 @@
                 type: 'scatter',
                 color: colorMap[vendor],
                 symbolSize: 16,
+                label: {
+                    show: true,
+                    position: 'right',
+                    distance: 8,
+                    color: '#425065',
+                    fontSize: 11,
+                    fontWeight: 700,
+                    formatter: function (params) {
+                        var data = params.data || {};
+                        return [data.vendor, data.plan].filter(Boolean).join(' · ');
+                    }
+                },
                 itemStyle: {
                     color: colorMap[vendor],
                     borderColor: 'rgba(255,255,255,0.95)',
@@ -201,7 +213,7 @@
             };
         });
 
-        var xMin = priceValues.length ? Math.max(0, Math.floor(Math.min.apply(null, priceValues) * 0.75)) : 0;
+        var xMin = priceValues.length ? Math.max(1, Math.floor(Math.min.apply(null, priceValues) * 0.75)) : 1;
         var xMax = priceValues.length ? Math.ceil(Math.max.apply(null, priceValues) * 1.12) : 1;
         var yMaxValue = tokenValues.length ? Math.max.apply(null, tokenValues) : 0;
         var yMax = yMaxValue > 0 ? Math.ceil(yMaxValue * 1.18) : 1;
@@ -217,8 +229,8 @@
                 data: [
                     [{ itemStyle: { color: 'rgba(16, 185, 129, 0.12)' }, xAxis: xMin, yAxis: medianTokens }, { xAxis: medianPrice, yAxis: yMax }],
                     [{ itemStyle: { color: 'rgba(59, 130, 246, 0.05)' }, xAxis: medianPrice, yAxis: medianTokens }, { xAxis: xMax, yAxis: yMax }],
-                    [{ itemStyle: { color: 'rgba(245, 158, 11, 0.05)' }, xAxis: xMin, yAxis: 0 }, { xAxis: medianPrice, yAxis: medianTokens }],
-                    [{ itemStyle: { color: 'rgba(23, 32, 51, 0.05)' }, xAxis: medianPrice, yAxis: 0 }, { xAxis: xMax, yAxis: medianTokens }]
+                    [{ itemStyle: { color: 'rgba(59, 130, 246, 0.05)' }, xAxis: xMin, yAxis: 0 }, { xAxis: medianPrice, yAxis: medianTokens }],
+                    [{ itemStyle: { color: 'rgba(239, 68, 68, 0.07)' }, xAxis: medianPrice, yAxis: 0 }, { xAxis: xMax, yAxis: medianTokens }]
                 ]
             };
             series[0].markLine = {
@@ -351,6 +363,25 @@
                 name: '每元 Token',
                 type: 'scatter',
                 symbolSize: 16,
+                label: {
+                    show: true,
+                    position: 'right',
+                    distance: 8,
+                    color: '#425065',
+                    fontSize: 11,
+                    fontWeight: 700,
+                    formatter: function (params) {
+                        var data = params.data || {};
+                        if (!data.plan) {
+                            return '';
+                        }
+                        return data.plan + '  ¥' + formatPrice(data.monthlyPrice);
+                    }
+                },
+                labelLayout: {
+                    hideOverlap: true,
+                    moveOverlap: 'shiftY'
+                },
                 data: built.points,
                 emphasis: {
                     scale: 1.18
@@ -416,7 +447,8 @@
                 }
             },
             xAxis: {
-                type: 'value',
+                type: 'log',
+                logBase: 2,
                 min: built.xMin,
                 max: built.xMax,
                 name: '包月价格（元）',
@@ -488,6 +520,10 @@
                     fontWeight: 700
                 }
             }],
+            labelLayout: {
+                hideOverlap: true,
+                moveOverlap: 'shiftY'
+            },
             series: built.series
         }, true);
         costChart.resize();
