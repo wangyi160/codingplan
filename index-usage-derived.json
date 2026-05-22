@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-05-22T11:10:04.741226Z",
+  "generatedAt": "2026-05-22T12:58:38.830801Z",
   "source": {
     "plans": "codingplan/plans.json",
     "seeds": "scripts/codingplan/plan-usage-seeds.json"
   },
   "summary": {
-    "includedVendorCount": 4,
-    "includedPlanCount": 12,
-    "seedCount": 4,
-    "warningCount": 11
+    "includedVendorCount": 5,
+    "includedPlanCount": 14,
+    "seedCount": 5,
+    "warningCount": 13
   },
   "warnings": [
     "Missing seed for vendor: 讯飞·星火",
@@ -21,7 +21,9 @@
     "Missing seed for vendor: 天翼云",
     "Missing seed for vendor: 移动云",
     "Missing seed for vendor: 超算互联网",
-    "Missing seed for vendor: 无问芯穹"
+    "Missing seed for vendor: 无问芯穹",
+    "Missing seed for vendor: 摩尔线程",
+    "Missing seed for vendor: 商汤·日日新"
   ],
   "items": [
     {
@@ -221,6 +223,56 @@
         "monthly": {
           "tokenLimit": 7200000000,
           "tokenPerCny": 36180904.52
+        }
+      }
+    },
+    {
+      "vendor": "Kimi",
+      "plan": "Andante",
+      "monthlyPrice": 49.0,
+      "discontinued": false,
+      "seedPlan": "Andante",
+      "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
+      "seedSourceNote": "参考 Kimi Code Andante（kimi-k2.5）：5h 1500万，周 2100万，月 8400万 token",
+      "vendorOrder": 13,
+      "planOrder": 13,
+      "windows": {
+        "fiveHours": {
+          "tokenLimit": 15000000,
+          "tokenPerCny": 306122.45
+        },
+        "weekly": {
+          "tokenLimit": 21000000,
+          "tokenPerCny": 428571.43
+        },
+        "monthly": {
+          "tokenLimit": 84000000,
+          "tokenPerCny": 1714285.71
+        }
+      }
+    },
+    {
+      "vendor": "Kimi",
+      "plan": "Allegretto",
+      "monthlyPrice": 199.0,
+      "discontinued": false,
+      "seedPlan": "Allegretto",
+      "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
+      "seedSourceNote": "参考 Kimi Code Allegretto（kimi-k2.5）：5h 6500万，周 3.57亿，月 14.28亿 token",
+      "vendorOrder": 13,
+      "planOrder": 15,
+      "windows": {
+        "fiveHours": {
+          "tokenLimit": 65000000,
+          "tokenPerCny": 326633.17
+        },
+        "weekly": {
+          "tokenLimit": 357000000,
+          "tokenPerCny": 1793969.85
+        },
+        "monthly": {
+          "tokenLimit": 1428000000,
+          "tokenPerCny": 7175879.4
         }
       }
     },
