@@ -57,6 +57,30 @@
         return Math.round(numeric).toLocaleString('zh-CN');
     }
 
+    function getWindowLabel(windowKey) {
+        if (windowKey === 'weekly') {
+            return '每周';
+        }
+        if (windowKey === 'monthly') {
+            return '每月';
+        }
+        return '5 小时';
+    }
+
+    function computeMedian(values) {
+        if (!values.length) {
+            return 0;
+        }
+        var sorted = values.slice().sort(function (left, right) {
+            return left - right;
+        });
+        var middleIndex = Math.floor(sorted.length / 2);
+        if (sorted.length % 2 === 0) {
+            return (sorted[middleIndex - 1] + sorted[middleIndex]) / 2;
+        }
+        return sorted[middleIndex];
+    }
+
     function setState(message, isError) {
         if (!stateEl) {
             return;
@@ -86,17 +110,18 @@
 
         var vendors = Array.from(grouped.keys());
         var palette = ['#0f766e', '#c66b1a', '#1d4ed8', '#be123c', '#7c3aed', '#0369a1', '#b45309', '#047857'];
-        var colorMap = {};
-        vendors.forEach(function (vendor, vendorIndex) {
-            colorMap[vendor] = palette[vendorIndex % palette.length];
-        });
-
-        var points = [];
-        vendors.forEach(function (vendor) {
-            (grouped.get(vendor) || []).forEach(function (item) {
-                var windowMetrics = item.windows[currentWindow];
-                points.push({
-                    value: [vendor, windowMetrics.tokenPerCny],
+        var priceValues = [];
+        var tokenValues = [];
+        var series = vendors.map(function (vendor, vendorIndex) {
+            var color = palette[vendorIndex % palette.length];
+            var points = (grouped.get(vendor) || []).map(function (item) {
+                var windowMetrics = item.windows[currentWindow] || {};
+                var monthlyPrice = Number(item.monthlyPrice || 0);
+                var tokenLimit = Number(windowMetrics.tokenLimit || 0);
+                priceValues.push(monthlyPrice);
+                tokenValues.push(tokenLimit);
+                return {
+                    value: [monthlyPrice, tokenLimit],
                     vendor: item.vendor,
                     plan: item.plan,
                     monthlyPrice: item.monthlyPrice,
@@ -106,27 +131,70 @@
                     weekly: item.windows.weekly,
                     monthly: item.windows.monthly,
                     itemStyle: {
-                        color: colorMap[vendor],
+                        color: color,
                         borderColor: 'rgba(255,255,255,0.95)',
                         borderWidth: 1.5,
                         shadowBlur: 14,
                         shadowColor: 'rgba(23, 32, 51, 0.12)'
                     }
-                });
+                };
             });
-        });
-
-        return {
-            vendors: vendors,
-            series: [{
-                name: '套餐使用量',
+            return {
+                name: vendor,
                 type: 'scatter',
                 symbolSize: 16,
                 data: points,
                 emphasis: {
                     scale: 1.18
                 }
-            }],
+            };
+        });
+
+        var xMin = priceValues.length ? Math.max(0, Math.floor(Math.min.apply(null, priceValues) * 0.75)) : 0;
+        var xMax = priceValues.length ? Math.ceil(Math.max.apply(null, priceValues) * 1.12) : 1;
+        var yMaxValue = tokenValues.length ? Math.max.apply(null, tokenValues) : 0;
+        var yMax = yMaxValue > 0 ? Math.ceil(yMaxValue * 1.18) : 1;
+        var medianPrice = computeMedian(priceValues);
+        var medianTokens = computeMedian(tokenValues);
+
+        if (series.length) {
+            series[0].markArea = {
+                silent: true,
+                label: {
+                    show: false
+                },
+                data: [
+                    [{ itemStyle: { color: 'rgba(16, 185, 129, 0.12)' }, xAxis: xMin, yAxis: medianTokens }, { xAxis: medianPrice, yAxis: yMax }],
+                    [{ itemStyle: { color: 'rgba(59, 130, 246, 0.05)' }, xAxis: medianPrice, yAxis: medianTokens }, { xAxis: xMax, yAxis: yMax }],
+                    [{ itemStyle: { color: 'rgba(245, 158, 11, 0.05)' }, xAxis: xMin, yAxis: 0 }, { xAxis: medianPrice, yAxis: medianTokens }],
+                    [{ itemStyle: { color: 'rgba(23, 32, 51, 0.05)' }, xAxis: medianPrice, yAxis: 0 }, { xAxis: xMax, yAxis: medianTokens }]
+                ]
+            };
+            series[0].markLine = {
+                silent: true,
+                symbol: 'none',
+                lineStyle: {
+                    color: 'rgba(23, 32, 51, 0.18)',
+                    type: 'dashed'
+                },
+                label: {
+                    show: false
+                },
+                data: [
+                    { xAxis: medianPrice },
+                    { yAxis: medianTokens }
+                ]
+            };
+        }
+
+        return {
+            vendors: vendors,
+            series: series,
+            xMin: xMin,
+            xMax: xMax,
+            yMax: yMax,
+            medianPrice: medianPrice,
+            medianTokens: medianTokens
         };
     }
 
@@ -167,10 +235,10 @@
             animationDuration: 450,
             animationDurationUpdate: 240,
             grid: {
-                left: 72,
-                right: 24,
-                top: 20,
-                bottom: 84
+                left: 86,
+                right: 28,
+                top: 64,
+                bottom: 72
             },
             tooltip: {
                 trigger: 'item',
@@ -187,10 +255,10 @@
                         '<div style="font-size:14px;font-weight:800;margin-bottom:6px;">' + escapeHtmlSafe(data.vendor) + ' · ' + escapeHtmlSafe(data.plan) + '</div>',
                         '<div style="font-size:12px;line-height:1.7;">',
                         '<div><strong>月价：</strong>¥' + escapeHtmlSafe(formatPrice(data.monthlyPrice)) + '</div>',
+                        '<div><strong>' + escapeHtmlSafe(getWindowLabel(currentWindow)) + ' Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data[currentWindow].tokenLimit)) + '</div>',
                         '<div><strong>5h Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data.fiveHours.tokenLimit)) + '</div>',
                         '<div><strong>周 Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data.weekly.tokenLimit)) + '</div>',
                         '<div><strong>月 Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data.monthly.tokenLimit)) + '</div>',
-                        '<div><strong>当前窗口每元 Token：</strong>' + escapeHtmlSafe(formatCompactTokens(data[currentWindow].tokenPerCny)) + '</div>',
                         '<div style="margin-top:6px;color:#5f6879;"><strong>基准样本：</strong>' + escapeHtmlSafe(data.seedPlan) + '</div>',
                         '<div style="color:#5f6879;">' + escapeHtmlSafe(data.seedSourceNote || '') + '</div>',
                         '</div>',
@@ -198,25 +266,48 @@
                     ].join('');
                 }
             },
+            legend: {
+                top: 10,
+                left: 0,
+                itemWidth: 10,
+                itemHeight: 10,
+                icon: 'circle',
+                textStyle: {
+                    color: '#5f6879',
+                    fontSize: 12,
+                    fontWeight: 600
+                }
+            },
             xAxis: {
-                type: 'category',
-                data: built.vendors,
-                boundaryGap: true,
+                type: 'value',
+                min: built.xMin,
+                max: built.xMax,
+                name: '包月价格（元）',
+                nameLocation: 'middle',
+                nameGap: 42,
+                nameTextStyle: {
+                    color: '#5f6879',
+                    fontSize: 12,
+                    fontWeight: 700
+                },
+                splitNumber: 6,
                 axisLabel: {
                     color: '#5f6879',
                     fontSize: 12,
                     fontWeight: 700,
-                    interval: 0,
-                    margin: 14
+                    formatter: function (value) {
+                        return '¥' + formatPrice(value);
+                    }
                 },
                 splitLine: {
                     show: true,
                     lineStyle: {
-                        color: 'rgba(23, 32, 51, 0.08)'
+                        color: 'rgba(23, 32, 51, 0.08)',
+                        type: 'dashed'
                     }
                 },
                 axisTick: {
-                    alignWithLabel: true
+                    show: false
                 },
                 axisLine: {
                     lineStyle: {
@@ -226,7 +317,9 @@
             },
             yAxis: {
                 type: 'value',
-                name: '每 1 元可支持的 Token 数',
+                min: 0,
+                max: built.yMax,
+                name: getWindowLabel(currentWindow) + ' Token 上限',
                 nameTextStyle: {
                     color: '#5f6879',
                     fontSize: 12,
@@ -246,13 +339,18 @@
                     }
                 }
             },
-            dataZoom: built.vendors.length > 6 ? [{
-                type: 'slider',
-                xAxisIndex: 0,
-                height: 18,
-                bottom: 24,
-                brushSelect: false
-            }] : [],
+            graphic: [{
+                type: 'text',
+                left: 110,
+                top: 34,
+                silent: true,
+                style: {
+                    text: '更便宜且用量更高',
+                    fill: '#0f766e',
+                    fontSize: 13,
+                    fontWeight: 700
+                }
+            }],
             series: built.series
         }, true);
 
