@@ -168,10 +168,56 @@
         return placements[index % placements.length];
     }
 
+    function flipHorizontalPlacement(placement) {
+        if (placement.position === 'right') {
+            return {
+                position: 'left',
+                offset: [-Math.abs(placement.offset[0]), placement.offset[1]]
+            };
+        }
+        if (placement.position === 'left') {
+            return {
+                position: 'right',
+                offset: [Math.abs(placement.offset[0]), placement.offset[1]]
+            };
+        }
+        return placement;
+    }
+
+    function flipVerticalPlacement(placement) {
+        if (placement.position === 'top') {
+            return {
+                position: 'bottom',
+                offset: [placement.offset[0], Math.abs(placement.offset[1])]
+            };
+        }
+        if (placement.position === 'bottom') {
+            return {
+                position: 'top',
+                offset: [placement.offset[0], -Math.abs(placement.offset[1])]
+            };
+        }
+        return {
+            position: placement.position,
+            offset: [placement.offset[0], -placement.offset[1]]
+        };
+    }
+
     function applyScatterLabelPlacements(points, getX, getY, xThreshold, yThreshold) {
         if (!points.length) {
             return;
         }
+
+        var xValues = points.map(function (point) {
+            return getX(point);
+        });
+        var yValues = points.map(function (point) {
+            return getY(point);
+        });
+        var minX = Math.min.apply(null, xValues);
+        var maxX = Math.max.apply(null, xValues);
+        var minY = Math.min.apply(null, yValues);
+        var maxY = Math.max.apply(null, yValues);
 
         var clusters = [];
 
@@ -202,10 +248,19 @@
 
         clusters.forEach(function (cluster) {
             if (cluster.points.length === 1) {
-                cluster.points[0].label = {
+                var singlePointPlacement = {
                     position: 'right',
                     offset: [12, 0]
                 };
+                if (maxX - getX(cluster.points[0]) <= xThreshold * 1.25) {
+                    singlePointPlacement = flipHorizontalPlacement(singlePointPlacement);
+                }
+                if (getY(cluster.points[0]) - minY <= yThreshold * 1.25 && singlePointPlacement.offset[1] > 0) {
+                    singlePointPlacement = flipVerticalPlacement(singlePointPlacement);
+                } else if (maxY - getY(cluster.points[0]) <= yThreshold * 1.25 && singlePointPlacement.offset[1] < 0) {
+                    singlePointPlacement = flipVerticalPlacement(singlePointPlacement);
+                }
+                cluster.points[0].label = singlePointPlacement;
                 return;
             }
 
@@ -213,12 +268,26 @@
                 var yDiff = getY(right) - getY(left);
                 if (yDiff !== 0) {
                     return yDiff;
-                }
+                };
                 return getX(left) - getX(right);
             });
 
             cluster.points.forEach(function (point, index) {
                 var placement = getScatterLabelPlacement(index);
+                if (maxX - getX(point) <= xThreshold * 1.25 && placement.position === 'right') {
+                    placement = flipHorizontalPlacement(placement);
+                } else if (getX(point) - minX <= xThreshold * 1.25 && placement.position === 'left') {
+                    placement = flipHorizontalPlacement(placement);
+                }
+                if (getY(point) - minY <= yThreshold * 1.25) {
+                    if (placement.position === 'bottom' || placement.offset[1] > 0) {
+                        placement = flipVerticalPlacement(placement);
+                    }
+                } else if (maxY - getY(point) <= yThreshold * 1.25) {
+                    if (placement.position === 'top' || placement.offset[1] < 0) {
+                        placement = flipVerticalPlacement(placement);
+                    }
+                }
                 point.label = {
                     position: placement.position,
                     offset: placement.offset
