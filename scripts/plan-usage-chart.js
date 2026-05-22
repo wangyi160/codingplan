@@ -185,7 +185,15 @@
             return {
                 name: vendor,
                 type: 'scatter',
+                color: colorMap[vendor],
                 symbolSize: 16,
+                itemStyle: {
+                    color: colorMap[vendor],
+                    borderColor: 'rgba(255,255,255,0.95)',
+                    borderWidth: 1.5,
+                    shadowBlur: 14,
+                    shadowColor: 'rgba(23, 32, 51, 0.12)'
+                },
                 data: points,
                 emphasis: {
                     scale: 1.18
@@ -361,10 +369,13 @@
         costChart.setOption({
             animationDuration: 450,
             animationDurationUpdate: 240,
+            color: built.vendors.map(function (vendor) {
+                return colorMap[vendor];
+            }),
             grid: {
                 left: 86,
                 right: 28,
-                top: 64,
+                top: 78,
                 bottom: 72
             },
             tooltip: {
@@ -467,8 +478,8 @@
             },
             graphic: [{
                 type: 'text',
-                left: 110,
-                top: 34,
+                left: 160,
+                top: 56,
                 silent: true,
                 style: {
                     text: '更便宜且用量更高',
