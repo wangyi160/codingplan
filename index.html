@@ -1395,9 +1395,12 @@
             margin-top: -2px;
         }
 
-        /* 延伸阅读独占一整行，下方三卡沿用 shared 的 auto-fit 栅格 */
+        .hero-summary--lede {
+            grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.95fr);
+            align-items: stretch;
+        }
+
         .hero-summary--lede .hero-summary-card--reading {
-            grid-column: 1 / -1;
             min-width: 0;
         }
 
@@ -1432,7 +1435,6 @@
             display: block;
             width: 100%;
             height: auto;
-            vertical-align: middle;
         }
 
         .hero-summary-lede-copy {
@@ -1455,6 +1457,26 @@
         .hero-summary-card--reading .hero-summary-kicker {
             color: #0f766e;
             background: rgba(15, 118, 110, 0.12);
+        }
+
+        .hero-summary-card--guide {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: linear-gradient(165deg, rgba(198, 107, 26, 0.08), rgba(255, 251, 245, 0.94));
+            border-color: rgba(198, 107, 26, 0.16);
+        }
+
+        .hero-summary-card--guide .hero-summary-kicker {
+            color: #9a5415;
+            background: rgba(198, 107, 26, 0.12);
+        }
+
+        .hero-summary-guide-note {
+            margin-top: 14px;
+            font-size: 13px;
+            line-height: 1.7;
+            color: var(--text-secondary);
         }
 
         .hero-summary-readmore {
@@ -1721,6 +1743,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .hero-summary--lede {
+                grid-template-columns: 1fr;
+            }
+
             .hero-summary-lede-inner {
                 flex-direction: column;
             }
@@ -1774,6 +1800,15 @@
                         <a class="hero-summary-readmore" href="articles/models_comparition_20260513/index.html">阅读全文 →</a>
                     </div>
                 </div>
+            </article>
+            <article class="hero-summary-card hero-summary-card--reading hero-summary-card--guide">
+                <div>
+                    <div class="hero-summary-kicker">选型指南</div>
+                    <h2 class="hero-summary-title">2026年5月 主流 AI Coding Plan 平台全解析</h2>
+                    <p class="hero-summary-body">文章对比了智谱AI、MiniMax、Kimi、字节·方舟、阿里·百炼、讯飞·星火等主流平台，从价格、限购状态、模型能力和适用人群做一轮对比和介绍。</p>
+                    <p class="hero-summary-guide-note">帮助先快速建立全局判断，在几个候选平台之间做第一轮取舍。</p>
+                </div>
+                <a class="hero-summary-readmore" href="articles/plan_comparison_20260519/index.html">查看选型文章 →</a>
             </article>
             <!-- <article class="hero-summary-card hero-summary-card--accent">
                 <div class="hero-summary-kicker">How To Choose</div>
