@@ -95,3 +95,4 @@ tory -a
 
 # 本地开发配置
 scripts/*.local.js
+.cozeproj/reduction
