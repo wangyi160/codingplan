@@ -279,8 +279,7 @@
                         '<div><strong>月价：</strong>¥' + escapeHtmlSafe(formatPrice(data.monthlyPrice)) + '</div>',
                         '<div><strong>' + escapeHtmlSafe(getWindowLabel(currentWindow)) + ' 每元 Token：</strong>' + escapeHtmlSafe(formatCompactTokens(data[currentWindow].tokenPerCny)) + '</div>',
                         '<div><strong>' + escapeHtmlSafe(getWindowLabel(currentWindow)) + ' Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data[currentWindow].tokenLimit)) + '</div>',
-                        '<div style="margin-top:6px;color:#5f6879;"><strong>基准样本：</strong>' + escapeHtmlSafe(data.seedPlan) + '</div>',
-                        '<div style="color:#5f6879;">' + escapeHtmlSafe(data.seedSourceNote || '') + '</div>',
+                        '<div style="margin-top:6px;color:#5f6879;"><strong>数据参考：</strong>' + escapeHtmlSafe(data.seedSourceNote || '') + '</div>',
                         '</div>',
                         '</div>'
                     ].join('');
@@ -388,8 +387,7 @@
                         '<div><strong>5h Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data.fiveHours.tokenLimit)) + '</div>',
                         '<div><strong>周 Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data.weekly.tokenLimit)) + '</div>',
                         '<div><strong>月 Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data.monthly.tokenLimit)) + '</div>',
-                        '<div style="margin-top:6px;color:#5f6879;"><strong>基准样本：</strong>' + escapeHtmlSafe(data.seedPlan) + '</div>',
-                        '<div style="color:#5f6879;">' + escapeHtmlSafe(data.seedSourceNote || '') + '</div>',
+                        '<div style="margin-top:6px;color:#5f6879;"><strong>数据参考：</strong>' + escapeHtmlSafe(data.seedSourceNote || '') + '</div>',
                         '</div>',
                         '</div>'
                     ].join('');

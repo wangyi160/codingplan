@@ -1894,8 +1894,8 @@
                     <h2 class="plan-usage-title" id="planUsageTitle">套餐使用量双视角对比</h2>
                 </div>
                 <div class="plan-usage-actions">
-                    <div class="plan-usage-actions-label">观察窗口</div>
-                    <div class="segmented-control" role="group" aria-label="套餐使用量观察窗口切换">
+                    <div class="plan-usage-actions-label">统计周期</div>
+                    <div class="segmented-control" role="group" aria-label="套餐使用量统计周期切换">
                         <button type="button" class="segment-btn active" data-usage-window="fiveHours" aria-pressed="true">5 小时</button>
                         <button type="button" class="segment-btn" data-usage-window="weekly" aria-pressed="false">每周</button>
                         <button type="button" class="segment-btn" data-usage-window="monthly" aria-pressed="false">每月</button>
@@ -1907,20 +1907,20 @@
                 <section class="plan-usage-chart-block" aria-labelledby="planUsageValueTitle">
                     <div class="plan-usage-chart-header">
                         <h3 class="plan-usage-chart-title" id="planUsageValueTitle">每 1 元人民币能换来多少 Token</h3>
-                        <p class="plan-usage-chart-subtitle">这是 main 分支原先的视角：横轴按平台分组，纵轴看当前窗口下的每元 token 支持量。</p>
+                        <p class="plan-usage-chart-subtitle">按平台看性价比密度，纵轴越高，代表同样预算下可支持的 token 越多。</p>
                     </div>
                     <div class="plan-usage-chart" id="planUsageValueChart" hidden></div>
                 </section>
                 <section class="plan-usage-chart-block" aria-labelledby="planUsageCostTitle">
                     <div class="plan-usage-chart-header">
                         <h3 class="plan-usage-chart-title" id="planUsageCostTitle">价格 vs Token 量四象限</h3>
-                        <p class="plan-usage-chart-subtitle">这是当前分支的新视角：横轴是包月价格，纵轴是当前窗口下的 Token 上限，越靠左上越值得优先看。</p>
+                        <p class="plan-usage-chart-subtitle">同时看价格和绝对额度，越靠左上越适合优先考虑。</p>
                     </div>
                     <div class="plan-usage-chart" id="planUsageCostChart" hidden></div>
                 </section>
             </div>
             <div class="plan-usage-footer">
-                <div class="plan-usage-footnote">上图适合先看性价比密度，下图适合同时看价格与绝对额度。两张图都只展示人民币计价的 Coding Plan，不展示 Token Plan，也不对美元套餐做汇率换算。</div>
+                <div class="plan-usage-footnote">上图更适合先看性价比，下图更适合同时看预算和总量。当前只统计人民币计价的 Coding Plan，外币套餐暂未纳入。</div>
             </div>
         </section>
 
