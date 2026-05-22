@@ -1,5 +1,5 @@
 (function () {
-    var DERIVED_FILE_PATH = './plan-usage-derived.json';
+    var DERIVED_FILE_PATH = './index-usage-derived.json';
     var panel = document.getElementById('planUsagePanel');
     var stateEl = document.getElementById('planUsageState');
     var chartEl = document.getElementById('planUsageChart');

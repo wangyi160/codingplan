@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-22T10:56:56.456863Z",
+  "generatedAt": "2026-05-22T11:10:04.741226Z",
   "source": {
     "plans": "codingplan/plans.json",
-    "seeds": "codingplan/plan-usage-seeds.json"
+    "seeds": "scripts/codingplan/plan-usage-seeds.json"
   },
   "summary": {
     "includedVendorCount": 4,
