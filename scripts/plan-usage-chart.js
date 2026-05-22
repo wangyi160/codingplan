@@ -106,6 +106,127 @@
         return higherBaseValue + fallbackStep;
     }
 
+    function buildCenteredOffsets(count, gap) {
+        return Array.from({ length: count }, function (_, index) {
+            return Math.round((index - (count - 1) / 2) * gap);
+        });
+    }
+
+    function applyVerticalLabelStack(points, getY, threshold) {
+        if (!points.length) {
+            return;
+        }
+
+        var sorted = points.slice().sort(function (left, right) {
+            return getY(left) - getY(right);
+        });
+        var clusters = [];
+        var currentCluster = [];
+
+        sorted.forEach(function (point) {
+            if (!currentCluster.length) {
+                currentCluster.push(point);
+                return;
+            }
+
+            var previousPoint = currentCluster[currentCluster.length - 1];
+            if (Math.abs(getY(point) - getY(previousPoint)) <= threshold) {
+                currentCluster.push(point);
+                return;
+            }
+
+            clusters.push(currentCluster);
+            currentCluster = [point];
+        });
+
+        if (currentCluster.length) {
+            clusters.push(currentCluster);
+        }
+
+        clusters.forEach(function (cluster) {
+            var offsets = buildCenteredOffsets(cluster.length, 18);
+            cluster.forEach(function (point, index) {
+                point.label = {
+                    position: 'right',
+                    offset: [12, offsets[index]]
+                };
+            });
+        });
+    }
+
+    function getScatterLabelPlacement(index) {
+        var placements = [
+            { position: 'right', offset: [12, -18] },
+            { position: 'right', offset: [12, 18] },
+            { position: 'top', offset: [0, -12] },
+            { position: 'bottom', offset: [0, 12] },
+            { position: 'left', offset: [-12, -18] },
+            { position: 'left', offset: [-12, 18] },
+            { position: 'right', offset: [12, 34] },
+            { position: 'left', offset: [-12, 34] }
+        ];
+        return placements[index % placements.length];
+    }
+
+    function applyScatterLabelPlacements(points, getX, getY, xThreshold, yThreshold) {
+        if (!points.length) {
+            return;
+        }
+
+        var clusters = [];
+
+        points.forEach(function (point) {
+            var pointX = getX(point);
+            var pointY = getY(point);
+            var matchedCluster = null;
+
+            clusters.some(function (cluster) {
+                var isNearCluster = cluster.points.some(function (clusterPoint) {
+                    return Math.abs(getX(clusterPoint) - pointX) <= xThreshold
+                        && Math.abs(getY(clusterPoint) - pointY) <= yThreshold;
+                });
+                if (isNearCluster) {
+                    matchedCluster = cluster;
+                    return true;
+                }
+                return false;
+            });
+
+            if (!matchedCluster) {
+                matchedCluster = { points: [] };
+                clusters.push(matchedCluster);
+            }
+
+            matchedCluster.points.push(point);
+        });
+
+        clusters.forEach(function (cluster) {
+            if (cluster.points.length === 1) {
+                cluster.points[0].label = {
+                    position: 'right',
+                    offset: [12, 0]
+                };
+                return;
+            }
+
+            cluster.points.sort(function (left, right) {
+                var yDiff = getY(right) - getY(left);
+                if (yDiff !== 0) {
+                    return yDiff;
+                }
+                return getX(left) - getX(right);
+            });
+
+            cluster.points.forEach(function (point, index) {
+                var placement = getScatterLabelPlacement(index);
+                point.label = {
+                    position: placement.position,
+                    offset: placement.offset
+                };
+            });
+        });
+    }
+
     function setState(message, isError) {
         if (!stateEl) {
             return;
@@ -134,29 +255,45 @@
         var vendors = Array.from(new Set(items.map(function (item) {
             return item.vendor;
         })));
+        var points = items.map(function (item) {
+            var windowMetrics = item.windows[currentWindow] || {};
+            return {
+                value: [item.vendor, Number(windowMetrics.tokenPerCny || 0)],
+                vendor: item.vendor,
+                plan: item.plan,
+                monthlyPrice: item.monthlyPrice,
+                seedPlan: item.seedPlan,
+                seedSourceNote: item.seedSourceNote,
+                fiveHours: item.windows.fiveHours,
+                weekly: item.windows.weekly,
+                monthly: item.windows.monthly,
+                itemStyle: {
+                    color: colorMap[item.vendor],
+                    borderColor: 'rgba(255,255,255,0.95)',
+                    borderWidth: 1.5,
+                    shadowBlur: 14,
+                    shadowColor: 'rgba(23, 32, 51, 0.12)'
+                }
+            };
+        });
+        var tokenValues = points.map(function (point) {
+            return Number(point.value[1] || 0);
+        });
+        var minTokenValue = tokenValues.length ? Math.min.apply(null, tokenValues) : 0;
+        var maxTokenValue = tokenValues.length ? Math.max.apply(null, tokenValues) : 0;
+        var tokenThreshold = Math.max((maxTokenValue - minTokenValue) * 0.015, 5000);
+
+        vendors.forEach(function (vendor) {
+            applyVerticalLabelStack(points.filter(function (point) {
+                return point.vendor === vendor;
+            }), function (point) {
+                return Number(point.value[1] || 0);
+            }, tokenThreshold);
+        });
+
         return {
             vendors: vendors,
-            points: items.map(function (item) {
-                var windowMetrics = item.windows[currentWindow] || {};
-                return {
-                    value: [item.vendor, Number(windowMetrics.tokenPerCny || 0)],
-                    vendor: item.vendor,
-                    plan: item.plan,
-                    monthlyPrice: item.monthlyPrice,
-                    seedPlan: item.seedPlan,
-                    seedSourceNote: item.seedSourceNote,
-                    fiveHours: item.windows.fiveHours,
-                    weekly: item.windows.weekly,
-                    monthly: item.windows.monthly,
-                    itemStyle: {
-                        color: colorMap[item.vendor],
-                        borderColor: 'rgba(255,255,255,0.95)',
-                        borderWidth: 1.5,
-                        shadowBlur: 14,
-                        shadowColor: 'rgba(23, 32, 51, 0.12)'
-                    }
-                };
-            })
+            points: points
         };
     }
 
@@ -235,6 +372,21 @@
         var yMax = yMaxValue > 0 ? Math.ceil(yMaxValue * 1.18) : 1;
         var medianPrice = computeThresholdPivot(priceValues, 'higher');
         var medianTokens = computeThresholdPivot(tokenValues, 'lower');
+        var logPriceValues = priceValues.map(function (value) {
+            return Math.log(Math.max(1, value)) / Math.log(2);
+        });
+        var minLogPrice = logPriceValues.length ? Math.min.apply(null, logPriceValues) : 0;
+        var maxLogPrice = logPriceValues.length ? Math.max.apply(null, logPriceValues) : 0;
+        var xThreshold = Math.max((maxLogPrice - minLogPrice) * 0.035, 0.08);
+        var yThreshold = Math.max(yMax * 0.02, 1);
+
+        applyScatterLabelPlacements(series.reduce(function (result, seriesItem) {
+            return result.concat(seriesItem.data || []);
+        }, []), function (point) {
+            return Math.log(Math.max(1, Number(point.value[0] || 1))) / Math.log(2);
+        }, function (point) {
+            return Number(point.value[1] || 0);
+        }, xThreshold, yThreshold);
 
         if (series.length) {
             series[0].markArea = {
@@ -394,10 +546,6 @@
                         return data.plan + '  ¥' + formatPrice(data.monthlyPrice);
                     }
                 },
-                labelLayout: {
-                    hideOverlap: true,
-                    moveOverlap: 'shiftY'
-                },
                 data: built.points,
                 emphasis: {
                     scale: 1.18
@@ -536,10 +684,6 @@
                     fontWeight: 700
                 }
             }],
-            labelLayout: {
-                hideOverlap: true,
-                moveOverlap: 'shiftY'
-            },
             series: built.series
         }, true);
         costChart.resize();
