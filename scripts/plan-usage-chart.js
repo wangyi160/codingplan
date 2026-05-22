@@ -94,6 +94,12 @@
         if (!stateEl) {
             return;
         }
+        if (!message) {
+            stateEl.hidden = true;
+            stateEl.textContent = '';
+            stateEl.classList.remove('is-error');
+            return;
+        }
         stateEl.hidden = false;
         stateEl.textContent = message;
         stateEl.classList.toggle('is-error', Boolean(isError));
@@ -313,13 +319,6 @@
             },
             yAxis: {
                 type: 'value',
-                name: getWindowLabel(currentWindow) + ' 每 1 元可支持的 Token 数',
-                nameTextStyle: {
-                    color: '#5f6879',
-                    fontSize: 12,
-                    fontWeight: 700,
-                    padding: [0, 0, 8, 0]
-                },
                 axisLabel: {
                     color: '#5f6879',
                     formatter: function (value) {
@@ -519,6 +518,7 @@
             stateEl.hidden = true;
         }
         var colorMap = buildVendorPalette(activeItems);
+        setState('', false);
         renderValueChart(activeItems, colorMap);
         renderCostChart(activeItems, colorMap);
     }
@@ -532,7 +532,7 @@
         if (!panel) {
             return;
         }
-        setState('正在加载套餐使用量对比…', false);
+        setState('', false);
         fetch(DERIVED_FILE_PATH)
             .then(function (response) {
                 if (!response.ok) {
@@ -546,8 +546,11 @@
             .catch(function (error) {
                 console.warn('failed to load plan usage derived data', error);
                 setState('套餐使用量数据加载失败，稍后可重新刷新页面查看。', true);
-                if (chartEl) {
-                    chartEl.hidden = true;
+                if (valueChartEl) {
+                    valueChartEl.hidden = true;
+                }
+                if (costChartEl) {
+                    costChartEl.hidden = true;
                 }
             });
     }
