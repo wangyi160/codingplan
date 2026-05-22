@@ -5,7 +5,7 @@
     var valueChartEl = document.getElementById('planUsageValueChart');
     var costChartEl = document.getElementById('planUsageCostChart');
     var windowButtons = Array.prototype.slice.call(document.querySelectorAll('[data-usage-window]'));
-    var currentWindow = 'fiveHours';
+    var currentWindow = 'monthly';
     var valueChart = null;
     var costChart = null;
     var usagePayload = null;
