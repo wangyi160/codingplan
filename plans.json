@@ -654,10 +654,14 @@
     "quarterlyPrice": "-",
     "yearlyPrice": "-",
     "models": [
+      "Qwen-3.7-Max",
       "Qwen-3.6-Plus",
+      "Qwen-3.6-Flash",
       "Qwen-3.5-Plus",
       "MiniMax-M2.5",
-      "DeepSeek-V3.2"
+      "DeepSeek-V3.2",
+      "GLM-5.1",
+      "Kimi-K2.6"
     ],
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
@@ -678,10 +682,14 @@
     "quarterlyPrice": "-",
     "yearlyPrice": "-",
     "models": [
+      "Qwen-3.7-Max",
       "Qwen-3.6-Plus",
+      "Qwen-3.6-Flash",
       "Qwen-3.5-Plus",
       "MiniMax-M2.5",
-      "DeepSeek-V3.2"
+      "DeepSeek-V3.2",
+      "GLM-5.1",
+      "Kimi-K2.6"
     ],
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
@@ -702,10 +710,14 @@
     "quarterlyPrice": "-",
     "yearlyPrice": "-",
     "models": [
+      "Qwen-3.7-Max",
       "Qwen-3.6-Plus",
+      "Qwen-3.6-Flash",
       "Qwen-3.5-Plus",
       "MiniMax-M2.5",
-      "DeepSeek-V3.2"
+      "DeepSeek-V3.2",
+      "GLM-5.1",
+      "Kimi-K2.6"
     ],
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
@@ -1087,9 +1099,12 @@
     "yearlyPrice": "-",
     "models": [
       "GLM-5",
+      "GLM-5.1",
       "Kimi-K2.5",
       "MiniMax-M2.5",
-      "DeepSeek-V3.2"
+      "DeepSeek-V3.2",
+      "DeepSeek-V4-Flash",
+      "DeepSeek-V4-Pro"
     ],
     "fiveHoursRequests": 1200,
     "weeklyRequests": 9000,
@@ -1111,9 +1126,12 @@
     "yearlyPrice": "-",
     "models": [
       "GLM-5",
+      "GLM-5.1",
       "Kimi-K2.5",
       "MiniMax-M2.5",
-      "DeepSeek-V3.2"
+      "DeepSeek-V3.2",
+      "DeepSeek-V4-Flash",
+      "DeepSeek-V4-Pro"
     ],
     "fiveHoursRequests": 6000,
     "weeklyRequests": 45000,
