@@ -175,9 +175,16 @@
     display: none;
 }
 
+.plan-usage-chart-scroll {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
 .plan-usage-chart-stack {
     display: grid;
     gap: 20px;
+    min-width: 0;
 }
 
 .plan-usage-chart-block {
@@ -185,6 +192,7 @@
     border-radius: 22px;
     border: 1px solid rgba(23, 32, 51, 0.08);
     background: rgba(255, 255, 255, 0.28);
+    min-width: 0;
 }
 
 .plan-usage-chart-header {
@@ -258,6 +266,24 @@
 
     .plan-usage-chart {
         height: 380px;
+    }
+}
+
+@media (max-width: 768px) {
+    .plan-usage-panel {
+        overflow-x: clip;
+    }
+
+    .plan-usage-chart {
+        width: 680px;
+        max-width: none;
+    }
+
+    .plan-usage-chart-scroll {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
     }
 }
 
