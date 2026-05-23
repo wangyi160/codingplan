@@ -652,15 +652,28 @@
                 },
                 formatter: function (params) {
                     var data = params.data || {};
+                    var tokenLimitRows = [
+                        '<div><strong>' + escapeHtmlSafe(getWindowLabel(currentWindow)) + ' Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data[currentWindow].tokenLimit)) + '</div>'
+                    ];
+
+                    if (currentWindow !== 'fiveHours') {
+                        tokenLimitRows.push('<div><strong>5h Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data.fiveHours.tokenLimit)) + '</div>');
+                    }
+
+                    if (currentWindow !== 'weekly') {
+                        tokenLimitRows.push('<div><strong>周 Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data.weekly.tokenLimit)) + '</div>');
+                    }
+
+                    if (currentWindow !== 'monthly') {
+                        tokenLimitRows.push('<div><strong>月 Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data.monthly.tokenLimit)) + '</div>');
+                    }
+
                     return [
                         '<div style="min-width:220px">',
                         '<div style="font-size:14px;font-weight:800;margin-bottom:6px;">' + escapeHtmlSafe(data.vendor) + ' · ' + escapeHtmlSafe(data.plan) + '</div>',
                         '<div style="font-size:12px;line-height:1.7;">',
                         '<div><strong>月价：</strong>¥' + escapeHtmlSafe(formatPrice(data.monthlyPrice)) + '</div>',
-                        '<div><strong>' + escapeHtmlSafe(getWindowLabel(currentWindow)) + ' Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data[currentWindow].tokenLimit)) + '</div>',
-                        '<div><strong>5h Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data.fiveHours.tokenLimit)) + '</div>',
-                        '<div><strong>周 Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data.weekly.tokenLimit)) + '</div>',
-                        '<div><strong>月 Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data.monthly.tokenLimit)) + '</div>',
+                        tokenLimitRows.join(''),
                         '<div style="margin-top:6px;color:#5f6879;"><strong>数据参考：</strong>' + escapeHtmlSafe(data.seedSourceNote || '') + '</div>',
                         '</div>',
                         '</div>'
