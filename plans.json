@@ -1352,7 +1352,7 @@
   },
   {
     "vendor": "优云智算",
-    "plan": "Mini 迷你版",
+    "plan": "Mini",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqyyzs",
     "rating": 3,
@@ -1380,7 +1380,7 @@
   },
   {
     "vendor": "优云智算",
-    "plan": "Lite 入门版",
+    "plan": "Lite",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqyyzs",
     "rating": 3,
@@ -1408,7 +1408,7 @@
   },
   {
     "vendor": "优云智算",
-    "plan": "Basic 基础版",
+    "plan": "Basic",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqyyzs",
     "rating": 3,
@@ -1436,7 +1436,7 @@
   },
   {
     "vendor": "优云智算",
-    "plan": "Pro 增强版",
+    "plan": "Pro",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqyyzs",
     "rating": 3,
@@ -1464,7 +1464,7 @@
   },
   {
     "vendor": "优云智算",
-    "plan": "Max 高级版",
+    "plan": "Max",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqyyzs",
     "rating": 3,
@@ -1492,7 +1492,7 @@
   },
   {
     "vendor": "优云智算",
-    "plan": "Ultra 畅享版",
+    "plan": "Ultra",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqyyzs",
     "rating": 3,
@@ -1732,7 +1732,7 @@
     "note": "• 模型较弱\n• 活动价首月 7.9 元，标准价 40 元/月，仅购买一个月时建议购买，不建议长期使用"
   },
   {
-    "vendor": "超算互联网",
+    "vendor": "超算",
     "plan": "Lite",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqscnetcp",
@@ -1756,7 +1756,7 @@
     "note": "• 模型较弱"
   },
   {
-    "vendor": "超算互联网",
+    "vendor": "超算",
     "plan": "Pro",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqscnetcp",
@@ -1928,7 +1928,7 @@
   },
   {
     "vendor": "商汤·日日新",
-    "plan": "Free（公测）",
+    "plan": "Free·公测",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqsensenova",
     "rating": 3,
@@ -1954,7 +1954,7 @@
     "note": "• 模型较弱\n• 免费公测，Lite / Pro 未上线\n• 日额度：SenseNova 6.7 Flash-Lite 1500 次、SenseNova U1 Fast 1500 次、DeepSeek-V4-Flash 150 次"
   },
   {
-    "vendor": "OpenCode Go",
+    "vendor": "OpenCode",
     "plan": "Go",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqopencode",
@@ -2059,7 +2059,7 @@
     "note": "• 支持 GLM-5.1、Kimi-K2.6、MiniMax-M2.7、DeepSeek-V4-Pro，模型池很大\n• Max 为 Pro 的 5 倍额度"
   },
   {
-    "vendor": "OpenAI Codex",
+    "vendor": "Codex",
     "plan": "Plus",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqchatgpt",
@@ -2087,10 +2087,10 @@
     "benefits": [
       "可购买额外积分"
     ],
-    "note": "• 原生 Codex 套餐\n• 官方按 5 小时与每周额度管理；免费版和 Go 套餐每周也有少量体验额度"
+    "note": "• 官方按 5 小时与每周额度管理；免费版和 Go 套餐每周也有少量体验额度"
   },
   {
-    "vendor": "OpenAI Codex",
+    "vendor": "Codex",
     "plan": "Pro *5",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqchatgpt",
@@ -2118,10 +2118,10 @@
     "benefits": [
       "可购买额外积分"
     ],
-    "note": "• 原生 Codex 套餐\n• 截至 5 月 31 日前，官方标注可限时享 Plus 的 10 倍额度\n• 6月1日起改按Token计费"
+    "note": "• 截至 5 月 31 日前，官方标注可限时享 Plus 的 10 倍额度\n• 6月1日起改按Token计费"
   },
   {
-    "vendor": "OpenAI Codex",
+    "vendor": "Codex",
     "plan": "Pro *20",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqchatgpt",
@@ -2149,10 +2149,10 @@
     "benefits": [
       "可购买额外积分"
     ],
-    "note": "• 原生 Codex 套餐\n• 官方按 5 小时与每周额度管理"
+    "note": "• 官方按 5 小时与每周额度管理"
   },
   {
-    "vendor": "Claude Code",
+    "vendor": "Claude",
     "plan": "Pro",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqclaudeup",
@@ -2178,12 +2178,12 @@
     "tokenLimit": "未公开",
     "currency": "$",
     "benefits": [
-      "原生 Claude Code 体验"
+      "原生 Claude 体验"
     ],
-    "note": "• 原生 Claude Code 体验\n• 部分用户订阅时可能被要求实名认证\n• 套餐额度不可用于 OpenClaw、Hermes 等第三方编程 Agent"
+    "note": "• 部分用户订阅时可能被要求实名认证\n• 套餐额度不可用于 OpenClaw、Hermes 等第三方编程 Agent"
   },
   {
-    "vendor": "Claude Code",
+    "vendor": "Claude",
     "plan": "Max *5",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqclaudeup",
@@ -2209,12 +2209,12 @@
     "tokenLimit": "未公开",
     "currency": "$",
     "benefits": [
-      "原生 Claude Code 体验"
+      "原生 Claude 体验"
     ],
-    "note": "• 原生 Claude Code 体验\n• 部分用户订阅时可能被要求实名认证\n• 套餐额度不可用于 OpenClaw、Hermes 等第三方编程 Agent"
+    "note": "• 部分用户订阅时可能被要求实名认证\n• 套餐额度不可用于 OpenClaw、Hermes 等第三方编程 Agent"
   },
   {
-    "vendor": "Claude Code",
+    "vendor": "Claude",
     "plan": "Max *20",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqclaudeup",
@@ -2240,12 +2240,12 @@
     "tokenLimit": "未公开",
     "currency": "$",
     "benefits": [
-      "原生 Claude Code 体验"
+      "原生 Claude 体验"
     ],
-    "note": "• 原生 Claude Code 体验\n• 部分用户订阅时可能被要求实名认证\n• 套餐额度不可用于 OpenClaw、Hermes 等第三方编程 Agent"
+    "note": "• 部分用户订阅时可能被要求实名认证\n• 套餐额度不可用于 OpenClaw、Hermes 等第三方编程 Agent"
   },
   {
-    "vendor": "GitHub Copilot",
+    "vendor": "GitHub",
     "plan": "学生",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqghstudent",
@@ -2278,7 +2278,7 @@
     "note": "• 学生认证免费，高级模型可对话 300 次\n• 存在周限额和 session 限额，不同模型有不同扣减倍率\n• 学生版可通过 Auto 模式路由至 GPT-5.3-Codex"
   },
   {
-    "vendor": "GitHub Copilot",
+    "vendor": "GitHub",
     "plan": "Pro",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqghcopilot",
@@ -2308,7 +2308,7 @@
     "note": "• 次数为对话次数，而非接口请求次数\n• 存在周限额和 session 限额；不同模型有不同高级模型扣减倍率\n• 目前暂时关闭新用户订阅权益激活，已有用户升级暂不受影响"
   },
   {
-    "vendor": "GitHub Copilot",
+    "vendor": "GitHub",
     "plan": "Pro+",
     "type": "Coding Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqghcopilotp",
