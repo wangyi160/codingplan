@@ -76,10 +76,11 @@
     }
 
     function getValueMetricSubtitle() {
+        var logNote = '纵轴为对数刻度，图上间距会被压缩，实际数值差距通常比视觉上更大。';
         if (currentValueMetric === 'cnyPerMillionTokens') {
-            return '按平台看 1M Token 成本，纵轴越低，代表买到同等 token 所需预算越少。';
+            return '按平台看 1M Token 成本，纵轴越低，代表买到同等 token 所需预算越少。' + logNote;
         }
-        return '按平台看性价比密度，纵轴越高，代表同样预算下可支持的 token 越多。';
+        return '按平台看性价比密度，纵轴越高，代表同样预算下可支持的 token 越多。' + logNote;
     }
 
     function getValueMetricTooltipLabel() {
@@ -91,9 +92,9 @@
 
     function getValueMetricYAxisName() {
         if (currentValueMetric === 'cnyPerMillionTokens') {
-            return '1M Token 价格（元）';
+            return '1M Token 价格（元，对数）';
         }
-        return getWindowLabel(currentWindow) + ' 每元 Token';
+        return getWindowLabel(currentWindow) + ' 每元 Token（对数）';
     }
 
     function formatCompactTokens(value) {
@@ -935,7 +936,7 @@
                 logBase: 2,
                 min: built.xMin,
                 max: built.xMax,
-                name: '包月价格（元）',
+                name: '包月价格（元，对数）',
                 nameLocation: 'middle',
                 nameGap: 42,
                 nameTextStyle: {
@@ -974,7 +975,7 @@
                 min: built.yMin,
                 max: built.yMax,
                 splitNumber: 6,
-                name: getWindowLabel(currentWindow) + ' Token 上限',
+                name: getWindowLabel(currentWindow) + ' Token 上限（对数）',
                 nameTextStyle: {
                     color: '#5f6879',
                     fontSize: 12,
