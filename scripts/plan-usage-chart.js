@@ -50,13 +50,15 @@
         return Number(item && item.monthlyPrice || 0);
     }
 
-    function formatMonthlyPriceLabel(data) {
+    function formatMonthlyPriceLabel(data, compact) {
         var currency = (data && data.currency) || '¥';
         var price = formatPrice(data && data.monthlyPrice);
         if (currency === '$') {
-            var comparisonPrice = data && data.comparisonMonthlyPriceCny;
-            if (comparisonPrice) {
-                return '$' + price + '（约 ¥' + formatPrice(comparisonPrice) + '）';
+            if (!compact) {
+                var comparisonPrice = data && data.comparisonMonthlyPriceCny;
+                if (comparisonPrice) {
+                    return '$' + price + '（约 ¥' + formatPrice(comparisonPrice) + '）';
+                }
             }
             return '$' + price;
         }
@@ -887,7 +889,7 @@
                         if (!data.plan) {
                             return '';
                         }
-                        return data.plan + '  ' + formatMonthlyPriceLabel(data);
+                        return data.plan + '  ' + formatMonthlyPriceLabel(data, true);
                     }
                 },
                 data: built.points,
