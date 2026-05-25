@@ -254,6 +254,20 @@
         return placements[index % placements.length];
     }
 
+    function getCostScatterLabelPlacement(index) {
+        var placements = [
+            { position: 'right', offset: [12, -18] },
+            { position: 'top', offset: [0, -14] },
+            { position: 'left', offset: [-12, -18] },
+            { position: 'right', offset: [12, -34] },
+            { position: 'left', offset: [-12, -34] },
+            { position: 'top', offset: [0, -28] },
+            { position: 'right', offset: [12, 0] },
+            { position: 'left', offset: [-12, 0] }
+        ];
+        return placements[index % placements.length];
+    }
+
     function flipHorizontalPlacement(placement) {
         if (placement.position === 'right') {
             return {
@@ -289,7 +303,7 @@
         };
     }
 
-    function applyScatterLabelPlacements(points, getX, getY, xThreshold, yThreshold) {
+    function applyScatterLabelPlacements(points, getX, getY, xThreshold, yThreshold, placementFactory) {
         if (!points.length) {
             return;
         }
@@ -359,7 +373,7 @@
             });
 
             cluster.points.forEach(function (point, index) {
-                var placement = getScatterLabelPlacement(index);
+                var placement = (placementFactory || getScatterLabelPlacement)(index);
                 if (maxX - getX(point) <= xThreshold * 1.25 && placement.position === 'right') {
                     placement = flipHorizontalPlacement(placement);
                 } else if (getX(point) - minX <= xThreshold * 1.25 && placement.position === 'left') {
@@ -579,8 +593,11 @@
                     fontWeight: 700,
                     formatter: function (params) {
                         var data = params.data || {};
-                        return [data.vendor, data.plan].filter(Boolean).join(' · ');
+                        return data.plan || '';
                     }
+                },
+                labelLayout: {
+                    hideOverlap: true
                 },
                 itemStyle: {
                     color: colorMap[vendor],
@@ -618,7 +635,7 @@
             return Math.log(Math.max(1, Number(point.value[0] || 1))) / Math.log(2);
         }, function (point) {
             return Number(point.value[1] || 0);
-        }, xThreshold, yThreshold);
+        }, xThreshold, yThreshold, getCostScatterLabelPlacement);
 
         if (series.length) {
             series[0].markArea = {
@@ -766,13 +783,7 @@
                     }
                 }
             },
-            dataZoom: built.vendors.length > 6 ? [{
-                type: 'slider',
-                xAxisIndex: 0,
-                height: 18,
-                bottom: 20,
-                brushSelect: false
-            }] : [],
+            dataZoom: [],
             series: [{
                 name: getValueMetricSeriesName(),
                 type: 'scatter',
