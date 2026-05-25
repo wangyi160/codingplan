@@ -125,10 +125,40 @@
         var vendors = Array.from(new Set(items.map(function (item) {
             return item.groupLabel;
         })));
-        var palette = ['#0f766e', '#c66b1a', '#1d4ed8', '#be123c', '#7c3aed', '#0369a1', '#b45309', '#047857'];
+        var preferredColors = {
+            '智谱AI': '#14b8a6',
+            'MiniMax': '#f97316',
+            'Kimi': '#2563eb',
+            '字节·方舟 · Coding Plan': '#e11d48',
+            '字节·方舟 · Token Plan': '#8b5cf6',
+            '阿里·百炼 · Coding Plan': '#65a30d',
+            '阿里·百炼 · Token Plan': '#f59e0b',
+            '小米·MiMo': '#06b6d4',
+            '讯飞·星火': '#ec4899',
+            '联通云': '#0ea5e9'
+        };
+        var palette = [
+            '#22c55e',
+            '#eab308',
+            '#f43f5e',
+            '#a855f7',
+            '#ef4444',
+            '#10b981',
+            '#3b82f6',
+            '#d946ef',
+            '#84cc16',
+            '#f97316',
+            '#06b6d4'
+        ];
         var colorMap = {};
-        vendors.forEach(function (vendor, vendorIndex) {
-            colorMap[vendor] = palette[vendorIndex % palette.length];
+        var paletteIndex = 0;
+        vendors.forEach(function (vendor) {
+            if (preferredColors[vendor]) {
+                colorMap[vendor] = preferredColors[vendor];
+                return;
+            }
+            colorMap[vendor] = palette[paletteIndex % palette.length];
+            paletteIndex += 1;
         });
         return colorMap;
     }
@@ -637,8 +667,19 @@
             return Number(point.value[1] || 0);
         }, xThreshold, yThreshold, getCostScatterLabelPlacement);
 
-        if (series.length) {
-            series[0].markArea = {
+        var helperSeries = {
+            type: 'scatter',
+            silent: true,
+            animation: false,
+            data: [],
+            symbolSize: 0,
+            tooltip: {
+                show: false
+            },
+            itemStyle: {
+                opacity: 0
+            },
+            markArea: {
                 silent: true,
                 label: {
                     show: false
@@ -649,8 +690,8 @@
                     [{ itemStyle: { color: 'rgba(59, 130, 246, 0.05)' }, xAxis: xMin, yAxis: 0 }, { xAxis: medianPrice, yAxis: medianTokens }],
                     [{ itemStyle: { color: 'rgba(239, 68, 68, 0.07)' }, xAxis: medianPrice, yAxis: 0 }, { xAxis: xMax, yAxis: medianTokens }]
                 ]
-            };
-            series[0].markLine = {
+            },
+            markLine: {
                 silent: true,
                 symbol: 'none',
                 lineStyle: {
@@ -664,12 +705,13 @@
                     { xAxis: medianPrice },
                     { yAxis: medianTokens }
                 ]
-            };
-        }
+            }
+        };
 
         return {
             vendors: vendors,
             series: series,
+            helperSeries: helperSeries,
             xMin: xMin,
             xMax: xMax,
             yMin: yMin,
@@ -944,7 +986,7 @@
                     fontWeight: 700
                 }
             }],
-            series: built.series
+            series: [built.helperSeries].concat(built.series)
         }, true);
         costChart.resize();
     }
