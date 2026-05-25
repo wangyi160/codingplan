@@ -201,12 +201,30 @@
     min-width: 0;
 }
 
+.plan-usage-chart-heading-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
 .plan-usage-chart-title {
     margin: 0;
     font-size: 18px;
     line-height: 1.3;
     color: var(--text-primary);
     min-width: 0;
+}
+
+.plan-usage-metric-control {
+    flex-shrink: 0;
+}
+
+.plan-usage-metric-control .segment-btn {
+    min-width: 132px;
+    padding: 0 14px;
 }
 
 .plan-usage-chart-subtitle {
@@ -257,6 +275,19 @@
 
     .plan-usage-panel .segmented-control {
         width: 100%;
+    }
+
+    .plan-usage-chart-heading-row {
+        gap: 10px;
+    }
+
+    .plan-usage-metric-control {
+        width: 100%;
+    }
+
+    .plan-usage-metric-control .segment-btn {
+        flex: 1 1 0;
+        min-width: 0;
     }
 
     .plan-usage-panel .segment-btn {

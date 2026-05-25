@@ -5,7 +5,11 @@
     var valueChartEl = document.getElementById('planUsageValueChart');
     var costChartEl = document.getElementById('planUsageCostChart');
     var windowButtons = Array.prototype.slice.call(document.querySelectorAll('[data-usage-window]'));
+    var valueMetricButtons = Array.prototype.slice.call(document.querySelectorAll('[data-usage-value-metric]'));
+    var valueTitleEl = document.getElementById('planUsageValueTitle');
+    var valueSubtitleEl = document.getElementById('planUsageValueSubtitle');
     var currentWindow = 'monthly';
+    var currentValueMetric = 'tokenPerCny';
     var valueChart = null;
     var costChart = null;
     var usagePayload = null;
@@ -37,6 +41,59 @@
     function formatPrice(value) {
         var number = Number(value || 0);
         return Number.isInteger(number) ? String(number) : number.toFixed(2);
+    }
+
+    function getValueMetricNumber(windowMetrics) {
+        if (currentValueMetric === 'cnyPerMillionTokens') {
+            var tokenPerCny = Number(windowMetrics.tokenPerCny || 0);
+            if (tokenPerCny <= 0) {
+                return 0;
+            }
+            return 1000000 / tokenPerCny;
+        }
+        return Number(windowMetrics.tokenPerCny || 0);
+    }
+
+    function formatValueMetric(value) {
+        if (currentValueMetric === 'cnyPerMillionTokens') {
+            return '¥' + formatPrice(value);
+        }
+        return formatCompactTokens(value);
+    }
+
+    function getValueMetricSeriesName() {
+        if (currentValueMetric === 'cnyPerMillionTokens') {
+            return '1M Token 价格';
+        }
+        return '每元 Token';
+    }
+
+    function getValueMetricTitle() {
+        if (currentValueMetric === 'cnyPerMillionTokens') {
+            return '不同平台不同套餐，买 1M Token 需要多少钱';
+        }
+        return '不同平台不同套餐，每 1 元人民币能换来多少 Token';
+    }
+
+    function getValueMetricSubtitle() {
+        if (currentValueMetric === 'cnyPerMillionTokens') {
+            return '按平台看 1M Token 成本，纵轴越低，代表买到同等 token 所需预算越少。';
+        }
+        return '按平台看性价比密度，纵轴越高，代表同样预算下可支持的 token 越多。';
+    }
+
+    function getValueMetricTooltipLabel() {
+        if (currentValueMetric === 'cnyPerMillionTokens') {
+            return '1M Token 价格';
+        }
+        return getWindowLabel(currentWindow) + ' 每元 Token';
+    }
+
+    function getValueMetricYAxisName() {
+        if (currentValueMetric === 'cnyPerMillionTokens') {
+            return '1M Token 价格（元）';
+        }
+        return getWindowLabel(currentWindow) + ' 每元 Token';
     }
 
     function formatCompactTokens(value) {
@@ -320,14 +377,30 @@
         });
     }
 
+    function setValueMetricState(nextMetric) {
+        currentValueMetric = nextMetric;
+        valueMetricButtons.forEach(function (button) {
+            var isActive = button.getAttribute('data-usage-value-metric') === nextMetric;
+            button.classList.toggle('active', isActive);
+            button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+        if (valueTitleEl) {
+            valueTitleEl.textContent = getValueMetricTitle();
+        }
+        if (valueSubtitleEl) {
+            valueSubtitleEl.textContent = getValueMetricSubtitle();
+        }
+    }
+
     function buildValueSeries(items, colorMap) {
         var vendors = Array.from(new Set(items.map(function (item) {
             return item.vendor;
         })));
         var points = items.map(function (item) {
             var windowMetrics = item.windows[currentWindow] || {};
+            var metricValue = getValueMetricNumber(windowMetrics);
             return {
-                value: [item.vendor, Number(windowMetrics.tokenPerCny || 0)],
+                value: [item.vendor, metricValue],
                 vendor: item.vendor,
                 plan: item.plan,
                 monthlyPrice: item.monthlyPrice,
@@ -350,7 +423,7 @@
         });
         var minTokenValue = tokenValues.length ? Math.min.apply(null, tokenValues) : 0;
         var maxTokenValue = tokenValues.length ? Math.max.apply(null, tokenValues) : 0;
-        var tokenThreshold = Math.max((maxTokenValue - minTokenValue) * 0.015, 5000);
+        var tokenThreshold = Math.max((maxTokenValue - minTokenValue) * 0.015, currentValueMetric === 'cnyPerMillionTokens' ? 0.2 : 5000);
 
         vendors.forEach(function (vendor) {
             applyVerticalLabelStack(points.filter(function (point) {
@@ -522,7 +595,7 @@
             grid: {
                 left: 86,
                 right: 24,
-                top: 28,
+                top: 56,
                 bottom: 66
             },
             tooltip: {
@@ -540,7 +613,7 @@
                         '<div style="font-size:14px;font-weight:800;margin-bottom:6px;">' + escapeHtmlSafe(data.vendor) + ' · ' + escapeHtmlSafe(data.plan) + '</div>',
                         '<div style="font-size:12px;line-height:1.7;">',
                         '<div><strong>月价：</strong>¥' + escapeHtmlSafe(formatPrice(data.monthlyPrice)) + '</div>',
-                        '<div><strong>' + escapeHtmlSafe(getWindowLabel(currentWindow)) + ' 每元 Token：</strong>' + escapeHtmlSafe(formatCompactTokens(data[currentWindow].tokenPerCny)) + '</div>',
+                        '<div><strong>' + escapeHtmlSafe(getValueMetricTooltipLabel()) + '：</strong>' + escapeHtmlSafe(formatValueMetric(getValueMetricNumber(data[currentWindow] || {}))) + '</div>',
                         '<div><strong>' + escapeHtmlSafe(getWindowLabel(currentWindow)) + ' Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data[currentWindow].tokenLimit)) + '</div>',
                         '<div style="margin-top:6px;color:#5f6879;"><strong>数据参考：</strong>' + escapeHtmlSafe(data.seedSourceNote || '') + '</div>',
                         '</div>',
@@ -576,10 +649,17 @@
             },
             yAxis: {
                 type: 'value',
+                name: getValueMetricYAxisName(),
+                nameTextStyle: {
+                    color: '#5f6879',
+                    fontSize: 12,
+                    fontWeight: 700,
+                    padding: [0, 0, 8, 0]
+                },
                 axisLabel: {
                     color: '#5f6879',
                     formatter: function (value) {
-                        return formatCompactTokens(value);
+                        return formatValueMetric(value);
                     }
                 },
                 splitLine: {
@@ -597,7 +677,7 @@
                 brushSelect: false
             }] : [],
             series: [{
-                name: '每元 Token',
+                name: getValueMetricSeriesName(),
                 type: 'scatter',
                 symbolSize: 16,
                 label: {
@@ -855,7 +935,19 @@
         });
     });
 
+    valueMetricButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var nextMetric = button.getAttribute('data-usage-value-metric');
+            if (!nextMetric || nextMetric === currentValueMetric) {
+                return;
+            }
+            setValueMetricState(nextMetric);
+            renderCharts();
+        });
+    });
+
     setButtonState(currentWindow);
+    setValueMetricState(currentValueMetric);
     window.addEventListener('resize', function () {
         if (valueChart) {
             valueChart.resize();

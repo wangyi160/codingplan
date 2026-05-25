@@ -1907,8 +1907,14 @@
             <div class="plan-usage-chart-stack">
                 <section class="plan-usage-chart-block" aria-labelledby="planUsageValueTitle">
                     <div class="plan-usage-chart-header">
-                        <h3 class="plan-usage-chart-title" id="planUsageValueTitle">不同平台不同套餐，每 1 元人民币能换来多少 Token</h3>
-                        <p class="plan-usage-chart-subtitle">按平台看性价比密度，纵轴越高，代表同样预算下可支持的 token 越多。</p>
+                        <div class="plan-usage-chart-heading-row">
+                            <h3 class="plan-usage-chart-title" id="planUsageValueTitle">不同平台不同套餐，每 1 元人民币能换来多少 Token</h3>
+                            <div class="segmented-control plan-usage-metric-control" role="group" aria-label="套餐使用量价值指标切换">
+                                <button type="button" class="segment-btn active" data-usage-value-metric="tokenPerCny" aria-pressed="true">1 元能买多少 Token</button>
+                                <button type="button" class="segment-btn" data-usage-value-metric="cnyPerMillionTokens" aria-pressed="false">1M Token 多少钱</button>
+                            </div>
+                        </div>
+                        <p class="plan-usage-chart-subtitle" id="planUsageValueSubtitle">按平台看性价比密度，纵轴越高，代表同样预算下可支持的 token 越多。</p>
                     </div>
                     <div class="plan-usage-chart-scroll">
                         <div class="plan-usage-chart" id="planUsageValueChart" hidden></div>
