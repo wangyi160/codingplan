@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-05-22T12:58:38.830801Z",
+  "generatedAt": "2026-05-25T10:20:43.506972Z",
   "source": {
     "plans": "codingplan/plans.json",
     "seeds": "scripts/codingplan/plan-usage-seeds.json"
   },
   "summary": {
-    "includedVendorCount": 5,
-    "includedPlanCount": 14,
+    "includedVendorCount": 6,
+    "includedPlanCount": 25,
     "seedCount": 5,
     "warningCount": 13
   },
@@ -20,7 +20,7 @@
     "Missing seed for vendor: 阶跃星辰",
     "Missing seed for vendor: 天翼云",
     "Missing seed for vendor: 移动云",
-    "Missing seed for vendor: 超算互联网",
+    "Missing seed for vendor: 超算",
     "Missing seed for vendor: 无问芯穹",
     "Missing seed for vendor: 摩尔线程",
     "Missing seed for vendor: 商汤·日日新"
@@ -29,6 +29,7 @@
     {
       "vendor": "智谱AI",
       "plan": "Lite",
+      "type": "Coding Plan",
       "monthlyPrice": 49.0,
       "discontinued": false,
       "seedPlan": "Pro",
@@ -54,6 +55,7 @@
     {
       "vendor": "智谱AI",
       "plan": "Pro",
+      "type": "Coding Plan",
       "monthlyPrice": 149.0,
       "discontinued": false,
       "seedPlan": "Pro",
@@ -79,6 +81,7 @@
     {
       "vendor": "智谱AI",
       "plan": "Max",
+      "type": "Coding Plan",
       "monthlyPrice": 469.0,
       "discontinued": false,
       "seedPlan": "Pro",
@@ -104,6 +107,7 @@
     {
       "vendor": "MiniMax",
       "plan": "Starter",
+      "type": "Coding Plan",
       "monthlyPrice": 29.0,
       "discontinued": false,
       "seedPlan": "Plus",
@@ -129,6 +133,7 @@
     {
       "vendor": "MiniMax",
       "plan": "Plus",
+      "type": "Coding Plan",
       "monthlyPrice": 49.0,
       "discontinued": false,
       "seedPlan": "Plus",
@@ -154,6 +159,7 @@
     {
       "vendor": "MiniMax",
       "plan": "Max",
+      "type": "Coding Plan",
       "monthlyPrice": 119.0,
       "discontinued": false,
       "seedPlan": "Plus",
@@ -179,6 +185,7 @@
     {
       "vendor": "MiniMax",
       "plan": "Plus-极速",
+      "type": "Coding Plan",
       "monthlyPrice": 98.0,
       "discontinued": false,
       "seedPlan": "Plus",
@@ -204,6 +211,7 @@
     {
       "vendor": "MiniMax",
       "plan": "Max-极速",
+      "type": "Coding Plan",
       "monthlyPrice": 199.0,
       "discontinued": false,
       "seedPlan": "Plus",
@@ -229,6 +237,7 @@
     {
       "vendor": "Kimi",
       "plan": "Andante",
+      "type": "Coding Plan",
       "monthlyPrice": 49.0,
       "discontinued": false,
       "seedPlan": "Andante",
@@ -254,6 +263,7 @@
     {
       "vendor": "Kimi",
       "plan": "Allegretto",
+      "type": "Coding Plan",
       "monthlyPrice": 199.0,
       "discontinued": false,
       "seedPlan": "Allegretto",
@@ -279,6 +289,7 @@
     {
       "vendor": "字节·方舟",
       "plan": "Lite",
+      "type": "Coding Plan",
       "monthlyPrice": 40.0,
       "discontinued": false,
       "seedPlan": "Lite",
@@ -304,6 +315,7 @@
     {
       "vendor": "字节·方舟",
       "plan": "Pro",
+      "type": "Coding Plan",
       "monthlyPrice": 200.0,
       "discontinued": false,
       "seedPlan": "Lite",
@@ -327,8 +339,81 @@
       }
     },
     {
+      "vendor": "字节·方舟",
+      "plan": "Small",
+      "type": "Token Plan",
+      "monthlyPrice": 40.0,
+      "discontinued": false,
+      "seedPlan": "Small",
+      "seedSource": null,
+      "seedSourceNote": "见下方表格",
+      "vendorOrder": 17,
+      "planOrder": 19,
+      "windows": {
+        "monthly": {
+          "tokenLimit": 22000000,
+          "tokenPerCny": 550000.0
+        }
+      }
+    },
+    {
+      "vendor": "字节·方舟",
+      "plan": "Medium",
+      "type": "Token Plan",
+      "monthlyPrice": 200.0,
+      "discontinued": false,
+      "seedPlan": "Medium",
+      "seedSource": null,
+      "seedSourceNote": "见下方表格",
+      "vendorOrder": 17,
+      "planOrder": 20,
+      "windows": {
+        "monthly": {
+          "tokenLimit": 111000000,
+          "tokenPerCny": 555000.0
+        }
+      }
+    },
+    {
+      "vendor": "字节·方舟",
+      "plan": "Large",
+      "type": "Token Plan",
+      "monthlyPrice": 500.0,
+      "discontinued": false,
+      "seedPlan": "Large",
+      "seedSource": null,
+      "seedSourceNote": "见下方表格",
+      "vendorOrder": 17,
+      "planOrder": 21,
+      "windows": {
+        "monthly": {
+          "tokenLimit": 278000000,
+          "tokenPerCny": 556000.0
+        }
+      }
+    },
+    {
+      "vendor": "字节·方舟",
+      "plan": "Max",
+      "type": "Token Plan",
+      "monthlyPrice": 1000.0,
+      "discontinued": false,
+      "seedPlan": "Max",
+      "seedSource": null,
+      "seedSourceNote": "见下方表格",
+      "vendorOrder": 17,
+      "planOrder": 22,
+      "windows": {
+        "monthly": {
+          "tokenLimit": 556000000,
+          "tokenPerCny": 556000.0
+        }
+      }
+    },
+    {
       "vendor": "阿里·百炼",
       "plan": "Lite",
+      "type": "Coding Plan",
       "monthlyPrice": 40.0,
       "discontinued": true,
       "seedPlan": "Lite",
@@ -354,6 +439,7 @@
     {
       "vendor": "阿里·百炼",
       "plan": "Pro",
+      "type": "Coding Plan",
       "monthlyPrice": 200.0,
       "discontinued": false,
       "seedPlan": "Lite",
@@ -373,6 +459,132 @@
         "monthly": {
           "tokenLimit": 3000000000,
           "tokenPerCny": 15000000.0
+        }
+      }
+    },
+    {
+      "vendor": "阿里·百炼",
+      "plan": "标准",
+      "type": "Token Plan",
+      "monthlyPrice": 198.0,
+      "discontinued": false,
+      "seedPlan": "标准",
+      "seedSource": null,
+      "seedSourceNote": "见下方表格",
+      "vendorOrder": 26,
+      "planOrder": 23,
+      "windows": {
+        "monthly": {
+          "tokenLimit": 150000000,
+          "tokenPerCny": 757575.76
+        }
+      }
+    },
+    {
+      "vendor": "阿里·百炼",
+      "plan": "高级",
+      "type": "Token Plan",
+      "monthlyPrice": 698.0,
+      "discontinued": false,
+      "seedPlan": "高级",
+      "seedSource": null,
+      "seedSourceNote": "见下方表格",
+      "vendorOrder": 26,
+      "planOrder": 24,
+      "windows": {
+        "monthly": {
+          "tokenLimit": 600000000,
+          "tokenPerCny": 859598.85
+        }
+      }
+    },
+    {
+      "vendor": "阿里·百炼",
+      "plan": "尊享",
+      "type": "Token Plan",
+      "monthlyPrice": 1398.0,
+      "discontinued": false,
+      "seedPlan": "尊享",
+      "seedSource": null,
+      "seedSourceNote": "见下方表格",
+      "vendorOrder": 26,
+      "planOrder": 25,
+      "windows": {
+        "monthly": {
+          "tokenLimit": 1500000000,
+          "tokenPerCny": 1072961.37
+        }
+      }
+    },
+    {
+      "vendor": "小米·MiMo",
+      "plan": "Lite",
+      "type": "Token Plan",
+      "monthlyPrice": 39.0,
+      "discontinued": false,
+      "seedPlan": "Lite",
+      "seedSource": null,
+      "seedSourceNote": "见下方表格",
+      "vendorOrder": 28,
+      "planOrder": 28,
+      "windows": {
+        "monthly": {
+          "tokenLimit": 30000000,
+          "tokenPerCny": 769230.77
+        }
+      }
+    },
+    {
+      "vendor": "小米·MiMo",
+      "plan": "Standard",
+      "type": "Token Plan",
+      "monthlyPrice": 99.0,
+      "discontinued": false,
+      "seedPlan": "Standard",
+      "seedSource": null,
+      "seedSourceNote": "见下方表格",
+      "vendorOrder": 28,
+      "planOrder": 29,
+      "windows": {
+        "monthly": {
+          "tokenLimit": 100000000,
+          "tokenPerCny": 1010101.01
+        }
+      }
+    },
+    {
+      "vendor": "小米·MiMo",
+      "plan": "Pro",
+      "type": "Token Plan",
+      "monthlyPrice": 329.0,
+      "discontinued": false,
+      "seedPlan": "Pro",
+      "seedSource": null,
+      "seedSourceNote": "见下方表格",
+      "vendorOrder": 28,
+      "planOrder": 30,
+      "windows": {
+        "monthly": {
+          "tokenLimit": 350000000,
+          "tokenPerCny": 1063829.79
+        }
+      }
+    },
+    {
+      "vendor": "小米·MiMo",
+      "plan": "Max",
+      "type": "Token Plan",
+      "monthlyPrice": 659.0,
+      "discontinued": false,
+      "seedPlan": "Max",
+      "seedSource": null,
+      "seedSourceNote": "见下方表格",
+      "vendorOrder": 28,
+      "planOrder": 31,
+      "windows": {
+        "monthly": {
+          "tokenLimit": 800000000,
+          "tokenPerCny": 1213960.55
         }
       }
     }

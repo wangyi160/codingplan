@@ -123,7 +123,7 @@
 
     function buildVendorPalette(items) {
         var vendors = Array.from(new Set(items.map(function (item) {
-            return item.vendor;
+            return item.groupLabel;
         })));
         var palette = ['#0f766e', '#c66b1a', '#1d4ed8', '#be123c', '#7c3aed', '#0369a1', '#b45309', '#047857'];
         var colorMap = {};
@@ -131,6 +131,35 @@
             colorMap[vendor] = palette[vendorIndex % palette.length];
         });
         return colorMap;
+    }
+
+    function buildMixedTypeVendorSet(items) {
+        var vendorTypeMap = new Map();
+        (items || []).forEach(function (item) {
+            var vendor = item && item.vendor;
+            if (!vendor) {
+                return;
+            }
+            if (!vendorTypeMap.has(vendor)) {
+                vendorTypeMap.set(vendor, new Set());
+            }
+            vendorTypeMap.get(vendor).add(item.type || '未知类型');
+        });
+        var mixedTypeVendors = new Set();
+        vendorTypeMap.forEach(function (types, vendor) {
+            if (types.size > 1) {
+                mixedTypeVendors.add(vendor);
+            }
+        });
+        return mixedTypeVendors;
+    }
+
+    function getPlatformGroupLabel(item, mixedTypeVendors) {
+        var vendor = item && item.vendor ? item.vendor : '未知平台';
+        if (!mixedTypeVendors || !mixedTypeVendors.has(vendor)) {
+            return vendor;
+        }
+        return vendor + ' · ' + (item.type || '未知类型');
     }
 
     function computeThresholdPivot(values, direction) {
@@ -392,25 +421,78 @@
         }
     }
 
-    function buildValueSeries(items, colorMap) {
+    function getWindowMetrics(item, windowKey) {
+        if (!item || !item.windows) {
+            return null;
+        }
+        var metrics = item.windows[windowKey];
+        if (!metrics) {
+            return null;
+        }
+        var tokenLimit = Number(metrics.tokenLimit || 0);
+        var tokenPerCny = Number(metrics.tokenPerCny || 0);
+        if (!Number.isFinite(tokenLimit) || tokenLimit <= 0) {
+            return null;
+        }
+        if (!Number.isFinite(tokenPerCny) || tokenPerCny <= 0) {
+            return null;
+        }
+        return metrics;
+    }
+
+    function getActiveItemsForWindow(items) {
+        return (items || []).filter(function (item) {
+            return !item.discontinued && Boolean(getWindowMetrics(item, currentWindow));
+        });
+    }
+
+    function buildTokenLimitRows(data) {
+        return ['fiveHours', 'weekly', 'monthly'].reduce(function (rows, windowKey) {
+            var metrics = getWindowMetrics(data, windowKey);
+            if (!metrics) {
+                return rows;
+            }
+            var label = windowKey === 'fiveHours' ? '5h Token 上限' : getWindowLabel(windowKey) + ' Token 上限';
+            rows.push('<div><strong>' + escapeHtmlSafe(label) + '：</strong>' + escapeHtmlSafe(formatCompactTokens(metrics.tokenLimit)) + '</div>');
+            return rows;
+        }, []);
+    }
+
+    function formatGroupLabel(label) {
+        return String(label || '').replace(' · ', '\n');
+    }
+
+    function getNegativeAxisPadding(minValue, maxValue, fallbackPadding) {
+        var safeMin = Number.isFinite(minValue) ? minValue : 0;
+        var safeMax = Number.isFinite(maxValue) ? maxValue : 0;
+        var range = Math.max(safeMax - safeMin, 0);
+        var padding = Math.max(range * 0.12, fallbackPadding);
+        return -padding;
+    }
+
+    function buildValueSeries(items, colorMap, mixedTypeVendors) {
         var vendors = Array.from(new Set(items.map(function (item) {
-            return item.vendor;
+            return getPlatformGroupLabel(item, mixedTypeVendors);
         })));
         var points = items.map(function (item) {
-            var windowMetrics = item.windows[currentWindow] || {};
+            var windowMetrics = getWindowMetrics(item, currentWindow) || {};
             var metricValue = getValueMetricNumber(windowMetrics);
+            var groupLabel = getPlatformGroupLabel(item, mixedTypeVendors);
             return {
-                value: [item.vendor, metricValue],
+                value: [groupLabel, metricValue],
+                groupLabel: groupLabel,
                 vendor: item.vendor,
                 plan: item.plan,
+                type: item.type,
                 monthlyPrice: item.monthlyPrice,
                 seedPlan: item.seedPlan,
                 seedSourceNote: item.seedSourceNote,
+                windows: item.windows,
                 fiveHours: item.windows.fiveHours,
                 weekly: item.windows.weekly,
                 monthly: item.windows.monthly,
                 itemStyle: {
-                    color: colorMap[item.vendor],
+                    color: colorMap[groupLabel],
                     borderColor: 'rgba(255,255,255,0.95)',
                     borderWidth: 1.5,
                     shadowBlur: 14,
@@ -424,10 +506,11 @@
         var minTokenValue = tokenValues.length ? Math.min.apply(null, tokenValues) : 0;
         var maxTokenValue = tokenValues.length ? Math.max.apply(null, tokenValues) : 0;
         var tokenThreshold = Math.max((maxTokenValue - minTokenValue) * 0.015, currentValueMetric === 'cnyPerMillionTokens' ? 0.2 : 5000);
+        var yMin = getNegativeAxisPadding(minTokenValue, maxTokenValue, currentValueMetric === 'cnyPerMillionTokens' ? 0.08 : 50000);
 
         vendors.forEach(function (vendor) {
             applyVerticalLabelStack(points.filter(function (point) {
-                return point.vendor === vendor;
+                return point.groupLabel === vendor;
             }), function (point) {
                 return Number(point.value[1] || 0);
             }, tokenThreshold);
@@ -435,36 +518,41 @@
 
         return {
             vendors: vendors,
-            points: points
+            points: points,
+            yMin: yMin
         };
     }
 
-    function buildCostSeries(items, colorMap) {
+    function buildCostSeries(items, colorMap, mixedTypeVendors) {
         var grouped = new Map();
         items.forEach(function (item) {
-            if (!grouped.has(item.vendor)) {
-                grouped.set(item.vendor, []);
+            var groupLabel = getPlatformGroupLabel(item, mixedTypeVendors);
+            if (!grouped.has(groupLabel)) {
+                grouped.set(groupLabel, []);
             }
-            grouped.get(item.vendor).push(item);
+            grouped.get(groupLabel).push(item);
         });
 
         var vendors = Array.from(grouped.keys());
         var priceValues = [];
         var tokenValues = [];
-        var series = vendors.map(function (vendor, vendorIndex) {
+        var series = vendors.map(function (vendor) {
             var points = (grouped.get(vendor) || []).map(function (item) {
-                var windowMetrics = item.windows[currentWindow] || {};
+                var windowMetrics = getWindowMetrics(item, currentWindow) || {};
                 var monthlyPrice = Number(item.monthlyPrice || 0);
                 var tokenLimit = Number(windowMetrics.tokenLimit || 0);
                 priceValues.push(monthlyPrice);
                 tokenValues.push(tokenLimit);
                 return {
                     value: [monthlyPrice, tokenLimit],
+                    groupLabel: vendor,
                     vendor: item.vendor,
                     plan: item.plan,
+                    type: item.type,
                     monthlyPrice: item.monthlyPrice,
                     seedPlan: item.seedPlan,
                     seedSourceNote: item.seedSourceNote,
+                    windows: item.windows,
                     fiveHours: item.windows.fiveHours,
                     weekly: item.windows.weekly,
                     monthly: item.windows.monthly,
@@ -510,7 +598,9 @@
 
         var xMin = priceValues.length ? Math.max(1, Math.floor(Math.min.apply(null, priceValues) * 0.75)) : 1;
         var xMax = priceValues.length ? Math.ceil(Math.max.apply(null, priceValues) * 1.12) : 1;
+        var yMinValue = tokenValues.length ? Math.min.apply(null, tokenValues) : 0;
         var yMaxValue = tokenValues.length ? Math.max.apply(null, tokenValues) : 0;
+        var yMin = getNegativeAxisPadding(yMinValue, yMaxValue, 1);
         var yMax = yMaxValue > 0 ? Math.ceil(yMaxValue * 1.18) : 1;
         var medianPrice = computeThresholdPivot(priceValues, 'higher');
         var medianTokens = computeThresholdPivot(tokenValues, 'lower');
@@ -565,6 +655,7 @@
             series: series,
             xMin: xMin,
             xMax: xMax,
+            yMin: yMin,
             yMax: yMax,
             medianPrice: medianPrice,
             medianTokens: medianTokens
@@ -583,11 +674,11 @@
         }
     }
 
-    function renderValueChart(activeItems, colorMap) {
+    function renderValueChart(activeItems, colorMap, mixedTypeVendors) {
         if (!valueChartEl || !valueChart) {
             return;
         }
-        var built = buildValueSeries(activeItems, colorMap);
+        var built = buildValueSeries(activeItems, colorMap, mixedTypeVendors);
         valueChartEl.hidden = false;
         valueChart.setOption({
             animationDuration: 420,
@@ -608,13 +699,15 @@
                 },
                 formatter: function (params) {
                     var data = params.data || {};
+                    var currentMetrics = getWindowMetrics(data, currentWindow) || {};
                     return [
                         '<div style="min-width:220px">',
                         '<div style="font-size:14px;font-weight:800;margin-bottom:6px;">' + escapeHtmlSafe(data.vendor) + ' · ' + escapeHtmlSafe(data.plan) + '</div>',
                         '<div style="font-size:12px;line-height:1.7;">',
+                        '<div><strong>类型：</strong>' + escapeHtmlSafe(data.type || '未知') + '</div>',
                         '<div><strong>月价：</strong>¥' + escapeHtmlSafe(formatPrice(data.monthlyPrice)) + '</div>',
-                        '<div><strong>' + escapeHtmlSafe(getValueMetricTooltipLabel()) + '：</strong>' + escapeHtmlSafe(formatValueMetric(getValueMetricNumber(data[currentWindow] || {}))) + '</div>',
-                        '<div><strong>' + escapeHtmlSafe(getWindowLabel(currentWindow)) + ' Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data[currentWindow].tokenLimit)) + '</div>',
+                        '<div><strong>' + escapeHtmlSafe(getValueMetricTooltipLabel()) + '：</strong>' + escapeHtmlSafe(formatValueMetric(getValueMetricNumber(currentMetrics))) + '</div>',
+                        '<div><strong>' + escapeHtmlSafe(getWindowLabel(currentWindow)) + ' Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(currentMetrics.tokenLimit)) + '</div>',
                         '<div style="margin-top:6px;color:#5f6879;"><strong>数据参考：</strong>' + escapeHtmlSafe(data.seedSourceNote || '') + '</div>',
                         '</div>',
                         '</div>'
@@ -630,7 +723,10 @@
                     fontSize: 12,
                     fontWeight: 700,
                     interval: 0,
-                    margin: 14
+                    margin: 14,
+                    formatter: function (value) {
+                        return formatGroupLabel(value);
+                    }
                 },
                 splitLine: {
                     show: true,
@@ -649,6 +745,7 @@
             },
             yAxis: {
                 type: 'value',
+                min: built.yMin,
                 name: getValueMetricYAxisName(),
                 nameTextStyle: {
                     color: '#5f6879',
@@ -704,11 +801,11 @@
         valueChart.resize();
     }
 
-    function renderCostChart(activeItems, colorMap) {
+    function renderCostChart(activeItems, colorMap, mixedTypeVendors) {
         if (!costChartEl || !costChart) {
             return;
         }
-        var built = buildCostSeries(activeItems, colorMap);
+        var built = buildCostSeries(activeItems, colorMap, mixedTypeVendors);
         costChartEl.hidden = false;
         costChart.setOption({
             animationDuration: 450,
@@ -732,26 +829,13 @@
                 },
                 formatter: function (params) {
                     var data = params.data || {};
-                    var tokenLimitRows = [
-                        '<div><strong>' + escapeHtmlSafe(getWindowLabel(currentWindow)) + ' Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data[currentWindow].tokenLimit)) + '</div>'
-                    ];
-
-                    if (currentWindow !== 'fiveHours') {
-                        tokenLimitRows.push('<div><strong>5h Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data.fiveHours.tokenLimit)) + '</div>');
-                    }
-
-                    if (currentWindow !== 'weekly') {
-                        tokenLimitRows.push('<div><strong>周 Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data.weekly.tokenLimit)) + '</div>');
-                    }
-
-                    if (currentWindow !== 'monthly') {
-                        tokenLimitRows.push('<div><strong>月 Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(data.monthly.tokenLimit)) + '</div>');
-                    }
+                    var tokenLimitRows = buildTokenLimitRows(data);
 
                     return [
                         '<div style="min-width:220px">',
                         '<div style="font-size:14px;font-weight:800;margin-bottom:6px;">' + escapeHtmlSafe(data.vendor) + ' · ' + escapeHtmlSafe(data.plan) + '</div>',
                         '<div style="font-size:12px;line-height:1.7;">',
+                        '<div><strong>类型：</strong>' + escapeHtmlSafe(data.type || '未知') + '</div>',
                         '<div><strong>月价：</strong>¥' + escapeHtmlSafe(formatPrice(data.monthlyPrice)) + '</div>',
                         tokenLimitRows.join(''),
                         '<div style="margin-top:6px;color:#5f6879;"><strong>数据参考：</strong>' + escapeHtmlSafe(data.seedSourceNote || '') + '</div>',
@@ -770,6 +854,9 @@
                     color: '#5f6879',
                     fontSize: 12,
                     fontWeight: 600
+                },
+                formatter: function (value) {
+                    return formatGroupLabel(value);
                 }
             },
             xAxis: {
@@ -812,7 +899,7 @@
             },
             yAxis: {
                 type: 'value',
-                min: 0,
+                min: built.yMin,
                 max: built.yMax,
                 name: getWindowLabel(currentWindow) + ' Token 上限',
                 nameTextStyle: {
@@ -855,11 +942,9 @@
         if (!usagePayload) {
             return;
         }
-        var activeItems = (usagePayload.items || []).filter(function (item) {
-            return !item.discontinued;
-        });
+        var activeItems = getActiveItemsForWindow(usagePayload.items || []);
         if (!activeItems.length) {
-            setState('当前没有可展示的套餐使用量数据。', false);
+            setState('当前统计周期暂无可展示的套餐使用量数据。', false);
             if (valueChartEl) {
                 valueChartEl.hidden = true;
             }
@@ -886,10 +971,16 @@
         if (stateEl) {
             stateEl.hidden = true;
         }
-        var colorMap = buildVendorPalette(activeItems);
+        var mixedTypeVendors = buildMixedTypeVendorSet(activeItems);
+        var itemsWithGroupLabel = activeItems.map(function (item) {
+            return Object.assign({}, item, {
+                groupLabel: getPlatformGroupLabel(item, mixedTypeVendors)
+            });
+        });
+        var colorMap = buildVendorPalette(itemsWithGroupLabel);
         setState('', false);
-        renderValueChart(activeItems, colorMap);
-        renderCostChart(activeItems, colorMap);
+        renderValueChart(itemsWithGroupLabel, colorMap, mixedTypeVendors);
+        renderCostChart(itemsWithGroupLabel, colorMap, mixedTypeVendors);
     }
 
     function applyPayload(payload) {
