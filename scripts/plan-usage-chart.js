@@ -149,18 +149,18 @@
             return item.groupLabel;
         })));
         var preferredColors = {
-            '智谱AI': '#6FF527',
+            '智谱AI': '#F5F527',
             'MiniMax': '#f97316',
             'Kimi': '#0FD9C5',
-            '字节·方舟 · Coding Plan': '#e11d48',
-            '字节·方舟 · Token Plan': '#8b5cf6',
+            '字节·方舟 · Coding Plan': '#9E0000',
+            '字节·方舟 · Token Plan': '#FF3B3B',
             '阿里·百炼 · Coding Plan': '#017011',
-            '阿里·百炼 · Token Plan': '#F5F527',
+            '阿里·百炼 · Token Plan': '#6FF527',
             '小米·MiMo': '#2563eb',
-            '讯飞·星火': '#ec4899',
-            '联通云': '#0ea5e9',
-            'Claude': '#d97706',
-            'Codex': '#10b981'
+            // '讯飞·星火': '#ec4899',
+            // '联通云': '#0ea5e9',
+            'Claude': '#ec4899',
+            'Codex': '#A15CF6'
         };
         var palette = [
             '#22c55e',
