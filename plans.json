@@ -1956,7 +1956,7 @@
   {
     "vendor": "OpenCode",
     "plan": "Go",
-    "type": "Coding Plan",
+    "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqopencode",
     "rating": 5,
     "tags": [
@@ -2061,7 +2061,7 @@
   {
     "vendor": "Codex",
     "plan": "Plus",
-    "type": "Coding Plan",
+    "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqchatgpt",
     "rating": 4,
     "tags": [
@@ -2092,7 +2092,7 @@
   {
     "vendor": "Codex",
     "plan": "Pro *5",
-    "type": "Coding Plan",
+    "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqchatgpt",
     "rating": 4,
     "tags": [
@@ -2123,7 +2123,7 @@
   {
     "vendor": "Codex",
     "plan": "Pro *20",
-    "type": "Coding Plan",
+    "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqchatgpt",
     "rating": 4,
     "tags": [
@@ -2154,7 +2154,7 @@
   {
     "vendor": "Claude",
     "plan": "Pro",
-    "type": "Coding Plan",
+    "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqclaudeup",
     "rating": 4,
     "tags": [
@@ -2185,7 +2185,7 @@
   {
     "vendor": "Claude",
     "plan": "Max *5",
-    "type": "Coding Plan",
+    "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqclaudeup",
     "rating": 4,
     "tags": [
@@ -2216,7 +2216,7 @@
   {
     "vendor": "Claude",
     "plan": "Max *20",
-    "type": "Coding Plan",
+    "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqclaudeup",
     "rating": 4,
     "tags": [

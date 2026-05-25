@@ -43,6 +43,26 @@
         return Number.isInteger(number) ? String(number) : number.toFixed(2);
     }
 
+    function getComparisonMonthlyPrice(item) {
+        if (item && Number.isFinite(Number(item.comparisonMonthlyPriceCny))) {
+            return Number(item.comparisonMonthlyPriceCny);
+        }
+        return Number(item && item.monthlyPrice || 0);
+    }
+
+    function formatMonthlyPriceLabel(data) {
+        var currency = (data && data.currency) || '¥';
+        var price = formatPrice(data && data.monthlyPrice);
+        if (currency === '$') {
+            var comparisonPrice = data && data.comparisonMonthlyPriceCny;
+            if (comparisonPrice) {
+                return '$' + price + '（约 ¥' + formatPrice(comparisonPrice) + '）';
+            }
+            return '$' + price;
+        }
+        return '¥' + price;
+    }
+
     function getValueMetricNumber(windowMetrics) {
         if (currentValueMetric === 'cnyPerMillionTokens') {
             var tokenPerCny = Number(windowMetrics.tokenPerCny || 0);
@@ -136,7 +156,9 @@
             '阿里·百炼 · Token Plan': '#F5F527',
             '小米·MiMo': '#2563eb',
             '讯飞·星火': '#ec4899',
-            '联通云': '#0ea5e9'
+            '联通云': '#0ea5e9',
+            'Claude': '#d97706',
+            'Codex': '#10b981'
         };
         var palette = [
             '#22c55e',
@@ -530,6 +552,8 @@
                 plan: item.plan,
                 type: item.type,
                 monthlyPrice: item.monthlyPrice,
+                comparisonMonthlyPriceCny: item.comparisonMonthlyPriceCny,
+                currency: item.currency,
                 seedPlan: item.seedPlan,
                 seedSourceNote: item.seedSourceNote,
                 windows: item.windows,
@@ -594,7 +618,7 @@
         var series = vendors.map(function (vendor) {
             var points = (grouped.get(vendor) || []).map(function (item) {
                 var windowMetrics = getWindowMetrics(item, currentWindow) || {};
-                var monthlyPrice = Number(item.monthlyPrice || 0);
+                var monthlyPrice = getComparisonMonthlyPrice(item);
                 var tokenLimit = Number(windowMetrics.tokenLimit || 0);
                 priceValues.push(monthlyPrice);
                 tokenValues.push(tokenLimit);
@@ -605,6 +629,8 @@
                     plan: item.plan,
                     type: item.type,
                     monthlyPrice: item.monthlyPrice,
+                    comparisonMonthlyPriceCny: item.comparisonMonthlyPriceCny,
+                    currency: item.currency,
                     seedPlan: item.seedPlan,
                     seedSourceNote: item.seedSourceNote,
                     windows: item.windows,
@@ -780,7 +806,7 @@
                         '<div style="font-size:14px;font-weight:800;margin-bottom:6px;">' + escapeHtmlSafe(data.vendor) + ' · ' + escapeHtmlSafe(data.plan) + '</div>',
                         '<div style="font-size:12px;line-height:1.7;">',
                         '<div><strong>类型：</strong>' + escapeHtmlSafe(data.type || '未知') + '</div>',
-                        '<div><strong>月价：</strong>¥' + escapeHtmlSafe(formatPrice(data.monthlyPrice)) + '</div>',
+                        '<div><strong>月价：</strong>' + escapeHtmlSafe(formatMonthlyPriceLabel(data)) + '</div>',
                         '<div><strong>' + escapeHtmlSafe(getValueMetricTooltipLabel()) + '：</strong>' + escapeHtmlSafe(formatValueMetric(getValueMetricNumber(currentMetrics))) + '</div>',
                         '<div><strong>' + escapeHtmlSafe(getWindowLabel(currentWindow)) + ' Token 上限：</strong>' + escapeHtmlSafe(formatCompactTokens(currentMetrics.tokenLimit)) + '</div>',
                         '<div style="margin-top:6px;color:#5f6879;"><strong>数据参考：</strong>' + escapeHtmlSafe(data.seedSourceNote || '') + '</div>',
@@ -861,7 +887,7 @@
                         if (!data.plan) {
                             return '';
                         }
-                        return data.plan + '  ¥' + formatPrice(data.monthlyPrice);
+                        return data.plan + '  ' + formatMonthlyPriceLabel(data);
                     }
                 },
                 data: built.points,
@@ -908,7 +934,7 @@
                         '<div style="font-size:14px;font-weight:800;margin-bottom:6px;">' + escapeHtmlSafe(data.vendor) + ' · ' + escapeHtmlSafe(data.plan) + '</div>',
                         '<div style="font-size:12px;line-height:1.7;">',
                         '<div><strong>类型：</strong>' + escapeHtmlSafe(data.type || '未知') + '</div>',
-                        '<div><strong>月价：</strong>¥' + escapeHtmlSafe(formatPrice(data.monthlyPrice)) + '</div>',
+                        '<div><strong>月价：</strong>' + escapeHtmlSafe(formatMonthlyPriceLabel(data)) + '</div>',
                         tokenLimitRows.join(''),
                         '<div style="margin-top:6px;color:#5f6879;"><strong>数据参考：</strong>' + escapeHtmlSafe(data.seedSourceNote || '') + '</div>',
                         '</div>',
@@ -936,7 +962,7 @@
                 logBase: 2,
                 min: built.xMin,
                 max: built.xMax,
-                name: '包月价格（元，对数）',
+                name: '包月价格（人民币折算，对数）',
                 nameLocation: 'middle',
                 nameGap: 42,
                 nameTextStyle: {
