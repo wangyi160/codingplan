@@ -546,24 +546,34 @@
         });
         var tokenValues = points.map(function (point) {
             return Number(point.value[1] || 0);
+        }).filter(function (value) {
+            return value > 0;
         });
         var minTokenValue = tokenValues.length ? Math.min.apply(null, tokenValues) : 0;
         var maxTokenValue = tokenValues.length ? Math.max.apply(null, tokenValues) : 0;
-        var tokenThreshold = Math.max((maxTokenValue - minTokenValue) * 0.015, currentValueMetric === 'cnyPerMillionTokens' ? 0.2 : 5000);
-        var yMin = getNegativeAxisPadding(minTokenValue, maxTokenValue, currentValueMetric === 'cnyPerMillionTokens' ? 0.08 : 50000);
+        var valueLogFloor = currentValueMetric === 'cnyPerMillionTokens' ? 0.001 : 1;
+        var yMin = minTokenValue > 0 ? Math.max(valueLogFloor, minTokenValue * 0.65) : valueLogFloor;
+        var yMax = maxTokenValue > 0 ? maxTokenValue * 1.18 : valueLogFloor * 10;
+        var logTokenValues = tokenValues.map(function (value) {
+            return Math.log(Math.max(valueLogFloor, value)) / Math.log(10);
+        });
+        var minLogToken = logTokenValues.length ? Math.min.apply(null, logTokenValues) : 0;
+        var maxLogToken = logTokenValues.length ? Math.max.apply(null, logTokenValues) : 0;
+        var tokenThreshold = Math.max((maxLogToken - minLogToken) * 0.035, 0.08);
 
         vendors.forEach(function (vendor) {
             applyVerticalLabelStack(points.filter(function (point) {
                 return point.groupLabel === vendor;
             }), function (point) {
-                return Number(point.value[1] || 0);
+                return Math.log(Math.max(valueLogFloor, Number(point.value[1] || valueLogFloor))) / Math.log(10);
             }, tokenThreshold);
         });
 
         return {
             vendors: vendors,
             points: points,
-            yMin: yMin
+            yMin: yMin,
+            yMax: yMax
         };
     }
 
@@ -647,24 +657,29 @@
         var xMax = priceValues.length ? Math.ceil(Math.max.apply(null, priceValues) * 1.12) : 1;
         var yMinValue = tokenValues.length ? Math.min.apply(null, tokenValues) : 0;
         var yMaxValue = tokenValues.length ? Math.max.apply(null, tokenValues) : 0;
-        var yMin = getNegativeAxisPadding(yMinValue, yMaxValue, 1);
-        var yMax = yMaxValue > 0 ? Math.ceil(yMaxValue * 1.18) : 1;
+        var yMin = yMinValue > 0 ? Math.max(1, Math.floor(yMinValue * 0.65)) : 1;
+        var yMax = yMaxValue > 0 ? Math.ceil(yMaxValue * 1.18) : 10;
         var medianPrice = computeThresholdPivot(priceValues, 'higher');
         var medianTokens = computeThresholdPivot(tokenValues, 'lower');
         var logPriceValues = priceValues.map(function (value) {
             return Math.log(Math.max(1, value)) / Math.log(2);
         });
+        var logTokenValues = tokenValues.map(function (value) {
+            return Math.log(Math.max(1, value)) / Math.log(10);
+        });
         var minLogPrice = logPriceValues.length ? Math.min.apply(null, logPriceValues) : 0;
         var maxLogPrice = logPriceValues.length ? Math.max.apply(null, logPriceValues) : 0;
+        var minLogToken = logTokenValues.length ? Math.min.apply(null, logTokenValues) : 0;
+        var maxLogToken = logTokenValues.length ? Math.max.apply(null, logTokenValues) : 0;
         var xThreshold = Math.max((maxLogPrice - minLogPrice) * 0.035, 0.08);
-        var yThreshold = Math.max(yMax * 0.02, 1);
+        var yThreshold = Math.max((maxLogToken - minLogToken) * 0.035, 0.08);
 
         applyScatterLabelPlacements(series.reduce(function (result, seriesItem) {
             return result.concat(seriesItem.data || []);
         }, []), function (point) {
             return Math.log(Math.max(1, Number(point.value[0] || 1))) / Math.log(2);
         }, function (point) {
-            return Number(point.value[1] || 0);
+            return Math.log(Math.max(1, Number(point.value[1] || 1))) / Math.log(10);
         }, xThreshold, yThreshold, getCostScatterLabelPlacement);
 
         var helperSeries = {
@@ -687,8 +702,8 @@
                 data: [
                     [{ itemStyle: { color: 'rgba(16, 185, 129, 0.12)' }, xAxis: xMin, yAxis: medianTokens }, { xAxis: medianPrice, yAxis: yMax }],
                     [{ itemStyle: { color: 'rgba(59, 130, 246, 0.05)' }, xAxis: medianPrice, yAxis: medianTokens }, { xAxis: xMax, yAxis: yMax }],
-                    [{ itemStyle: { color: 'rgba(59, 130, 246, 0.05)' }, xAxis: xMin, yAxis: 0 }, { xAxis: medianPrice, yAxis: medianTokens }],
-                    [{ itemStyle: { color: 'rgba(239, 68, 68, 0.07)' }, xAxis: medianPrice, yAxis: 0 }, { xAxis: xMax, yAxis: medianTokens }]
+                    [{ itemStyle: { color: 'rgba(59, 130, 246, 0.05)' }, xAxis: xMin, yAxis: yMin }, { xAxis: medianPrice, yAxis: medianTokens }],
+                    [{ itemStyle: { color: 'rgba(239, 68, 68, 0.07)' }, xAxis: medianPrice, yAxis: yMin }, { xAxis: xMax, yAxis: medianTokens }]
                 ]
             },
             markLine: {
@@ -803,8 +818,11 @@
                 }
             },
             yAxis: {
-                type: 'value',
+                type: 'log',
+                logBase: 10,
                 min: built.yMin,
+                max: built.yMax,
+                splitNumber: 6,
                 name: getValueMetricYAxisName(),
                 nameTextStyle: {
                     color: '#5f6879',
@@ -951,9 +969,11 @@
                 }
             },
             yAxis: {
-                type: 'value',
+                type: 'log',
+                logBase: 10,
                 min: built.yMin,
                 max: built.yMax,
+                splitNumber: 6,
                 name: getWindowLabel(currentWindow) + ' Token 上限',
                 nameTextStyle: {
                     color: '#5f6879',
