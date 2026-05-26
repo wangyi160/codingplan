@@ -24,7 +24,10 @@
     "benefits": [
       "免费MCP次数"
     ],
-    "note": "• 3倍Claude Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+    "note": "• 3倍Claude Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "measuredFiveHoursTokenLimit": 6,
+    "measuredWeeklyTokenLimit": 30,
+    "measuredMonthlyTokenLimit": 120
   },
   {
     "vendor": "智谱AI",
@@ -52,7 +55,10 @@
     "benefits": [
       "免费MCP次数"
     ],
-    "note": "• 5倍Lite用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+    "note": "• 5倍Lite用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "measuredFiveHoursTokenLimit": 30,
+    "measuredWeeklyTokenLimit": 150,
+    "measuredMonthlyTokenLimit": 600
   },
   {
     "vendor": "智谱AI",
@@ -80,7 +86,10 @@
     "benefits": [
       "免费MCP次数"
     ],
-    "note": "• 20倍Lite用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+    "note": "• 20倍Lite用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "measuredFiveHoursTokenLimit": 120,
+    "measuredWeeklyTokenLimit": 600,
+    "measuredMonthlyTokenLimit": 2400
   },
   {
     "vendor": "智谱国际版",
@@ -188,7 +197,10 @@
     "monthlyRequests": 24000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+    "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "measuredFiveHoursTokenLimit": 24,
+    "measuredWeeklyTokenLimit": 240,
+    "measuredMonthlyTokenLimit": 960
   },
   {
     "vendor": "MiniMax",
@@ -213,7 +225,10 @@
     "monthlyRequests": 60000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+    "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "measuredFiveHoursTokenLimit": 60,
+    "measuredWeeklyTokenLimit": 600,
+    "measuredMonthlyTokenLimit": 2400
   },
   {
     "vendor": "MiniMax",
@@ -238,7 +253,10 @@
     "monthlyRequests": 180000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+    "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "measuredFiveHoursTokenLimit": 180,
+    "measuredWeeklyTokenLimit": 1800,
+    "measuredMonthlyTokenLimit": 7200
   },
   {
     "vendor": "MiniMax",
@@ -263,7 +281,10 @@
     "monthlyRequests": 60000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• 约100TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+    "note": "• 约100TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "measuredFiveHoursTokenLimit": 60,
+    "measuredWeeklyTokenLimit": 600,
+    "measuredMonthlyTokenLimit": 2400
   },
   {
     "vendor": "MiniMax",
@@ -288,7 +309,10 @@
     "monthlyRequests": 180000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• 约100TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+    "note": "• 约100TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "measuredFiveHoursTokenLimit": 180,
+    "measuredWeeklyTokenLimit": 1800,
+    "measuredMonthlyTokenLimit": 7200
   },
   {
     "vendor": "讯飞·星火",
@@ -372,7 +396,10 @@
     "monthlyRequests": "未公开",
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "Agent 4 倍速"
+    "note": "Agent 4 倍速",
+    "measuredFiveHoursTokenLimit": 15,
+    "measuredWeeklyTokenLimit": 21,
+    "measuredMonthlyTokenLimit": 84
   },
   {
     "vendor": "Kimi",
@@ -424,7 +451,10 @@
     "benefits": [
       "免费Kimi-Claw"
     ],
-    "note": "20 倍额度"
+    "note": "20 倍额度",
+    "measuredFiveHoursTokenLimit": 65,
+    "measuredWeeklyTokenLimit": 357,
+    "measuredMonthlyTokenLimit": 1428
   },
   {
     "vendor": "Kimi",
@@ -481,7 +511,10 @@
       "ArkClaw 7天体验"
     ],
     "note": "• 5.8开始限购\n• 模型倍率非常高，用量较低",
-    "discontinued": false
+    "discontinued": false,
+    "measuredFiveHoursTokenLimit": 6,
+    "measuredWeeklyTokenLimit": 42,
+    "measuredMonthlyTokenLimit": 83
   },
   {
     "vendor": "字节·方舟",
@@ -511,7 +544,10 @@
       "免费ArkClaw"
     ],
     "note": "• 5.8开始限购\n• 模型倍率非常高，用量较低",
-    "discontinued": false
+    "discontinued": false,
+    "measuredFiveHoursTokenLimit": 28,
+    "measuredWeeklyTokenLimit": 208,
+    "measuredMonthlyTokenLimit": 416
   },
   {
     "vendor": "字节·方舟",
@@ -543,7 +579,8 @@
     "benefits": [
       "联网搜索 50次/月"
     ],
-    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。\n• 有5小时、周、月的Token限制，没有请求次数限制，表格里按照最优模型，每次请求11KToken计算。"
+    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。\n• 有5小时、周、月的Token限制，没有请求次数限制，表格里按照最优模型，每次请求11KToken计算。",
+    "measuredMonthlyTokenLimit": 22
   },
   {
     "vendor": "字节·方舟",
@@ -576,7 +613,8 @@
     "benefits": [
       "联网搜索 150次/月"
     ],
-    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。\n• 有5小时、周、月的Token限制，没有请求次数限制，表格里按照最优模型，每次请求11KToken计算。"
+    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。\n• 有5小时、周、月的Token限制，没有请求次数限制，表格里按照最优模型，每次请求11KToken计算。",
+    "measuredMonthlyTokenLimit": 111
   },
   {
     "vendor": "字节·方舟",
@@ -609,7 +647,8 @@
     "benefits": [
       "联网搜索 400次/月"
     ],
-    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。\n• 有5小时、周、月的Token限制，没有请求次数限制，表格里按照最优模型，每次请求11KToken计算。"
+    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。\n• 有5小时、周、月的Token限制，没有请求次数限制，表格里按照最优模型，每次请求11KToken计算。",
+    "measuredMonthlyTokenLimit": 278
   },
   {
     "vendor": "字节·方舟",
@@ -642,7 +681,8 @@
     "benefits": [
       "联网搜索 800次/月"
     ],
-    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。\n• 有5小时、周、月的Token限制，没有请求次数限制，表格里按照最优模型，每次请求11KToken计算。"
+    "note": "• 积分制 AFP 计费，见https://www.volcengine.com/docs/82379/2366394。\n• 按照最优模型9倍系数计算，1AFP=1111Token。\n• 有5小时、周、月的Token限制，没有请求次数限制，表格里按照最优模型，每次请求11KToken计算。",
+    "measuredMonthlyTokenLimit": 556
   },
   {
     "vendor": "阿里·百炼",
@@ -670,7 +710,8 @@
     "monthlyRequests": "无限制",
     "tokenLimit": 150,
     "benefits": [],
-    "note": "• Qwen-3.6-Plus，输入5K Token/Credit，输入命中25K Token/Credit，输出0.83K Token/Credit\n• 合输入¥1.58/MToken，缓存¥0.32/MToken，输出¥9.54/MToken\n• 按缓存命中率90%，输入输出9:1算，约5.85K Token/Credit。表格按6K Token/Credit算"
+    "note": "• Qwen-3.6-Plus，输入5K Token/Credit，输入命中25K Token/Credit，输出0.83K Token/Credit\n• 合输入¥1.58/MToken，缓存¥0.32/MToken，输出¥9.54/MToken\n• 按缓存命中率90%，输入输出9:1算，约5.85K Token/Credit。表格按6K Token/Credit算",
+    "measuredMonthlyTokenLimit": 150
   },
   {
     "vendor": "阿里·百炼",
@@ -698,7 +739,8 @@
     "monthlyRequests": "无限制",
     "tokenLimit": 600,
     "benefits": [],
-    "note": "• Qwen-3.6-Plus，输入5K Token/Credit，输入命中25K Token/Credit，输出0.83K Token/Credit\n• 合输入¥1.40/MToken，缓存¥0.28/MToken，输出¥8.41/MToken\n• 按缓存命中率90%，输入输出9:1算，约5.85K Token/Credit。表格按6K Token/Credit算"
+    "note": "• Qwen-3.6-Plus，输入5K Token/Credit，输入命中25K Token/Credit，输出0.83K Token/Credit\n• 合输入¥1.40/MToken，缓存¥0.28/MToken，输出¥8.41/MToken\n• 按缓存命中率90%，输入输出9:1算，约5.85K Token/Credit。表格按6K Token/Credit算",
+    "measuredMonthlyTokenLimit": 600
   },
   {
     "vendor": "阿里·百炼",
@@ -726,7 +768,8 @@
     "monthlyRequests": "无限制",
     "tokenLimit": 1500,
     "benefits": [],
-    "note": "• Qwen-3.6-Plus，输入5K Token/Credit，输入命中25K Token/Credit，输出0.83K Token/Credit\n• 合输入¥1.12/MToken，缓存¥0.22/MToken，输出¥6.74/MToken\n• 按缓存命中率90%，输入输出9:1算，约5.85K Token/Credit。表格按6K Token/Credit算"
+    "note": "• Qwen-3.6-Plus，输入5K Token/Credit，输入命中25K Token/Credit，输出0.83K Token/Credit\n• 合输入¥1.12/MToken，缓存¥0.22/MToken，输出¥6.74/MToken\n• 按缓存命中率90%，输入输出9:1算，约5.85K Token/Credit。表格按6K Token/Credit算",
+    "measuredMonthlyTokenLimit": 1500
   },
   {
     "vendor": "阿里·百炼",
@@ -754,7 +797,10 @@
     "tokenLimit": "无限制",
     "benefits": [],
     "note": "",
-    "discontinued": true
+    "discontinued": true,
+    "measuredFiveHoursTokenLimit": 40,
+    "measuredWeeklyTokenLimit": 300,
+    "measuredMonthlyTokenLimit": 600
   },
   {
     "vendor": "阿里·百炼",
@@ -781,7 +827,10 @@
     "monthlyRequests": 90000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "开始限量购买了，不确定每天放不放，放多少"
+    "note": "开始限量购买了，不确定每天放不放，放多少",
+    "measuredFiveHoursTokenLimit": 200,
+    "measuredWeeklyTokenLimit": 1500,
+    "measuredMonthlyTokenLimit": 3000
   },
   {
     "vendor": "小米·MiMo",
@@ -808,7 +857,8 @@
     "benefits": [
       "TTS限时免费"
     ],
-    "note": "• 60M(6000万) Credits，无5小时限额，支持集中消耗\n• 按照2x计算Token，实际倍率：MiMo-V2.5:1x, Pro:2x"
+    "note": "• 60M(6000万) Credits，无5小时限额，支持集中消耗\n• 按照2x计算Token，实际倍率：MiMo-V2.5:1x, Pro:2x",
+    "measuredMonthlyTokenLimit": 30
   },
   {
     "vendor": "小米·MiMo",
@@ -835,7 +885,8 @@
     "benefits": [
       "TTS限时免费"
     ],
-    "note": "• 200M(2亿) Credits，无5小时限额，支持集中消耗\n• 按照2x计算Token，实际倍率：MiMo-V2.5:1x, Pro:2x"
+    "note": "• 200M(2亿) Credits，无5小时限额，支持集中消耗\n• 按照2x计算Token，实际倍率：MiMo-V2.5:1x, Pro:2x",
+    "measuredMonthlyTokenLimit": 100
   },
   {
     "vendor": "小米·MiMo",
@@ -862,7 +913,8 @@
     "benefits": [
       "TTS限时免费"
     ],
-    "note": "• 700M(7亿) Credits，无5小时限额，支持集中消耗\n• 按照2x计算Token，实际倍率：MiMo-V2.5:1x, Pro:2x"
+    "note": "• 700M(7亿) Credits，无5小时限额，支持集中消耗\n• 按照2x计算Token，实际倍率：MiMo-V2.5:1x, Pro:2x",
+    "measuredMonthlyTokenLimit": 350
   },
   {
     "vendor": "小米·MiMo",
@@ -889,7 +941,8 @@
     "benefits": [
       "TTS限时免费"
     ],
-    "note": "• 1600M(16亿) Credits，无5小时限额，支持集中消耗\n• 按照2x计算Token，实际倍率：MiMo-V2.5:1x, Pro:2x"
+    "note": "• 1600M(16亿) Credits，无5小时限额，支持集中消耗\n• 按照2x计算Token，实际倍率：MiMo-V2.5:1x, Pro:2x",
+    "measuredMonthlyTokenLimit": 800
   },
   {
     "vendor": "联通云",
@@ -2089,7 +2142,10 @@
     "benefits": [
       "可购买额外积分"
     ],
-    "note": "• 官方按 5 小时与每周额度管理；免费版和 Go 套餐每周也有少量体验额度"
+    "note": "• 官方按 5 小时与每周额度管理；免费版和 Go 套餐每周也有少量体验额度",
+    "measuredFiveHoursTokenLimit": 20,
+    "measuredWeeklyTokenLimit": 120,
+    "measuredMonthlyTokenLimit": 480
   },
   {
     "vendor": "Codex",
@@ -2120,7 +2176,10 @@
     "benefits": [
       "可购买额外积分"
     ],
-    "note": "• 截至 5 月 31 日前，官方标注可限时享 Plus 的 10 倍额度\n• 6月1日起改按Token计费"
+    "note": "• 截至 5 月 31 日前，官方标注可限时享 Plus 的 10 倍额度\n• 6月1日起改按Token计费",
+    "measuredFiveHoursTokenLimit": 100,
+    "measuredWeeklyTokenLimit": 600,
+    "measuredMonthlyTokenLimit": 2400
   },
   {
     "vendor": "Codex",
@@ -2151,7 +2210,10 @@
     "benefits": [
       "可购买额外积分"
     ],
-    "note": "• 官方按 5 小时与每周额度管理"
+    "note": "• 官方按 5 小时与每周额度管理",
+    "measuredFiveHoursTokenLimit": 400,
+    "measuredWeeklyTokenLimit": 2400,
+    "measuredMonthlyTokenLimit": 9600
   },
   {
     "vendor": "Claude",
@@ -2182,7 +2244,10 @@
     "benefits": [
       "原生 Claude 体验"
     ],
-    "note": "• 部分用户订阅时可能被要求实名认证\n• 套餐额度不可用于 OpenClaw、Hermes 等第三方编程 Agent"
+    "note": "• 部分用户订阅时可能被要求实名认证\n• 套餐额度不可用于 OpenClaw、Hermes 等第三方编程 Agent",
+    "measuredFiveHoursTokenLimit": 23,
+    "measuredWeeklyTokenLimit": 104,
+    "measuredMonthlyTokenLimit": 416
   },
   {
     "vendor": "Claude",
@@ -2213,7 +2278,10 @@
     "benefits": [
       "原生 Claude 体验"
     ],
-    "note": "• 部分用户订阅时可能被要求实名认证\n• 套餐额度不可用于 OpenClaw、Hermes 等第三方编程 Agent"
+    "note": "• 部分用户订阅时可能被要求实名认证\n• 套餐额度不可用于 OpenClaw、Hermes 等第三方编程 Agent",
+    "measuredFiveHoursTokenLimit": 115,
+    "measuredWeeklyTokenLimit": 520,
+    "measuredMonthlyTokenLimit": 2080
   },
   {
     "vendor": "Claude",
@@ -2244,7 +2312,10 @@
     "benefits": [
       "原生 Claude 体验"
     ],
-    "note": "• 部分用户订阅时可能被要求实名认证\n• 套餐额度不可用于 OpenClaw、Hermes 等第三方编程 Agent"
+    "note": "• 部分用户订阅时可能被要求实名认证\n• 套餐额度不可用于 OpenClaw、Hermes 等第三方编程 Agent",
+    "measuredFiveHoursTokenLimit": 460,
+    "measuredWeeklyTokenLimit": 2080,
+    "measuredMonthlyTokenLimit": 8320
   },
   {
     "vendor": "GitHub",

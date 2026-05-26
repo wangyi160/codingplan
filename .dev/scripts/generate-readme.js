@@ -136,8 +136,8 @@ function getOriginalPrice(currentPrice, multiplier) {
 
 // 生成套餐对比表
 function generateTable(plans) {
-    let md = '| 平台 | 套餐 | 类型 | 链接 | 评分 | 标签 | 首月价格 | 连续包月 | 连续包季 | 连续包年 | 5小时请求数 | 每周请求数 | 每月总请求数 | Token上限 | 支持模型 | 其他权益 | 状态 | 备注 |\n';
-    md += '|------|------|------|------|------|------|---------|---------|---------|---------|-----------|-----------|-----------|-----------|---------|---------|------|------|\n';
+    let md = '| 平台 | 套餐 | 类型 | 链接 | 评分 | 标签 | 首月价格 | 连续包月 | 连续包季 | 连续包年 | 5小时请求数 | 每周请求数 | 每月总请求数 | 实测5h Token | 实测周Token | 实测月Token | Token上限 | 支持模型 | 其他权益 | 状态 | 备注 |\n';
+    md += '|------|------|------|------|------|------|---------|---------|---------|---------|-----------|-----------|-----------|-------------|------------|------------|-----------|---------|---------|------|------|\n';
     
     plans.forEach(plan => {
         const vendor = plan.vendor;
@@ -158,6 +158,9 @@ function generateTable(plans) {
             ? formatStrikethrough(plan.yearlyPrice, getOriginalPrice(plan.monthlyPrice, 12), currency) + ' / 年'
             : '- / 年';
         const tokenLimit = formatTokenLimit(plan.tokenLimit);
+        const measuredFiveHours = formatTokenLimit(plan.measuredFiveHoursTokenLimit);
+        const measuredWeekly = formatTokenLimit(plan.measuredWeeklyTokenLimit);
+        const measuredMonthly = formatTokenLimit(plan.measuredMonthlyTokenLimit);
         const models = escapeTableCell(plan.models.join(', '));
         const fiveHoursRequests = plan.fiveHoursRequests?.toLocaleString() || '未公开';
         const weeklyRequests = plan.weeklyRequests?.toLocaleString() || '-';
@@ -166,7 +169,7 @@ function generateTable(plans) {
         const status = formatStatus(plan.discontinued);
         const note = escapeTableCell(plan.note);
 
-        md += `| ${vendor} | ${planName} | ${type} | ${link} | ${rating} | ${tags} | ${firstMonth} | ${monthly} | ${quarterly} | ${yearly} | ${fiveHoursRequests} | ${weeklyRequests} | ${monthlyRequests} | ${tokenLimit} | ${models} | ${benefits} | ${status} | ${note} |\n`;
+        md += `| ${vendor} | ${planName} | ${type} | ${link} | ${rating} | ${tags} | ${firstMonth} | ${monthly} | ${quarterly} | ${yearly} | ${fiveHoursRequests} | ${weeklyRequests} | ${monthlyRequests} | ${measuredFiveHours} | ${measuredWeekly} | ${measuredMonthly} | ${tokenLimit} | ${models} | ${benefits} | ${status} | ${note} |\n`;
     });
     
     return md;
