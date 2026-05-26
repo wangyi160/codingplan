@@ -1,7 +1,7 @@
 {
   "header": {
     "title": "AI Coding Plan 对比",
-    "updateDate": "更新日期2026.5.23 | 更新百度千帆、阿里·百炼模型支持",
+    "updateDate": "更新日期2026.5.26 | 讯飞·星火增加Kimi-K2.6",
     "subtitle": "25大平台 智谱AI、Kimi、MiniMax、阿里·百炼、字节·方舟、小米·MiMo、讯飞·星火、百度·千帆、腾讯云、京东云，Coding Plan / Agent Plan 全面对比\n支持GLM-5.1，Qwen-3.6-Plus，Kimi-K2.6，MiniMax-M2.7，Doubao-Seed-2.0，MiMo-V2-Pro等模型",
     "models": "目前整体趋势是已经开始用Token Plan替换Coding Plan了，几个大厂阿里、字节、腾讯都改成Token Plan了，各位且买且珍惜吧",
     "watermarkUrl": "www.codingplan.fyi",
@@ -106,6 +106,12 @@
     "apply": "确定"
   },
   "updates": [
+    {
+      "date": "2026.5.26",
+      "items": [
+        "讯飞·星火增加Kimi-K2.6模型"
+      ]
+    },
     {
       "date": "2026.5.23",
       "items": [
