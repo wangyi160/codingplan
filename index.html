@@ -1480,6 +1480,157 @@
             color: var(--text-secondary);
         }
 
+        .hero-summary-card--community {
+            grid-column: 1 / -1;
+            background: linear-gradient(145deg, rgba(15, 118, 110, 0.12), rgba(255, 251, 245, 0.96) 52%, rgba(198, 107, 26, 0.08));
+            border-color: rgba(15, 118, 110, 0.2);
+        }
+
+        .hero-summary-card--community .hero-summary-kicker {
+            color: #0f766e;
+            background: rgba(15, 118, 110, 0.12);
+        }
+
+        .community-hub {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(220px, 300px);
+            gap: 24px;
+            align-items: center;
+        }
+
+        .community-hub-copy {
+            min-width: 0;
+        }
+
+        .community-hub-status {
+            margin-top: 14px;
+            color: #154d77;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.7;
+        }
+
+        .community-hub-highlights {
+            list-style: none;
+            margin: 16px 0 0;
+            padding: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .community-hub-highlights li {
+            position: relative;
+            padding-left: 18px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        .community-hub-highlights li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #173753, #0f766e);
+            box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12);
+        }
+
+        .community-hub-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .community-hub-btn,
+        .community-hub-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 0 18px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+        }
+
+        .community-hub-btn {
+            color: #f8fffd;
+            background: linear-gradient(135deg, #173753, #0f766e);
+            box-shadow: 0 12px 24px rgba(23, 55, 83, 0.18);
+        }
+
+        .community-hub-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 16px 28px rgba(23, 55, 83, 0.22);
+        }
+
+        .community-hub-btn--secondary {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(23, 32, 51, 0.1);
+            box-shadow: 0 10px 20px rgba(23, 32, 51, 0.06);
+        }
+
+        .community-hub-btn--secondary:hover {
+            background: rgba(15, 118, 110, 0.08);
+            border-color: rgba(15, 118, 110, 0.18);
+        }
+
+        .community-hub-badge {
+            color: #154d77;
+            background: rgba(15, 118, 110, 0.12);
+            border: 1px solid rgba(15, 118, 110, 0.14);
+        }
+
+        .community-hub-footnote {
+            margin-top: 14px;
+            font-size: 13px;
+            line-height: 1.7;
+            color: var(--text-tertiary);
+        }
+
+        .community-hub-qr {
+            padding: 18px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(23, 32, 51, 0.08);
+            box-shadow: 0 16px 30px rgba(23, 32, 51, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .community-hub-qr img {
+            display: block;
+            width: min(100%, 250px);
+            height: auto;
+            border-radius: 18px;
+        }
+
+        .community-hub-qr--empty {
+            justify-content: center;
+            min-height: 100%;
+        }
+
+        .community-hub-qr-placeholder {
+            font-size: 14px;
+            line-height: 1.75;
+            color: var(--text-secondary);
+        }
+
+        .community-hub-qr-hint {
+            font-size: 13px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
         .hero-summary-readmore {
             display: inline-flex;
             align-items: center;
@@ -1756,6 +1907,18 @@
                 flex-basis: auto;
                 max-width: 100%;
             }
+
+            .hero-summary-card--community {
+                grid-column: auto;
+            }
+
+            .community-hub {
+                grid-template-columns: 1fr;
+            }
+
+            .community-hub-qr {
+                padding: 16px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1774,11 +1937,13 @@
 
         <!-- 顶部标题 -->
         <div class="header">
-            <a href="https://github.com/wmpeng/codingplan" target="_blank" class="github-link" id="githubLink">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            <a href="#communityHub" class="github-link" id="headerEntryLink">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true">
+                    <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
+                    <path d="M8 9h8"></path>
+                    <path d="M8 13h5"></path>
                 </svg>
-                <span id="githubText">GitHub</span>
+                <span id="headerEntryText">加入社群</span>
             </a>
             <h1 id="pageTitle">AI Coding Plan 对比</h1>
             <div class="update-date" id="updateDate">更新日期2026.5.8 | 字节方舟上线AgentPlan，CodingPlan开始限购</div>
@@ -1810,6 +1975,29 @@
                     <p class="hero-summary-guide-note">帮助先快速建立全局判断，在几个候选平台之间做第一轮取舍。</p>
                 </div>
                 <a class="hero-summary-readmore" href="articles/plan_comparison_20260519/index.html">查看选型文章 →</a>
+            </article>
+            <article class="hero-summary-card hero-summary-card--community" id="communityHub">
+                <div class="community-hub">
+                    <div class="community-hub-copy">
+                        <div class="hero-summary-kicker">加入社群</div>
+                        <h2 class="hero-summary-title">价格变化、抢购消息、使用体验，都可以进群聊</h2>
+                        <p class="hero-summary-body">想聊哪个套餐更划算、最近有没有价格变化、模型到底好不好用，欢迎直接扫码加入飞书群。</p>
+                        <p class="community-hub-status">有想问的、想交流的，直接进群更方便</p>
+                        <ul class="community-hub-highlights">
+                            <li>价格更新、限购提醒、抢购消息，群里交流更及时。</li>
+                            <li>选哪个平台更合适、值不值得买、好不好用，都可以直接问。</li>
+                            <li>也可以去 GitHub 讨论区看看大家的补充和反馈。</li>
+                        </ul>
+                        <div class="community-hub-actions">
+                            <a class="community-hub-btn community-hub-btn--secondary" href="https://github.com/wmpeng/codingplan/discussions" target="_blank" rel="noopener noreferrer">去 GitHub 讨论区</a>
+                        </div>
+                        <div class="community-hub-footnote">桌面端扫码更方便；手机上也可以点开二维码后长按识别。</div>
+                    </div>
+                    <div class="community-hub-qr">
+                        <img src="assets/feishu_group.png" alt="飞书群二维码" loading="lazy" decoding="async">
+                        <p class="community-hub-qr-hint">扫码后即可加入飞书群。</p>
+                    </div>
+                </div>
             </article>
             <!-- <article class="hero-summary-card hero-summary-card--accent">
                 <div class="hero-summary-kicker">How To Choose</div>
@@ -3925,10 +4113,29 @@
                         subtitle: "25大平台 智谱AI、Kimi、MiniMax、阿里·百炼、字节·方舟、小米·MiMo、讯飞·星火、百度·千帆、腾讯云、京东云，Coding Plan / Agent Plan 全面对比\n支持GLM-5.1，Qwen-3.6-Plus，Kimi-K2.6，MiniMax-M2.7，Doubao-Seed-2.0，MiMo-V2-Pro等模型",
                         models: "目前整体趋势是已经开始用Token Plan替换Coding Plan了，几个大厂阿里、字节、腾讯都改成Token Plan了，各位且买且珍惜吧",
                         watermarkUrl: "www.codingplan.fyi",
-                        github: {
-                            url: "https://github.com/wmpeng/codingplan",
-                            text: "GitHub"
+                        entry: {
+                            url: "#communityHub",
+                            text: "加入社群"
                         }
+                    },
+                    community: {
+                        eyebrow: "加入社群",
+                        title: "价格变化、抢购消息、使用体验，都可以进群聊",
+                        description: "想聊哪个套餐更划算、最近有没有价格变化、模型到底好不好用，欢迎直接扫码加入飞书群。",
+                        status: "有想问的、想交流的，直接进群更方便",
+                        highlights: [
+                            "价格更新、限购提醒、抢购消息，群里交流更及时。",
+                            "选哪个平台更合适、值不值得买、好不好用，都可以直接问。",
+                            "也可以去 GitHub 讨论区看看大家的补充和反馈。"
+                        ],
+                        secondaryAction: {
+                            text: "去 GitHub 讨论区",
+                            url: "https://github.com/wmpeng/codingplan/discussions"
+                        },
+                        footnote: "桌面端扫码更方便；手机上也可以点开二维码后长按识别。",
+                        qrcode: "assets/feishu_group.png",
+                        qrAlt: "飞书群二维码",
+                        qrHint: "扫码后即可加入飞书群。"
                     }
                 };
                 applyConfig();
@@ -3945,11 +4152,17 @@
                 document.getElementById('subtitle').innerHTML = (h.subtitle || '').replace(/\n/g, '<br>');
                 document.getElementById('models').innerHTML = (h.models || '').replace(/\n/g, '<br>');
                 
-                if (h.github) {
-                    const githubLink = document.getElementById('githubLink');
-                    githubLink.href = h.github.url;
-                    document.getElementById('githubText').textContent = h.github.text;
+                if (h.entry || h.github) {
+                    const entry = h.entry || h.github;
+                    const headerEntryLink = document.getElementById('headerEntryLink');
+                    const entryUrl = sanitizeHttpUrl(entry.url, '#communityHub');
+                    headerEntryLink.href = entryUrl || '#communityHub';
+                    document.getElementById('headerEntryText').textContent = entry.text;
                 }
+            }
+
+            if (appConfig.community) {
+                renderCommunitySection(appConfig.community);
             }
 
             // 渲染平台推荐
@@ -4028,6 +4241,52 @@
                 <div class="description">${sale.description}</div>
                 <div class="account-cards">${accountsHtml}</div>
                 ${contactHtml}
+            `;
+        }
+
+        function renderCommunitySection(community) {
+            const container = document.getElementById('communityHub');
+            if (!container) return;
+
+            const highlights = Array.isArray(community.highlights) ? community.highlights : [];
+            const primaryAction = community.primaryAction || null;
+            const secondaryAction = community.secondaryAction || null;
+            const primaryUrl = sanitizeHttpUrl(primaryAction && primaryAction.url);
+            const secondaryUrl = sanitizeHttpUrl(secondaryAction && secondaryAction.url);
+            const qrSrc = typeof community.qrcode === 'string' ? community.qrcode.trim() : '';
+            const hasQr = qrSrc.length > 0;
+
+            function renderAction(action, url, className) {
+                if (!action || !action.text) return '';
+                if (!url) {
+                    return `<span class="community-hub-badge">${escapeHtml(action.text)}</span>`;
+                }
+
+                const isExternal = /^https?:\/\//i.test(url);
+                return `<a class="${className}" href="${escapeHtml(url)}"${isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''}>${escapeHtml(action.text)}</a>`;
+            }
+
+            container.innerHTML = `
+                <div class="community-hub">
+                    <div class="community-hub-copy">
+                        <div class="hero-summary-kicker">${escapeHtml(community.eyebrow || '加入讨论')}</div>
+                        <h2 class="hero-summary-title">${escapeHtml(community.title || '')}</h2>
+                        <p class="hero-summary-body">${escapeHtml(community.description || '')}</p>
+                        ${community.status ? `<p class="community-hub-status">${escapeHtml(community.status)}</p>` : ''}
+                        ${highlights.length ? `<ul class="community-hub-highlights">${highlights.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}
+                        <div class="community-hub-actions">
+                            ${renderAction(primaryAction, primaryUrl, 'community-hub-btn')}
+                            ${renderAction(secondaryAction, secondaryUrl, 'community-hub-btn community-hub-btn--secondary')}
+                        </div>
+                        ${community.footnote ? `<div class="community-hub-footnote">${escapeHtml(community.footnote)}</div>` : ''}
+                    </div>
+                    <div class="community-hub-qr${hasQr ? '' : ' community-hub-qr--empty'}">
+                        ${hasQr
+                            ? `<img src="${escapeHtml(qrSrc)}" alt="${escapeHtml(community.qrAlt || '飞书群二维码')}" loading="lazy" decoding="async">`
+                            : `<div class="community-hub-qr-placeholder">飞书群二维码补充后，这里会显示可直接扫码加入的群入口。</div>`}
+                        ${community.qrHint ? `<p class="community-hub-qr-hint">${escapeHtml(community.qrHint)}</p>` : ''}
+                    </div>
+                </div>
             `;
         }
 
