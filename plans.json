@@ -853,12 +853,12 @@
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
     "monthlyRequests": "无限制",
-    "tokenLimit": 30,
+    "tokenLimit": 108,
     "benefits": [
       "TTS限时免费"
     ],
-    "note": "• 60M(6000万) Credits，无5小时限额，支持集中消耗\n• 按照2x计算Token，实际倍率：MiMo-V2.5:1x, Pro:2x",
-    "measuredMonthlyTokenLimit": 30
+    "note": "• 4.1B Credits，无5小时限额，支持集中消耗\n• MiMo-V2.5-Pro：缓存 2.5 Credits/Token，输入 300 Credits/Token，输出 600 Credits/Token\n• 按缓存命中率90%、输入输出99:1算：100 Token 约消耗 99×10%×300 + 99×90%×2.5 + 1×600 = 3792.75 Credits，即 1B Credits≈26.37M Token。表格按 MiMo-V2.5-Pro 口径算，MiMo-V2.5 实际更高",
+    "measuredMonthlyTokenLimit": 108
   },
   {
     "vendor": "小米·MiMo",
@@ -881,12 +881,12 @@
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
     "monthlyRequests": "无限制",
-    "tokenLimit": 100,
+    "tokenLimit": 290,
     "benefits": [
       "TTS限时免费"
     ],
-    "note": "• 200M(2亿) Credits，无5小时限额，支持集中消耗\n• 按照2x计算Token，实际倍率：MiMo-V2.5:1x, Pro:2x",
-    "measuredMonthlyTokenLimit": 100
+    "note": "• 11B Credits，无5小时限额，支持集中消耗\n• MiMo-V2.5-Pro：缓存 2.5 Credits/Token，输入 300 Credits/Token，输出 600 Credits/Token\n• 按缓存命中率90%、输入输出99:1算：100 Token 约消耗 99×10%×300 + 99×90%×2.5 + 1×600 = 3792.75 Credits，即 1B Credits≈26.37M Token。表格按 MiMo-V2.5-Pro 口径算，MiMo-V2.5 实际更高",
+    "measuredMonthlyTokenLimit": 290
   },
   {
     "vendor": "小米·MiMo",
@@ -909,12 +909,12 @@
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
     "monthlyRequests": "无限制",
-    "tokenLimit": 350,
+    "tokenLimit": 1002,
     "benefits": [
       "TTS限时免费"
     ],
-    "note": "• 700M(7亿) Credits，无5小时限额，支持集中消耗\n• 按照2x计算Token，实际倍率：MiMo-V2.5:1x, Pro:2x",
-    "measuredMonthlyTokenLimit": 350
+    "note": "• 38B Credits，无5小时限额，支持集中消耗\n• MiMo-V2.5-Pro：缓存 2.5 Credits/Token，输入 300 Credits/Token，输出 600 Credits/Token\n• 按缓存命中率90%、输入输出99:1算：100 Token 约消耗 99×10%×300 + 99×90%×2.5 + 1×600 = 3792.75 Credits，即 1B Credits≈26.37M Token。表格按 MiMo-V2.5-Pro 口径算，MiMo-V2.5 实际更高",
+    "measuredMonthlyTokenLimit": 1002
   },
   {
     "vendor": "小米·MiMo",
@@ -937,12 +937,12 @@
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
     "monthlyRequests": "无限制",
-    "tokenLimit": 800,
+    "tokenLimit": 2162,
     "benefits": [
       "TTS限时免费"
     ],
-    "note": "• 1600M(16亿) Credits，无5小时限额，支持集中消耗\n• 按照2x计算Token，实际倍率：MiMo-V2.5:1x, Pro:2x",
-    "measuredMonthlyTokenLimit": 800
+    "note": "• 82B Credits，无5小时限额，支持集中消耗\n• MiMo-V2.5-Pro：缓存 2.5 Credits/Token，输入 300 Credits/Token，输出 600 Credits/Token\n• 按缓存命中率90%、输入输出99:1算：100 Token 约消耗 99×10%×300 + 99×90%×2.5 + 1×600 = 3792.75 Credits，即 1B Credits≈26.37M Token。表格按 MiMo-V2.5-Pro 口径算，MiMo-V2.5 实际更高",
+    "measuredMonthlyTokenLimit": 2162
   },
   {
     "vendor": "联通云",
