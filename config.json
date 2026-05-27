@@ -13,12 +13,12 @@
   "feedback": {
     "triggerText": "反馈与用户群",
     "dataIssue": {
-      "text": "Github 讨论",
+      "text": "Github 讨论区",
       "url": "https://github.com/wmpeng/codingplan/discussions"
     },
     "feedbackEntry": {
-      "text": "点此加入",
-      "url": "https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=db8k6e5c-3f41-4a8a-9988-cde80effeb3e"
+      "text": "点此加入飞书讨论群",
+      "url": "https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=538i118b-d4ce-4616-a300-a4d6c54e1f23"
     },
     "group": {
       "title": "飞书讨论群",
