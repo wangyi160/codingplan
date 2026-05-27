@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-27T10:44:43.124964Z",
+  "generatedAt": "2026-05-27T16:44:37.390192Z",
   "source": {
     "plans": "codingplan/plans.json",
     "seeds": "scripts/codingplan/plan-usage-seeds.json"
@@ -37,7 +37,7 @@
       "discontinued": false,
       "seedPlan": "Pro",
       "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
-      "seedSourceNote": "glm-5.15h 约 3000 万 token",
+      "seedSourceNote": "glm-5.1 5h 约 3000 万 token",
       "vendorOrder": 0,
       "planOrder": 0,
       "windows": {
@@ -65,7 +65,7 @@
       "discontinued": false,
       "seedPlan": "Pro",
       "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
-      "seedSourceNote": "glm-5.15h 约 3000 万 token",
+      "seedSourceNote": "glm-5.1 5h 约 3000 万 token",
       "vendorOrder": 0,
       "planOrder": 1,
       "windows": {
@@ -93,7 +93,7 @@
       "discontinued": false,
       "seedPlan": "Pro",
       "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
-      "seedSourceNote": "glm-5.15h 约 3000 万 token",
+      "seedSourceNote": "glm-5.1 5h 约 3000 万 token",
       "vendorOrder": 0,
       "planOrder": 2,
       "windows": {
@@ -121,7 +121,7 @@
       "discontinued": false,
       "seedPlan": "Plus",
       "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
-      "seedSourceNote": "minimax-m2.75h 约 6000 万 token",
+      "seedSourceNote": "minimax-m2.7 5h 约 6000 万 token",
       "vendorOrder": 6,
       "planOrder": 0,
       "windows": {
@@ -149,7 +149,7 @@
       "discontinued": false,
       "seedPlan": "Plus",
       "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
-      "seedSourceNote": "minimax-m2.75h 约 6000 万 token",
+      "seedSourceNote": "minimax-m2.7 5h 约 6000 万 token",
       "vendorOrder": 6,
       "planOrder": 1,
       "windows": {
@@ -177,7 +177,7 @@
       "discontinued": false,
       "seedPlan": "Plus",
       "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
-      "seedSourceNote": "minimax-m2.75h 约 6000 万 token",
+      "seedSourceNote": "minimax-m2.7 5h 约 6000 万 token",
       "vendorOrder": 6,
       "planOrder": 2,
       "windows": {
@@ -205,7 +205,7 @@
       "discontinued": false,
       "seedPlan": "Plus",
       "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
-      "seedSourceNote": "minimax-m2.75h 约 6000 万 token",
+      "seedSourceNote": "minimax-m2.7 5h 约 6000 万 token",
       "vendorOrder": 6,
       "planOrder": 3,
       "windows": {
@@ -233,7 +233,7 @@
       "discontinued": false,
       "seedPlan": "Plus",
       "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
-      "seedSourceNote": "minimax-m2.75h 约 6000 万 token",
+      "seedSourceNote": "minimax-m2.7 5h 约 6000 万 token",
       "vendorOrder": 6,
       "planOrder": 4,
       "windows": {
@@ -261,7 +261,7 @@
       "discontinued": false,
       "seedPlan": "Andante",
       "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
-      "seedSourceNote": "kimi-k2.5：5h 1500万，周 2100万，月 8400万 token",
+      "seedSourceNote": "kimi-k2.5： 5h 1500万，周 2100万，月 8400万 token",
       "vendorOrder": 13,
       "planOrder": 13,
       "windows": {
@@ -289,7 +289,7 @@
       "discontinued": false,
       "seedPlan": "Allegretto",
       "seedSource": "https://github.com/mahonzhan/awesome-coding-plan?tab=readme-ov-file",
-      "seedSourceNote": "kimi-k2.5：5h 6500万，周 3.57亿，月 14.28亿 token",
+      "seedSourceNote": "kimi-k2.5： 5h 6500万，周 3.57亿，月 14.28亿 token",
       "vendorOrder": 13,
       "planOrder": 15,
       "windows": {
@@ -649,7 +649,7 @@
       "discontinued": false,
       "seedPlan": "Plus",
       "seedSource": "https://github.com/mahonzhan/awesome-coding-plan/tree/9ecfa7fc7a4b882a78d0b2dc605c18f98f8f8641",
-      "seedSourceNote": "gpt-5.4：5h 2000万，周 1.2亿，月 4.8亿 token",
+      "seedSourceNote": "gpt-5.4： 5h 2000万，周 1.2亿，月 4.8亿 token",
       "vendorOrder": 77,
       "planOrder": 77,
       "windows": {
@@ -733,7 +733,7 @@
       "discontinued": false,
       "seedPlan": "Pro",
       "seedSource": "https://github.com/mahonzhan/awesome-coding-plan/tree/9ecfa7fc7a4b882a78d0b2dc605c18f98f8f8641",
-      "seedSourceNote": "claude-opus-4.7：5h 2298万，周 1.04亿，月 4.16亿 token",
+      "seedSourceNote": "claude-opus-4.7： 5h 2298万，周 1.04亿，月 4.16亿 token",
       "vendorOrder": 80,
       "planOrder": 80,
       "windows": {
