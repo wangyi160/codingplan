@@ -22,7 +22,6 @@
     },
     "group": {
       "title": "用户群（飞书）",
-      "hint": "悬停或点击浮窗即可扫码加群。",
       "qrImage": "assets/feishu_group.png",
       "qrAlt": "飞书群二维码"
     }

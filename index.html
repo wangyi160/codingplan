@@ -1724,7 +1724,7 @@
             position: absolute;
             right: 0;
             bottom: calc(100% + 10px);
-            width: min(320px, calc(100vw - 28px));
+            width: min(360px, calc(100vw - 28px));
             padding: 12px;
             border-radius: 18px;
             border: 1px solid rgba(23, 32, 51, 0.1);
@@ -1785,9 +1785,9 @@
         }
 
         .feedback-float-qr {
-            width: 74px;
-            height: 74px;
-            border-radius: 10px;
+            width: 168px;
+            height: 168px;
+            border-radius: 14px;
             border: 1px solid rgba(23, 32, 51, 0.08);
             display: block;
             object-fit: cover;
@@ -1805,12 +1805,6 @@
             font-weight: 700;
             color: var(--text-primary);
             line-height: 1.4;
-        }
-
-        .feedback-float-group-hint {
-            font-size: 11px;
-            color: var(--text-secondary);
-            line-height: 1.45;
         }
 
         .hero-summary-card strong {
@@ -2773,7 +2767,6 @@
                 <img class="feedback-float-qr" id="feedbackFloatQr" src="" alt="" loading="lazy" decoding="async">
                 <div class="feedback-float-group-copy">
                     <div class="feedback-float-group-title" id="feedbackFloatGroupTitle"></div>
-                    <div class="feedback-float-group-hint" id="feedbackFloatGroupHint"></div>
                 </div>
             </div>
         </div>
@@ -4327,7 +4320,6 @@
                         },
                         group: {
                             title: "用户群（飞书）",
-                            hint: "悬停或点击浮窗即可扫码加群。",
                             qrImage: "assets/feishu_group.png",
                             qrAlt: "飞书群二维码"
                         }
@@ -4522,8 +4514,7 @@
             const feedbackLink = document.getElementById('feedbackFloatFeedbackLink');
             const qrImage = document.getElementById('feedbackFloatQr');
             const groupTitle = document.getElementById('feedbackFloatGroupTitle');
-            const groupHint = document.getElementById('feedbackFloatGroupHint');
-            if (!triggerLabel || !dataIssueText || !feedbackText || !dataIssueLink || !feedbackLink || !qrImage || !groupTitle || !groupHint) return;
+            if (!triggerLabel || !dataIssueText || !feedbackText || !dataIssueLink || !feedbackLink || !qrImage || !groupTitle) return;
 
             const feedback = appConfig.feedback || {};
             const dataIssue = feedback.dataIssue || {};
@@ -4541,7 +4532,6 @@
             dataIssueText.textContent = dataIssue.text || '数据不对';
             feedbackText.textContent = feedbackEntry.text || '反馈入口';
             groupTitle.textContent = group.title || '用户群（飞书）';
-            groupHint.textContent = group.hint || '悬停或点击浮窗即可扫码加群。';
 
             dataIssueLink.href = dataIssueUrl || 'https://github.com/wmpeng/codingplan/issues/new/choose';
             feedbackLink.href = feedbackUrl || 'https://github.com/wmpeng/codingplan/discussions';
