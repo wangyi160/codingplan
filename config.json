@@ -12,22 +12,21 @@
   },
   "community": {
     "eyebrow": "加入社群",
-    "title": "价格变化、抢购消息、使用体验，都可以进群聊",
-    "description": "想聊哪个套餐更划算、最近有没有价格变化、模型到底好不好用，欢迎直接扫码加入飞书群。",
-    "status": "有想问的、想交流的，直接进群更方便",
+    "title": "进群获取价格变化和选型反馈",
+    "description": "扫码加入飞书群，第一时间看价格/限购提醒，也能聊套餐选型和实测体验。",
+    "status": "",
     "highlights": [
-      "价格更新、限购提醒、抢购消息，群里交流更及时。",
-      "选哪个平台更合适、值不值得买、好不好用，都可以直接问。",
-      "也可以去 GitHub 讨论区看看大家的补充和反馈。"
+      "价格/限购提醒",
+      "选型与使用反馈"
     ],
     "secondaryAction": {
       "text": "去 GitHub 讨论区",
       "url": "https://github.com/wmpeng/codingplan/discussions"
     },
-    "footnote": "桌面端扫码更方便；手机上也可以点开二维码后长按识别。",
+    "footnote": "扫码进飞书群，GitHub 可补充反馈。",
     "qrcode": "assets/feishu_group.png",
     "qrAlt": "飞书群二维码",
-    "qrHint": "扫码后即可加入飞书群。"
+    "qrHint": "扫码即可进群"
   },
   "recommendations": [
     {
