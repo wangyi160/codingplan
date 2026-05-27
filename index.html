@@ -1743,15 +1743,6 @@
             pointer-events: auto;
         }
 
-        .feedback-float-title {
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--text-tertiary);
-            margin-bottom: 10px;
-        }
-
         .feedback-float-links {
             display: grid;
             gap: 8px;
@@ -2766,7 +2757,6 @@
             <span class="feedback-float-trigger-label" id="feedbackFloatTriggerLabel"></span>
         </button>
         <div class="feedback-float-panel" id="feedbackFloatPanel">
-            <div class="feedback-float-title" id="feedbackFloatTitle"></div>
             <div class="feedback-float-links">
                 <a class="feedback-float-link" id="feedbackFloatDataIssueLink" href="#" target="_blank" rel="noopener noreferrer">
                     <span id="feedbackFloatDataIssueText"></span><span>→</span>
@@ -4323,7 +4313,6 @@
                     },
                     feedback: {
                         triggerText: "反馈与用户群",
-                        panelTitle: "快速入口",
                         dataIssue: {
                             text: "数据不对",
                             url: "https://github.com/wmpeng/codingplan/issues/new/choose"
@@ -4523,7 +4512,6 @@
 
         function renderFeedbackFloat(community) {
             const triggerLabel = document.getElementById('feedbackFloatTriggerLabel');
-            const title = document.getElementById('feedbackFloatTitle');
             const dataIssueText = document.getElementById('feedbackFloatDataIssueText');
             const feedbackText = document.getElementById('feedbackFloatFeedbackText');
             const dataIssueLink = document.getElementById('feedbackFloatDataIssueLink');
@@ -4531,7 +4519,7 @@
             const qrImage = document.getElementById('feedbackFloatQr');
             const groupTitle = document.getElementById('feedbackFloatGroupTitle');
             const groupHint = document.getElementById('feedbackFloatGroupHint');
-            if (!triggerLabel || !title || !dataIssueText || !feedbackText || !dataIssueLink || !feedbackLink || !qrImage || !groupTitle || !groupHint) return;
+            if (!triggerLabel || !dataIssueText || !feedbackText || !dataIssueLink || !feedbackLink || !qrImage || !groupTitle || !groupHint) return;
 
             const feedback = appConfig.feedback || {};
             const dataIssue = feedback.dataIssue || {};
@@ -4546,7 +4534,6 @@
             );
 
             triggerLabel.textContent = feedback.triggerText || '反馈与用户群';
-            title.textContent = feedback.panelTitle || '快速入口';
             dataIssueText.textContent = dataIssue.text || '数据不对';
             feedbackText.textContent = feedbackEntry.text || '反馈入口';
             groupTitle.textContent = group.title || '用户群（飞书）';
