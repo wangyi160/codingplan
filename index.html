@@ -1739,7 +1739,7 @@
             pointer-events: none;
         }
 
-        .feedback-float:hover .feedback-float-panel,
+        /* 仅用 is-open，避免闭合后光标仍在按钮上时 :hover 把面板再度撑开导致“再点不关” */
         .feedback-float.is-open .feedback-float-panel {
             opacity: 1;
             visibility: visible;
