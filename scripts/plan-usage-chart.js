@@ -647,12 +647,25 @@
                         shadowColor: 'rgba(23, 32, 51, 0.12)'
                     }
                 };
+            }).sort(function (left, right) {
+                var leftPrice = Number(left.value && left.value[0] || 0);
+                var rightPrice = Number(right.value && right.value[0] || 0);
+                if (leftPrice !== rightPrice) {
+                    return leftPrice - rightPrice;
+                }
+                return Number(left.value && left.value[1] || 0) - Number(right.value && right.value[1] || 0);
             });
             return {
                 name: vendor,
-                type: 'scatter',
+                type: 'line',
                 color: colorMap[vendor],
+                symbol: 'circle',
                 symbolSize: 16,
+                showSymbol: true,
+                lineStyle: {
+                    width: points.length > 1 ? 1.5 : 0,
+                    opacity: points.length > 1 ? 0.3 : 0
+                },
                 label: {
                     show: true,
                     position: 'right',
