@@ -2802,11 +2802,11 @@
         <div class="feedback-float-panel" id="feedbackFloatPanel">
             <div class="feedback-float-title">快速入口</div>
             <div class="feedback-float-links">
-                <a class="feedback-float-link" id="feedbackFloatDataIssueLink" href="https://github.com/wmpeng/codingplan/issues/new/choose" target="_blank" rel="noopener noreferrer">
-                    <span>数据不对</span><span>→</span>
+                <a class="feedback-float-link" id="feedbackFloatDataIssueLink" href="https://github.com/wmpeng/codingplan/discussions" target="_blank" rel="noopener noreferrer">
+                    <span>Github讨论</span><span>→</span>
                 </a>
-                <a class="feedback-float-link" id="feedbackFloatFeedbackLink" href="https://github.com/wmpeng/codingplan/discussions" target="_blank" rel="noopener noreferrer">
-                    <span>反馈入口</span><span>→</span>
+                <a class="feedback-float-link" id="feedbackFloatFeedbackLink" href="https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=db8k6e5c-3f41-4a8a-9988-cde80effeb3e" target="_blank" rel="noopener noreferrer">
+                    <span>加群讨论</span><span>→</span>
                 </a>
             </div>
             <div class="feedback-float-group">
@@ -4538,20 +4538,20 @@
             if (!dataIssueLink || !feedbackLink || !groupLink || !qrImage) return;
 
             const dataIssueUrl = sanitizeHttpUrl(
-                appConfig.feedback?.dataIssueUrl || 'https://github.com/wmpeng/codingplan/issues/new/choose'
+                appConfig.feedback?.dataIssueUrl || 'https://github.com/wmpeng/codingplan/discussions'
             );
             const feedbackUrl = sanitizeHttpUrl(
                 appConfig.feedback?.feedbackUrl ||
                 (community && community.secondaryAction && community.secondaryAction.url) ||
-                'https://github.com/wmpeng/codingplan/discussions'
+                'https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=db8k6e5c-3f41-4a8a-9988-cde80effeb3e'
             );
             const groupEntryUrl = sanitizeHttpUrl(
                 appConfig.feedback?.groupEntryUrl || '#communityHub',
                 '#communityHub'
             );
 
-            dataIssueLink.href = dataIssueUrl || 'https://github.com/wmpeng/codingplan/issues/new/choose';
-            feedbackLink.href = feedbackUrl || 'https://github.com/wmpeng/codingplan/discussions';
+            dataIssueLink.href = dataIssueUrl || 'https://github.com/wmpeng/codingplan/discussions';
+            feedbackLink.href = feedbackUrl || 'https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=db8k6e5c-3f41-4a8a-9988-cde80effeb3e';
             groupLink.href = groupEntryUrl || '#communityHub';
 
             const qrSrc = typeof community?.qrcode === 'string' ? community.qrcode.trim() : '';
