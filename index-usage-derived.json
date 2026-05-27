@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-26T17:19:19.866397Z",
+  "generatedAt": "2026-05-27T10:44:43.124964Z",
   "source": {
     "plans": "codingplan/plans.json",
     "seeds": "scripts/codingplan/plan-usage-seeds.json"
@@ -514,8 +514,8 @@
       "planOrder": 23,
       "windows": {
         "monthly": {
-          "tokenLimit": 150000000,
-          "tokenPerCny": 757575.76
+          "tokenLimit": 375000000,
+          "tokenPerCny": 1893939.39
         }
       }
     },
@@ -534,8 +534,8 @@
       "planOrder": 24,
       "windows": {
         "monthly": {
-          "tokenLimit": 600000000,
-          "tokenPerCny": 859598.85
+          "tokenLimit": 1500000000,
+          "tokenPerCny": 2148997.13
         }
       }
     },
@@ -554,8 +554,8 @@
       "planOrder": 25,
       "windows": {
         "monthly": {
-          "tokenLimit": 1500000000,
-          "tokenPerCny": 1072961.37
+          "tokenLimit": 3750000000,
+          "tokenPerCny": 2682403.43
         }
       }
     },
@@ -574,8 +574,8 @@
       "planOrder": 28,
       "windows": {
         "monthly": {
-          "tokenLimit": 30000000,
-          "tokenPerCny": 769230.77
+          "tokenLimit": 108000000,
+          "tokenPerCny": 2769230.77
         }
       }
     },
@@ -594,8 +594,8 @@
       "planOrder": 29,
       "windows": {
         "monthly": {
-          "tokenLimit": 100000000,
-          "tokenPerCny": 1010101.01
+          "tokenLimit": 290000000,
+          "tokenPerCny": 2929292.93
         }
       }
     },
@@ -614,8 +614,8 @@
       "planOrder": 30,
       "windows": {
         "monthly": {
-          "tokenLimit": 350000000,
-          "tokenPerCny": 1063829.79
+          "tokenLimit": 1002000000,
+          "tokenPerCny": 3045592.71
         }
       }
     },
@@ -634,8 +634,8 @@
       "planOrder": 31,
       "windows": {
         "monthly": {
-          "tokenLimit": 800000000,
-          "tokenPerCny": 1213960.55
+          "tokenLimit": 2162000000,
+          "tokenPerCny": 3280728.38
         }
       }
     },
