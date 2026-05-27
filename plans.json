@@ -708,10 +708,10 @@
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
     "monthlyRequests": "无限制",
-    "tokenLimit": 150,
+    "tokenLimit": 375,
     "benefits": [],
-    "note": "• Qwen-3.6-Plus，输入5K Token/Credit，输入命中25K Token/Credit，输出0.83K Token/Credit\n• 合输入¥1.58/MToken，缓存¥0.32/MToken，输出¥9.54/MToken\n• 按缓存命中率90%，输入输出9:1算，约5.85K Token/Credit。表格按6K Token/Credit算",
-    "measuredMonthlyTokenLimit": 150
+    "note": "• Qwen-3.6-Plus，输入5K Token/Credit，输入命中25K Token/Credit，输出0.83K Token/Credit。合输入¥1.58/MToken，缓存¥0.32/MToken，输出¥9.54/MToken\n• 按缓存命中率90%、输入输出99:1算：100 Token 约消耗 99×10%/5000 + 99×90%/25000 + 1/830 = 0.00675 Credit，即 1 Credit≈14.82K Token。表格按15K Token/Credit算",
+    "measuredMonthlyTokenLimit": 375
   },
   {
     "vendor": "阿里·百炼",
@@ -737,10 +737,10 @@
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
     "monthlyRequests": "无限制",
-    "tokenLimit": 600,
+    "tokenLimit": 1500,
     "benefits": [],
-    "note": "• Qwen-3.6-Plus，输入5K Token/Credit，输入命中25K Token/Credit，输出0.83K Token/Credit\n• 合输入¥1.40/MToken，缓存¥0.28/MToken，输出¥8.41/MToken\n• 按缓存命中率90%，输入输出9:1算，约5.85K Token/Credit。表格按6K Token/Credit算",
-    "measuredMonthlyTokenLimit": 600
+    "note": "• Qwen-3.6-Plus，输入5K Token/Credit，输入命中25K Token/Credit，输出0.83K Token/Credit。合输入¥1.40/MToken，缓存¥0.28/MToken，输出¥8.41/MToken\n• 按缓存命中率90%、输入输出99:1算：100 Token 约消耗 99×10%/5000 + 99×90%/25000 + 1/830 = 0.00675 Credit，即 1 Credit≈14.82K Token。表格按15K Token/Credit算",
+    "measuredMonthlyTokenLimit": 1500
   },
   {
     "vendor": "阿里·百炼",
@@ -766,10 +766,10 @@
     "fiveHoursRequests": "无限制",
     "weeklyRequests": "无限制",
     "monthlyRequests": "无限制",
-    "tokenLimit": 1500,
+    "tokenLimit": 3750,
     "benefits": [],
-    "note": "• Qwen-3.6-Plus，输入5K Token/Credit，输入命中25K Token/Credit，输出0.83K Token/Credit\n• 合输入¥1.12/MToken，缓存¥0.22/MToken，输出¥6.74/MToken\n• 按缓存命中率90%，输入输出9:1算，约5.85K Token/Credit。表格按6K Token/Credit算",
-    "measuredMonthlyTokenLimit": 1500
+    "note": "• Qwen-3.6-Plus，输入5K Token/Credit，输入命中25K Token/Credit，输出0.83K Token/Credit。合输入¥1.12/MToken，缓存¥0.22/MToken，输出¥6.74/MToken\n• 按缓存命中率90%、输入输出99:1算：100 Token 约消耗 99×10%/5000 + 99×90%/25000 + 1/830 = 0.00675 Credit，即 1 Credit≈14.82K Token。表格按15K Token/Credit算",
+    "measuredMonthlyTokenLimit": 3750
   },
   {
     "vendor": "阿里·百炼",
