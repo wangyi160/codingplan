@@ -1818,17 +1818,6 @@
             line-height: 1.45;
         }
 
-        .feedback-float-group-link {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--accent-primary);
-            text-decoration: none;
-        }
-
-        .feedback-float-group-link:hover {
-            text-decoration: underline;
-        }
-
         .hero-summary-card strong {
             color: var(--text-primary);
         }
@@ -2145,13 +2134,11 @@
 
         <!-- 顶部标题 -->
         <div class="header">
-            <a href="#communityHub" class="github-link" id="headerEntryLink">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true">
-                    <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
-                    <path d="M8 9h8"></path>
-                    <path d="M8 13h5"></path>
+            <a href="https://github.com/wmpeng/codingplan/discussions" class="github-link" id="headerEntryLink" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                    <path d="M12 2C6.5 2 2 6.58 2 12.2c0 4.5 2.9 8.32 6.9 9.67.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.8.62-3.39-1.38-3.39-1.38-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.36 1.12 2.93.86.09-.67.35-1.12.64-1.38-2.23-.26-4.58-1.14-4.58-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05A9.36 9.36 0 0 1 12 6.84c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.92-2.35 4.79-4.6 5.04.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.84 0 .27.18.59.69.49A10.24 10.24 0 0 0 22 12.2C22 6.58 17.5 2 12 2z"></path>
                 </svg>
-                <span id="headerEntryText">加入社群</span>
+                <span id="headerEntryText">GitHub 讨论</span>
             </a>
             <h1 id="pageTitle">AI Coding Plan 对比</h1>
             <div class="update-date" id="updateDate">更新日期2026.5.8 | 字节方舟上线AgentPlan，CodingPlan开始限购</div>
@@ -2183,27 +2170,6 @@
                     <p class="hero-summary-guide-note">帮助先快速建立全局判断，在几个候选平台之间做第一轮取舍。</p>
                 </div>
                 <a class="hero-summary-readmore" href="articles/plan_comparison_20260519/index.html">查看选型文章 →</a>
-            </article>
-            <article class="hero-summary-card hero-summary-card--community" id="communityHub">
-                <div class="community-hub">
-                    <div class="community-hub-copy">
-                        <div class="hero-summary-kicker">加入社群</div>
-                        <h2 class="hero-summary-title">进群获取价格变化和选型反馈</h2>
-                        <p class="hero-summary-body">扫码加入飞书群，第一时间看价格/限购提醒，也能聊套餐选型和实测体验。</p>
-                        <ul class="community-hub-highlights">
-                            <li>价格/限购提醒</li>
-                            <li>选型与使用反馈</li>
-                        </ul>
-                        <div class="community-hub-actions">
-                            <a class="community-hub-btn community-hub-btn--secondary" href="https://github.com/wmpeng/codingplan/discussions" target="_blank" rel="noopener noreferrer">去 GitHub 讨论区</a>
-                        </div>
-                        <div class="community-hub-footnote">扫码进飞书群，GitHub 可补充反馈。</div>
-                    </div>
-                    <div class="community-hub-qr">
-                        <img src="assets/feishu_group.png" alt="飞书群二维码" loading="lazy" decoding="async">
-                        <p class="community-hub-qr-hint">扫码即可进群</p>
-                    </div>
-                </div>
             </article>
             <!-- <article class="hero-summary-card hero-summary-card--accent">
                 <div class="hero-summary-kicker">How To Choose</div>
@@ -2797,24 +2763,23 @@
                     <path d="M8 13h5"></path>
                 </svg>
             </span>
-            <span class="feedback-float-trigger-label">反馈与用户群</span>
+            <span class="feedback-float-trigger-label" id="feedbackFloatTriggerLabel"></span>
         </button>
         <div class="feedback-float-panel" id="feedbackFloatPanel">
-            <div class="feedback-float-title">快速入口</div>
+            <div class="feedback-float-title" id="feedbackFloatTitle"></div>
             <div class="feedback-float-links">
-                <a class="feedback-float-link" id="feedbackFloatDataIssueLink" href="https://github.com/wmpeng/codingplan/discussions" target="_blank" rel="noopener noreferrer">
-                    <span>Github讨论</span><span>→</span>
+                <a class="feedback-float-link" id="feedbackFloatDataIssueLink" href="#" target="_blank" rel="noopener noreferrer">
+                    <span id="feedbackFloatDataIssueText"></span><span>→</span>
                 </a>
-                <a class="feedback-float-link" id="feedbackFloatFeedbackLink" href="https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=db8k6e5c-3f41-4a8a-9988-cde80effeb3e" target="_blank" rel="noopener noreferrer">
-                    <span>加群讨论</span><span>→</span>
+                <a class="feedback-float-link" id="feedbackFloatFeedbackLink" href="#" target="_blank" rel="noopener noreferrer">
+                    <span id="feedbackFloatFeedbackText"></span><span>→</span>
                 </a>
             </div>
             <div class="feedback-float-group">
-                <img class="feedback-float-qr" id="feedbackFloatQr" src="assets/feishu_group.png" alt="飞书群二维码" loading="lazy" decoding="async">
+                <img class="feedback-float-qr" id="feedbackFloatQr" src="" alt="" loading="lazy" decoding="async">
                 <div class="feedback-float-group-copy">
-                    <div class="feedback-float-group-title">用户群（飞书）</div>
-                    <div class="feedback-float-group-hint">悬停或点击浮窗即可扫码，也可进入社群区查看。</div>
-                    <a class="feedback-float-group-link" id="feedbackFloatGroupLink" href="#communityHub">查看加群入口</a>
+                    <div class="feedback-float-group-title" id="feedbackFloatGroupTitle"></div>
+                    <div class="feedback-float-group-hint" id="feedbackFloatGroupHint"></div>
                 </div>
             </div>
         </div>
@@ -4352,8 +4317,26 @@
                         models: "目前整体趋势是已经开始用Token Plan替换Coding Plan了，几个大厂阿里、字节、腾讯都改成Token Plan了，各位且买且珍惜吧",
                         watermarkUrl: "www.codingplan.fyi",
                         entry: {
-                            url: "#communityHub",
-                            text: "加入社群"
+                            url: "https://github.com/wmpeng/codingplan/discussions",
+                            text: "GitHub 讨论"
+                        }
+                    },
+                    feedback: {
+                        triggerText: "反馈与用户群",
+                        panelTitle: "快速入口",
+                        dataIssue: {
+                            text: "数据不对",
+                            url: "https://github.com/wmpeng/codingplan/issues/new/choose"
+                        },
+                        feedbackEntry: {
+                            text: "反馈入口",
+                            url: "https://github.com/wmpeng/codingplan/discussions"
+                        },
+                        group: {
+                            title: "用户群（飞书）",
+                            hint: "悬停或点击浮窗即可扫码加群。",
+                            qrImage: "assets/feishu_group.png",
+                            qrAlt: "飞书群二维码"
                         }
                     },
                     community: {
@@ -4392,8 +4375,16 @@
                 if (h.entry || h.github) {
                     const entry = h.entry || h.github;
                     const headerEntryLink = document.getElementById('headerEntryLink');
-                    const entryUrl = sanitizeHttpUrl(entry.url, '#communityHub');
-                    headerEntryLink.href = entryUrl || '#communityHub';
+                    const entryUrl = sanitizeHttpUrl(entry.url, 'https://github.com/wmpeng/codingplan/discussions');
+                    headerEntryLink.href = entryUrl || 'https://github.com/wmpeng/codingplan/discussions';
+                    const isExternal = /^https?:\/\//i.test(headerEntryLink.href);
+                    if (isExternal) {
+                        headerEntryLink.setAttribute('target', '_blank');
+                        headerEntryLink.setAttribute('rel', 'noopener noreferrer');
+                    } else {
+                        headerEntryLink.removeAttribute('target');
+                        headerEntryLink.removeAttribute('rel');
+                    }
                     document.getElementById('headerEntryText').textContent = entry.text;
                 }
             }
@@ -4531,33 +4522,45 @@
         }
 
         function renderFeedbackFloat(community) {
+            const triggerLabel = document.getElementById('feedbackFloatTriggerLabel');
+            const title = document.getElementById('feedbackFloatTitle');
+            const dataIssueText = document.getElementById('feedbackFloatDataIssueText');
+            const feedbackText = document.getElementById('feedbackFloatFeedbackText');
             const dataIssueLink = document.getElementById('feedbackFloatDataIssueLink');
             const feedbackLink = document.getElementById('feedbackFloatFeedbackLink');
-            const groupLink = document.getElementById('feedbackFloatGroupLink');
             const qrImage = document.getElementById('feedbackFloatQr');
-            if (!dataIssueLink || !feedbackLink || !groupLink || !qrImage) return;
+            const groupTitle = document.getElementById('feedbackFloatGroupTitle');
+            const groupHint = document.getElementById('feedbackFloatGroupHint');
+            if (!triggerLabel || !title || !dataIssueText || !feedbackText || !dataIssueLink || !feedbackLink || !qrImage || !groupTitle || !groupHint) return;
+
+            const feedback = appConfig.feedback || {};
+            const dataIssue = feedback.dataIssue || {};
+            const feedbackEntry = feedback.feedbackEntry || {};
+            const group = feedback.group || {};
 
             const dataIssueUrl = sanitizeHttpUrl(
-                appConfig.feedback?.dataIssueUrl || 'https://github.com/wmpeng/codingplan/discussions'
+                dataIssue.url || 'https://github.com/wmpeng/codingplan/issues/new/choose'
             );
             const feedbackUrl = sanitizeHttpUrl(
-                appConfig.feedback?.feedbackUrl ||
-                (community && community.secondaryAction && community.secondaryAction.url) ||
-                'https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=db8k6e5c-3f41-4a8a-9988-cde80effeb3e'
-            );
-            const groupEntryUrl = sanitizeHttpUrl(
-                appConfig.feedback?.groupEntryUrl || '#communityHub',
-                '#communityHub'
+                feedbackEntry.url || 'https://github.com/wmpeng/codingplan/discussions'
             );
 
-            dataIssueLink.href = dataIssueUrl || 'https://github.com/wmpeng/codingplan/discussions';
-            feedbackLink.href = feedbackUrl || 'https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=db8k6e5c-3f41-4a8a-9988-cde80effeb3e';
-            groupLink.href = groupEntryUrl || '#communityHub';
+            triggerLabel.textContent = feedback.triggerText || '反馈与用户群';
+            title.textContent = feedback.panelTitle || '快速入口';
+            dataIssueText.textContent = dataIssue.text || '数据不对';
+            feedbackText.textContent = feedbackEntry.text || '反馈入口';
+            groupTitle.textContent = group.title || '用户群（飞书）';
+            groupHint.textContent = group.hint || '悬停或点击浮窗即可扫码加群。';
 
-            const qrSrc = typeof community?.qrcode === 'string' ? community.qrcode.trim() : '';
+            dataIssueLink.href = dataIssueUrl || 'https://github.com/wmpeng/codingplan/issues/new/choose';
+            feedbackLink.href = feedbackUrl || 'https://github.com/wmpeng/codingplan/discussions';
+
+            const qrSrc = typeof group.qrImage === 'string' && group.qrImage.trim()
+                ? group.qrImage.trim()
+                : (typeof community?.qrcode === 'string' ? community.qrcode.trim() : '');
             if (qrSrc) {
                 qrImage.src = qrSrc;
-                qrImage.alt = community.qrAlt || '飞书群二维码';
+                qrImage.alt = group.qrAlt || community.qrAlt || '飞书群二维码';
             }
         }
 
