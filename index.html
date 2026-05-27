@@ -1724,8 +1724,8 @@
             position: absolute;
             right: 0;
             bottom: calc(100% + 10px);
-            width: min(360px, calc(100vw - 28px));
-            padding: 12px;
+            width: min(300px, calc(100vw - 28px));
+            padding: 14px;
             border-radius: 18px;
             border: 1px solid rgba(23, 32, 51, 0.1);
             background: rgba(255, 251, 245, 0.96);
@@ -1747,17 +1747,13 @@
             pointer-events: auto;
         }
 
-        .feedback-float-links {
-            display: grid;
-            gap: 8px;
-        }
-
-        .feedback-float-link {
+        .feedback-float-action-link {
             display: inline-flex;
             align-items: center;
             justify-content: space-between;
             gap: 8px;
-            min-height: 34px;
+            width: 100%;
+            min-height: 36px;
             padding: 0 12px;
             border-radius: 12px;
             border: 1px solid rgba(23, 32, 51, 0.1);
@@ -1769,42 +1765,39 @@
             transition: border-color 0.15s ease, background 0.15s ease;
         }
 
-        .feedback-float-link:hover {
+        .feedback-float-action-link:hover {
             border-color: rgba(15, 118, 110, 0.24);
             background: rgba(15, 118, 110, 0.08);
         }
 
-        .feedback-float-group {
-            margin-top: 10px;
-            padding-top: 10px;
+        .feedback-float-feishu {
+            margin-top: 12px;
+            padding-top: 12px;
             border-top: 1px solid rgba(23, 32, 51, 0.08);
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 10px;
+            display: flex;
+            flex-direction: column;
             align-items: center;
+            gap: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .feedback-float-feishu-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.4;
         }
 
         .feedback-float-qr {
-            width: 168px;
-            height: 168px;
+            width: min(168px, 72vw);
+            height: auto;
+            aspect-ratio: 1;
             border-radius: 14px;
             border: 1px solid rgba(23, 32, 51, 0.08);
             display: block;
             object-fit: cover;
             background: white;
-        }
-
-        .feedback-float-group-copy {
-            min-width: 0;
-            display: grid;
-            gap: 4px;
-        }
-
-        .feedback-float-group-title {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1.4;
         }
 
         .hero-summary-card strong {
@@ -2755,19 +2748,15 @@
             <span class="feedback-float-trigger-label" id="feedbackFloatTriggerLabel"></span>
         </button>
         <div class="feedback-float-panel" id="feedbackFloatPanel">
-            <div class="feedback-float-links">
-                <a class="feedback-float-link" id="feedbackFloatDataIssueLink" href="#" target="_blank" rel="noopener noreferrer">
-                    <span id="feedbackFloatDataIssueText"></span><span>→</span>
-                </a>
-                <a class="feedback-float-link" id="feedbackFloatFeedbackLink" href="#" target="_blank" rel="noopener noreferrer">
-                    <span id="feedbackFloatFeedbackText"></span><span>→</span>
-                </a>
-            </div>
-            <div class="feedback-float-group">
+            <a class="feedback-float-action-link" id="feedbackFloatGithubLink" href="#" target="_blank" rel="noopener noreferrer">
+                <span id="feedbackFloatGithubText"></span><span aria-hidden="true">→</span>
+            </a>
+            <div class="feedback-float-feishu">
+                <div class="feedback-float-feishu-title" id="feedbackFloatFeishuTitle"></div>
                 <img class="feedback-float-qr" id="feedbackFloatQr" src="" alt="" loading="lazy" decoding="async">
-                <div class="feedback-float-group-copy">
-                    <div class="feedback-float-group-title" id="feedbackFloatGroupTitle"></div>
-                </div>
+                <a class="feedback-float-action-link" id="feedbackFloatFeishuLink" href="#" target="_blank" rel="noopener noreferrer">
+                    <span id="feedbackFloatFeishuLinkText"></span><span aria-hidden="true">→</span>
+                </a>
             </div>
         </div>
     </div>
@@ -4311,15 +4300,15 @@
                     feedback: {
                         triggerText: "反馈与用户群",
                         dataIssue: {
-                            text: "数据不对",
-                            url: "https://github.com/wmpeng/codingplan/issues/new/choose"
-                        },
-                        feedbackEntry: {
-                            text: "反馈入口",
+                            text: "Github 讨论",
                             url: "https://github.com/wmpeng/codingplan/discussions"
                         },
+                        feedbackEntry: {
+                            text: "点此加入",
+                            url: "https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=db8k6e5c-3f41-4a8a-9988-cde80effeb3e"
+                        },
                         group: {
-                            title: "用户群（飞书）",
+                            title: "飞书讨论群",
                             qrImage: "assets/feishu_group.png",
                             qrAlt: "飞书群二维码"
                         }
@@ -4508,40 +4497,51 @@
 
         function renderFeedbackFloat(community) {
             const triggerLabel = document.getElementById('feedbackFloatTriggerLabel');
-            const dataIssueText = document.getElementById('feedbackFloatDataIssueText');
-            const feedbackText = document.getElementById('feedbackFloatFeedbackText');
-            const dataIssueLink = document.getElementById('feedbackFloatDataIssueLink');
-            const feedbackLink = document.getElementById('feedbackFloatFeedbackLink');
+            const githubText = document.getElementById('feedbackFloatGithubText');
+            const githubLink = document.getElementById('feedbackFloatGithubLink');
+            const feishuTitle = document.getElementById('feedbackFloatFeishuTitle');
+            const feishuLink = document.getElementById('feedbackFloatFeishuLink');
+            const feishuLinkLabelEl = document.getElementById('feedbackFloatFeishuLinkText');
             const qrImage = document.getElementById('feedbackFloatQr');
-            const groupTitle = document.getElementById('feedbackFloatGroupTitle');
-            if (!triggerLabel || !dataIssueText || !feedbackText || !dataIssueLink || !feedbackLink || !qrImage || !groupTitle) return;
+            if (!triggerLabel || !githubText || !githubLink || !feishuTitle || !feishuLink || !feishuLinkLabelEl || !qrImage) return;
 
             const feedback = appConfig.feedback || {};
-            const dataIssue = feedback.dataIssue || {};
-            const feedbackEntry = feedback.feedbackEntry || {};
-            const group = feedback.group || {};
+            const github = feedback.github || feedback.dataIssue || {};
+            const feishuEntry = feedback.feedbackEntry || {};
+            const feishuGroup = feedback.group || {};
 
-            const dataIssueUrl = sanitizeHttpUrl(
-                dataIssue.url || 'https://github.com/wmpeng/codingplan/issues/new/choose'
+            const githubUrl = sanitizeHttpUrl(
+                github.url || 'https://github.com/wmpeng/codingplan/discussions'
             );
-            const feedbackUrl = sanitizeHttpUrl(
-                feedbackEntry.url || 'https://github.com/wmpeng/codingplan/discussions'
-            );
+            const feishuUrl = sanitizeHttpUrl(feishuEntry.url || '');
+            const feishuTitleText = feishuGroup.title || '飞书讨论群';
+            let feishuLinkLabel = feishuEntry.text || '点此加入';
+            if (feishuLinkLabel === feishuTitleText) {
+                feishuLinkLabel = '点此加入';
+            }
 
             triggerLabel.textContent = feedback.triggerText || '反馈与用户群';
-            dataIssueText.textContent = dataIssue.text || '数据不对';
-            feedbackText.textContent = feedbackEntry.text || '反馈入口';
-            groupTitle.textContent = group.title || '用户群（飞书）';
+            githubText.textContent = github.text || 'Github 讨论';
+            githubLink.href = githubUrl || 'https://github.com/wmpeng/codingplan/discussions';
+            feishuTitle.textContent = feishuTitleText;
+            feishuLinkLabelEl.textContent = feishuLinkLabel;
+            feishuLink.href = feishuUrl || '#';
+            if (!feishuUrl) {
+                feishuLink.style.display = 'none';
+            } else {
+                feishuLink.style.display = '';
+            }
 
-            dataIssueLink.href = dataIssueUrl || 'https://github.com/wmpeng/codingplan/issues/new/choose';
-            feedbackLink.href = feedbackUrl || 'https://github.com/wmpeng/codingplan/discussions';
-
-            const qrSrc = typeof group.qrImage === 'string' && group.qrImage.trim()
-                ? group.qrImage.trim()
+            const qrSrc = typeof feishuGroup.qrImage === 'string' && feishuGroup.qrImage.trim()
+                ? feishuGroup.qrImage.trim()
                 : (typeof community?.qrcode === 'string' ? community.qrcode.trim() : '');
             if (qrSrc) {
                 qrImage.src = qrSrc;
-                qrImage.alt = group.qrAlt || community.qrAlt || '飞书群二维码';
+                qrImage.alt = feishuGroup.qrAlt || community.qrAlt || '飞书群二维码';
+                qrImage.style.display = '';
+            } else {
+                qrImage.removeAttribute('src');
+                qrImage.style.display = 'none';
             }
         }
 

@@ -6,22 +6,22 @@
     "models": "目前整体趋势是已经开始用Token Plan替换Coding Plan了，几个大厂阿里、字节、腾讯都改成Token Plan了，各位且买且珍惜吧",
     "watermarkUrl": "www.codingplan.fyi",
     "entry": {
-      "url": "https://github.com/wmpeng/codingplan/discussions",
+      "url": "https://github.com/wmpeng/codingplan/issues",
       "text": "GitHub 讨论"
     }
   },
   "feedback": {
     "triggerText": "反馈与用户群",
     "dataIssue": {
-      "text": "数据不对",
-      "url": "https://github.com/wmpeng/codingplan/issues/new/choose"
-    },
-    "feedbackEntry": {
-      "text": "反馈入口",
+      "text": "Github 讨论",
       "url": "https://github.com/wmpeng/codingplan/discussions"
     },
+    "feedbackEntry": {
+      "text": "点此加入",
+      "url": "https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=db8k6e5c-3f41-4a8a-9988-cde80effeb3e"
+    },
     "group": {
-      "title": "用户群（飞书）",
+      "title": "飞书讨论群",
       "qrImage": "assets/feishu_group.png",
       "qrAlt": "飞书群二维码"
     }
