@@ -1690,6 +1690,28 @@
             transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease, background 0.16s ease;
         }
 
+        .feedback-float-trigger-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 999px;
+            background: rgba(15, 118, 110, 0.12);
+            color: #0f766e;
+            flex-shrink: 0;
+        }
+
+        .feedback-float-trigger-icon svg {
+            width: 12px;
+            height: 12px;
+            display: block;
+        }
+
+        .feedback-float-trigger-label {
+            white-space: nowrap;
+        }
+
         .feedback-float-trigger:hover {
             transform: translateY(-1px);
             box-shadow: 0 16px 28px rgba(23, 32, 51, 0.16);
@@ -2104,8 +2126,15 @@
 
             .feedback-float-trigger {
                 min-height: 36px;
-                padding: 0 12px;
+                min-width: 36px;
+                padding: 0;
                 font-size: 12px;
+                justify-content: center;
+                border-radius: 999px;
+            }
+
+            .feedback-float-trigger-label {
+                display: none;
             }
         }
     </style>
@@ -2761,7 +2790,14 @@
 
     <div class="feedback-float" id="feedbackFloat">
         <button type="button" class="feedback-float-trigger" id="feedbackFloatTrigger" aria-expanded="false" aria-controls="feedbackFloatPanel">
-            <span>反馈与用户群</span>
+            <span class="feedback-float-trigger-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
+                    <path d="M8 9h8"></path>
+                    <path d="M8 13h5"></path>
+                </svg>
+            </span>
+            <span class="feedback-float-trigger-label">反馈与用户群</span>
         </button>
         <div class="feedback-float-panel" id="feedbackFloatPanel">
             <div class="feedback-float-title">快速入口</div>
