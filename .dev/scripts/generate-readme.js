@@ -4,10 +4,12 @@ const path = require('path');
 // 读取数据文件
 const configPath = path.join(__dirname, '../../config.json');
 const plansPath = path.join(__dirname, '../../plans.json');
+const derivedPath = path.join(__dirname, '../../index-usage-derived.json');
 const indexPath = path.join(__dirname, '../../index.html');
 
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 const allPlans = JSON.parse(fs.readFileSync(plansPath, 'utf8'));
+const derivedUsage = JSON.parse(fs.readFileSync(derivedPath, 'utf8'));
 const indexHtml = fs.readFileSync(indexPath, 'utf8');
 // 过滤掉已下线的套餐
 const plans = allPlans.filter(plan => !plan.discontinued);
@@ -113,6 +115,23 @@ function formatSubtitle(text) {
     return String(text || '').split('\n').map(line => line.trim()).filter(Boolean).join('  \n');
 }
 
+function normalizeLookupValue(value) {
+    return String(value || '').trim().toLowerCase();
+}
+
+function buildPlanLookupKey(vendor, plan, type) {
+    return [vendor, plan, type].map(normalizeLookupValue).join('::');
+}
+
+function buildDerivedUsageMap(items) {
+    return new Map((items || []).map(item => [
+        buildPlanLookupKey(item.vendor, item.plan, item.type || 'Coding Plan'),
+        item
+    ]));
+}
+
+const derivedUsageMap = buildDerivedUsageMap(derivedUsage.items);
+
 function formatTags(tags) {
     if (!Array.isArray(tags) || tags.length === 0) return '-';
     return escapeTableCell(tags.join(' / '));
@@ -122,6 +141,46 @@ function formatTokenLimit(value) {
     if (typeof value === 'number') return `${value.toLocaleString()}M Tokens`;
     if (value === undefined || value === null || value === '') return '-';
     return escapeTableCell(String(value));
+}
+
+function formatCompactTokens(value) {
+    const numeric = Number(value || 0);
+    if (!Number.isFinite(numeric) || numeric <= 0) return '-';
+
+    const absValue = Math.abs(numeric);
+    if (absValue >= 100000000) {
+        return `${(numeric / 100000000).toFixed(absValue >= 1000000000 ? 1 : 2).replace(/\.0+$|(?<=\.[0-9]*[1-9])0+$/, '')}亿`;
+    }
+    if (absValue >= 10000) {
+        return `${(numeric / 10000).toFixed(absValue >= 1000000 ? 1 : 2).replace(/\.0+$|(?<=\.[0-9]*[1-9])0+$/, '')}万`;
+    }
+    return Math.round(numeric).toLocaleString('zh-CN');
+}
+
+function formatNumericPrice(value, currency = '¥') {
+    const numeric = Number(value || 0);
+    if (!Number.isFinite(numeric) || numeric <= 0) return '-';
+    const formatted = Number.isInteger(numeric) ? String(numeric) : numeric.toFixed(2);
+    return `${currency}${formatted}`;
+}
+
+function getMonthlyUsageMetrics(plan) {
+    const lookupKey = buildPlanLookupKey(plan.vendor, plan.plan, plan.type || 'Coding Plan');
+    const derivedPlan = derivedUsageMap.get(lookupKey);
+    const monthlyWindow = derivedPlan && derivedPlan.windows && derivedPlan.windows.monthly;
+    const tokenPerCny = Number(monthlyWindow && monthlyWindow.tokenPerCny || 0);
+
+    if (!Number.isFinite(tokenPerCny) || tokenPerCny <= 0) {
+        return {
+            tokenPerCny: '-',
+            cnyPerMillionTokens: '-'
+        };
+    }
+
+    return {
+        tokenPerCny: formatCompactTokens(tokenPerCny),
+        cnyPerMillionTokens: formatNumericPrice(1000000 / tokenPerCny)
+    };
 }
 
 function formatStatus(discontinued) {
@@ -136,8 +195,8 @@ function getOriginalPrice(currentPrice, multiplier) {
 
 // 生成套餐对比表
 function generateTable(plans) {
-    let md = '| 平台 | 套餐 | 类型 | 链接 | 评分 | 标签 | 首月价格 | 连续包月 | 连续包季 | 连续包年 | 5小时请求数 | 每周请求数 | 每月总请求数 | 实测5h Token | 实测周Token | 实测月Token | Token上限 | 支持模型 | 其他权益 | 状态 | 备注 |\n';
-    md += '|------|------|------|------|------|------|---------|---------|---------|---------|-----------|-----------|-----------|-------------|------------|------------|-----------|---------|---------|------|------|\n';
+    let md = '| 平台 | 套餐 | 类型 | 链接 | 评分 | 标签 | 首月价格 | 连续包月 | 连续包季 | 连续包年 | 5小时请求数 | 每周请求数 | 每月总请求数 | 实测5h Token | 实测周Token | 实测月Token | 每元Token数（月） | 1M Token价格（月） | Token上限 | 支持模型 | 其他权益 | 状态 | 备注 |\n';
+    md += '|------|------|------|------|------|------|---------|---------|---------|---------|-----------|-----------|-----------|-------------|------------|------------|----------------|------------------|-----------|---------|---------|------|------|\n';
     
     plans.forEach(plan => {
         const vendor = plan.vendor;
@@ -161,6 +220,7 @@ function generateTable(plans) {
         const measuredFiveHours = formatTokenLimit(plan.measuredFiveHoursTokenLimit);
         const measuredWeekly = formatTokenLimit(plan.measuredWeeklyTokenLimit);
         const measuredMonthly = formatTokenLimit(plan.measuredMonthlyTokenLimit);
+        const monthlyUsageMetrics = getMonthlyUsageMetrics(plan);
         const models = escapeTableCell(plan.models.join(', '));
         const fiveHoursRequests = plan.fiveHoursRequests?.toLocaleString() || '未公开';
         const weeklyRequests = plan.weeklyRequests?.toLocaleString() || '-';
@@ -169,7 +229,7 @@ function generateTable(plans) {
         const status = formatStatus(plan.discontinued);
         const note = escapeTableCell(plan.note);
 
-        md += `| ${vendor} | ${planName} | ${type} | ${link} | ${rating} | ${tags} | ${firstMonth} | ${monthly} | ${quarterly} | ${yearly} | ${fiveHoursRequests} | ${weeklyRequests} | ${monthlyRequests} | ${measuredFiveHours} | ${measuredWeekly} | ${measuredMonthly} | ${tokenLimit} | ${models} | ${benefits} | ${status} | ${note} |\n`;
+        md += `| ${vendor} | ${planName} | ${type} | ${link} | ${rating} | ${tags} | ${firstMonth} | ${monthly} | ${quarterly} | ${yearly} | ${fiveHoursRequests} | ${weeklyRequests} | ${monthlyRequests} | ${measuredFiveHours} | ${measuredWeekly} | ${measuredMonthly} | ${monthlyUsageMetrics.tokenPerCny} | ${monthlyUsageMetrics.cnyPerMillionTokens} | ${tokenLimit} | ${models} | ${benefits} | ${status} | ${note} |\n`;
     });
     
     return md;
