@@ -189,6 +189,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": 290,
     "models": [
+      "MiniMax-M3",
       "MiniMax-M2.7",
       "MiniMax-M2.5"
     ],
@@ -217,6 +218,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": 490,
     "models": [
+      "MiniMax-M3",
       "MiniMax-M2.7",
       "MiniMax-M2.5"
     ],
@@ -245,6 +247,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": 1190,
     "models": [
+      "MiniMax-M3",
       "MiniMax-M2.7",
       "MiniMax-M2.5"
     ],
@@ -273,6 +276,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": 980,
     "models": [
+      "MiniMax-M3-highspeed",
       "MiniMax-M2.7-highspeed",
       "MiniMax-M2.5-highspeed"
     ],
@@ -301,6 +305,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": 1990,
     "models": [
+      "MiniMax-M3-highspeed",
       "MiniMax-M2.7-highspeed",
       "MiniMax-M2.5-highspeed"
     ],
