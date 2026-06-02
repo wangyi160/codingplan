@@ -199,15 +199,12 @@
     "tokenLimit": "无限制",
     "benefits": [],
     "note": "• Token Plan 升级后保留档，仅老用户可续订\n• 支持 M3 与多模态，和 M2.7 共享额度池\n• 若中途断订，后续不可再次订阅同档",
-    "discontinued": true,
-    "measuredFiveHoursTokenLimit": 24,
-    "measuredWeeklyTokenLimit": 240,
-    "measuredMonthlyTokenLimit": 960
+    "discontinued": true
   },
   {
     "vendor": "MiniMax",
     "plan": "Plus",
-    "type": "Coding Plan",
+    "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqminimax",
     "rating": 5,
     "tags": [
@@ -226,17 +223,15 @@
     "fiveHoursRequests": 1500,
     "weeklyRequests": 15000,
     "monthlyRequests": 60000,
-    "tokenLimit": "无限制",
+    "tokenLimit": 600,
     "benefits": [],
     "note": "• 当前公开订阅档位\n• 支持 M3 与多模态，和 M2.7 共享额度池\n• 套餐额度受 5 小时窗口与周窗口控制",
-    "measuredFiveHoursTokenLimit": 60,
-    "measuredWeeklyTokenLimit": 600,
-    "measuredMonthlyTokenLimit": 2400
+    "measuredMonthlyTokenLimit": 600
   },
   {
     "vendor": "MiniMax",
     "plan": "Max",
-    "type": "Coding Plan",
+    "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqminimax",
     "rating": 5,
     "tags": [
@@ -255,17 +250,15 @@
     "fiveHoursRequests": 4500,
     "weeklyRequests": 45000,
     "monthlyRequests": 180000,
-    "tokenLimit": "无限制",
+    "tokenLimit": 1800,
     "benefits": [],
     "note": "• 当前公开订阅档位\n• 支持 M3 与多模态，和 M2.7 共享额度池\n• 套餐额度受 5 小时窗口与周窗口控制",
-    "measuredFiveHoursTokenLimit": 180,
-    "measuredWeeklyTokenLimit": 1800,
-    "measuredMonthlyTokenLimit": 7200
+    "measuredMonthlyTokenLimit": 1800
   },
   {
     "vendor": "MiniMax",
     "plan": "Ultra",
-    "type": "Coding Plan",
+    "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqminimax",
     "rating": 5,
     "tags": [
@@ -281,12 +274,13 @@
       "MiniMax-M2.7",
       "MiniMax-M2.5"
     ],
-    "fiveHoursRequests": "15000",
-    "weeklyRequests": "150000",
-    "monthlyRequests": "600000",
-    "tokenLimit": "未公开",
+    "fiveHoursRequests": 15000,
+    "weeklyRequests": 150000,
+    "monthlyRequests": 600000,
+    "tokenLimit": 7100,
     "benefits": [],
-    "note": "• 当前公开订阅档位\n• 官方标注月度 M3 Token 用量约 55 亿+\n• 套餐额度受 5 小时窗口与周窗口控制"
+    "note": "• 当前公开订阅档位\n• 官方标注月度 M3 Token 用量约 55 亿+\n• 套餐额度受 5 小时窗口与周窗口控制",
+    "measuredMonthlyTokenLimit": 7100
   },
   {
     "vendor": "MiniMax",
@@ -313,10 +307,7 @@
     "tokenLimit": "无限制",
     "benefits": [],
     "note": "• Token Plan 升级后保留档，仅老用户可续订\n• 支持 M3 与多模态，和 M2.7-highspeed 共享额度池\n• 若中途断订，后续不可再次订阅同档",
-    "discontinued": true,
-    "measuredFiveHoursTokenLimit": 60,
-    "measuredWeeklyTokenLimit": 600,
-    "measuredMonthlyTokenLimit": 2400
+    "discontinued": true
   },
   {
     "vendor": "MiniMax",
@@ -343,10 +334,7 @@
     "tokenLimit": "无限制",
     "benefits": [],
     "note": "• 官方已停售并迁移至新版 Max\n• 迁移后月费 199→119，并补发差价积分\n• 新方案支持 M3 与多模态",
-    "discontinued": true,
-    "measuredFiveHoursTokenLimit": 180,
-    "measuredWeeklyTokenLimit": 1800,
-    "measuredMonthlyTokenLimit": 7200
+    "discontinued": true
   },
   {
     "vendor": "讯飞·星火",

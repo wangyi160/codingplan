@@ -1,11 +1,11 @@
 # AI Coding Plan 对比
 
-> 更新日期2026.5.27 | 更新小米Mimo价格
+> 更新日期2026.6.2 | MiniMax 同步最新套餐档位与状态（含 Ultra / 保留档 / 停售迁移）
 
 ## 📖 简介
 
 25大平台 智谱AI、Kimi、MiniMax、阿里·百炼、字节·方舟、小米·MiMo、讯飞·星火、百度·千帆、腾讯云、京东云，Coding Plan / Agent Plan 全面对比  
-支持GLM-5.1，Qwen-3.6-Plus，Kimi-K2.6，MiniMax-M2.7，Doubao-Seed-2.0，MiMo-V2-Pro等模型
+支持GLM-5.1，Qwen-3.7-Max，Kimi-K2.6，MiniMax-M3，Doubao-Seed-2.0，MiMo-V2-Pro等模型
 
 目前整体趋势是已经开始用Token Plan替换Coding Plan了，几个大厂阿里、字节、腾讯都改成Token Plan了，各位且买且珍惜吧
 
@@ -32,7 +32,7 @@
     - 需要抢购，能抢到就赚到。
 2. MiniMax ⭐️⭐️⭐️⭐️⭐️
     - 提供的套餐中，常规价格最低。+1
-    - 独占MiniMax-M2.7模型。+1
+    - 支持MiniMax-M3、MiniMax-M2.7模型。+1
     - 最实惠、额度限制最小。适合养龙虾或者作为日常编程任务或者助手。
     - **极速版**稳定性比较好，TPS也相对高，比较少遇到限频。
 3. 讯飞·星火 ⭐️⭐️⭐️⭐️⭐️
@@ -58,11 +58,9 @@
 | 智谱国际版 | Lite | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpyqzai) | ⭐️⭐️⭐️⭐️ | 模型强 | $16.2 | $18 | $49 ~~54~~ / 季 | $173 ~~216~~ / 年 | 1,200 | 6,000 | 24,000 | - | - | - | - | - | 无限制 | GLM-5.1, GLM-5-Turbo | 免费MCP次数 | 在售 | • 3倍Claude Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算 <br> • 官方只有周限量无月限量，这里按照1月=4周计算 |
 | 智谱国际版 | Pro | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpyqzai) | ⭐️⭐️⭐️⭐️ | 模型强 | $64.8 | $72 | $194 ~~216~~ / 季 | $691 ~~864~~ / 年 | 6,000 | 30,000 | 120,000 | - | - | - | - | - | 无限制 | GLM-5.1, GLM-5-Turbo, GLM-5 | 免费MCP次数 | 在售 | • 5倍Lite用量。官方以prompt计数，这里按1 prompt≈15次请求换算 <br> • 官方只有周限量无月限量，这里按照1月=4周计算 |
 | 智谱国际版 | Max | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpyqzai) | ⭐️⭐️⭐️⭐️ | 模型强 | $144 | $160 | $432 ~~480~~ / 季 | $1536 ~~1920~~ / 年 | 24,000 | 120,000 | 480,000 | - | - | - | - | - | 无限制 | GLM-5.1, GLM-5-Turbo, GLM-5 | 免费MCP次数 | 在售 | • 4倍Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算 <br> • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| MiniMax | Starter | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpyqminimax) | ⭐️⭐️⭐️⭐️⭐️ | 模型强 / 性价比高用量足 | ¥26.1 | ¥29 | - / 季 | ¥290 ~~348~~ / 年 | 600 | 6,000 | 24,000 | 24M Tokens | 240M Tokens | 960M Tokens | 3310.3万 | ¥0.03 | 无限制 | MiniMax-M2.7, MiniMax-M2.5 | - | 在售 | • 约50TPS <br> • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| MiniMax | Plus | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpyqminimax) | ⭐️⭐️⭐️⭐️⭐️ | 模型强 / 性价比高用量足 | ¥44.1 | ¥49 | - / 季 | ¥490 ~~588~~ / 年 | 1,500 | 15,000 | 60,000 | 60M Tokens | 600M Tokens | 2,400M Tokens | 4898万 | ¥0.02 | 无限制 | MiniMax-M2.7, MiniMax-M2.5 | - | 在售 | • 约50TPS <br> • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| MiniMax | Max | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpyqminimax) | ⭐️⭐️⭐️⭐️⭐️ | 模型强 / 性价比高用量足 | ¥107.1 | ¥119 | - / 季 | ¥1190 ~~1428~~ / 年 | 4,500 | 45,000 | 180,000 | 180M Tokens | 1,800M Tokens | 7,200M Tokens | 6050.4万 | ¥0.02 | 无限制 | MiniMax-M2.7, MiniMax-M2.5 | - | 在售 | • 约50TPS <br> • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| MiniMax | Plus-极速 | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpyqminimax) | ⭐️⭐️⭐️⭐️⭐️ | 模型强 / 性价比高用量足 | ¥88.2 | ¥98 | - / 季 | ¥980 ~~1176~~ / 年 | 1,500 | 15,000 | 60,000 | 60M Tokens | 600M Tokens | 2,400M Tokens | 2449万 | ¥0.04 | 无限制 | MiniMax-M2.7-highspeed, MiniMax-M2.5-highspeed | - | 在售 | • 约100TPS <br> • 官方只有周限量无月限量，这里按照1月=4周计算 |
-| MiniMax | Max-极速 | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpyqminimax) | ⭐️⭐️⭐️⭐️⭐️ | 模型强 / 性价比高用量足 | ¥179.1 | ¥199 | - / 季 | ¥1990 ~~2388~~ / 年 | 4,500 | 45,000 | 180,000 | 180M Tokens | 1,800M Tokens | 7,200M Tokens | 3618.1万 | ¥0.03 | 无限制 | MiniMax-M2.7-highspeed, MiniMax-M2.5-highspeed | - | 在售 | • 约100TPS <br> • 官方只有周限量无月限量，这里按照1月=4周计算 |
+| MiniMax | Plus | Token Plan | [跳转](https://api.dreamfree.space/c/s/cpyqminimax) | ⭐️⭐️⭐️⭐️⭐️ | 模型强 / 性价比高用量足 | ¥44.1 | ¥49 | - / 季 | ¥490 ~~588~~ / 年 | 1,500 | 15,000 | 60,000 | - | - | 600M Tokens | 1224.5万 | ¥0.08 | 600M Tokens | MiniMax-M3, MiniMax-M2.7, MiniMax-M2.5 | - | 在售 | • 当前公开订阅档位 <br> • 支持 M3 与多模态，和 M2.7 共享额度池 <br> • 套餐额度受 5 小时窗口与周窗口控制 |
+| MiniMax | Max | Token Plan | [跳转](https://api.dreamfree.space/c/s/cpyqminimax) | ⭐️⭐️⭐️⭐️⭐️ | 模型强 / 性价比高用量足 | ¥107.1 | ¥119 | - / 季 | ¥1190 ~~1428~~ / 年 | 4,500 | 45,000 | 180,000 | - | - | 1,800M Tokens | 1512.6万 | ¥0.07 | 1,800M Tokens | MiniMax-M3, MiniMax-M2.7, MiniMax-M2.5 | - | 在售 | • 当前公开订阅档位 <br> • 支持 M3 与多模态，和 M2.7 共享额度池 <br> • 套餐额度受 5 小时窗口与周窗口控制 |
+| MiniMax | Ultra | Token Plan | [跳转](https://api.dreamfree.space/c/s/cpyqminimax) | ⭐️⭐️⭐️⭐️⭐️ | 模型强 / 性价比高用量足 | ¥422.1 | ¥469 | - / 季 | ¥4690 ~~5628~~ / 年 | 15,000 | 150,000 | 600,000 | - | - | 7,100M Tokens | 1513.9万 | ¥0.07 | 7,100M Tokens | MiniMax-M3, MiniMax-M2.7, MiniMax-M2.5 | - | 在售 | • 当前公开订阅档位 <br> • 官方标注月度 M3 Token 用量约 55 亿+ <br> • 套餐额度受 5 小时窗口与周窗口控制 |
 | 讯飞·星火 | 专业版 | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpyqxunfei) | ⭐️⭐️⭐️⭐️⭐️ | 模型强 / 性价比高用量足 | - | ¥39 | - / 季 | - / 年 | 1,200 | 9,000 | 18,000 | - | - | - | - | - | 无限制 | GLM-5.1, Kimi-K2.6, Qwen-3.5-Plus, MiniMax-M2.5, Kimi-K2.5, DeepSeek-V3.2 | - | 在售 | • GLM-5.1已恢复200K上下文 <br> • 讯飞实际用量比较高 |
 | 讯飞·星火 | 高效版 | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpyqxunfei) | ⭐️⭐️⭐️⭐️ | 模型强 / 性价比高用量足 | - | ¥199 | - / 季 | - / 年 | 6,000 | 45,000 | 90,000 | - | - | - | - | - | 无限制 | GLM-5.1, Kimi-K2.6, Qwen-3.5-Plus, GLM-5, MiniMax-M2.5, Kimi-K2.5, DeepSeek-V3.2 | - | 在售 | • GLM-5.1已恢复200K上下文 <br> • 讯飞实际用量比较高 |
 | Kimi | Andante | Coding Plan | [跳转](https://api.dreamfree.space/c/s/cpyqkimi) | ⭐️⭐️⭐️⭐️ | 模型强 | - | ¥49 | - / 季 | ¥468 ~~588~~ / 年 | 未公开 | 未公开 | 未公开 | 15M Tokens | 21M Tokens | 84M Tokens | 171.4万 | ¥0.58 | 无限制 | Kimi-K2.6, Kimi-K2.5, Kimi-K2 | - | 在售 | Agent 4 倍速 |
@@ -137,6 +135,14 @@
 - 本页面数据仅供参考，价格及权益最终以平台官方公布为准，建议在选择套餐前仔细阅读各平台的官方条款和服务协议
 
 ## 📝 更新日志
+
+### 2026.6.2
+
+- MiniMax 同步最新套餐口径：新增 Ultra（469 元/月），Starter 与 Plus-极速标记为老用户保留档，Max-极速标记为停售迁移；类型仍按站内规则归类为 Coding Plan
+
+### 2026.6.1
+
+- MiniMax 套餐增加 MiniMax-M3 / MiniMax-M3-highspeed；同步阿里·百炼 Token Plan 的 Qwen-3.7-Max 展示
 
 ### 2026.5.27
 
