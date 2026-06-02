@@ -398,7 +398,7 @@
     "monthlyRequests": 600000,
     "tokenLimit": 7100,
     "benefits": [],
-    "note": "• 当前公开订阅档位\n• 官方标注月度 M3 Token 用量约 55 亿+\n• 套餐额度受 5 小时窗口与周窗口控制",
+    "note": "• 当前公开订阅档位\n• 官方月 Token 上限约 7100M（≈71 亿，M3 与 M2.7 共享池）\n• 套餐额度受 5 小时窗口与周窗口控制",
     "measuredMonthlyTokenLimit": 7100
   },
   {
