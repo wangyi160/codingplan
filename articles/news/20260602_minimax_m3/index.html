@@ -15,8 +15,56 @@
     }
 
     .doc-wrap {
-      max-width: 64rem;
+      max-width: calc(64rem + 14.5rem + 2.5rem);
       margin: 0 auto;
+    }
+
+    .doc-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .doc-toc-aside.doc-toc-aside--desktop {
+      display: none;
+    }
+
+    .doc-toc.doc-toc--inline {
+      display: block;
+    }
+
+    article.doc .doc-toc ol,
+    article.doc .doc-toc ul {
+      margin-bottom: 0;
+      padding-left: 0;
+      color: inherit;
+    }
+
+    article.doc .doc-toc li {
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
+    article.doc .doc-toc li::marker {
+      color: rgba(15, 118, 110, 0.45);
+    }
+
+    article.doc .doc-toc a,
+    article.doc .doc-toc a:hover {
+      border-bottom: none;
+      text-decoration: none;
+    }
+
+    article.doc {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    @media (max-width: 1023px) {
+      .doc-wrap {
+        max-width: 64rem;
+      }
     }
 
     .back-home-btn {
@@ -121,6 +169,168 @@
 
     article.doc h2:first-of-type {
       margin-top: 1.85rem;
+    }
+
+    article.doc h2[id],
+    article.doc h3[id] {
+      scroll-margin-top: 1.25rem;
+    }
+
+    .doc-toc {
+      margin: 0;
+      padding: 0.85rem 0.95rem 0.9rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: rgba(255, 253, 248, 0.92);
+      box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.06));
+      font-size: 0.8rem;
+      line-height: 1.45;
+    }
+
+    .doc-toc-title {
+      margin: 0 0 0.55rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      letter-spacing: 0.06em;
+    }
+
+    .doc-toc ol {
+      margin: 0;
+      padding-left: 0;
+    }
+
+    .doc-toc > ol {
+      list-style: none;
+    }
+
+    .doc-toc > ol > li {
+      margin-bottom: 0.45rem;
+    }
+
+    .doc-toc > ol > li > a {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .doc-toc ol ol {
+      margin: 0.3rem 0 0.1rem;
+      padding-left: 0.85rem;
+      list-style: none;
+      border-left: 2px solid rgba(15, 118, 110, 0.15);
+    }
+
+    .doc-toc ol ol li {
+      margin-bottom: 0.22rem;
+    }
+
+    .doc-toc ol ol a {
+      font-weight: 400;
+      color: var(--text-secondary);
+      font-size: 0.96em;
+    }
+
+    .doc-toc li {
+      margin-bottom: 0.25rem;
+    }
+
+    .doc-toc a {
+      display: block;
+      border-bottom: none;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .doc-toc a:hover {
+      color: var(--accent-primary);
+      text-decoration: none;
+      border-bottom: none;
+    }
+
+    /* 窄屏：文内目录（开场白后），样式独立于左侧栏 TOC */
+    .doc-toc.doc-toc--inline {
+      margin: 0 0 1.75rem;
+      padding: 1rem 1.15rem 1.05rem;
+      font-size: 0.92em;
+      line-height: 1.55;
+      background: rgba(15, 118, 110, 0.05);
+      box-shadow: none;
+    }
+
+    .doc-toc.doc-toc--inline .doc-toc-title {
+      font-size: 0.88rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .doc-toc.doc-toc--inline > ol > li {
+      margin-bottom: 0.5rem;
+    }
+
+    .doc-toc.doc-toc--inline > ol > li > a {
+      display: inline;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .doc-toc.doc-toc--inline ol ol {
+      margin: 0.35rem 0 0.15rem;
+      padding-left: 1.15rem;
+      list-style: decimal;
+      border-left: none;
+    }
+
+    .doc-toc.doc-toc--inline ol ol li {
+      margin-bottom: 0.3rem;
+    }
+
+    .doc-toc.doc-toc--inline ol ol a {
+      display: inline;
+      font-weight: 500;
+      color: var(--text-secondary);
+      font-size: 1em;
+    }
+
+    .doc-toc.doc-toc--inline a:hover {
+      color: var(--accent-primary);
+    }
+
+    @media (min-width: 1024px) {
+      .doc-layout {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: clamp(1.25rem, 2.5vw, 2rem);
+      }
+
+      .doc-toc.doc-toc--inline {
+        display: none;
+      }
+
+      .doc-toc-aside.doc-toc-aside--desktop {
+        display: block;
+        flex: 0 0 13.25rem;
+        width: 13.25rem;
+        position: sticky;
+        top: 1.25rem;
+        max-height: calc(100vh - 2.5rem);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(15, 118, 110, 0.35) transparent;
+      }
+
+      .doc-toc-aside.doc-toc-aside--desktop::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      .doc-toc-aside.doc-toc-aside--desktop::-webkit-scrollbar-thumb {
+        background: rgba(15, 118, 110, 0.28);
+        border-radius: 999px;
+      }
+
+      article.doc {
+        flex: 1 1 auto;
+        max-width: 64rem;
+      }
     }
 
     article.doc h3 {
@@ -250,16 +460,86 @@
 <body class="article-page">
   <div class="doc-wrap">
     <a href="../../../" class="back-home-btn">← 返回主页</a>
-    <article class="doc">
+    <div class="doc-layout">
+      <aside class="doc-toc-aside doc-toc-aside--desktop">
+        <nav class="doc-toc" aria-label="文章目录">
+          <p class="doc-toc-title">目录</p>
+          <ol>
+            <li><a href="#sec-m3-core">一、M3 核心升级</a>
+              <ol>
+                <li><a href="#sec-multimodal">原生多模态</a></li>
+                <li><a href="#sec-msa">MSA 与 1M 上下文</a></li>
+                <li><a href="#sec-benchmark">性能基准</a></li>
+                <li><a href="#sec-agent">长程 Agent</a></li>
+                <li><a href="#sec-vs-m27">与 M2.7 对比</a></li>
+                <li><a href="#sec-scenarios">适用场景</a></li>
+              </ol>
+            </li>
+            <li><a href="#sec-plans">二、套餐调整解读</a>
+              <ol>
+                <li><a href="#sec-tiers">Plus / Max / Ultra</a></li>
+                <li><a href="#sec-pool">共享额度池</a></li>
+                <li><a href="#sec-ultra-token">Ultra 月 Token</a></li>
+                <li><a href="#sec-highspeed">M2.7-highspeed</a></li>
+                <li><a href="#sec-discontinued">停售与迁移</a></li>
+              </ol>
+            </li>
+            <li><a href="#sec-selection">三、选型建议</a>
+              <ol>
+                <li><a href="#sec-personal">个人开发者</a></li>
+                <li><a href="#sec-team">团队与小工作室</a></li>
+                <li><a href="#sec-overseas">跨境与海外</a></li>
+              </ol>
+            </li>
+            <li><a href="#sec-domestic">四、国产第一梯队对比</a></li>
+            <li><a href="#sec-summary">五、总结</a></li>
+          </ol>
+        </nav>
+      </aside>
+      <article class="doc">
       <p class="doc-kicker">产品更新 · Coding Plan</p>
       <h1>MiniMax-M3 重磅升级：原生多模态、Ultra 套餐登场、性价比再封王</h1>
       <p class="doc-updates">更新日期：<time datetime="2026-06-02">2026.6.2</time> · 数据来源 <a href="https://vibecoding.dreamfree.space" rel="noopener noreferrer">vibecoding.dreamfree.space</a></p>
-      <div class="doc-blockquote" style="margin-top:0;margin-bottom:1.25rem;">本次核心更新：MiniMax-M3 全量上线公开订阅（MiniMax 侧为 Token Plan，站内对比仍按 Coding Plan 展示）；原生多模态；<strong>现行公开档 M3 无 highspeed</strong>（仅已停售 Plus-极速 / Max-极速 老档曾列 MiniMax-M3-highspeed）；新增 Ultra（官方月 Token 上限 7100M ≈ 71 亿）；Starter / Plus-极速 / Max-极速 停售、老用户可续订；Max-极速 可迁移至新版 Max（199→119 并补发差价积分）；M2.7-highspeed 全档通用可调。</div>
+      <div class="doc-blockquote" style="margin-top:0;margin-bottom:1.25rem;">本次核心更新：MiniMax-M3 全量上线公开订阅（MiniMax 侧为 Token Plan，站内对比仍按 Coding Plan 展示）；原生多模态；<strong>现行公开档 M3 无 highspeed</strong>；新增 Ultra（官方月 Token 上限 7100M ≈ 71 亿）；Starter / Plus-极速 / Max-极速 停售、老用户可续订；Max-极速 可迁移至新版 Max（199→119 并补发差价积分）；M2.7-highspeed 全档通用可调。</div>
       <p class="lead">2026 年 6 月，国产大模型迭代节奏持续加快。<strong>MiniMax</strong> 正式推出 <strong>MiniMax-M3</strong>（以下简称 M3）旗舰模型，定位为"原生多模态 + 极致性价比"的代际跃迁之作。在智谱AI、字节·方舟、阿里·百炼等头部平台持续限购、Coding Plan 愈发稀缺的当下，M3 的发布为个人开发者提供了一个<strong>不限购、零抢购、模型顶尖</strong>的稳定选择。本文围绕 M3 模型能力升级、MiniMax 套餐体系调整、选型建议展开。</p>
 
-      <h2>一、M3 核心升级：模型能力跃迁</h2>
+      <nav class="doc-toc doc-toc--inline" aria-label="文章目录">
+        <p class="doc-toc-title">目录</p>
+        <ol>
+          <li><a href="#sec-m3-core">一、M3 核心升级：模型能力跃迁</a>
+            <ol>
+              <li><a href="#sec-multimodal">原生多模态</a></li>
+              <li><a href="#sec-msa">MSA 稀疏注意力与 1M 上下文</a></li>
+              <li><a href="#sec-benchmark">性能基准</a></li>
+              <li><a href="#sec-agent">长程 Agent 与 MiniMax Code</a></li>
+              <li><a href="#sec-vs-m27">与 M2.7 能力对比</a></li>
+              <li><a href="#sec-scenarios">适用场景对比</a></li>
+            </ol>
+          </li>
+          <li><a href="#sec-plans">二、MiniMax 全系套餐调整解读</a>
+            <ol>
+              <li><a href="#sec-tiers">Plus / Max / Ultra 三档</a></li>
+              <li><a href="#sec-pool">共享额度池</a></li>
+              <li><a href="#sec-ultra-token">Ultra 月 Token 与吞吐</a></li>
+              <li><a href="#sec-highspeed">M2.7-highspeed 全档可调</a></li>
+              <li><a href="#sec-discontinued">停售档与 Max-极速 迁移</a></li>
+            </ol>
+          </li>
+          <li><a href="#sec-selection">三、套餐选型建议</a>
+            <ol>
+              <li><a href="#sec-personal">个人开发者</a></li>
+              <li><a href="#sec-team">团队与小工作室</a></li>
+              <li><a href="#sec-overseas">跨境与海外开发者</a></li>
+            </ol>
+          </li>
+          <li><a href="#sec-domestic">四、与国产第一梯队对比</a></li>
+          <li><a href="#sec-summary">五、总结</a></li>
+        </ol>
+      </nav>
 
-      <h3>1. 原生多模态：图像、视频、语音、音乐统一表征</h3>
+      <h2 id="sec-m3-core">一、M3 核心升级：模型能力跃迁</h2>
+
+      <h3 id="sec-multimodal">1. 原生多模态：图像、视频、语音、音乐统一表征</h3>
       <p>M3 最核心的代际升级是<strong>原生多模态支持</strong>。M2.7 时代仅支持纯文本输入，而 M3 <strong>从训练的第 0 步起就进行混合模态训练</strong>，实现了图像、视频、语音、音乐的统一表征，文本与模态数据在序列内自然交错（interleaved）。官方明确标注"<strong>支持 M3 与多模态</strong>"作为 Coding Plan 的核心权益。</p>
       <p>技术上 M3 重建了完整的数据管道，训练数据规模扩展至 <strong>10 万亿 token 量级</strong>。interleaved 数据的引入被官方明确指出"比预期更关键"——这意味着 M3 不是"事后拼接"的多模态，而是从基础架构层就支持任意模态组合。</p>
       <p>对于 OpenClaw、Harness 等 Agent 场景，这意味着：</p>
@@ -270,7 +550,7 @@
         <li>语音/音乐输入：原生支持（API 层面开放，Coding Plan 暂以文本/图像/视频为主）</li>
       </ul>
 
-      <h3>2. MSA 稀疏注意力架构：1M 上下文与极致吞吐</h3>
+      <h3 id="sec-msa">2. MSA 稀疏注意力架构：1M 上下文与极致吞吐</h3>
       <p>M3 引入 <strong>MSA（MiniMax 稀疏注意力机制）</strong> 作为核心技术架构：</p>
       <ul>
         <li><strong>更精确的 KV 块划分</strong>：比 DSA 和 MoBA 更精确地划分 KV 块，实现更高有效上下文覆盖率</li>
@@ -281,7 +561,7 @@
       </ul>
       <p>配合 <strong>1M token 上下文窗口</strong>，M3 可一次性分析整个大型 monorepo 代码库、长篇技术文档、整本技术书籍。模型同时支持<strong>思考模式可开关</strong>：启用时适合复杂推理和长程协作，关闭时响应更快。</p>
 
-      <h3>3. 性能基准：超越 GPT-5.5，逼近 Opus 4.7</h3>
+      <h3 id="sec-benchmark">3. 性能基准：超越 GPT-5.5，逼近 Opus 4.7</h3>
       <p>M3 在多个核心编程与 Agent 基准上达到或超过当前国际顶尖模型水平（<a href="https://www.minimaxi.com/blog/minimax-m3" rel="noopener noreferrer">来源：MiniMax 官方博客</a>）：</p>
       <table>
         <thead><tr><th>基准测试</th><th>M3 分数</th><th>横向对比</th></tr></thead>
@@ -297,7 +577,7 @@
         </tbody>
       </table>
 
-      <h3>4. 长程任务与 Agent 能力：24 小时自主 + MiniMax Code</h3>
+      <h3 id="sec-agent">4. 长程任务与 Agent 能力：24 小时自主 + MiniMax Code</h3>
       <p>M3 在长程 Agent 任务上展现出当前 SOTA 级别的能力（<a href="https://www.minimaxi.com/blog/minimax-m3" rel="noopener noreferrer">来源：MiniMax 官方博客</a>）：</p>
       <p><strong>论文复现</strong>：独立复现 ICLR 2025 Outstanding Paper《Learning Dynamics of LLM Finetuning》，<strong>近 12 小时</strong>内完成 18 次 commit、23 张实验图，验证 SFT/DPO 阶段预测概率变化趋势与 Extend 缓解方法。</p>
       <p><strong>CUDA 内核优化</strong>：在 NVIDIA Hopper 架构 GPU 上优化 FP8 GEMM 内核，<strong>约 24 小时</strong>内完成 147 次基准提交、1959 次工具调用，硬件利用率从 <strong>7.6% 提升至 71.3%</strong>，实现 <strong>9.4 倍加速</strong>。<strong>大多数模型在前 30 次提交后停止改进，M3 最佳方案出现在第 145 次提交</strong>——展现出在长程迭代中持续优化、不易陷入局部最优的独特能力。</p>
@@ -310,7 +590,7 @@
         <li>基于 OpenCode 和 Pi 等开源项目构建</li>
       </ul>
 
-      <h3>5. 能力跃迁：与 M2.7 对比迈入国产第一梯队</h3>
+      <h3 id="sec-vs-m27">5. 能力跃迁：与 M2.7 对比迈入国产第一梯队</h3>
       <p>基于 Artificial Analysis 历史评测数据，MiniMax-M2.7 Agentic 智能指数 61 分，处于国产第二梯队，与 Claude Sonnet 4.6 基本持平。结合 M3 官方 benchmark 数据可清晰看出代际跃迁：</p>
       <ul>
         <li><strong>Agentic 能力</strong>：从第二梯队（61 分）跃升至<strong>国际第一梯队</strong>水平——Claw-Eval 取得最高分，PostTrainBench 0.37 与 Opus 4.7（0.42）、GPT-5.5（0.39）相当</li>
@@ -320,7 +600,7 @@
         <li><strong>响应速度</strong>：M3 与 M2.7 标准版 TPS 50；M2.7-highspeed 极速版 TPS 100，<strong>所有现行公开档通用可调</strong>，每次请求按需选择</li>
       </ul>
 
-      <h3>6. 适用场景对比</h3>
+      <h3 id="sec-scenarios">6. 适用场景对比</h3>
       <table>
         <thead><tr><th>场景</th><th>M2.7 推荐度</th><th>M3 推荐度</th><th>备注</th></tr></thead>
         <tbody>
@@ -334,9 +614,9 @@
         </tbody>
       </table>
 
-      <h2>二、MiniMax 全系套餐调整解读</h2>
+      <h2 id="sec-plans">二、MiniMax 全系套餐调整解读</h2>
 
-      <h3>1. 现行三档主力：Plus / Max / Ultra</h3>
+      <h3 id="sec-tiers">1. 现行三档主力：Plus / Max / Ultra</h3>
       <p>公开订阅的 Plus / Max / Ultra 在 MiniMax 侧正式记为 <strong>Token Plan</strong>（M3 与 M2.7 <strong>共享月度 Token 池</strong>）并给出 Token 上限。额度受 <strong>5 小时、周、月</strong> 多窗口控制（下表含周请求数）。</p>
       <table>
         <thead><tr><th>套餐</th><th>月费</th><th>5小时</th><th>周</th><th>月请求</th><th>官方月Token上限</th><th>M2.7 请求窗口估算</th><th>M2.7-highspeed 可调</th><th>核心定位</th></tr></thead>
@@ -356,7 +636,7 @@
         <li><strong>Ultra 档（¥469）全新上线</strong>：官方月 Token 上限 <strong>7100M ≈ 71 亿</strong>（<a href="https://api.dreamfree.space/c/s/cpyqminimax" rel="noopener noreferrer">来源：MiniMax 平台订阅页</a>），月请求 60 万次（约为 Max 的 3.3 倍）。目标用户为团队、高强度 Agent、长上下文代码库分析。</li>
       </ul>
 
-      <h3>2. 共享额度池：M3 与 M2.7 灵活混用</h3>
+      <h3 id="sec-pool">2. 共享额度池：M3 与 M2.7 灵活混用</h3>
       <p>M3 并没有"挤占" M2.7 的额度，而是采用<strong>共享额度池</strong>设计：用户在一次订阅内可以同时调用 M3 和 M2.7，Token 在二者间通用。这种设计的好处是：</p>
       <ul>
         <li>复杂 Agent 任务用 M3 处理多模态/复杂推理；</li>
@@ -364,11 +644,11 @@
         <li>避免"升级套餐才能用新模型"的强制绑定。</li>
       </ul>
 
-      <h3>3. 上下文与吞吐量：Ultra 套餐月度约 71 亿 Token</h3>
+      <h3 id="sec-ultra-token">3. 上下文与吞吐量：Ultra 套餐月度约 71 亿 Token</h3>
       <p>M3 在长上下文与吞吐量上有显著提升。<strong>Ultra</strong> 套餐（¥469/月）官方月 Token 上限 <strong>7100M ≈ 71 亿</strong>（M3 与 M2.7 共享池，<a href="https://api.dreamfree.space/c/s/cpyqminimax" rel="noopener noreferrer">来源：MiniMax 平台订阅页</a>），定位于高强度 Agent 任务与大规模代码库分析场景。配合 1M+ 上下文窗口，可一次性分析整个大型 monorepo 代码库。</p>
       <p><strong>注</strong>：Ultra 以<strong>官方月 Token 上限</strong>为准；Plus / Max 另提供 <strong>M2.7 请求窗口估算</strong>（见上表），与官方上限口径不同，<strong>不直接做 Token 倍率对比</strong>。请求次数维度上，Ultra 月 60 万次约为 Max（18 万次）的 3.3 倍。</p>
 
-      <h3>4. 极速模型：M2.7-highspeed 全套餐通用可调</h3>
+      <h3 id="sec-highspeed">4. 极速模型：M2.7-highspeed 全套餐通用可调</h3>
       <p>需要特别说明的是：<strong>现行公开档的 M3 没有 highspeed 变体</strong>——仅有标准 M3，没有"M3-highspeed"端点（已停售的 Plus-极速 / Max-极速 老档曾列 MiniMax-M3-highspeed）。highspeed 适用于 <strong>M2.7 系列</strong>。</p>
       <p>M2.7 系列仍然保留 highspeed 与非 highspeed 两个变体。在新套餐体系下，<strong>所有现行公开档（Plus / Max / Ultra）每次请求均可自行选择</strong> M2.7 标准版（TPS 50）或 <strong>M2.7-highspeed 极速版</strong>（TPS 100）（<a href="https://api.dreamfree.space/c/s/cpyqminimax" rel="noopener noreferrer">来源：MiniMax 平台订阅页</a>）。</p>
       <p>这意味着：</p>
@@ -378,7 +658,7 @@
         <li>极速响应是 M2.7 模型的<strong>通用能力选项</strong>，由用户每次请求时按需选择。</li>
       </ul>
 
-      <h3>5. 停售档位与 Max-极速 订阅档位自动迁移方案</h3>
+      <h3 id="sec-discontinued">5. 停售档位与 Max-极速 订阅档位自动迁移方案</h3>
       <p><strong>停售档位说明</strong>：Starter（¥29）、Plus-极速（¥98）、Max-极速（¥199）三档订阅已停售：仅 Token Plan 升级前的老用户可续订，<strong>若中途断订，后续不可再次订阅同档</strong>。但订阅档位停售<strong>不影响 M2.7-highspeed 调用</strong>——M2.7-highspeed 仍是 MiniMax 平台上的活跃模型，停售档老用户续订后仍可正常调用（<a href="https://api.dreamfree.space/c/s/cpyqminimax" rel="noopener noreferrer">来源：MiniMax 平台订阅页</a>）。建议老用户保持连续订阅以免断档。</p>
       <p><strong>Max-极速 订阅档位自动迁移方案</strong>：针对已订阅 Max-极速（¥199/月）的老用户，官方提供订阅档位自动迁移方案：</p>
       <ul>
@@ -390,9 +670,9 @@
       </ul>
       <div class="doc-blockquote">整体体验不降反升：订阅费 -40%、模型能力升级到 M3 + 多模态、响应速度保留 TPS 100。</div>
 
-      <h2>三、套餐选型建议</h2>
+      <h2 id="sec-selection">三、套餐选型建议</h2>
 
-      <h3>1. 个人开发者</h3>
+      <h3 id="sec-personal">1. 个人开发者</h3>
       <ul>
         <li><strong>首次接触 / 低频尝试</strong>：从 <strong>Plus（¥49）</strong> 开始，月 6 万次请求；官方共享池约 <strong>6 亿</strong> Token/月，日常开发下 M2.7 请求窗口估算约 <strong>24 亿</strong>，足够多数场景。</li>
         <li><strong>日常高频开发</strong>：<strong>Max（¥119）</strong> 是首选，4.5 万次/5 小时、18 万次/月；官方池约 <strong>18 亿</strong> Token/月，M2.7 估算约 <strong>72 亿</strong>，TPS 50 满足绝大多数开发场景。</li>
@@ -400,16 +680,16 @@
         <li><strong>预算敏感的老用户</strong>：保留 <strong>Starter（¥29）</strong> 老档，但需注意中途断订不可再续。</li>
       </ul>
 
-      <h3>2. 团队与小工作室</h3>
+      <h3 id="sec-team">2. 团队与小工作室</h3>
       <ul>
         <li><strong>高强度 Agent 项目</strong>：<strong>Ultra（¥469）</strong> 官方月 Token 上限约 <strong>71 亿</strong>（7100M，<a href="https://api.dreamfree.space/c/s/cpyqminimax" rel="noopener noreferrer">来源：MiniMax 平台订阅页</a>），月请求 60 万次（约为 Max 的 3.3 倍），适合多 Agent 并行、长上下文代码库分析。</li>
         <li><strong>实时性敏感场景</strong>：所有现行公开档（Plus/Max/Ultra）每次请求均可选择 M2.7-highspeed 获取 TPS 100（<a href="https://api.dreamfree.space/c/s/cpyqminimax" rel="noopener noreferrer">来源：MiniMax 平台订阅页</a>），无需保留 Max-极速 老档。</li>
       </ul>
 
-      <h3>3. 跨境与海外开发者</h3>
+      <h3 id="sec-overseas">3. 跨境与海外开发者</h3>
       <p>通过 OpenCode Go、Ollama Pro/Max 等聚合平台间接调用 MiniMax-M3，月费 $10 起，多模型聚合适合需要切换 Claude/GPT 的用户。</p>
 
-      <h2>四、与国产第一梯队对比</h2>
+      <h2 id="sec-domestic">四、与国产第一梯队对比</h2>
       <ul>
         <li><strong>智谱 GLM-5.1</strong>：编码能力国产顶尖，Claude Code 框架下最强，但需要抢购、限购严重。</li>
         <li><strong>DeepSeek V4 Pro</strong>：开源第一、纯按量计费，但不支持多模态。</li>
@@ -418,7 +698,7 @@
         <li><strong>MiniMax-M3</strong>：在 2026 年 6 月这个 Coding Plan 全面稀缺的时间点，MiniMax 的稳定供应 + M3 的代际升级 + Ultra 套餐的扩展性，构成了独特的"无抢购 + 强能力 + 多模态 + 高性价比"组合。</li>
       </ul>
 
-      <h2>五、总结</h2>
+      <h2 id="sec-summary">五、总结</h2>
       <p>MiniMax-M3 的发布标志着国产大模型在<strong>多模态 + 性价比 + 稳定供应</strong>三个维度的进一步成熟。在头部平台持续收紧 Coding Plan、Token Plan 替代潮持续的当下，MiniMax 通过：</p>
       <ul>
         <li><strong>M3 模型代际升级</strong>（原生多模态 + 共享额度池 + Ultra 套餐）</li>
@@ -434,6 +714,7 @@
         原文链接 <a href="https://www.codingplan.fyi" rel="noopener noreferrer">https://www.codingplan.fyi</a>
       </div>
     </article>
+    </div>
   </div>
 </body>
 </html>
