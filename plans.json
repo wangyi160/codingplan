@@ -281,9 +281,9 @@
       "MiniMax-M2.7",
       "MiniMax-M2.5"
     ],
-    "fiveHoursRequests": "未公开",
-    "weeklyRequests": "未公开",
-    "monthlyRequests": "未公开",
+    "fiveHoursRequests": "15000",
+    "weeklyRequests": "150000",
+    "monthlyRequests": "600000",
     "tokenLimit": "未公开",
     "benefits": [],
     "note": "• 当前公开订阅档位\n• 官方标注月度 M3 Token 用量约 55 亿+\n• 套餐额度受 5 小时窗口与周窗口控制"
