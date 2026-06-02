@@ -198,7 +198,8 @@
     "monthlyRequests": 24000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "note": "• Token Plan 升级后保留档，仅老用户可续订\n• 支持 M3 与多模态，和 M2.7 共享额度池\n• 若中途断订，后续不可再次订阅同档",
+    "discontinued": true,
     "measuredFiveHoursTokenLimit": 24,
     "measuredWeeklyTokenLimit": 240,
     "measuredMonthlyTokenLimit": 960
@@ -227,7 +228,7 @@
     "monthlyRequests": 60000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "note": "• 当前公开订阅档位\n• 支持 M3 与多模态，和 M2.7 共享额度池\n• 套餐额度受 5 小时窗口与周窗口控制",
     "measuredFiveHoursTokenLimit": 60,
     "measuredWeeklyTokenLimit": 600,
     "measuredMonthlyTokenLimit": 2400
@@ -256,10 +257,36 @@
     "monthlyRequests": 180000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "note": "• 当前公开订阅档位\n• 支持 M3 与多模态，和 M2.7 共享额度池\n• 套餐额度受 5 小时窗口与周窗口控制",
     "measuredFiveHoursTokenLimit": 180,
     "measuredWeeklyTokenLimit": 1800,
     "measuredMonthlyTokenLimit": 7200
+  },
+  {
+    "vendor": "MiniMax",
+    "plan": "Ultra",
+    "type": "Coding Plan",
+    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
+    "rating": 5,
+    "tags": [
+      "模型强",
+      "性价比高用量足"
+    ],
+    "firstMonthPrice": 422.1,
+    "monthlyPrice": 469,
+    "quarterlyPrice": "-",
+    "yearlyPrice": 4690,
+    "models": [
+      "MiniMax-M3",
+      "MiniMax-M2.7",
+      "MiniMax-M2.5"
+    ],
+    "fiveHoursRequests": "未公开",
+    "weeklyRequests": "未公开",
+    "monthlyRequests": "未公开",
+    "tokenLimit": "未公开",
+    "benefits": [],
+    "note": "• 当前公开订阅档位\n• 官方标注月度 M3 Token 用量约 55 亿+\n• 套餐额度受 5 小时窗口与周窗口控制"
   },
   {
     "vendor": "MiniMax",
@@ -285,7 +312,8 @@
     "monthlyRequests": 60000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• 约100TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "note": "• Token Plan 升级后保留档，仅老用户可续订\n• 支持 M3 与多模态，和 M2.7-highspeed 共享额度池\n• 若中途断订，后续不可再次订阅同档",
+    "discontinued": true,
     "measuredFiveHoursTokenLimit": 60,
     "measuredWeeklyTokenLimit": 600,
     "measuredMonthlyTokenLimit": 2400
@@ -314,7 +342,8 @@
     "monthlyRequests": 180000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• 约100TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "note": "• 官方已停售并迁移至新版 Max\n• 迁移后月费 199→119，并补发差价积分\n• 新方案支持 M3 与多模态",
+    "discontinued": true,
     "measuredFiveHoursTokenLimit": 180,
     "measuredWeeklyTokenLimit": 1800,
     "measuredMonthlyTokenLimit": 7200
