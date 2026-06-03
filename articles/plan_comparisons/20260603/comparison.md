@@ -1,4 +1,4 @@
-# 2026年6月主流AI Coding Plan平台全面对比：能力、价格与选型指南
+# 2026年6月主流Coding Plan平台全面对比｜MiniMax、Deepseek、Copilot、Mimo更新
 > **更新日期 2026.6.3** 数据来源 [https://vibecoding.dreamfree.space](https://vibecoding.dreamfree.space)
 > 
 > 本次核心更新：MiniMax 上线 MiniMax-M3，并切换到 Plus、Max、Ultra 三档公开订阅；明确 M3 只有标准版，想要极速响应仍看 M2.7-highspeed；补充 Starter / Plus-极速 老用户保留档与 Max-极速 停售迁移说明；校正 GitHub Copilot、DeepSeek 等时效性表述
