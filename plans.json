@@ -2263,7 +2263,7 @@
     "benefits": [
       "可购买额外积分"
     ],
-    "note": "• 截至 5 月 31 日前，官方标注可限时享 Plus 的 10 倍额度\n• 6月1日起改按Token计费",
+    "note": "• 官方当前按 5 小时与每周额度管理\n• 已转为 Token 计费口径；当前按 Plus 的 5 倍额度理解更稳妥",
     "measuredFiveHoursTokenLimit": 100,
     "measuredWeeklyTokenLimit": 600,
     "measuredMonthlyTokenLimit": 2400
