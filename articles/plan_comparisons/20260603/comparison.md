@@ -86,9 +86,6 @@ GitHub Copilot 也已转向 Token 计费口径，用量大幅降低，不足之�
 ![各平台套餐性价比对比图表](./image.png)
 
 > 图片来源：[https://vibecoding.dreamfree.space](https://vibecoding.dreamfree.space)，访问该网站可查看完整的价格vs Token上限对比图表、每元Token性价比密度图等更多可视化数据。
-> 
-> 说明：Coding Plan的"月Token上限"为日常开发场景下的实际可使用量，理论上无官方上限；Token Plan的"月Token上限"为平台明确规定的月度额度，超出后需额外付费。"-"表示暂无公开实测数据。
-
 
 
 ## 二、国内第一梯队平台核心特点
