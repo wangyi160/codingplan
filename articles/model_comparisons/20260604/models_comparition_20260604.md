@@ -1,4 +1,4 @@
-# 2026年6月主流大模型Coding能力深度对比：Claude Opus 4.8 领跑，国产多款跻身全球前十
+# 2026年6月主流大模型Coding能力深度对比：GPT-5.5 领跑 Coding 指数，Claude Opus 4.8 加冕 Agentic 王座，国产多款跻身全球前十
 
 基于独立评测机构 Artificial Analysis 发布的最新 AI 模型基准测试结果（数据来源：2026年6月），本文围绕 **Coding 指数**（Terminal-Bench Hard + SciCode）、**Agentic 智能指数**（GDPval-AA + 𝜏²-Bench Telecom）、**ITBench-AA**（Kubernetes 事故根因分析）、**AA-Omniscience**（知识可靠性与幻觉率）以及 **Openness Index**（开源开放度）五个核心维度，对当下主流大模型进行横向评测。
 
@@ -6,9 +6,9 @@
 * Coding 能力直接决定模型代码生成、调试优化、代码库理解的水平
 * Agentic 能力则是评估模型自主规划复杂任务、调度外部工具、驱动自动化流程的核心依据
 
-从测试数据来看，国产头部大模型已全面跻身全球第一梯队，与 OpenAI、Anthropic 等海外厂商的顶尖产品差距进一步缩小，且在性价比、国内生态适配性方面具备独特优势。同时 6 月榜单迎来重大变化：Claude Opus 4.8 取代 Opus 4.7 成为新科状元，GPT-5.5 (xhigh) 稳居第二，Qwen3.7 Max、Kimi K2.6 等国产旗舰首次实现 AI 编程能力全球前五。
+从测试数据来看，国产头部大模型已全面跻身全球第一梯队，与 OpenAI、Anthropic 等海外厂商的顶尖产品差距进一步缩小，且在性价比、国内生态适配性方面具备独特优势。同时 6 月榜单迎来重大变化：GPT-5.5 (xhigh) 稳居 Coding 指数榜首（59.1 分），Claude Opus 4.8 (max) 56.7 分排名第三，Qwen3.7 Max 50.1 分是国产 Coding 能力之首，Kimi K2.6 47.1 分、DeepSeek V4 Pro (Max) 47.5 分等国产旗舰共同跻身全球前十。
 
-## 一、整体格局：Claude Opus 4.8 加冕新王，国产头部跻身第一梯队
+## 一、整体格局：GPT-5.5 稳居 Coding 王座，国产头部跻身全球前十
 
 ### 1. Artificial Analysis Coding 指数（代码核心指标）
 
@@ -17,9 +17,10 @@
 该指数整合 Terminal-Bench Hard（终端工具使用）与 SciCode（科研代码生成）两大测试维度，全面评估模型端到端完成软件工程任务的能力，是衡量 AI 编程工具实力的核心标准。
 
 **Coding 指数 TOP 12（2026年6月）：**
-- 全球头部阵营：**Claude Opus 4.8 (max) 56.7** 分成为新晋榜首，**GPT-5.5 (xhigh) 59.1** 分仍为综合最强，**Gemini 3.1 Pro Preview 55.5** 紧随其后
-- 国产第一梯队（50 分以上）：**Qwen3.7 Max 50.9** 分排名全球第四，为国产模型首位，**DeepSeek V4 Pro (Max) 50.1** 分位列全球第六，**Kimi K2.6 47.5** 分全球第七
-- 国产第二梯队：**Qwen3.7 Plus 46.5**、**MiMo-V2.5-Pro 45.5**、**Qwen3.6 Max Preview 45.0**、**MiniMax-M3 44.9**、**Gemini 3.5 Flash 43.4** 分
+- 全球头部阵营：**GPT-5.5 (xhigh) 59.1** 分稳居榜首，**GPT-5.4 (xhigh) 57.2** 紧随其后，**Claude Opus 4.8 (max) 56.7** 排名第三
+- 旗舰阵营：**Gemini 3.1 Pro Preview 55.5**、**Claude Opus 4.7 (max) 52.5**、**Claude Sonnet 4.6 (max) 50.9**
+- 国产第一梯队（45 分以上）：**Qwen3.7 Max 50.1** 分排名全球第七，为国产模型首位，**Qwen3.7 Plus 46.5**、**MiMo-V2.5-Pro 45.5**、**Qwen3.6 Max Preview 45.0** 紧随其后
+- 国产第二梯队：**DeepSeek V4 Pro (Max) 47.5**、**Kimi K2.6 47.1** 分位列全球第八、第九，**MiniMax-M3 44.9**、**GLM-5.1 43.4**、**Qwen3.6 Plus 43.4**、**MiniMax-M2.7 42.9** 分
 
 ### 2. Agentic 智能指数（通用 Agent 核心指标）
 
@@ -27,17 +28,18 @@
 
 该指数综合 GDPval-AA 真实世界任务执行能力与 𝜏²-Bench Telecom 工具调用能力两大基准，量化评估模型自主完成多步骤复杂任务的表现，是衡量 OpenClaw 自动化运营潜力的核心标准。
 
-**Agentic 指数 TOP 榜：**
-- 全球头部阵营：Claude Opus 4.8 (max)、GPT-5.5 (xhigh)、Claude Opus 4.7 (max) 占据全球前三
-- 国产第一梯队：**Qwen3.7 Max、MiniMax-M3、Gemini 3.5 Flash、Kimi K2.6、MiMo-V2.5-Pro、Qwen3.7 Plus** 占据 5-10 名核心位置
-- 国产第二梯队：Qwen3.6 Max Preview、Claude Sonnet 4.6、DeepSeek V4 Pro (Max)、GLM-5.1、Qwen3.6 Plus、MiniMax-M2.7、Kimi K2.5 紧随其后
+**Agentic 指数 TOP 榜（GDPval-AA Elo 评分）：**
+- 全球头部阵营：**Claude Opus 4.8 (max) 1890** 登顶，**GPT-5.5 (xhigh) 1769**、**Claude Opus 4.7 (max) 1753** 占据全球前三
+- 旗舰阵营：**Claude Sonnet 4.6 (max) 1676**、**GPT-5.4 (xhigh) 1674**、**MiniMax-M3 1670**、**Gemini 3.5 Flash 1656**
+- 国产第一梯队：**MiMo-V2.5-Pro 1571**、**DeepSeek V4 Pro (Max) 1554**、**Qwen3.7 Max 1546**、**GLM-5.1 1535**、**Qwen3.7 Plus 1522**、**MiniMax-M2.7 1505** 跻身全球前 15
+- 国产第二梯队：Kimi K2.6 1481、Qwen3.6 27B 1404、DeepSeek V4 Flash (Max) 1388、Qwen3.6 Plus 1353、Qwen3.6 35B A3B 1298、Kimi K2.5 1285、DeepSeek V3.2 1197
 
 ### 3. ITBench-AA（Kubernetes 事故根因分析，企业级 SRE 场景）
 
 **ITBench-AA TOP 榜（24 个模型中前 14 位）：**
 - **Claude Opus 4.7 (max) 46.7%** 居首，**GPT-5.5 (xhigh) 45.8%** 第二，**Qwen3.7 Max 42.5%** 排名第三，是国产模型中 SRE 场景表现最强的
 - **Gemini 3.5 Flash 40.3%**、**GLM-5.1 40.3%**、**Claude Sonnet 4.6 39.8%** 紧随其后
-- **DeepSeek V4 Pro (Max) 38.3%**、**MiMo-V2.5-Pro 38.2%** 同样表现优异
+- **DeepSeek V4 Pro (Max) 38.3%**、**MiMo-V2.5-Pro 38.2%**、**GPT-5.4 (xhigh) 34.5%**、**DeepSeek V4 Flash (Max) 31.5%**、**Kimi K2.6 31.2%** 同样表现优异，**MiniMax-M2.7 26.5%** 也进入了前 14
 
 ### 4. AA-Omniscience（知识可靠性与幻觉率）
 
@@ -45,7 +47,7 @@
 - 知识最可靠：**Gemini 3.1 Pro Preview (33)**、**Claude Opus 4.8 (max) (27)**、**Claude Opus 4.7 (max) (26)** 占据前三
 - **Gemini 3.5 Flash (23)**、**GPT-5.5 (xhigh) (20)**、**Qwen3.7 Max (14)** 知识可靠性突出
 - **Claude Sonnet 4.6 (max) (12)**、**Qwen3.6 Max Preview (10)** 表现稳定
-- 幻觉率最低的国产模型是 **Kimi K2.6 (6)**、**GPT-5.4 (4)**、**MiMo-V2.5-Pro (3)**
+- 幻觉率最低的国产模型是 **Kimi K2.6 (6)**、**MiMo-V2.5-Pro (3)**、**Qwen3.6 Plus (2)**、**Qwen3.7 Plus (2)**、**GLM-5.1 (1)**、**MiniMax-M3 (1)**；海外阵营中 **GPT-5.4 (4)** 同样可靠
 
 ### 5. Openness Index（开源开放度）
 
@@ -55,25 +57,25 @@
 
 ## 二、国产核心厂商模型深度解析
 
-### 1. Qwen3.7 Max（阿里）：代码能力国产第一，全面领跑
+### 1. Qwen3.7 Max（阿里）：Coding 国产第一，全面领跑
 
-Qwen3.7 Max 在 6 月榜单中表现亮眼，**Coding 指数 50.9** 分排名全球第四，是国产模型中代码能力最强的；**ITBench-AA 42.5%** 位居全球第三，SRE 场景表现突出；**AA-Omniscience 14** 分知识可靠性同样优秀。其综合实力已超过 Claude Opus 4.6，是国产 AI 编程领域的标杆。
+Qwen3.7 Max 在 6 月榜单中表现亮眼，**Coding 指数 50.1** 分排名全球第七，是国产模型中代码能力最强的；**ITBench-AA 42.5%** 位居全球第三，SRE 场景表现突出；**AA-Omniscience 14** 分知识可靠性同样优秀。其综合实力已比肩 Claude Sonnet 4.6 (50.9) 等海外旗舰，是国产 AI 编程领域的标杆。
 
 阿里 Qwen 系列已建立完整的产品矩阵：Qwen3.7 Max（旗舰）、Qwen3.7 Plus（高性价比）、Qwen3.6 Max Preview、Qwen3.6 Plus、Qwen3.6 27B、Qwen3.6 35B A3B 等多档可选。但目前 Qwen 渠道主要通过阿里云百炼 API 销售，个人使用推荐购买 Token Plan 套餐，Qwen3.7 系列模型都可使用。
 
 ### 2. DeepSeek V4 Pro (Max)（深度求索）：开源标杆，均衡旗舰
 
-DeepSeek V4 Pro (Max) 在 6 月榜单中依然保持强势：**Coding 指数 50.1** 分全球第六，**Agentic 指数**国产第一梯队，**ITBench-AA 38.3%** 全球第七，**AA-Omniscience (-21)** 表现稳定。**Openness Index 6.0** 满分，是开源开放度最高的旗舰模型之一。
+DeepSeek V4 Pro (Max) 在 6 月榜单中依然保持强势：**Coding 指数 47.5** 分全球第八，**Agentic 指数**国产第一梯队，**ITBench-AA 38.3%** 全球第七，**AA-Omniscience (-10)** 表现稳定。**Openness Index 6.0** 满分，是开源开放度最高的旗舰模型之一。
 
 DeepSeek 独特优势：
 - 完整的开源权重（V4 Pro / V4 Flash 均可商用）
 - 独创的缓存机制使得缓存命中率高、缓存价格极低
-- **DeepSeek V4 Flash (Max) 75 tokens/s** 输出速度、极低单价（0.2美元/百万token）
+- **DeepSeek V4 Flash (Max)** 输出速度极快、单价低（0.2 美元/百万 token，Cache 命中价更低）
 - 产品矩阵覆盖：V4 Pro (Max)、V4 Flash (Max)、V3.2 等多个档位
 
 ### 3. GLM-5.1（智谱AI）：上一代国产编码王者，知识可靠
 
-GLM-5.1 在 6 月榜单中维持国产顶级水准：**Coding 指数 47.1** 分，**ITBench-AA 40.3%** 排名全球第五，**AA-Omniscience (-4)** 知识可靠性表现优秀，**Openness Index 6.0** 满分开源。
+GLM-5.1 在 6 月榜单中维持国产顶级水准：**Coding 指数 43.4** 分，**ITBench-AA 40.3%** 排名全球第五，**AA-Omniscience 1** 知识可靠性表现优秀，**Openness Index 6.0** 满分开源。
 
 作为上一代国产编码标杆，GLM-5.1 在 Claude Code 框架下依然表现稳定，是技术开发场景的可靠选择。其 Agentic 智能指数同样达到国产顶尖水平，能够支撑 OpenClaw 复杂流程的自主调度。
 
@@ -81,7 +83,7 @@ GLM-5.1 在 6 月榜单中维持国产顶级水准：**Coding 指数 47.1** 分�
 
 ### 4. Kimi K2.6（月之暗面）：长上下文能力突出，编码功底扎实
 
-Kimi K2.6 在 6 月榜单中表现稳健：**Coding 指数 47.5** 分排名全球第七，**Agentic 指数**国产第一梯队，**AA-Omniscience 6** 分知识可靠性优秀，**Openness Index 6.0** 满分开源。
+Kimi K2.6 在 6 月榜单中表现稳健：**Coding 指数 47.1** 分排名全球第九，**Agentic 指数**国产第一梯队，**AA-Omniscience 6** 分知识可靠性优秀，**Openness Index 6.0** 满分开源。
 
 Kimi 核心优势：
 - 长上下文支持图像输入
@@ -90,9 +92,9 @@ Kimi 核心优势：
 - 购买 Coding Plan 送专属龙虾
 - **Allegretto 套餐 ￥199/月** 性价比突出
 
-### 5. MiniMax-M2.7/M3（稀宇科技）：低幻觉高可靠，响应效率优异
+### 5. MiniMax-M2.7/M3（稀宇科技）：高性价比、响应快
 
-MiniMax 系列在 6 月榜单中全面发力：**MiniMax-M3 Coding 指数 44.9** 分、**Agentic 指数**国产第一梯队（ITBench-AA 26.5%、AA-Omniscience -8）；**MiniMax-M2.7 Coding 指数 43.4** 分，**AA-Omniscience -8**、**Openness Index 3.0** 同样开源。
+MiniMax 系列在 6 月榜单中全面发力：**MiniMax-M3 Coding 指数 44.9** 分、**Agentic 指数**国产第一梯队（ITBench-AA 26.5%、AA-Omniscience 1）；**MiniMax-M2.7 Coding 指数 42.9** 分，**AA-Omniscience -1**、**Openness Index 3.0** 较其他国产模型稍低，但同样开源。
 
 MiniMax 核心优势：
 - 模型参数量较小使得 **Coding Plan 套餐最实惠、额度限制最小**
@@ -100,19 +102,19 @@ MiniMax 核心优势：
 - 用量限制高、可用性优于其他平台
 - 日常交互体验出色，适合作为 OpenClaw 辅助工具
 
-### 6. MiMo-V2.5-Pro（小米）：Agentic 能力国产顶尖，性价比突出
+### 6. MiMo-V2.5-Pro（小米）：Agentic 能力国产第一梯队
 
 MiMo-V2.5-Pro 在 6 月榜单中表现优异：**Coding 指数 45.5** 分、**Agentic 指数**国产第一梯队（ITBench-AA 38.2%、AA-Omniscience 3 知识可靠性突出）、**Openness Index 6.0** 满分开源。
 
 MiMo 核心优势：
 - Agentic 智能指数与 DeepSeek V4 Pro、GLM-5.1 并列国产第一
-- 多工具协同调度、复杂自主流程执行方面表现接近 GPT-5.4
+- 多工具协同调度、复杂自主流程执行方面表现接近 Claude Opus 系列
 - 是驱动 OpenClaw 全流程自动化的最优选择之一
 - 性价比高，企业集成成本低
 
-### 7. Gemini 3.5 Flash（谷歌）：性价比之王，速度最快
+### 7. Gemini 3.5 Flash（谷歌）：输出速度之王，性价比突出
 
-Gemini 3.5 Flash 在 6 月榜单中表现惊艳：**Coding 指数 43.4** 分，**Agentic 指数**国产第一梯队（ITBench-AA 40.3% 排名第四、AA-Omniscience 23 排名第四）。**344 tokens/s** 输出速度全场最快。
+Gemini 3.5 Flash 在 6 月榜单中表现惊艳：**Coding 指数 43.4** 分，**ITBench-AA 40.3%** 排名全球第四，**AA-Omniscience 23** 知识可靠性排名第四。**344 tokens/s** 输出速度全场最快。
 
 Gemini 核心优势：
 - 输出速度极快、价格便宜
@@ -125,8 +127,8 @@ Gemini 核心优势：
 结合代码开发需求及 OpenClaw 场景，可根据具体场景针对性选择：
 
 - **复杂代码开发与生产级系统搭建**：首选 **Qwen3.7 Max**，其编码能力国产第一；**Claude Opus 4.8**、**Kimi K2.6** 与 **DeepSeek V4 Pro** 可作为备选。
-- **预算有限的个人开发者**：**Qwen3.7 Plus 45.0**、**MiniMax-M2.7 43.4**、**DeepSeek V4 Flash 32.6** 提供优秀的性价比。
-- **OpenClaw 核心与复杂任务**：优先选择 **Claude Opus 4.8**、**Claude Opus 4.7**、**GLM-5.1**、**DeepSeek V4 Pro**、**Kimi K2.6**，Agentic 能力均处于顶尖水平。
+- **预算有限的个人开发者**：**Qwen3.7 Plus 46.5**、**MiniMax-M2.7 42.9**、**DeepSeek V4 Flash 39.6** 提供优秀的性价比。
+- **OpenClaw 核心与复杂任务**：优先选择 **Claude Opus 4.8**、**GPT-5.5**、**Claude Opus 4.7**、**Claude Sonnet 4.6**、**MiMo-V2.5-Pro**、**DeepSeek V4 Pro**，Agentic 能力均处于顶尖水平。
 - **OpenClaw 日常任务**：优先选择 **MiniMax-M2.7** 和 **DeepSeek V4 Flash**，流畅的响应和高用量限制，能满足标准化日常助力需求。
 - **企业级 SRE 场景（Kubernetes 运维）**：**Claude Opus 4.7 (46.7%)**、**GPT-5.5 (45.8%)**、**Qwen3.7 Max (42.5%)** 表现最强。
 - **追求极致性价比**：**DeepSeek V4 Flash (0.2美元/M token)** 价格最低，**MiMo-V2.5-Pro** 开源最彻底。
@@ -134,11 +136,11 @@ Gemini 核心优势：
 
 ## 四、2026年6月榜单重大变化总结
 
-1. **Claude Opus 4.8** 发布并取代 4.7 成为新的全球 Coding 之王
-2. **GPT-5.5 (xhigh)** 稳居 Agentic 智能指数第一
-3. **Qwen3.7 Max** 首次实现国产 AI 编程能力全球前五
+1. **GPT-5.5 (xhigh)** 继续稳居 Coding 指数榜首（59.1 分），与 GPT-5.4、Claude Opus 4.8 形成第一梯队
+2. **Claude Opus 4.8 (max)** 凭借 1890 Elo 在 GDPval-AA 真实世界任务上登顶，成为 Agentic 新王
+3. **Qwen3.7 Max** 首次跻身全球 Coding 指数前十（第七），是国产 AI 编程能力之巅
 4. **Gemini 3.5 Flash** 凭借 344 tokens/s 速度成为性价比之王
-5. **DeepSeek V4 Flash** 以 0.2 美元/M token 创下单价新低
+5. **DeepSeek V4 Flash** 以 0.2 美元/M token 创下旗舰模型单价新低
 6. **MiniMax-M3** 首次进入 Coding 指数 TOP 15，国产阵营进一步壮大
 7. **Qwen3.7 Plus** 紧随旗舰发布，提供更好的高性价比选择
 
