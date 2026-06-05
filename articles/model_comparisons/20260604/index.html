@@ -655,17 +655,32 @@
           <li>性价比高，企业集成成本低</li>
         </ul>
 
-        <h2 id="sec-selection">五、个人使用选型参考指南（2026年6月更新）</h2>
-        <p>结合代码开发需求及 OpenClaw 场景，可根据具体场景针对性选择：</p>
+        <h2 id="sec-selection">五、个人使用选型参考指南</h2>
+        <p>先想清楚自己更看重 <strong>写代码</strong>、<strong>跑 Agent（OpenClaw、Harness 等）</strong>，还是 <strong>省钱 / 套餐额度</strong>；下列顺序即同场景下的推荐优先级，不必把上文榜单再抄一遍。</p>
+
+        <h3 id="sec-selection-coding">以写代码为主</h3>
         <ul>
-          <li><strong>复杂代码开发与生产级系统搭建</strong>：首选 <strong>Qwen3.7 Max</strong>，其编码能力国产第一；<strong>Claude Opus 4.8</strong>、<strong>Kimi K2.6</strong> 与 <strong>DeepSeek V4 Pro</strong> 可作为备选。</li>
-          <li><strong>预算有限的个人开发者</strong>：<strong>Qwen3.7 Plus</strong>、<strong>DeepSeek V4 Flash</strong> 提供优秀的性价比。</li>
-          <li><strong>OpenClaw 核心与复杂任务</strong>：优先选择 Agentic 指数全球前十的模型：<strong>Claude Opus 4.8 (77.8)</strong>、<strong>GPT-5.5 (74.1)</strong>、<strong>Claude Opus 4.7 (71.3)</strong>、<strong>Gemini 3.5 Flash (70.3)</strong>、<strong>MiniMax-M3 (68.6)</strong>、<strong>GPT-5.4 (68.0)</strong>、<strong>MiMo-V2.5-Pro (67.4)</strong>、<strong>DeepSeek V4 Pro (67.2)</strong>、<strong>GLM-5.1 (67.1)</strong>、<strong>Qwen3.7 Max (66.6)</strong>。</li>
-          <li><strong>OpenClaw 日常任务</strong>：优先选择 <strong>MiniMax-M3</strong> 和 <strong>DeepSeek V4 Flash</strong>，流畅的响应和高用量限制，能满足标准化日常助力需求。</li>
-          <li><strong>企业级 SRE 场景（Kubernetes 运维）</strong>：<strong>Claude Opus 4.7 (46.7%)</strong>、<strong>GPT-5.5 (45.8%)</strong>、<strong>Qwen3.7 Max (42.5%)</strong> 表现最强。</li>
-          <li><strong>追求极致性价比</strong>：<strong>DeepSeek V4 Flash（缓存命中 ¥0.02/百万 token 起）</strong> 价格最低，<strong>Qwen3.6 35B A3B / Qwen3.6 27B</strong> 提供了高质量的开源替代。</li>
-          <li><strong>日常聊天</strong>：推荐直接用豆包、千问等普通版即可，没必要订阅 Coding 套餐。</li>
+          <li><strong>国产</strong>：<strong>Qwen3.7 Max</strong>（Coding 国产第一）；想降一档可看 <strong>Qwen3.7 Plus</strong>；<strong>GLM-5.1</strong> 编码与 Agent 能力均衡，技术开发场景同样可靠（Coding Plan 常需抢购）</li>
+          <li><strong>海外</strong>：<strong>GPT-5.5</strong>、<strong>Claude Opus 4.8</strong> 同属 Coding 第一梯队；通常需具备 ChatGPT / Claude 等相应付费订阅或 API 购买条件</li>
         </ul>
+
+        <h3 id="sec-selection-agent">以 OpenClaw、Harness 等 Agent 自动化为主</h3>
+        <ul>
+          <li><strong>复杂、多步骤任务</strong>：<strong>Claude Opus 4.8</strong>（Agentic 榜首）、<strong>GPT-5.5</strong>；国产侧 <strong>MiniMax-M3</strong>、<strong>MiMo-V2.5-Pro</strong> 同样值得优先考虑</li>
+          <li><strong>日常、高频、标准化流程</strong>：<strong>MiniMax-M3</strong>（响应快、套餐额度宽松）、<strong>DeepSeek V4 Flash</strong>（按量便宜）；轻量场景不必硬上 Opus / GPT</li>
+          <li><strong>需求简单、可自部署</strong>：<strong>Qwen3.6 27B</strong>、<strong>Qwen3.6 35B A3B</strong> 等小模型也能胜任</li>
+        </ul>
+
+        <h3 id="sec-selection-budget">预算与套餐怎么选</h3>
+        <ul>
+          <li><strong>月费固定、天天写代码</strong>：<strong>MiniMax-M3</strong> 相关 Coding Plan 订阅性价比仍突出；能力要均衡可看 <strong>Qwen3.7 Plus</strong></li>
+          <li><strong>用量波动大、倾向按量付费</strong>：<strong>DeepSeek V4 Flash</strong>（缓存命中 ¥0.02/百万 token 起）；大流量可再对比 <strong>MiMo-V2.5-Pro</strong> Token 定价</li>
+          <li><strong>自托管或纯开源</strong>：<strong>Qwen3.6 27B</strong>、<strong>Qwen3.6 35B A3B</strong>、<strong>DeepSeek V4 Pro</strong> 等，按部署与运维成本自行取舍</li>
+        </ul>
+
+        <blockquote>
+          <p>上文测试聚焦编程与 Agent 能力。纯聊天用豆包、千问等普通版一般就够，通常不必为此单独买 Coding 套餐。</p>
+        </blockquote>
 
         <h2 id="sec-summary">六、2026年6月榜单重大变化总结</h2>
         <ol>
