@@ -6,7 +6,7 @@
 * Coding 能力直接决定模型代码生成、调试优化、代码库理解的水平
 * Agentic 能力则是评估模型自主规划复杂任务、调度外部工具、驱动自动化流程的核心依据
 
-从测试数据来看，国产头部大模型已全面跻身全球第一梯队，与 OpenAI、Anthropic 等海外厂商的顶尖产品差距进一步缩小，且在性价比、国内生态适配性方面具备独特优势。同时 6 月榜单迎来重大变化：**GPT-5.5 (xhigh) 稳居 Coding 指数榜首**（59.1 分），**Claude Opus 4.8 (max) 凭借 77.8 分加冕 Agentic 智能指数新王**，Qwen3.7 Max、DeepSeek V4 Pro (Max)、Kimi K2.6、MiMo-V2.5-Pro 等国产旗舰共同跻身两大榜单全球前十。
+从测试数据来看，国产头部大模型已全面跻身全球第一梯队，与 OpenAI、Anthropic 等海外厂商的顶尖产品差距进一步缩小，且在性价比、国内生态适配性方面具备独特优势。同时 6 月榜单迎来重大变化：**GPT-5.5 稳居 Coding 指数榜首**（59.1 分），**Claude Opus 4.8 凭借 77.8 分加冕 Agentic 智能指数新王**，Qwen3.7 Max、DeepSeek V4 Pro、Kimi K2.6、MiMo-V2.5-Pro 等国产旗舰共同跻身两大榜单全球前十。
 
 ## 一、整体格局：GPT-5.5 稳居 Coding 王座，国产头部跻身全球前十
 
@@ -14,48 +14,51 @@
 
 ![Artificial Analysis Coding Index：Terminal-Bench Hard + SciCode 综合 pass@1（分数越高越好）。](coding_index_202606.png)
 
+数据来源：[Artificial Analysis - Coding Index](https://artificialanalysis.ai/?intelligence=coding-index&models=gpt-5-5%2Cgpt-5-5-pro%2Cgemini-3-1-pro-preview%2Cgemini-3-5-flash%2Cclaude-sonnet-4-6-adaptive%2Cclaude-opus-4-7%2Cclaude-4-5-haiku-reasoning%2Cclaude-opus-4-8%2Cdeepseek-v4-pro%2Cdeepseek-v4-flash%2Cminimax-m3%2Ckimi-k2-6%2Cmimo-v2-5-pro%2Cglm-5-1%2Cqwen3-6-35b-a3b%2Cqwen3-7-max%2Cqwen3-6-27b%2Cqwen3-7-plus%2Cgpt-5-4%2Cdeepseek-v3-2-reasoning#intelligence-tabs)
+
 该指数整合 Terminal-Bench Hard（终端工具使用）与 SciCode（科研代码生成）两大测试维度，全面评估模型端到端完成软件工程任务的能力，是衡量 AI 编程工具实力的核心标准。
 
 **Coding 指数 TOP 榜（2026年6月，530 个模型中前 19 位）：**
-- 全球头部阵营：**GPT-5.5 (xhigh) 59.1** 分稳居榜首，**GPT-5.4 (xhigh) 57.2** 紧随其后，**Claude Opus 4.8 (max) 56.7** 排名第三
-- 旗舰阵营：**Gemini 3.1 Pro Preview 55.5**、**Claude Opus 4.7 (max) 52.5**、**Claude Sonnet 4.6 (max) 50.9**
-- 国产第一梯队（45 分以上）：**Qwen3.7 Max 50.1** 分排名全球第七，为国产模型首位；**DeepSeek V4 Pro (Max) 47.5**、**Kimi K2.6 47.1**、**Qwen3.7 Plus 46.5**、**MiMo-V2.5-Pro 45.5** 紧随其后
-- 并列阵营：**MiniMax-M3 43.4**、**GLM-5.1 43.4** 并列第 13
-- 中小模型阵营：**Gemini 3.5 Flash 45.0**、**DeepSeek V4 Flash (Max) 38.7**、**DeepSeek V3.2 36.7**、**Qwen3.6 27B 36.5**、**Qwen3.6 33B A3B 35.2**、**Claude Haiku 4.0 32.6**
+- 全球头部阵营：**GPT-5.5 59.1** 分稳居榜首，**GPT-5.4 57.2** 紧随其后，**Claude Opus 4.8 56.7** 排名第三
+- 旗舰阵营：**Gemini 3.1 Pro Preview 55.5**、**Claude Opus 4.7 52.5**、**Claude Sonnet 4.6 50.9**
+- 国产第一梯队（45 分以上）：**Qwen3.7 Max 50.1** 分排名全球第七，为国产模型首位；**DeepSeek V4 Pro 47.5**、**Kimi K2.6 47.1**、**Qwen3.7 Plus 46.5**、**MiMo-V2.5-Pro 45.5**、**MiniMax-M3 43.4**、**GLM-5.1 43.4** 紧随其后
+- 中小模型阵营：**Gemini 3.5 Flash 45.0**、**DeepSeek V4 Flash 38.7**、**DeepSeek V3.2 36.7**、**Qwen3.6 27B 36.5**、**Qwen3.6 35B A3B 35.2**、**Claude 4.5 Haiku 32.6**
 
 ### 2. Agentic 智能指数（通用 Agent 核心指标）
 
 ![Artificial Analysis Agentic Index：GDPval-AA + 𝜏²-Bench Telecom 综合分数（分数越高越好）。](agentic_index_202606.png)
 
+数据来源：[Artificial Analysis - Agentic Index](https://artificialanalysis.ai/?intelligence=agentic-index&models=gpt-5-5%2Cgpt-5-5-pro%2Cgemini-3-1-pro-preview%2Cgemini-3-5-flash%2Cclaude-sonnet-4-6-adaptive%2Cclaude-opus-4-7%2Cclaude-4-5-haiku-reasoning%2Cclaude-opus-4-8%2Cdeepseek-v4-pro%2Cdeepseek-v4-flash%2Cminimax-m3%2Ckimi-k2-6%2Cmimo-v2-5-pro%2Cglm-5-1%2Cqwen3-6-35b-a3b%2Cqwen3-7-max%2Cqwen3-6-27b%2Cqwen3-7-plus%2Cgpt-5-4%2Cdeepseek-v3-2-reasoning#intelligence-tabs)
+
 该指数综合 GDPval-AA 真实世界任务执行能力与 𝜏²-Bench Telecom 工具调用能力两大基准，量化评估模型自主完成多步骤复杂任务的表现，是衡量 OpenClaw 自动化运营潜力的核心标准。
 
 **Agentic 指数 TOP 榜（2026年6月，530 个模型中前 19 位）：**
-- 全球头部阵营：**Claude Opus 4.8 (max) 77.8** 登顶，**GPT-5.5 (xhigh) 74.1**、**Claude Opus 4.7 (max) 71.3** 占据全球前三
-- 旗舰阵营：**Gemini 3.5 Flash 70.3**、**MiniMax-M3 68.6**、**GPT-5.4 (xhigh) 68.0**、**MiMo-V2.5-Pro 67.4**、**DeepSeek V4 Pro (Max) 67.2**、**GLM-5.1 67.1** 紧随其后
+- 全球头部阵营：**Claude Opus 4.8 77.8** 登顶，**GPT-5.5 74.1**、**Claude Opus 4.7 71.3** 占据全球前三
+- 旗舰阵营：**Gemini 3.5 Flash 70.3**、**MiniMax-M3 68.6**、**GPT-5.4 68.0**、**MiMo-V2.5-Pro 67.4**、**DeepSeek V4 Pro 67.2**、**GLM-5.1 67.1** 紧随其后
 - 国产第一梯队（66 分以上）：**Qwen3.7 Max 66.6**、**Kimi K2.6 66.0**、**Qwen3.7 Plus 65.1** 全部跻身全球前 12
-- 性价比与开源阵营：**Claude Sonnet 4.6 (max) 63.0**、**Qwen3.6 27B 62.9**、**DeepSeek V4 Flash (Max) 61.3**、**Gemini 3.1 Pro Preview 59.1**、**Qwen3.6 33B A3B 58.3**、**DeepSeek V3.2 52.9**、**Claude Haiku 4.0 40.2**
+- 性价比与开源阵营：**Claude Sonnet 4.6 63.0**、**Qwen3.6 27B 62.9**、**DeepSeek V4 Flash 61.3**、**Gemini 3.1 Pro Preview 59.1**、**Qwen3.6 35B A3B 58.3**、**DeepSeek V3.2 52.9**、**Claude 4.5 Haiku 40.2**
 
 ### 3. ITBench-AA（Kubernetes 事故根因分析，企业级 SRE 场景）
 
 **ITBench-AA TOP 榜（24 个模型中前 14 位）：**
-- **Claude Opus 4.7 (max) 46.7%** 居首，**GPT-5.5 (xhigh) 45.8%** 第二，**Qwen3.7 Max 42.5%** 排名第三，是国产模型中 SRE 场景表现最强的
+- **Claude Opus 4.7 46.7%** 居首，**GPT-5.5 45.8%** 第二，**Qwen3.7 Max 42.5%** 排名第三，是国产模型中 SRE 场景表现最强的
 - **Gemini 3.5 Flash 40.3%**、**GLM-5.1 40.3%**、**Claude Sonnet 4.6 39.8%** 紧随其后
-- **DeepSeek V4 Pro (Max) 38.3%**、**MiMo-V2.5-Pro 38.2%**、**GPT-5.4 (xhigh) 34.5%**、**DeepSeek V4 Flash (Max) 31.5%**、**Kimi K2.6 31.2%** 同样表现优异，**MiniMax-M2.7 26.5%** 也进入了前 14
+- **DeepSeek V4 Pro 38.3%**、**MiMo-V2.5-Pro 38.2%**、**GPT-5.4 34.5%**、**DeepSeek V4 Flash 31.5%**、**Kimi K2.6 31.2%** 同样表现优异，**MiniMax-M2.7 26.5%** 也进入了前 14
 
 ### 4. AA-Omniscience（知识可靠性与幻觉率）
 
 **AA-Omniscience TOP 10：**
-- 知识最可靠：**Gemini 3.1 Pro Preview (33)**、**Claude Opus 4.8 (max) (27)**、**Claude Opus 4.7 (max) (26)** 占据前三
-- **Gemini 3.5 Flash (23)**、**GPT-5.5 (xhigh) (20)**、**Qwen3.7 Max (14)** 知识可靠性突出
-- **Claude Sonnet 4.6 (max) (12)** 表现稳定
+- 知识最可靠：**Gemini 3.1 Pro Preview (33)**、**Claude Opus 4.8 (27)**、**Claude Opus 4.7 (26)** 占据前三
+- **Gemini 3.5 Flash (23)**、**GPT-5.5 (20)**、**Qwen3.7 Max (14)** 知识可靠性突出
+- **Claude Sonnet 4.6 (12)** 表现稳定
 - 国产模型中 **Kimi K2.6 (6)**、**MiMo-V2.5-Pro (3)**、**Qwen3.7 Plus (2)**、**GLM-5.1 (1)**、**MiniMax-M3 (1)** 知识可靠性优秀；海外阵营中 **GPT-5.4 (4)** 同样可靠
 
 ### 5. Openness Index（开源开放度）
 
 **开源开放度 TOP 榜：**
-- 6.0 满分阵营：**DeepSeek V4 Pro (Max)**、**DeepSeek V4 Flash (Max)**、**GLM-5.1**、**MiMo-V2.5-Pro**、**Qwen3.6 33B A3B**、**Qwen3.6 27B** 共 6 款
+- 6.0 满分阵营：**DeepSeek V4 Pro**、**DeepSeek V4 Flash**、**GLM-5.1**、**MiMo-V2.5-Pro**、**Qwen3.6 35B A3B**、**Qwen3.6 27B** 共 6 款
 - 4.0 高开放阵营：**Kimi K2.6**、**MiniMax-M2.7** 紧随其后
-- 完全闭源：**Claude Opus 4.8 (max)**、**GPT-5.5 (xhigh)**、**Claude Opus 4.7 (max)**、**Claude Sonnet 4.6 (max)**、**Gemini 3.1 Pro Preview**、**Gemini 3.5 Flash**、**MiniMax-M3** 等海外旗舰及部分商业模型
+- 完全闭源：**Claude Opus 4.8**、**GPT-5.5**、**Claude Opus 4.7**、**Claude Sonnet 4.6**、**Gemini 3.1 Pro Preview**、**Gemini 3.5 Flash**、**MiniMax-M3** 等海外旗舰及部分商业模型
 
 ## 二、国产核心厂商模型深度解析
 
@@ -63,17 +66,17 @@
 
 Qwen3.7 Max 在 6 月榜单中表现亮眼，**Coding 指数 50.1** 分排名全球第七，是国产模型中代码能力最强的；**Agentic 智能指数 66.6** 分跻身全球第十；**ITBench-AA 42.5%** 位居全球第三，SRE 场景表现突出；**AA-Omniscience 14** 分知识可靠性同样优秀。是国产 AI 编程领域的标杆。
 
-阿里 Qwen 系列已建立完整的产品矩阵：Qwen3.7 Max（旗舰）、Qwen3.7 Plus（高性价比）、Qwen3.6 27B、Qwen3.6 33B A3B 等多档可选。但目前 Qwen 渠道主要通过阿里云百炼 API 销售，个人使用推荐购买 Token Plan 套餐，Qwen3.7 系列模型都可使用。
+阿里 Qwen 系列已建立完整的产品矩阵：Qwen3.7 Max（旗舰）、Qwen3.7 Plus（高性价比）、Qwen3.6 27B、Qwen3.6 35B A3B 等多档可选。但目前 Qwen 渠道主要通过阿里云百炼 API 销售，个人使用推荐购买 Token Plan 套餐，Qwen3.7 系列模型都可使用。
 
-### 2. DeepSeek V4 Pro (Max)（深度求索）：开源标杆，均衡旗舰
+### 2. DeepSeek V4 Pro（深度求索）：开源标杆，均衡旗舰
 
-DeepSeek V4 Pro (Max) 在 6 月榜单中依然保持强势：**Coding 指数 47.5** 分全球第八，**Agentic 智能指数 67.2** 分跻身全球第八，**ITBench-AA 38.3%** 全球第七，**AA-Omniscience (-10)** 表现稳定。**Openness Index 6.0** 满分，是开源开放度最高的旗舰模型之一。
+DeepSeek V4 Pro 在 6 月榜单中依然保持强势：**Coding 指数 47.5** 分全球第八，**Agentic 智能指数 67.2** 分跻身全球第八，**ITBench-AA 38.3%** 全球第七，**AA-Omniscience (-10)** 表现稳定。**Openness Index 6.0** 满分，是开源开放度最高的旗舰模型之一。
 
 DeepSeek 独特优势：
 - 完整的开源权重（V4 Pro / V4 Flash 均可商用）
 - 独创的缓存机制使得缓存命中率高、缓存价格极低
-- **DeepSeek V4 Flash (Max)** 输出速度极快、单价低（0.2 美元/百万 token，Cache 命中价更低）
-- 产品矩阵覆盖：V4 Pro (Max)、V4 Flash (Max)、V3.2 等多个档位
+- **DeepSeek V4 Flash** 输出速度极快、单价低（0.2 美元/百万 token，Cache 命中价更低）
+- 产品矩阵覆盖：V4 Pro、V4 Flash、V3.2 等多个档位
 
 ### 3. GLM-5.1（智谱AI）：综合能力均衡，企业级 SRE 优选
 
@@ -133,13 +136,13 @@ Gemini 核心优势：
 - **OpenClaw 核心与复杂任务**：优先选择 Agentic 指数全球前十的模型：**Claude Opus 4.8 (77.8)**、**GPT-5.5 (74.1)**、**Claude Opus 4.7 (71.3)**、**Gemini 3.5 Flash (70.3)**、**MiniMax-M3 (68.6)**、**GPT-5.4 (68.0)**、**MiMo-V2.5-Pro (67.4)**、**DeepSeek V4 Pro (67.2)**、**GLM-5.1 (67.1)**、**Qwen3.7 Max (66.6)**。
 - **OpenClaw 日常任务**：优先选择 **MiniMax-M2.7** 和 **DeepSeek V4 Flash**，流畅的响应和高用量限制，能满足标准化日常助力需求。
 - **企业级 SRE 场景（Kubernetes 运维）**：**Claude Opus 4.7 (46.7%)**、**GPT-5.5 (45.8%)**、**Qwen3.7 Max (42.5%)** 表现最强。
-- **追求极致性价比**：**DeepSeek V4 Flash (0.2美元/M token)** 价格最低，**Qwen3.6 33B A3B / Qwen3.6 27B** 提供了高质量的开源替代。
+- **追求极致性价比**：**DeepSeek V4 Flash (0.2美元/M token)** 价格最低，**Qwen3.6 35B A3B / Qwen3.6 27B** 提供了高质量的开源替代。
 - **日常聊天**：推荐直接用豆包、千问等普通版即可，没必要订阅 Coding 套餐。
 
 ## 四、2026年6月榜单重大变化总结
 
-1. **GPT-5.5 (xhigh)** 继续稳居 Coding 指数榜首（59.1 分），与 GPT-5.4 (57.2)、Claude Opus 4.8 (56.7) 共同构成第一梯队
-2. **Claude Opus 4.8 (max)** 凭借 77.8 分在 Agentic 智能指数登顶，成为 Agentic 新王
+1. **GPT-5.5** 继续稳居 Coding 指数榜首（59.1 分），与 GPT-5.4 (57.2)、Claude Opus 4.8 (56.7) 共同构成第一梯队
+2. **Claude Opus 4.8** 凭借 77.8 分在 Agentic 智能指数登顶，成为 Agentic 新王
 3. **Qwen3.7 Max** 首次跻身全球 Coding 指数前十（第七），是国产 AI 编程能力之巅
 4. **Gemini 3.5 Flash** 凭借 344 tokens/s 输出速度全场最快，Agentic 智能指数 70.3 分跻身全球第四
 5. **DeepSeek V4 Flash** 以 0.2 美元/M token 创下旗舰模型单价新低
