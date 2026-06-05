@@ -73,7 +73,7 @@
 **ITBench-AA TOP 榜（24 个模型中前 12 位）：**
 - **Claude Opus 4.7 46.7%** 居首，**GPT-5.5 45.8%** 第二，**Qwen3.7 Max 42.5%** 排名第三，是国产模型中 SRE 场景表现最强的
 - **Gemini 3.5 Flash 40.3%**、**GLM-5.1 40.3%**、**Claude Sonnet 4.6 39.8%** 紧随其后
-- **DeepSeek V4 Pro 38.3%**、**MiMo-V2.5-Pro 38.2%**、**GPT-5.4 34.5%**、**DeepSeek V4 Flash 31.5%**、**Kimi K2.6 31.2%**、**MiniMax-M2.7 26.5%** 同样表现优异
+- **DeepSeek V4 Pro 38.3%**、**MiMo-V2.5-Pro 38.2%**、**GPT-5.4 34.5%**、**DeepSeek V4 Flash 31.5%**、**Kimi K2.6 31.2%** 同样表现优异
 
 ### 2. AA-Omniscience（知识可靠性与幻觉率）
 
@@ -130,9 +130,9 @@ Kimi 核心优势：
 - 购买 Coding Plan 送专属龙虾
 - **Allegretto 套餐 ￥199/月** 性价比突出
 
-### 5. MiniMax-M2.7/M3（稀宇科技）：高性价比、响应快
+### 5. MiniMax-M3（稀宇科技）：高性价比、响应快
 
-MiniMax 系列在 6 月榜单中表现亮眼：MiniMax-M3 Agentic 智能指数跻身全球前五（国产最高），知识可靠性得分偏低；MiniMax-M2.7 Coding 能力接近 M3，知识可靠性居中，开源但开放度稍低于其他国产旗舰。
+MiniMax-M3 在 6 月榜单中表现亮眼：Agentic 智能指数跻身全球前五（国产最高），知识可靠性得分偏低。
 
 MiniMax 核心优势：
 - 模型参数量较小使得 **Coding Plan 套餐最实惠、额度限制最小**
@@ -155,9 +155,9 @@ MiMo 核心优势：
 结合代码开发需求及 OpenClaw 场景，可根据具体场景针对性选择：
 
 - **复杂代码开发与生产级系统搭建**：首选 **Qwen3.7 Max**，其编码能力国产第一；**Claude Opus 4.8**、**Kimi K2.6** 与 **DeepSeek V4 Pro** 可作为备选。
-- **预算有限的个人开发者**：**Qwen3.7 Plus**、**MiniMax-M2.7**、**DeepSeek V4 Flash** 提供优秀的性价比。
+- **预算有限的个人开发者**：**Qwen3.7 Plus**、**DeepSeek V4 Flash** 提供优秀的性价比。
 - **OpenClaw 核心与复杂任务**：优先选择 Agentic 指数全球前十的模型：**Claude Opus 4.8**、**GPT-5.5**、**Claude Opus 4.7**、**Gemini 3.5 Flash**、**MiniMax-M3**、**GPT-5.4**、**MiMo-V2.5-Pro**、**DeepSeek V4 Pro**、**GLM-5.1**、**Qwen3.7 Max**。
-- **OpenClaw 日常任务**：优先选择 **MiniMax-M2.7** 和 **DeepSeek V4 Flash**，流畅的响应和高用量限制，能满足标准化日常助力需求。
+- **OpenClaw 日常任务**：优先选择 **MiniMax-M3** 和 **DeepSeek V4 Flash**，流畅的响应和高用量限制，能满足标准化日常助力需求。
 - **企业级 SRE 场景（Kubernetes 运维）**：**Claude Opus 4.7**、**GPT-5.5**、**Qwen3.7 Max** 表现最强。
 - **追求极致性价比**：**DeepSeek V4 Flash（缓存命中 ¥0.02/百万 token 起）** 价格最低，**Qwen3.6 35B A3B / Qwen3.6 27B** 提供了高质量的开源替代。
 - **日常聊天**：推荐直接用豆包、千问等普通版即可，没必要订阅 Coding 套餐。
