@@ -34,15 +34,13 @@
 | Qwen3.6 35B A3B | 262k | ✅ 文本+图像 | 35.2 | 58.3 |
 | Claude Haiku 4.5 | 200k | ✅ 文本+图像 | 32.6 | 40.2 |
 
-> 备注：上下文长度与多模态支持均参考 [llm-stats.com](https://llm-stats.com/models?category=llm) 详情页（更新于 2026 年 5 月底）；Coding 指数、Agentic 智能指数来自上方两张 [Artificial Analysis 官方榜单图](#数据来源) 中公开可见的数值。
-> - **特别提示**：Qwen3.7 Max 是 **纯文本模型**，多模态能力请使用 Qwen3.7 Plus（Plus 是该系列中明确支持图像与视频输入的版本）。
-> - **多模态说明**：Claude 系列、Qwen3.7 Plus、Kimi K2.6、MiniMax-M3、Qwen3.6 系列均支持图像输入，其中 Qwen3.7 Plus、Kimi K2.6、MiniMax-M3 额外支持视频输入；Gemini 3.1 Pro Preview 是唯一支持文本+图像+音频+视频四模态的模型。
+> - **特别提示**：Qwen3.7 Max 是 **纯文本模型**，多模态能力请使用 Qwen3.7 Plus。
 
 ## 二、整体格局：GPT-5.5 稳居 Coding 王座，国产头部跻身全球前十
 
 ### 1. Artificial Analysis Coding 指数（代码核心指标）
 
-![Artificial Analysis Coding Index：Terminal-Bench Hard + SciCode 综合 pass@1（分数越高越好）。](coding_index_202606.png)
+![Artificial Analysis Coding Index：Terminal-Bench Hard + SciCode 综合 pass@1（分数越高越好）。](./coding_index_202606.png)
 
 数据来源：[Artificial Analysis - Coding Index](https://artificialanalysis.ai/?intelligence=coding-index&models=gpt-5-5%2Cgemini-3-1-pro-preview%2Cgemini-3-5-flash%2Cclaude-sonnet-4-6-adaptive%2Cclaude-opus-4-7%2Cclaude-4-5-haiku-reasoning%2Cclaude-opus-4-8%2Cdeepseek-v4-pro%2Cdeepseek-v4-flash%2Cminimax-m3%2Ckimi-k2-6%2Cmimo-v2-5-pro%2Cglm-5-1%2Cqwen3-6-35b-a3b%2Cqwen3-7-max%2Cqwen3-6-27b%2Cqwen3-7-plus%2Cgpt-5-4%2Cdeepseek-v3-2-reasoning#intelligence-tabs)
 
@@ -56,7 +54,7 @@
 
 ### 2. Agentic 智能指数（通用 Agent 核心指标）
 
-![Artificial Analysis Agentic Index：GDPval-AA + 𝜏²-Bench Telecom 综合分数（分数越高越好）。](agentic_index_202606.png)
+![Artificial Analysis Agentic Index：GDPval-AA + 𝜏²-Bench Telecom 综合分数（分数越高越好）。](./agentic_index_202606.png)
 
 数据来源：[Artificial Analysis - Agentic Index](https://artificialanalysis.ai/?intelligence=agentic-index&models=gpt-5-5%2Cgemini-3-1-pro-preview%2Cgemini-3-5-flash%2Cclaude-sonnet-4-6-adaptive%2Cclaude-opus-4-7%2Cclaude-4-5-haiku-reasoning%2Cclaude-opus-4-8%2Cdeepseek-v4-pro%2Cdeepseek-v4-flash%2Cminimax-m3%2Ckimi-k2-6%2Cmimo-v2-5-pro%2Cglm-5-1%2Cqwen3-6-35b-a3b%2Cqwen3-7-max%2Cqwen3-6-27b%2Cqwen3-7-plus%2Cgpt-5-4%2Cdeepseek-v3-2-reasoning#intelligence-tabs)
 
@@ -126,7 +124,6 @@ GLM-5.1 在 Claude Code 框架下表现稳定，是技术开发场景的可靠�
 Kimi K2.6 在 6 月榜单中表现稳健：**Coding 指数 47.1** 分排名全球第九，**Agentic 智能指数 66.0** 分跻身全球第十一，**AA-Omniscience 6** 分知识可靠性优秀。Kimi K2.6 同样开源。
 
 Kimi 核心优势：
-- **262K 超长上下文**，是国产模型中上下文最长的之一
 - 支持文本+图像+视频多模态输入
 - 模型代码能力优秀
 - 较高强度日常开发够用
