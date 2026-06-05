@@ -1,6 +1,6 @@
 # 2026年6月主流大模型Coding能力深度对比：GPT-5.5 领跑 Coding 指数，Claude Opus 4.8 加冕 Agentic 王座，国产多款跻身全球前十
 
-基于独立评测机构 Artificial Analysis 发布的最新 AI 模型基准测试结果（数据来源：2026年6月），本文围绕 **Coding 指数**（Terminal-Bench Hard + SciCode）、**Agentic 智能指数**（GDPval-AA + 𝜏²-Bench Telecom）、**ITBench-AA**（Kubernetes 事故根因分析）、**AA-Omniscience**（知识可靠性与幻觉率）以及 **Openness Index**（开源开放度）五个核心维度，对当下主流大模型进行横向评测。
+基于独立评测机构 Artificial Analysis 发布的最新 AI 模型基准测试结果（数据来源：2026年6月），本文围绕 **Coding 指数**（Terminal-Bench Hard + SciCode）和 **Agentic 智能指数**（GDPval-AA + 𝜏²-Bench Telecom）两大核心指标，对当下主流大模型进行横向评测，并补充 **ITBench-AA**（Kubernetes 事故根因分析）、**AA-Omniscience**（知识可靠性与幻觉率）、**GDPval-AA**（真实世界任务 Elo 评分）三个单独测试维度的详细数据。
 
 这两项核心指标与日常代码开发需求和 OpenClaw、Harness 等通用 Agent 场景高度契合：
 * Coding 能力直接决定模型代码生成、调试优化、代码库理解的水平
@@ -38,14 +38,16 @@
 - 国产第一梯队（66 分以上）：**Qwen3.7 Max 66.6**、**Kimi K2.6 66.0**、**Qwen3.7 Plus 65.1** 全部跻身全球前 12
 - 性价比与开源阵营：**Claude Sonnet 4.6 63.0**、**Qwen3.6 27B 62.9**、**DeepSeek V4 Flash 61.3**、**Gemini 3.1 Pro Preview 59.1**、**Qwen3.6 35B A3B 58.3**、**DeepSeek V3.2 52.9**、**Claude 4.5 Haiku 40.2**
 
-### 3. ITBench-AA（Kubernetes 事故根因分析，企业级 SRE 场景）
+## 二、单独测试维度详解
+
+### 1. ITBench-AA（Kubernetes 事故根因分析，企业级 SRE 场景）
 
 **ITBench-AA TOP 榜（24 个模型中前 14 位）：**
 - **Claude Opus 4.7 46.7%** 居首，**GPT-5.5 45.8%** 第二，**Qwen3.7 Max 42.5%** 排名第三，是国产模型中 SRE 场景表现最强的
 - **Gemini 3.5 Flash 40.3%**、**GLM-5.1 40.3%**、**Claude Sonnet 4.6 39.8%** 紧随其后
 - **DeepSeek V4 Pro 38.3%**、**MiMo-V2.5-Pro 38.2%**、**GPT-5.4 34.5%**、**DeepSeek V4 Flash 31.5%**、**Kimi K2.6 31.2%** 同样表现优异，**MiniMax-M2.7 26.5%** 也进入了前 14
 
-### 4. AA-Omniscience（知识可靠性与幻觉率）
+### 2. AA-Omniscience（知识可靠性与幻觉率）
 
 **AA-Omniscience TOP 10：**
 - 知识最可靠：**Gemini 3.1 Pro Preview (33)**、**Claude Opus 4.8 (27)**、**Claude Opus 4.7 (26)** 占据前三
@@ -53,14 +55,17 @@
 - **Claude Sonnet 4.6 (12)** 表现稳定
 - 国产模型中 **Kimi K2.6 (6)**、**MiMo-V2.5-Pro (3)**、**Qwen3.7 Plus (2)**、**GLM-5.1 (1)**、**MiniMax-M3 (1)** 知识可靠性优秀；海外阵营中 **GPT-5.4 (4)** 同样可靠
 
-### 5. Openness Index（开源开放度）
+### 3. GDPval-AA（真实世界任务 Elo 评分）
 
-**开源开放度 TOP 榜：**
-- 6.0 满分阵营：**DeepSeek V4 Pro**、**DeepSeek V4 Flash**、**GLM-5.1**、**MiMo-V2.5-Pro**、**Qwen3.6 35B A3B**、**Qwen3.6 27B** 共 6 款
-- 4.0 高开放阵营：**Kimi K2.6**、**MiniMax-M2.7** 紧随其后
-- 完全闭源：**Claude Opus 4.8**、**GPT-5.5**、**Claude Opus 4.7**、**Claude Sonnet 4.6**、**Gemini 3.1 Pro Preview**、**Gemini 3.5 Flash**、**MiniMax-M3** 等海外旗舰及部分商业模型
+GDPval-AA 是 Agentic 智能指数的核心子项，基于真实世界任务（涉及金融、咨询、销售、运营等职业任务）的成对对比 Elo 评分（分数越高越好），是衡量模型在 OpenClaw 等真实业务场景下表现的最直接指标。
 
-## 二、国产核心厂商模型深度解析
+**GDPval-AA Elo TOP 榜（2026年6月，23 个模型中前 19 位）：**
+- 全球头部阵营：**Claude Opus 4.8 1890** 登顶，**GPT-5.5 1769**、**Claude Opus 4.7 1753** 占据全球前三
+- 旗舰阵营：**Claude Sonnet 4.6 1676**、**GPT-5.4 1674**、**MiniMax-M3 1670**、**Gemini 3.5 Flash 1656** 紧随其后
+- 国产第一梯队：**MiMo-V2.5-Pro 1571**、**DeepSeek V4 Pro 1554**、**Qwen3.7 Max 1546**、**GLM-5.1 1535**、**Qwen3.7 Plus 1522**、**MiniMax-M2.7 1505**、**Kimi K2.6 1481** 全部跻身全球前 15
+- 性价比与开源阵营：**Qwen3.6 27B 1404**、**DeepSeek V4 Flash 1388**、**Qwen3.6 Plus 1353**、**Gemini 3.1 Pro Preview 1314**、**Qwen3.6 35B A3B 1298**、**Kimi K2.5 1285**、**DeepSeek V3.2 1197**、**Claude 4.5 Haiku 1171**
+
+## 三、国产核心厂商模型深度解析
 
 ### 1. Qwen3.7 Max（阿里）：Coding 国产第一，全面领跑
 
@@ -70,7 +75,7 @@ Qwen3.7 Max 在 6 月榜单中表现亮眼，**Coding 指数 50.1** 分排名全
 
 ### 2. DeepSeek V4 Pro（深度求索）：开源标杆，均衡旗舰
 
-DeepSeek V4 Pro 在 6 月榜单中依然保持强势：**Coding 指数 47.5** 分全球第八，**Agentic 智能指数 67.2** 分跻身全球第八，**ITBench-AA 38.3%** 全球第七，**AA-Omniscience (-10)** 表现稳定。**Openness Index 6.0** 满分，是开源开放度最高的旗舰模型之一。
+DeepSeek V4 Pro 在 6 月榜单中依然保持强势：**Coding 指数 47.5** 分全球第八，**Agentic 智能指数 67.2** 分跻身全球第八，**ITBench-AA 38.3%** 全球第七，**AA-Omniscience (-10)** 表现稳定。是开源开放度最高的旗舰模型之一。
 
 DeepSeek 独特优势：
 - 完整的开源权重（V4 Pro / V4 Flash 均可商用）
@@ -80,7 +85,7 @@ DeepSeek 独特优势：
 
 ### 3. GLM-5.1（智谱AI）：综合能力均衡，企业级 SRE 优选
 
-GLM-5.1 在 6 月榜单中维持国产顶级水准：**Coding 指数 43.4** 分，**Agentic 智能指数 67.1** 分跻身全球第九，**ITBench-AA 40.3%** 排名全球第五，**AA-Omniscience 1** 知识可靠性表现优秀，**Openness Index 6.0** 满分开源。
+GLM-5.1 在 6 月榜单中维持国产顶级水准：**Coding 指数 43.4** 分，**Agentic 智能指数 67.1** 分跻身全球第九，**ITBench-AA 40.3%** 排名全球第五，**AA-Omniscience 1** 知识可靠性表现优秀。GLM-5.1 完全开源。
 
 GLM-5.1 在 Claude Code 框架下表现稳定，是技术开发场景的可靠选择。其 Agentic 智能指数同样达到国产顶尖水平，能够支撑 OpenClaw 复杂流程的自主调度。
 
@@ -88,7 +93,7 @@ GLM-5.1 在 Claude Code 框架下表现稳定，是技术开发场景的可靠�
 
 ### 4. Kimi K2.6（月之暗面）：长上下文能力突出，编码功底扎实
 
-Kimi K2.6 在 6 月榜单中表现稳健：**Coding 指数 47.1** 分排名全球第九，**Agentic 智能指数 66.0** 分跻身全球第十一，**AA-Omniscience 6** 分知识可靠性优秀，**Openness Index 6.0** 满分开源。
+Kimi K2.6 在 6 月榜单中表现稳健：**Coding 指数 47.1** 分排名全球第九，**Agentic 智能指数 66.0** 分跻身全球第十一，**AA-Omniscience 6** 分知识可靠性优秀。Kimi K2.6 同样开源。
 
 Kimi 核心优势：
 - 长上下文支持图像输入
@@ -99,7 +104,7 @@ Kimi 核心优势：
 
 ### 5. MiniMax-M2.7/M3（稀宇科技）：高性价比、响应快
 
-MiniMax 系列在 6 月榜单中表现亮眼：**MiniMax-M3 Coding 指数 43.4** 分、**Agentic 智能指数 68.6** 分跻身全球第五（国产最高）、**AA-Omniscience 1** 知识可靠性突出；**MiniMax-M2.7 Coding 指数 42.9** 分，**AA-Omniscience -1**、**Openness Index 3.0** 较其他国产模型稍低，但同样开源。
+MiniMax 系列在 6 月榜单中表现亮眼：**MiniMax-M3 Coding 指数 43.4** 分、**Agentic 智能指数 68.6** 分跻身全球第五（国产最高）、**AA-Omniscience 1** 知识可靠性突出；**MiniMax-M2.7 Coding 指数 42.9** 分，**AA-Omniscience -1**，开源但开放度稍低于其他国产旗舰。
 
 MiniMax 核心优势：
 - 模型参数量较小使得 **Coding Plan 套餐最实惠、额度限制最小**
@@ -109,7 +114,7 @@ MiniMax 核心优势：
 
 ### 6. MiMo-V2.5-Pro（小米）：Agentic 能力国产第一梯队
 
-MiMo-V2.5-Pro 在 6 月榜单中表现优异：**Coding 指数 45.5** 分、**Agentic 智能指数 67.4** 分跻身全球第七，**ITBench-AA 38.2%**、**AA-Omniscience 3** 知识可靠性突出、**Openness Index 6.0** 满分开源。
+MiMo-V2.5-Pro 在 6 月榜单中表现优异：**Coding 指数 45.5** 分、**Agentic 智能指数 67.4** 分跻身全球第七，**ITBench-AA 38.2%**、**AA-Omniscience 3** 知识可靠性突出。MiMo-V2.5-Pro 完全开源。
 
 MiMo 核心优势：
 - Agentic 智能指数（67.4）领先 DeepSeek V4 Pro（67.2）和 GLM-5.1（67.1），是国产模型 Agentic 能力第一
@@ -127,7 +132,7 @@ Gemini 核心优势：
 - 多模态能力强
 - 适合高并发、低延迟场景
 
-## 三、个人使用选型参考指南（2026年6月更新）
+## 四、个人使用选型参考指南（2026年6月更新）
 
 结合代码开发需求及 OpenClaw 场景，可根据具体场景针对性选择：
 
@@ -139,7 +144,7 @@ Gemini 核心优势：
 - **追求极致性价比**：**DeepSeek V4 Flash (0.2美元/M token)** 价格最低，**Qwen3.6 35B A3B / Qwen3.6 27B** 提供了高质量的开源替代。
 - **日常聊天**：推荐直接用豆包、千问等普通版即可，没必要订阅 Coding 套餐。
 
-## 四、2026年6月榜单重大变化总结
+## 五、2026年6月榜单重大变化总结
 
 1. **GPT-5.5** 继续稳居 Coding 指数榜首（59.1 分），与 GPT-5.4 (57.2)、Claude Opus 4.8 (56.7) 共同构成第一梯队
 2. **Claude Opus 4.8** 凭借 77.8 分在 Agentic 智能指数登顶，成为 Agentic 新王
