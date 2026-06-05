@@ -10,31 +10,31 @@
 
 ## 一、快速对比总览（一张表看全部）
 
-下表汇总了 6 月榜单中 19 款主流模型的四大关键指标，便于快速横向比较：
+下表汇总了 6 月榜单中 19 款主流模型的四大关键指标，便于快速横向比较（上下文长度数据来源：[llm-stats.com](https://llm-stats.com/models?category=llm)）：
 
 | 模型 | 上下文长度 | 多模态 | Coding 指数 | Agentic 智能指数 |
 |------|----------|------|-----------|----------------|
-| GPT-5.5 | 200K | ✅ 文本+图像+音频+视频 | 59.1 | 74.1 |
-| GPT-5.4 | 200K | ✅ 文本+图像+音频+视频 | 57.2 | 68.0 |
-| Claude Opus 4.8 | 200K | ✅ 文本+图像 | 56.7 | 77.8 |
-| Gemini 3.1 Pro Preview | 2M | ✅ 文本+图像+音频+视频 | 55.5 | 59.1 |
-| Claude Opus 4.7 | 200K | ✅ 文本+图像 | 52.5 | 71.3 |
-| Claude Sonnet 4.6 | 200K | ✅ 文本+图像 | 50.9 | 63.0 |
+| GPT-5.5 | 1M | ✅ 文本+图像+音频+视频 | 59.1 | 74.1 |
+| GPT-5.4 | 1M | ✅ 文本+图像+音频+视频 | 57.2 | 68.0 |
+| Claude Opus 4.8 | 1M | ✅ 文本+图像 | 56.7 | 77.8 |
+| Gemini 3.1 Pro Preview | 1M | ✅ 文本+图像+音频+视频 | 55.5 | 59.1 |
+| Claude Opus 4.7 | 1M | ✅ 文本+图像 | 52.5 | 71.3 |
+| Claude Sonnet 4.6 | 200k | ✅ 文本+图像 | 50.9 | 63.0 |
 | Qwen3.7 Max | 1M | ✅ 文本+图像+音频+视频 | 50.1 | 66.6 |
-| DeepSeek V4 Pro | 128K | ❌ 纯文本 | 47.5 | 67.2 |
-| Kimi K2.6 | 256K | ✅ 文本+图像 | 47.1 | 66.0 |
+| DeepSeek V4 Pro | 1M | ❌ 纯文本 | 47.5 | 67.2 |
+| Kimi K2.6 | 262k | ✅ 文本+图像 | 47.1 | 66.0 |
 | Qwen3.7 Plus | 1M | ✅ 文本+图像+音频+视频 | 46.5 | 65.1 |
-| MiMo-V2.5-Pro | 128K | ❌ 纯文本 | 45.5 | 67.4 |
+| MiMo-V2.5-Pro | 128k | ❌ 纯文本 | 45.5 | 67.4 |
 | Gemini 3.5 Flash | 1M | ✅ 文本+图像+音频+视频 | 45.0 | 70.3 |
-| MiniMax-M3 | 256K | ✅ 文本+图像 | 43.4 | 68.6 |
-| GLM-5.1 | 128K | ✅ 文本+图像 | 43.4 | 67.1 |
-| DeepSeek V4 Flash | 128K | ❌ 纯文本 | 38.7 | 61.3 |
-| DeepSeek V3.2 | 64K | ❌ 纯文本 | 36.7 | 52.9 |
-| Qwen3.6 27B | 128K | ❌ 纯文本 | 36.5 | 62.9 |
-| Qwen3.6 35B A3B | 128K | ❌ 纯文本 | 35.2 | 58.3 |
-| Claude 4.5 Haiku | 200K | ✅ 文本+图像 | 32.6 | 40.2 |
+| MiniMax-M3 | 256k | ✅ 文本+图像 | 43.4 | 68.6 |
+| GLM-5.1 | 200k | ✅ 文本+图像 | 43.4 | 67.1 |
+| DeepSeek V4 Flash | 1M | ❌ 纯文本 | 38.7 | 61.3 |
+| DeepSeek V3.2 | 131k | ❌ 纯文本 | 36.7 | 52.9 |
+| Qwen3.6 27B | 262k | ❌ 纯文本 | 36.5 | 62.9 |
+| Qwen3.6 35B A3B | 262k | ❌ 纯文本 | 35.2 | 58.3 |
+| Claude Haiku 4.5 | 200k | ✅ 文本+图像 | 32.6 | 40.2 |
 
-> 备注：上下文长度为各厂商公开标称值，实际可用窗口可能因 API 配置而异。多模态支持以模型原生能力为准，部分模型可通过工具调用扩展。
+> 备注：上下文长度为各厂商公开标称值（数据来源：[llm-stats.com](https://llm-stats.com/models?category=llm)）；多模态支持以官方 API 文档为准。MiniMax-M3 和 MiMo-V2.5-Pro 在 llm-stats.com 上暂未收录，参数为按厂商公开文档估计。
 
 ## 二、整体格局：GPT-5.5 稳居 Coding 王座，国产头部跻身全球前十
 
@@ -50,7 +50,7 @@
 - 全球头部阵营：**GPT-5.5 59.1** 分稳居榜首，**GPT-5.4 57.2** 紧随其后，**Claude Opus 4.8 56.7** 排名第三
 - 旗舰阵营：**Gemini 3.1 Pro Preview 55.5**、**Claude Opus 4.7 52.5**、**Claude Sonnet 4.6 50.9**
 - 国产第一梯队（45 分以上）：**Qwen3.7 Max 50.1** 分排名全球第七，为国产模型首位；**DeepSeek V4 Pro 47.5**、**Kimi K2.6 47.1**、**Qwen3.7 Plus 46.5**、**MiMo-V2.5-Pro 45.5**、**MiniMax-M3 43.4**、**GLM-5.1 43.4** 紧随其后
-- 中小模型阵营：**Gemini 3.5 Flash 45.0**、**DeepSeek V4 Flash 38.7**、**DeepSeek V3.2 36.7**、**Qwen3.6 27B 36.5**、**Qwen3.6 35B A3B 35.2**、**Claude 4.5 Haiku 32.6**
+- 中小模型阵营：**Gemini 3.5 Flash 45.0**、**DeepSeek V4 Flash 38.7**、**DeepSeek V3.2 36.7**、**Qwen3.6 27B 36.5**、**Qwen3.6 35B A3B 35.2**、**Claude Haiku 4.5 32.6**
 
 ### 2. Agentic 智能指数（通用 Agent 核心指标）
 
@@ -64,7 +64,7 @@
 - 全球头部阵营：**Claude Opus 4.8 77.8** 登顶，**GPT-5.5 74.1**、**Claude Opus 4.7 71.3** 占据全球前三
 - 旗舰阵营：**Gemini 3.5 Flash 70.3**、**MiniMax-M3 68.6**、**GPT-5.4 68.0**、**MiMo-V2.5-Pro 67.4**、**DeepSeek V4 Pro 67.2**、**GLM-5.1 67.1** 紧随其后
 - 国产第一梯队（66 分以上）：**Qwen3.7 Max 66.6**、**Kimi K2.6 66.0**、**Qwen3.7 Plus 65.1** 全部跻身全球前 12
-- 性价比与开源阵营：**Claude Sonnet 4.6 63.0**、**Qwen3.6 27B 62.9**、**DeepSeek V4 Flash 61.3**、**Gemini 3.1 Pro Preview 59.1**、**Qwen3.6 35B A3B 58.3**、**DeepSeek V3.2 52.9**、**Claude 4.5 Haiku 40.2**
+- 性价比与开源阵营：**Claude Sonnet 4.6 63.0**、**Qwen3.6 27B 62.9**、**DeepSeek V4 Flash 61.3**、**Gemini 3.1 Pro Preview 59.1**、**Qwen3.6 35B A3B 58.3**、**DeepSeek V3.2 52.9**、**Claude Haiku 4.5 40.2**
 
 ## 三、单独测试维度详解
 
@@ -91,7 +91,7 @@ GDPval-AA 是 Agentic 智能指数的核心子项，基于真实世界任务（�
 - 全球头部阵营：**Claude Opus 4.8 1890** 登顶，**GPT-5.5 1769**、**Claude Opus 4.7 1753** 占据全球前三
 - 旗舰阵营：**Claude Sonnet 4.6 1676**、**GPT-5.4 1674**、**MiniMax-M3 1670**、**Gemini 3.5 Flash 1656** 紧随其后
 - 国产第一梯队：**MiMo-V2.5-Pro 1571**、**DeepSeek V4 Pro 1554**、**Qwen3.7 Max 1546**、**GLM-5.1 1535**、**Qwen3.7 Plus 1522**、**MiniMax-M2.7 1505**、**Kimi K2.6 1481** 全部跻身全球前 15
-- 性价比与开源阵营：**Qwen3.6 27B 1404**、**DeepSeek V4 Flash 1388**、**Qwen3.6 Plus 1353**、**Gemini 3.1 Pro Preview 1314**、**Qwen3.6 35B A3B 1298**、**Kimi K2.5 1285**、**DeepSeek V3.2 1197**、**Claude 4.5 Haiku 1171**
+- 性价比与开源阵营：**Qwen3.6 27B 1404**、**DeepSeek V4 Flash 1388**、**Qwen3.6 Plus 1353**、**Gemini 3.1 Pro Preview 1314**、**Qwen3.6 35B A3B 1298**、**Kimi K2.5 1285**、**DeepSeek V3.2 1197**、**Claude Haiku 4.5 1171**
 
 ## 四、国产核心厂商模型深度解析
 
