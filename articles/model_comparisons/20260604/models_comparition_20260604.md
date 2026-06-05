@@ -8,7 +8,7 @@
 
 从测试数据来看，国产头部大模型已全面跻身全球第一梯队，与 OpenAI、Anthropic 等海外厂商的顶尖产品差距进一步缩小，且在性价比、国内生态适配性方面具备独特优势。同时 6 月榜单迎来重大变化：**GPT-5.5 稳居 Coding 指数榜首**（59.1 分），**Claude Opus 4.8 凭借 77.8 分加冕 Agentic 智能指数新王**，Qwen3.7 Max、DeepSeek V4 Pro、Kimi K2.6、MiMo-V2.5-Pro 等国产旗舰共同跻身两大榜单全球前十。
 
-## 一、快速对比总览（一张表看全部）
+## 一、快速对比总览
 
 下表汇总了 6 月榜单中 19 款主流模型的四大关键指标，便于快速横向比较（上下文长度数据来源：[llm-stats.com](https://llm-stats.com/models?category=llm)）：
 
@@ -44,7 +44,7 @@
 
 ![Artificial Analysis Coding Index：Terminal-Bench Hard + SciCode 综合 pass@1（分数越高越好）。](coding_index_202606.png)
 
-数据来源：[Artificial Analysis - Coding Index](https://artificialanalysis.ai/?intelligence=coding-index&models=gpt-5-5%2Cgpt-5-5-pro%2Cgemini-3-1-pro-preview%2Cgemini-3-5-flash%2Cclaude-sonnet-4-6-adaptive%2Cclaude-opus-4-7%2Cclaude-4-5-haiku-reasoning%2Cclaude-opus-4-8%2Cdeepseek-v4-pro%2Cdeepseek-v4-flash%2Cminimax-m3%2Ckimi-k2-6%2Cmimo-v2-5-pro%2Cglm-5-1%2Cqwen3-6-35b-a3b%2Cqwen3-7-max%2Cqwen3-6-27b%2Cqwen3-7-plus%2Cgpt-5-4%2Cdeepseek-v3-2-reasoning#intelligence-tabs)
+数据来源：[Artificial Analysis - Coding Index](https://artificialanalysis.ai/?intelligence=coding-index&models=gpt-5-5%2Cgemini-3-1-pro-preview%2Cgemini-3-5-flash%2Cclaude-sonnet-4-6-adaptive%2Cclaude-opus-4-7%2Cclaude-4-5-haiku-reasoning%2Cclaude-opus-4-8%2Cdeepseek-v4-pro%2Cdeepseek-v4-flash%2Cminimax-m3%2Ckimi-k2-6%2Cmimo-v2-5-pro%2Cglm-5-1%2Cqwen3-6-35b-a3b%2Cqwen3-7-max%2Cqwen3-6-27b%2Cqwen3-7-plus%2Cgpt-5-4%2Cdeepseek-v3-2-reasoning#intelligence-tabs)
 
 该指数整合 Terminal-Bench Hard（终端工具使用）与 SciCode（科研代码生成）两大测试维度，全面评估模型端到端完成软件工程任务的能力，是衡量 AI 编程工具实力的核心标准。
 
@@ -58,7 +58,7 @@
 
 ![Artificial Analysis Agentic Index：GDPval-AA + 𝜏²-Bench Telecom 综合分数（分数越高越好）。](agentic_index_202606.png)
 
-数据来源：[Artificial Analysis - Agentic Index](https://artificialanalysis.ai/?intelligence=agentic-index&models=gpt-5-5%2Cgpt-5-5-pro%2Cgemini-3-1-pro-preview%2Cgemini-3-5-flash%2Cclaude-sonnet-4-6-adaptive%2Cclaude-opus-4-7%2Cclaude-4-5-haiku-reasoning%2Cclaude-opus-4-8%2Cdeepseek-v4-pro%2Cdeepseek-v4-flash%2Cminimax-m3%2Ckimi-k2-6%2Cmimo-v2-5-pro%2Cglm-5-1%2Cqwen3-6-35b-a3b%2Cqwen3-7-max%2Cqwen3-6-27b%2Cqwen3-7-plus%2Cgpt-5-4%2Cdeepseek-v3-2-reasoning#intelligence-tabs)
+数据来源：[Artificial Analysis - Agentic Index](https://artificialanalysis.ai/?intelligence=agentic-index&models=gpt-5-5%2Cgemini-3-1-pro-preview%2Cgemini-3-5-flash%2Cclaude-sonnet-4-6-adaptive%2Cclaude-opus-4-7%2Cclaude-4-5-haiku-reasoning%2Cclaude-opus-4-8%2Cdeepseek-v4-pro%2Cdeepseek-v4-flash%2Cminimax-m3%2Ckimi-k2-6%2Cmimo-v2-5-pro%2Cglm-5-1%2Cqwen3-6-35b-a3b%2Cqwen3-7-max%2Cqwen3-6-27b%2Cqwen3-7-plus%2Cgpt-5-4%2Cdeepseek-v3-2-reasoning#intelligence-tabs)
 
 该指数综合 GDPval-AA 真实世界任务执行能力与 𝜏²-Bench Telecom 工具调用能力两大基准，量化评估模型自主完成多步骤复杂任务的表现，是衡量 OpenClaw 自动化运营潜力的核心标准。
 
