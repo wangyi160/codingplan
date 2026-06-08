@@ -639,10 +639,8 @@
     "weeklyRequests": 45000,
     "monthlyRequests": 90000,
     "tokenLimit": "无限制",
-    "benefits": [
-      "免费ArkClaw"
-    ],
-    "note": "• 5.8开始限购\n• 官方6.8-8.8期间2.5折活动（首两个月），可与9.5折邀请活动叠加（5.19-11.19）\n• 模型倍率非常高，用量较低",
+    "benefits": [],
+    "note": "• 5.8开始限购\n• Pro套餐免费ArkClaw权益于5.18 12:00下线\n• 官方6.8-8.8期间2.5折活动（首两个月），可与9.5折邀请活动叠加（5.19-11.19）\n• 模型倍率非常高，用量较低",
     "discontinued": false,
     "measuredFiveHoursTokenLimit": 28,
     "measuredWeeklyTokenLimit": 208,
