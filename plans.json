@@ -418,7 +418,7 @@
     "models": [
       "GLM-5.1",
       "Kimi-K2.6",
-      "Qwen-3.5-Plus",
+      "Qwen3.6-35B-A3B",
       "MiniMax-M2.5",
       "Kimi-K2.5",
       "DeepSeek-V3.2"
@@ -445,9 +445,11 @@
     "quarterlyPrice": "-",
     "yearlyPrice": "-",
     "models": [
+      "DeepSeek-V4-Pro",
+      "DeepSeek-V4-Flash",
       "GLM-5.1",
       "Kimi-K2.6",
-      "Qwen-3.5-Plus",
+      "Qwen3.6-35B-A3B",
       "GLM-5",
       "MiniMax-M2.5",
       "Kimi-K2.5",
