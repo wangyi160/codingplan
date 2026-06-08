@@ -584,11 +584,17 @@
     "quarterlyPrice": "-",
     "yearlyPrice": "-",
     "models": [
-      "Doubao-Seed-2.0",
+      "Doubao-Seed-2.0-Code",
+      "Doubao-Seed-2.0-pro",
+      "Doubao-Seed-2.0-lite",
+      "Doubao-Seed-Code",
       "MiniMax-M2.7",
+      "MiniMax-M3",
       "Kimi-K2.6",
       "GLM-5.1",
-      "DeepSeek-V3.2"
+      "DeepSeek-V3.2",
+      "DeepSeek-V4-Flash",
+      "DeepSeek-V4-Pro"
     ],
     "fiveHoursRequests": 1200,
     "weeklyRequests": 9000,
@@ -617,11 +623,17 @@
     "quarterlyPrice": "-",
     "yearlyPrice": "-",
     "models": [
-      "Doubao-Seed-2.0",
+      "Doubao-Seed-2.0-Code",
+      "Doubao-Seed-2.0-pro",
+      "Doubao-Seed-2.0-lite",
+      "Doubao-Seed-Code",
       "MiniMax-M2.7",
+      "MiniMax-M3",
       "Kimi-K2.6",
       "GLM-5.1",
-      "DeepSeek-V3.2"
+      "DeepSeek-V3.2",
+      "DeepSeek-V4-Flash",
+      "DeepSeek-V4-Pro"
     ],
     "fiveHoursRequests": 6000,
     "weeklyRequests": 45000,
