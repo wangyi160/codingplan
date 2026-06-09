@@ -3417,10 +3417,10 @@
                     return false;
                 }
 
-                // 模型筛选
+                // 模型筛选（多选时取交集：套餐必须同时包含所有选中的模型）
                 if (selectedModels.size > 0) {
-                    const hasModel = [...selectedModels].some(model => plan.models.includes(model));
-                    if (!hasModel) return false;
+                    const hasAllModels = [...selectedModels].every(model => plan.models.includes(model));
+                    if (!hasAllModels) return false;
                 }
 
                 if (selectedTags.size > 0) {
