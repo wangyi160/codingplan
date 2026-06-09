@@ -97,3 +97,6 @@ tory -a
 scripts/*.local.js
 .cozeproj/reduction
 assets/image*.png
+
+# Preview files
+.preview
