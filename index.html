@@ -529,7 +529,7 @@
         .table-wrapper {
             background: var(--bg-secondary);
             border-radius: var(--radius-xl);
-            overflow: hidden;
+            overflow: visible;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-lg);
             position: relative;
@@ -713,8 +713,141 @@
         /* 套餐名称 */
         .plan-name {
             font-weight: 600;
+            color: var(--accent-primary);
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.15s ease, text-decoration-color 0.15s ease;
+        }
+        .plan-name:hover {
+            color: var(--accent-secondary);
+            text-decoration: underline;
+            text-decoration-style: dashed;
+            text-underline-offset: 3px;
+        }
+
+        .plan-title-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 7px;
+            min-width: 128px;
+        }
+
+        .snapshot-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            border: 1px solid rgba(15, 118, 110, 0.22);
+            border-radius: var(--radius-sm);
+            background: rgba(15, 118, 110, 0.08);
+            color: #0f766e;
+            padding: 4px 8px;
+            font-size: 11px;
+            font-weight: 600;
+            line-height: 1;
+            cursor: pointer;
+            transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+        }
+
+        .snapshot-btn:hover {
+            background: rgba(15, 118, 110, 0.14);
+            border-color: rgba(15, 118, 110, 0.36);
+            color: #115e59;
+        }
+
+        .snapshot-btn svg {
+            width: 12px;
+            height: 12px;
+            flex-shrink: 0;
+        }
+
+        .snapshot-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(15, 23, 42, 0.62);
+            backdrop-filter: blur(5px);
+        }
+
+        .snapshot-modal.is-open {
+            display: flex;
+        }
+
+        .snapshot-dialog {
+            width: min(1180px, 96vw);
+            height: min(820px, 90vh);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-radius: var(--radius-xl);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .snapshot-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--bg-secondary);
+        }
+
+        .snapshot-title {
+            min-width: 0;
             color: var(--text-primary);
             font-size: 14px;
+            font-weight: 700;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .snapshot-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .snapshot-open-link,
+        .snapshot-close-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 32px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .snapshot-close-btn {
+            width: 32px;
+            padding: 0;
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .snapshot-frame {
+            width: 100%;
+            flex: 1;
+            border: 0;
+            background: #fff;
         }
 
         /* 价格 */
@@ -722,6 +855,112 @@
             color: #00a855;
             font-weight: 500;
             font-size: 13px;
+        }
+
+        /* 聚合价格多行排版样式 */
+        .price-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 12px;
+            min-width: 125px;
+            white-space: nowrap;
+        }
+
+        .price-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .price-label {
+            color: var(--text-tertiary);
+            font-size: 11px;
+            font-weight: 500;
+            width: 28px;
+            text-align: left;
+        }
+
+        .price-value {
+            font-family: var(--font-mono, monospace);
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .price-value.discount {
+            color: #10b981; /* 漂亮的绿色表示折扣优惠 */
+        }
+
+        .price-orig-badge {
+            font-size: 10px;
+            text-decoration: line-through;
+            color: var(--text-tertiary);
+            margin-left: 4px;
+            opacity: 0.6;
+        }
+
+        /* 聚合请求数多行排版样式 */
+        .requests-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 12px;
+            min-width: 105px;
+            white-space: nowrap;
+        }
+
+        .requests-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .requests-label {
+            color: var(--text-tertiary);
+            font-size: 11px;
+            font-weight: 500;
+            width: 32px;
+            text-align: left;
+        }
+
+        .requests-value {
+            font-family: var(--font-mono, monospace);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* 聚合Token数多行排版样式 */
+        .tokens-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 12px;
+            min-width: 105px;
+            white-space: nowrap;
+        }
+
+        .tokens-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tokens-label {
+            color: var(--text-tertiary);
+            font-size: 11px;
+            font-weight: 500;
+            width: 38px;
+            text-align: left;
+        }
+
+        .tokens-value {
+            font-family: var(--font-mono, monospace);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .tokens-value.special {
+            color: var(--accent-primary);
         }
 
         .price-monthly {
@@ -817,6 +1056,12 @@
             border: 1px solid var(--border-color);
         }
 
+        .models-cell {
+            min-width: 140px;
+            max-width: 220px;
+            white-space: normal;
+        }
+
         .plan-tags-cell {
             min-width: 150px;
             white-space: normal;
@@ -890,13 +1135,17 @@
             font-weight: 400;
             white-space: pre-line;
             line-height: 1.6;
+            overflow-wrap: anywhere;
+            word-break: break-word;
         }
 
         /* 备注列支持换行 */
         th.note-header,
         td:has(.note) {
             white-space: normal !important;
-            min-width: 700px;
+            width: 320px;
+            min-width: 260px;
+            max-width: 360px;
         }
 
         /* 空状态 */
@@ -1369,6 +1618,24 @@
             .model-tag, .benefit {
                 font-size: 10px;
                 padding: 3px 8px;
+            }
+
+            .snapshot-modal {
+                padding: 10px;
+            }
+
+            .snapshot-dialog {
+                width: 100%;
+                height: 92vh;
+                border-radius: var(--radius-lg);
+            }
+
+            .snapshot-header {
+                padding: 10px 12px;
+            }
+
+            .snapshot-open-link {
+                display: none;
             }
 
             .price {
@@ -1925,10 +2192,18 @@
         th,
         th.sticky-first,
         th.sticky-second {
+            position: sticky;
+            top: 0;
+            z-index: 110;
             background: rgba(20, 35, 55, 0.96);
             color: rgba(248, 252, 255, 0.86);
             border-bottom: 1px solid rgba(23, 32, 51, 0.08);
             letter-spacing: 0.04em;
+        }
+
+        th.sticky-first,
+        th.sticky-second {
+            z-index: 120;
         }
 
         th:hover {
@@ -2128,6 +2403,7 @@
             <div class="models" id="models">目前整体趋势是已经开始用Token Plan替换Coding Plan了，几个大厂阿里、字节、腾讯都改成Token Plan了，各位且买且珍惜吧</div>
         </div>
 
+        <!--
         <div class="hero-summary hero-summary--lede">
             <article class="hero-summary-card hero-summary-card--reading">
                 <div class="hero-summary-lede-inner">
@@ -2153,7 +2429,7 @@
                 </div>
                 <a class="hero-summary-readmore" href="articles/plan_comparisons/20260603/index.html">查看对比详情 →</a>
             </article>
-            <!-- <article class="hero-summary-card hero-summary-card--accent">
+            <article class="hero-summary-card hero-summary-card--accent">
                 <div class="hero-summary-kicker">How To Choose</div>
                 <h2 class="hero-summary-title">先看推荐，再用筛选器缩小范围</h2>
                 <p class="hero-summary-body">这页最适合做第一轮排除。先看平台推荐和趋势判断，再按价格、请求数、Token 上限和模型把候选压到 2 到 3 个。</p>
@@ -2167,15 +2443,16 @@
                 <div class="hero-summary-kicker">Market Signal</div>
                 <h2 class="hero-summary-title">Coding Plan 正在收缩，替代方案要提前看</h2>
                 <p class="hero-summary-body">如果目标平台已经开始转向 Token Plan，就要顺手评估它的长期成本和补位平台，避免后面只能被动切换。</p>
-            </article> -->
+            </article>
         </div>
+        -->
 
         <!-- 平台推荐（与 config.json 同步，供无 JS / 配置加载失败时的默认展示） -->
         <div class="recommendations" id="recommendations">
             <div class="recommendation-card">
                 <div class="card-watermark">www.codingplan.fyi</div>
                 <div class="recommendation-header">
-                    <a class="recommendation-name-link" href="https://api.dreamfree.space/c/s/cpyqzhipu" target="_blank" rel="noopener noreferrer"><span class="recommendation-name">智谱AI</span><svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                    <a class="recommendation-name-link" href="https://www.bigmodel.cn/glm-coding?ic=V9FJECIQJC" target="_blank" rel="noopener noreferrer"><span class="recommendation-name">智谱AI</span><svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
                     <span class="recommendation-rating">⭐️⭐️⭐️⭐️⭐️</span>
                 </div>
                 <ul class="recommendation-reasons">
@@ -2188,7 +2465,7 @@
             <div class="recommendation-card">
                 <div class="card-watermark">www.codingplan.fyi</div>
                 <div class="recommendation-header">
-                    <a class="recommendation-name-link" href="https://api.dreamfree.space/c/s/cpyqminimax" target="_blank" rel="noopener noreferrer"><span class="recommendation-name">MiniMax</span><svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                    <a class="recommendation-name-link" href="https://platform.minimaxi.com/subscribe/token-plan?code=INsXAT8O7y&source=link" target="_blank" rel="noopener noreferrer"><span class="recommendation-name">MiniMax</span><svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
                     <span class="recommendation-rating">⭐️⭐️⭐️⭐️⭐️</span>
                 </div>
                 <ul class="recommendation-reasons">
@@ -2200,7 +2477,7 @@
             <div class="recommendation-card">
                 <div class="card-watermark">www.codingplan.fyi</div>
                 <div class="recommendation-header">
-                    <a class="recommendation-name-link" href="https://api.dreamfree.space/c/s/cpyqxunfei" target="_blank" rel="noopener noreferrer"><span class="recommendation-name">讯飞·星火</span><svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                    <a class="recommendation-name-link" href="https://maas.xfyun.cn/packageSubscription?inviteCode=MAAS-B22BA5E2" target="_blank" rel="noopener noreferrer"><span class="recommendation-name">讯飞·星火</span><svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
                     <span class="recommendation-rating">⭐️⭐️⭐️⭐️⭐️</span>
                 </div>
                 <ul class="recommendation-reasons">
@@ -2212,7 +2489,7 @@
             <div class="recommendation-card">
                 <div class="card-watermark">www.codingplan.fyi</div>
                 <div class="recommendation-header">
-                    <a class="recommendation-name-link" href="https://api.dreamfree.space/c/s/cpyqkimi" target="_blank" rel="noopener noreferrer"><span class="recommendation-name">Kimi</span><svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                    <a class="recommendation-name-link" href="https://www.kimi.com/code" target="_blank" rel="noopener noreferrer"><span class="recommendation-name">Kimi</span><svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
                     <span class="recommendation-rating">⭐️⭐️⭐️⭐️</span>
                 </div>
                 <ul class="recommendation-reasons">
@@ -2227,6 +2504,7 @@
         <!-- 评分标准 -->
         <div class="rating-guide" id="ratingGuide">基准3颗星，价格优势劣势1分，模型优势或独占模型1分，其他优势1分。TokenPlan因性价比较低，暂不推荐，能买CodingPlan尽量买CodingPlan</div>
 
+        <!--
         <hr class="section-divider">
 
         <section class="plan-usage-panel surface-panel" id="planUsagePanel" aria-labelledby="planUsageTitle">
@@ -2245,8 +2523,8 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="plan-usage-state" id="planUsageState" hidden></div> -->
-            <div class="plan-usage-chart-stack">
+            <div class="plan-usage-state" id="planUsageState" hidden></div>
+            <div class="plan-usage-chart-stack" style="display: none;">
                 <section class="plan-usage-chart-block" aria-labelledby="planUsageValueTitle">
                     <div class="plan-usage-chart-header">
                         <div class="plan-usage-chart-heading-row">
@@ -2278,6 +2556,7 @@
         </section>
 
         <hr class="section-divider">
+        -->
 
         <!-- 顶部筛选栏 -->
         <div class="filter-bar surface-panel">
@@ -2302,7 +2581,7 @@
             </div>
 
             <!-- 类型筛选下拉 -->
-            <div class="filter-dropdown">
+            <div class="filter-dropdown" style="display: none;">
                 <button class="filter-btn" id="typeBtn">
                     <span>类型</span>
                     <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
@@ -2618,24 +2897,12 @@
                         <tr>
                             <th class="sortable sticky-first" data-column="vendor">平台</th>
                             <th class="sticky-second">套餐</th>
-                            <th>类型</th>
-                            <th>跳转链接</th>
+                            <th>支持模型</th>
                             <th class="sortable" data-column="rating">评分</th>
                             <th>标签</th>
-                            <th class="sortable" data-column="firstMonthPrice">首月价格</th>
-                            <th class="sortable" data-column="monthlyPrice">连续包月</th>
-                            <th class="sortable" data-column="quarterlyPrice">连续包季</th>
-                            <th class="sortable" data-column="yearlyPrice">连续包年</th>
-                            <th class="sortable" data-column="fiveHoursRequests">5小时请求数</th>
-                            <th class="sortable" data-column="weeklyRequests">每周请求数</th>
-                            <th class="sortable" data-column="monthlyRequests">每月请求数</th>
-                            <th class="sortable" data-column="measuredFiveHoursTokenLimit">实测5h Token</th>
-                            <th class="sortable" data-column="measuredWeeklyTokenLimit">实测周Token</th>
-                            <th class="sortable" data-column="measuredMonthlyTokenLimit">实测月Token</th>
-                            <th class="sortable" data-column="tokenLimit">月Token上限</th>
-                            <th>支持模型</th>
-                            <th>其他权益</th>
-                            <th>状态</th>
+                            <th class="sortable" data-column="monthlyPrice">价格</th>
+                            <th class="sortable" data-column="fiveHoursRequests">请求数限制</th>
+                            <th class="sortable" data-column="tokenLimit">Token限制/实测</th>
                             <th class="note-header">备注</th>
                         </tr>
                     </thead>
@@ -2656,69 +2923,6 @@
             </ul>
         </div>
 
-        <!-- 更新日志（与 config.json 同步） -->
-        <div class="updates-section" id="updatesSection">
-            <h3>📝 更新日志</h3>
-            <ul class="updates-list">
-                <li class="update-item">
-                    <div class="log-date">2026.5.8</div>
-                    <ul class="update-items"><li>字节方舟上线AgentPlan，CodingPlan开始限购</li></ul>
-                </li>
-                <li class="update-item">
-                    <div class="log-date">2026.4.30</div>
-                    <ul class="update-items"><li>更新腾讯TokenPlan模型</li></ul>
-                </li>
-                <li class="update-item">
-                    <div class="log-date">2026.4.23</div>
-                    <ul class="update-items"><li>更新小米MiMo V2.5模型和倍率</li></ul>
-                </li>
-                <li class="update-item">
-                    <div class="log-date">2026.4.22</div>
-                    <ul class="update-items"><li>更新字节方舟&amp;Kimi CodingPlan支持的模型</li></ul>
-                </li>
-                <li class="update-item">
-                    <div class="log-date">2026.4.21</div>
-                    <ul class="update-items"><li>阿里上线TokenPlan</li></ul>
-                </li>
-                <li class="update-item">
-                    <div class="log-date">2026.4.20</div>
-                    <ul class="update-items"><li>腾讯下线CodingPlan，仅保留TokenPlan</li></ul>
-                </li>
-                <li class="update-item">
-                    <div class="log-date">2026.4.16</div>
-                    <ul class="update-items"><li>去除讯飞·星火Lite套餐，因为其不包含主流SOTA模型</li></ul>
-                </li>
-                <li class="update-item">
-                    <div class="log-date">2026.4.15</div>
-                    <ul class="update-items"><li>添加讯飞·星火套餐数据</li></ul>
-                </li>
-                <li class="update-item">
-                    <div class="log-date">2026.4.14</div>
-                    <ul class="update-items"><li>增加类型列，区分CodingPlan和TokenPlan</li></ul>
-                </li>
-                <li class="update-item">
-                    <div class="log-date">2026.4.12</div>
-                    <ul class="update-items"><li>更新智谱AI国际版价格，智谱国际版大幅度涨价</li></ul>
-                </li>
-                <li class="update-item">
-                    <div class="log-date">2026.4.10</div>
-                    <ul class="update-items"><li>添加Qwen-3.6-Plus</li></ul>
-                </li>
-                <li class="update-item">
-                    <div class="log-date">2026.4.4</div>
-                    <ul class="update-items"><li>添加腾讯TokenPlan（非CodingPlan）</li></ul>
-                </li>
-                <li class="update-item">
-                    <div class="log-date">2026.4.3</div>
-                    <ul class="update-items"><li>添加小米·MiMo 及 京东·JoyBuilder</li></ul>
-                </li>
-                <li class="update-item">
-                    <div class="log-date">2026.3.28</div>
-                    <ul class="update-items"><li>更新智谱AI GLM-5.1 模型信息</li></ul>
-                </li>
-            </ul>
-        </div>
-
         <!-- 账号出售区域（与 config.json 同步；无账号条目时脚本不会覆盖此块） -->
         <!-- 临时隐藏
         <div class="account-sale-section surface-panel" id="accountSaleSection">
@@ -2734,6 +2938,19 @@
             </div>
         </div>
         -->
+    </div>
+
+    <div class="snapshot-modal" id="snapshotModal" aria-hidden="true">
+        <div class="snapshot-dialog" role="dialog" aria-modal="true" aria-labelledby="snapshotTitle">
+            <div class="snapshot-header">
+                <div class="snapshot-title" id="snapshotTitle">套餐快照</div>
+                <div class="snapshot-actions">
+                    <a class="snapshot-open-link" id="snapshotOpenLink" href="#" target="_blank" rel="noopener noreferrer">新窗口打开</a>
+                    <button type="button" class="snapshot-close-btn" id="snapshotCloseBtn" aria-label="关闭快照预览">×</button>
+                </div>
+            </div>
+            <iframe class="snapshot-frame" id="snapshotFrame" title="套餐页面快照" loading="lazy"></iframe>
+        </div>
     </div>
 
     <div class="feedback-float" id="feedbackFloat">
@@ -2954,6 +3171,102 @@
             const tags = getPlanTags(plan);
             if (tags.length === 0) return '';
             return `<div class="plan-tags">${tags.map(tag => `<span class="plan-tag ${getTagClass(tag)}">${escapeHtml(tag)}</span>`).join('')}</div>`;
+        }
+
+        function renderPricingGroup(plan) {
+            const cur = plan.currency || '¥';
+            const first = plan.firstMonthPrice;
+            const monthly = plan.monthlyPrice;
+            const quarterly = plan.quarterlyPrice;
+            const yearly = plan.yearlyPrice;
+            
+            const isFirstMonthDiscount = first < monthly;
+            const isQuarterlyDiscount = quarterly < (monthly * 3);
+            const isYearlyDiscount = yearly < (monthly * 12);
+            
+            return `
+                <div class="price-group">
+                    <div class="price-item">
+                        <span class="price-label">首月</span>
+                        <span class="price-value ${isFirstMonthDiscount ? 'discount' : ''}">${cur}${formatPrice(first)}</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">月付</span>
+                        <span class="price-value">${cur}${formatPrice(monthly)}</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">季付</span>
+                        <span class="price-value ${isQuarterlyDiscount ? 'discount' : ''}">${cur}${formatPrice(quarterly)}</span>
+                        ${isQuarterlyDiscount ? `<span class="price-orig-badge">${cur}${formatPrice(monthly * 3)}</span>` : ''}
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">年付</span>
+                        <span class="price-value ${isYearlyDiscount ? 'discount' : ''}">${cur}${formatPrice(yearly)}</span>
+                        ${isYearlyDiscount ? `<span class="price-orig-badge">${cur}${formatPrice(monthly * 12)}</span>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderRequestsGroup(plan) {
+            const formatVal = (val) => {
+                if (typeof val === 'number') {
+                    return val === 0 ? '-' : `${val.toLocaleString()}次`;
+                }
+                return val; // "无限制" or "未公开"
+            };
+            
+            return `
+                <div class="requests-group">
+                    <div class="requests-item">
+                        <span class="requests-label">5小时</span>
+                        <span class="requests-value">${formatVal(plan.fiveHoursRequests)}</span>
+                    </div>
+                    <div class="requests-item">
+                        <span class="requests-label">每周</span>
+                        <span class="requests-value">${formatVal(plan.weeklyRequests)}</span>
+                    </div>
+                    <div class="requests-item">
+                        <span class="requests-label">每月</span>
+                        <span class="requests-value">${formatVal(plan.monthlyRequests)}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderTokensGroup(plan) {
+            const formatMeasured = (val) => {
+                if (typeof val !== 'number') return '-';
+                return `${val}M`;
+            };
+            
+            const formatLimit = (val) => {
+                if (typeof val === 'number') {
+                    return `${val}M`;
+                }
+                return val || '无限制';
+            };
+            
+            return `
+                <div class="tokens-group">
+                    <div class="tokens-item">
+                        <span class="tokens-label">5h实测</span>
+                        <span class="tokens-value">${formatMeasured(plan.measuredFiveHoursTokenLimit)}</span>
+                    </div>
+                    <div class="tokens-item">
+                        <span class="tokens-label">周实测</span>
+                        <span class="tokens-value">${formatMeasured(plan.measuredWeeklyTokenLimit)}</span>
+                    </div>
+                    <div class="tokens-item">
+                        <span class="tokens-label">月实测</span>
+                        <span class="tokens-value">${formatMeasured(plan.measuredMonthlyTokenLimit)}</span>
+                    </div>
+                    <div class="tokens-item">
+                        <span class="tokens-label">月上限</span>
+                        <span class="tokens-value special">${formatLimit(plan.tokenLimit)}</span>
+                    </div>
+                </div>
+            `;
         }
 
         function updatePresetTagButtons() {
@@ -3543,7 +3856,9 @@
         function getMaxPrice(priceType) {
             if (allPlans.length === 0) return 1000;
             const priceKey = priceType + 'Price';
-            const maxPrice = Math.max(...allPlans.map(plan => plan[priceKey]));
+            const prices = allPlans.map(plan => plan[priceKey]).filter(p => typeof p === 'number' && !isNaN(p));
+            if (prices.length === 0) return 1000;
+            const maxPrice = Math.max(...prices);
             return Math.ceil(maxPrice); // 向上取整
         }
 
@@ -3551,7 +3866,7 @@
         function getMinPrice(priceType) {
             if (allPlans.length === 0) return 1;
             const priceKey = priceType + 'Price';
-            const prices = allPlans.map(plan => plan[priceKey]).filter(p => p > 0);
+            const prices = allPlans.map(plan => plan[priceKey]).filter(p => typeof p === 'number' && !isNaN(p) && p > 0);
             if (prices.length === 0) return 1;
             return Math.floor(Math.min(...prices)); // 向下取整
         }
@@ -3662,7 +3977,7 @@
 
         function getNumericRequestValues(requestType) {
             const key = requestPlanField[requestType];
-            return allPlans.map(plan => plan[key]).filter(v => typeof v === 'number');
+            return allPlans.map(plan => plan[key]).filter(v => typeof v === 'number' && !isNaN(v));
         }
 
         function getMinRequest(requestType) {
@@ -4161,12 +4476,80 @@
             });
         }
 
+        function formatSnapshotTime(value) {
+            if (!value) return '';
+            const date = new Date(value);
+            if (Number.isNaN(date.getTime())) return '';
+            return date.toLocaleString('zh-CN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            });
+        }
+
+        function renderSnapshotButton(plan) {
+            if (!plan.snapshot) return '';
+            const planTitle = `${plan.vendor || ''} ${plan.plan || ''}`.trim() || '套餐快照';
+            const capturedAt = formatSnapshotTime(plan.snapshotCapturedAt);
+            const title = capturedAt ? `${planTitle} · 抓取时间 ${capturedAt}` : planTitle;
+            return `
+                <button type="button" class="snapshot-btn" data-snapshot="${encodeURIComponent(plan.snapshot)}" data-snapshot-title="${encodeURIComponent(title)}">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <span>预览</span>
+                </button>
+            `;
+        }
+
+        function openSnapshotPreview(snapshotUrl, title) {
+            const modal = document.getElementById('snapshotModal');
+            const frame = document.getElementById('snapshotFrame');
+            const titleEl = document.getElementById('snapshotTitle');
+            const openLink = document.getElementById('snapshotOpenLink');
+            if (!modal || !frame || !titleEl || !openLink || !snapshotUrl) return;
+
+            titleEl.textContent = title || '套餐快照';
+            frame.src = snapshotUrl;
+            openLink.href = snapshotUrl;
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSnapshotPreview() {
+            const modal = document.getElementById('snapshotModal');
+            const frame = document.getElementById('snapshotFrame');
+            if (!modal || !frame) return;
+
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            frame.src = 'about:blank';
+            document.body.style.overflow = '';
+        }
+
+        function bindSnapshotButtons() {
+            tableBody.querySelectorAll('.snapshot-btn').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    const snapshotUrl = decodeURIComponent(button.dataset.snapshot || '');
+                    const title = decodeURIComponent(button.dataset.snapshotTitle || '');
+                    openSnapshotPreview(snapshotUrl, title);
+                });
+            });
+        }
+
         // 渲染表格
         function renderTable() {
             if (filteredPlans.length === 0) {
                 tableBody.innerHTML = `
                     <tr>
-                        <td colspan="18">
+                        <td colspan="9">
                             <div class="empty-state">
                                 <div class="empty-state-icon">📭</div>
                                 <div class="empty-state-text">没有找到符合条件的套餐</div>
@@ -4181,37 +4564,28 @@
             tableBody.innerHTML = filteredPlans.map(plan => `
                 <tr class="plan-row${plan.discontinued ? ' discontinued' : ''}">
                     <td class="sticky-first"><span class="vendor-name">${escapeHtml(plan['vendor'])}</span></td>
-                    <td class="sticky-second"><span class="plan-name">${escapeHtml(plan['plan'])}</span></td>
-                    <td><span class="type-tag ${(plan.type || 'Coding Plan') === 'Token Plan' ? 'token-plan' : 'coding-plan'}">${escapeHtml(plan.type || 'Coding Plan')}</span></td>
-                    <td>
-                        <a href="${escapeHtml(plan['action'])}" target="_blank" class="action-btn">
-                            跳转开通
-                        </a>
+                    <td class="sticky-second">
+                        <div class="plan-title-actions">
+                            <a href="${escapeHtml(plan['action'])}" target="_blank" class="plan-name">
+                                ${plan.discontinued ? '<span style="color: #ef4444; font-weight: bold; margin-right: 4px;">[已下线]</span>' : ''}${escapeHtml(plan['plan'])}
+                                <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 12px; height: 12px; flex-shrink: 0; display: inline-block; vertical-align: middle;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                            ${renderSnapshotButton(plan)}
+                        </div>
+                    </td>
+                    <td class="models-cell">
+                        ${plan.models.map(model => `<span class="model-tag">${escapeHtml(model)}</span>`).join('')}
                     </td>
                     <td class="rating-stars">${'★'.repeat(plan.rating || 0)}${'☆'.repeat(5 - (plan.rating || 0))}</td>
                     <td class="plan-tags-cell">${renderPlanTags(plan)}</td>
-                    <td><span class="price">${plan.currency||'¥'}${formatPrice(plan.firstMonthPrice)} <span class="unit">/ 首月</span></span></td>
-                    <td><span class="price-monthly">${plan.currency||'¥'}${formatPrice(plan.monthlyPrice)} <span class="unit">/ 月</span></span></td>
-                    <td><span class="price-normal">${plan.currency||'¥'}${formatPrice(plan.quarterlyPrice)} <span class="price-original">${plan.currency||'¥'}${formatPrice(plan.monthlyPrice * 3)}</span> <span class="unit">/ 季</span></span></td>
-                    <td><span class="price-normal">${plan.currency||'¥'}${formatPrice(plan.yearlyPrice)} <span class="price-original">${plan.currency||'¥'}${formatPrice(plan.monthlyPrice * 12)}</span> <span class="unit">/ 年</span></span></td>
-                    <td><span class="request-count">${formatRequestCount(plan.fiveHoursRequests)} <span class="unit">/ 5小时</span></span></td>
-                    <td><span class="request-count">${formatRequestCount(plan.weeklyRequests)} <span class="unit">/ 周</span></span></td>
-                    <td><span class="request-count">${formatRequestCount(plan.monthlyRequests)} <span class="unit">/ 月</span></span></td>
-                    <td><span class="request-count">${formatMeasuredToken(plan.measuredFiveHoursTokenLimit)}</span></td>
-                    <td><span class="request-count">${formatMeasuredToken(plan.measuredWeeklyTokenLimit)}</span></td>
-                    <td><span class="request-count">${formatMeasuredToken(plan.measuredMonthlyTokenLimit)}</span></td>
-                    <td><span class="request-count">${typeof plan.tokenLimit === 'number' ? plan.tokenLimit + 'M <span class="unit">Tokens</span>' : escapeHtml(plan.tokenLimit || '无限制')}</span></td>
-                    <td>
-                        ${plan.models.map(model => `<span class="model-tag">${escapeHtml(model)}</span>`).join('')}
-                    </td>
-                    <td>
-                        ${plan.benefits.map(benefit => `<span class="benefit">${escapeHtml(benefit)}</span>`).join('')}
-                    </td>
-                    <td>${plan.discontinued ? '<span class="status-offline">已下线</span>' : ''}</td>
+                    <td>${renderPricingGroup(plan)}</td>
+                    <td>${renderRequestsGroup(plan)}</td>
+                    <td>${renderTokensGroup(plan)}</td>
                     <td><span class="note">${(plan['note'] || '').replace(/\n/g, '<br>')}</span></td>
                 </tr>
             `).join('');
 
+            bindSnapshotButtons();
             setTimeout(updateStickyColumns, 0);
         }
 
@@ -4387,20 +4761,6 @@
                     items: appConfig.notes,
                     renderItem: function(note) {
                         return escapeHtml(note);
-                    }
-                });
-            }
-
-            // 渲染更新日志
-            if (Array.isArray(appConfig.updates) && appConfig.updates.length > 0) {
-                renderUpdatesSection('updatesSection', {
-                    title: '📝 更新日志',
-                    updates: appConfig.updates,
-                    renderDate: function(date) {
-                        return escapeHtml(date);
-                    },
-                    renderItem: function(item) {
-                        return escapeHtml(item);
                     }
                 });
             }
@@ -4636,6 +4996,19 @@
             let quarterlyPrice = parseFloat(item.quarterlyPrice);
             let yearlyPrice = parseFloat(item.yearlyPrice);
 
+            // 如果包月价格为 "-" 或 NaN，尝试使用其他已知价格估算
+            if (isNaN(monthlyPrice) || item.monthlyPrice === '-') {
+                if (!isNaN(quarterlyPrice) && item.quarterlyPrice !== '-') {
+                    monthlyPrice = quarterlyPrice / 3;
+                } else if (!isNaN(yearlyPrice) && item.yearlyPrice !== '-') {
+                    monthlyPrice = yearlyPrice / 12;
+                } else if (!isNaN(firstMonthPrice) && item.firstMonthPrice !== '-') {
+                    monthlyPrice = firstMonthPrice;
+                } else {
+                    monthlyPrice = 0;
+                }
+            }
+
             // 如果首月价格为 "-" 或 NaN，使用包月价格
             if (isNaN(firstMonthPrice) || item.firstMonthPrice === '-') {
                 firstMonthPrice = monthlyPrice;
@@ -4680,7 +5053,7 @@
             try {
                 tableBody.innerHTML = `
                     <tr>
-                        <td colspan="18">
+                        <td colspan="9">
                             <div class="loading">加载数据中</div>
                         </td>
                     </tr>
@@ -4693,7 +5066,8 @@
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const plansData = await response.json();
-                allPlans = plansData.map((item, index) => processPrices(item, index));
+                const codingPlansOnly = plansData.filter(item => (item.type || 'Coding Plan') !== 'Token Plan');
+                allPlans = codingPlansOnly.map((item, index) => processPrices(item, index));
                 filteredPlans = [...allPlans];
 
                 initFilters();
@@ -4712,7 +5086,7 @@
                 console.error('加载数据失败:', error);
                 tableBody.innerHTML = `
                     <tr>
-                        <td colspan="18">
+                        <td colspan="9">
                             <div class="empty-state">
                                 <div class="empty-state-icon">❌</div>
                                 <div class="empty-state-text">数据加载失败</div>
@@ -4735,6 +5109,13 @@
 
             initFeedbackFloat();
             await loadConfig();
+            document.getElementById('snapshotCloseBtn')?.addEventListener('click', closeSnapshotPreview);
+            document.getElementById('snapshotModal')?.addEventListener('click', (event) => {
+                if (event.target.id === 'snapshotModal') closeSnapshotPreview();
+            });
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') closeSnapshotPreview();
+            });
 
             // 设置水印域名，截图分享时可溯源
             watermarkUrl = appConfig.header?.watermarkUrl || window.location.host;

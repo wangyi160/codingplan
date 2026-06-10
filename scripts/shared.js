@@ -115,15 +115,14 @@ function renderPageNav(target, options = {}) {
         return false;
     }
 
-    const tabs = Array.isArray(options.tabs) && options.tabs.length
+    const rawTabs = Array.isArray(options.tabs) && options.tabs.length
         ? options.tabs
         : [
             { key: 'index', href: 'index.html', text: 'Coding Plan' },
-            { key: 'plan-usage', href: 'plan-usage.html', text: 'Coding Plan用量提交' },
             { key: 'coding-agents', href: 'coding-agents.html', text: '编程 Agent' },
-            { key: 'relays', href: 'relays.html', text: '中转站' },
-            { key: 'relay-detect', href: 'relay-detect.html', text: '中转站检测' }
+            { key: 'articles', href: 'articles.html', text: '延伸阅读' }
         ];
+    const tabs = rawTabs.filter(tab => tab.key === 'index' || tab.key === 'coding-agents' || tab.key === 'articles');
     const activeKey = options.activeKey || '';
     const settings = options.settings || {};
 

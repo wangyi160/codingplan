@@ -3,7 +3,7 @@
     "vendor": "智谱AI",
     "plan": "Lite",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqzhipu",
+    "action": "https://www.bigmodel.cn/glm-coding",
     "rating": 5,
     "tags": [
       "模型强",
@@ -27,13 +27,16 @@
     "note": "• 3倍Claude Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算",
     "measuredFiveHoursTokenLimit": 6,
     "measuredWeeklyTokenLimit": 30,
-    "measuredMonthlyTokenLimit": 120
+    "measuredMonthlyTokenLimit": 120,
+    "snapshot": "snapshots/plans/www-bigmodel-cn-glm-coding-b89a53918f/index.html",
+    "snapshotSource": "https://www.bigmodel.cn/glm-coding",
+    "snapshotCapturedAt": "2026-06-10T17:24:47.092221+00:00"
   },
   {
     "vendor": "智谱AI",
     "plan": "Pro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqzhipu",
+    "action": "https://www.bigmodel.cn/glm-coding",
     "rating": 5,
     "tags": [
       "模型强",
@@ -58,13 +61,16 @@
     "note": "• 5倍Lite用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算",
     "measuredFiveHoursTokenLimit": 30,
     "measuredWeeklyTokenLimit": 150,
-    "measuredMonthlyTokenLimit": 600
+    "measuredMonthlyTokenLimit": 600,
+    "snapshot": "snapshots/plans/www-bigmodel-cn-glm-coding-b89a53918f/index.html",
+    "snapshotSource": "https://www.bigmodel.cn/glm-coding",
+    "snapshotCapturedAt": "2026-06-10T17:24:47.219749+00:00"
   },
   {
     "vendor": "智谱AI",
     "plan": "Max",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqzhipu",
+    "action": "https://www.bigmodel.cn/glm-coding",
     "rating": 5,
     "tags": [
       "模型强",
@@ -89,13 +95,16 @@
     "note": "• 20倍Lite用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算",
     "measuredFiveHoursTokenLimit": 120,
     "measuredWeeklyTokenLimit": 600,
-    "measuredMonthlyTokenLimit": 2400
+    "measuredMonthlyTokenLimit": 2400,
+    "snapshot": "snapshots/plans/www-bigmodel-cn-glm-coding-b89a53918f/index.html",
+    "snapshotSource": "https://www.bigmodel.cn/glm-coding",
+    "snapshotCapturedAt": "2026-06-10T17:24:47.219783+00:00"
   },
   {
     "vendor": "智谱国际版",
     "plan": "Lite",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqzai",
+    "action": "https://z.ai/subscribe",
     "rating": 4,
     "tags": [
       "模型强"
@@ -116,13 +125,16 @@
     "benefits": [
       "免费MCP次数"
     ],
-    "note": "• 3倍Claude Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+    "note": "• 3倍Claude Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "snapshot": "snapshots/plans/z-ai-subscribe-5019642538/index.html",
+    "snapshotSource": "https://z.ai/subscribe",
+    "snapshotCapturedAt": "2026-06-10T17:26:20.945525+00:00"
   },
   {
     "vendor": "智谱国际版",
     "plan": "Pro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqzai",
+    "action": "https://z.ai/subscribe",
     "rating": 4,
     "tags": [
       "模型强"
@@ -144,13 +156,16 @@
     "benefits": [
       "免费MCP次数"
     ],
-    "note": "• 5倍Lite用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+    "note": "• 5倍Lite用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "snapshot": "snapshots/plans/z-ai-subscribe-5019642538/index.html",
+    "snapshotSource": "https://z.ai/subscribe",
+    "snapshotCapturedAt": "2026-06-10T17:26:21.023656+00:00"
   },
   {
     "vendor": "智谱国际版",
     "plan": "Max",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqzai",
+    "action": "https://z.ai/subscribe",
     "rating": 4,
     "tags": [
       "模型强"
@@ -172,13 +187,16 @@
     "benefits": [
       "免费MCP次数"
     ],
-    "note": "• 4倍Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算"
+    "note": "• 4倍Pro用量。官方以prompt计数，这里按1 prompt≈15次请求换算\n• 官方只有周限量无月限量，这里按照1月=4周计算",
+    "snapshot": "snapshots/plans/z-ai-subscribe-5019642538/index.html",
+    "snapshotSource": "https://z.ai/subscribe",
+    "snapshotCapturedAt": "2026-06-10T17:26:21.023681+00:00"
   },
   {
     "vendor": "MiniMax",
     "plan": "Starter",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
     "rating": 5,
     "tags": [
       "模型强",
@@ -208,7 +226,7 @@
     "vendor": "MiniMax",
     "plan": "Plus",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
     "rating": 5,
     "tags": [
       "模型强",
@@ -236,7 +254,7 @@
     "vendor": "MiniMax",
     "plan": "Max",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
     "rating": 5,
     "tags": [
       "模型强",
@@ -264,7 +282,7 @@
     "vendor": "MiniMax",
     "plan": "Plus-极速",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
     "rating": 5,
     "tags": [
       "模型强",
@@ -294,7 +312,7 @@
     "vendor": "MiniMax",
     "plan": "Max-极速",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
     "rating": 5,
     "tags": [
       "模型强",
@@ -324,7 +342,7 @@
     "vendor": "MiniMax",
     "plan": "Plus",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
     "rating": 5,
     "tags": [
       "模型强",
@@ -351,7 +369,7 @@
     "vendor": "MiniMax",
     "plan": "Max",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
     "rating": 5,
     "tags": [
       "模型强",
@@ -378,7 +396,7 @@
     "vendor": "MiniMax",
     "plan": "Ultra",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqminimax",
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
     "rating": 5,
     "tags": [
       "模型强",
@@ -405,7 +423,7 @@
     "vendor": "讯飞·星火",
     "plan": "专业版",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqxunfei",
+    "action": "https://maas.xfyun.cn/packageSubscription",
     "rating": 5,
     "tags": [
       "模型强",
@@ -428,13 +446,16 @@
     "monthlyRequests": 18000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• GLM-5.1已恢复200K上下文\n• 讯飞实际用量比较高"
+    "note": "• GLM-5.1已恢复200K上下文\n• 讯飞实际用量比较高",
+    "snapshot": "snapshots/plans/maas-xfyun-cn-packagesubscription-f68af78118/index.html",
+    "snapshotSource": "https://maas.xfyun.cn/packageSubscription",
+    "snapshotCapturedAt": "2026-06-10T15:37:24.393738+00:00"
   },
   {
     "vendor": "讯飞·星火",
     "plan": "高效版",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqxunfei",
+    "action": "https://maas.xfyun.cn/packageSubscription",
     "rating": 4,
     "tags": [
       "模型强",
@@ -460,13 +481,14 @@
     "monthlyRequests": 90000,
     "tokenLimit": "无限制",
     "benefits": [],
-    "note": "• GLM-5.1已恢复200K上下文\n• 讯飞实际用量比较高"
+    "note": "• GLM-5.1已恢复200K上下文\n• 讯飞实际用量比较高",
+    "snapshot": "snapshots/plans/maas-xfyun-cn-packagesubscription-f68af78118/index.html"
   },
   {
     "vendor": "Kimi",
     "plan": "Andante",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqkimi",
+    "action": "https://www.kimi.com/code",
     "rating": 4,
     "tags": [
       "模型强"
@@ -494,7 +516,7 @@
     "vendor": "Kimi",
     "plan": "Moderato",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqkimi",
+    "action": "https://www.kimi.com/code",
     "rating": 4,
     "tags": [
       "模型强"
@@ -519,7 +541,7 @@
     "vendor": "Kimi",
     "plan": "Allegretto",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqkimi",
+    "action": "https://www.kimi.com/code",
     "rating": 4,
     "tags": [
       "模型强"
@@ -549,7 +571,7 @@
     "vendor": "Kimi",
     "plan": "Allegro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqkimi",
+    "action": "https://www.kimi.com/code",
     "rating": 4,
     "tags": [
       "模型强"
@@ -576,7 +598,7 @@
     "vendor": "字节·方舟",
     "plan": "Lite",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqfangzhou",
+    "action": "https://www.volcengine.com/activity/codingplan",
     "rating": 4,
     "tags": [
       "模型强"
@@ -600,8 +622,7 @@
     "weeklyRequests": 9000,
     "monthlyRequests": 18000,
     "tokenLimit": "无限制",
-    "benefits": [
-    ],
+    "benefits": [],
     "note": "• 官方6.8-8.8期间2.5折活动（首两个月），可与9.5折邀请活动叠加（5.19-11.19）\n• 部分模型倍率较高，用量较低",
     "discontinued": false,
     "measuredFiveHoursTokenLimit": 6,
@@ -612,7 +633,7 @@
     "vendor": "字节·方舟",
     "plan": "Pro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqfangzhou",
+    "action": "https://www.volcengine.com/activity/codingplan",
     "rating": 4,
     "tags": [
       "模型强"
@@ -647,7 +668,7 @@
     "vendor": "字节·方舟",
     "plan": "Small",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqfangzhout",
+    "action": "https://www.volcengine.com/activity/agentplan",
     "rating": 3,
     "tags": [
       "模型强"
@@ -681,7 +702,7 @@
     "vendor": "字节·方舟",
     "plan": "Medium",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqfangzhout",
+    "action": "https://www.volcengine.com/activity/agentplan",
     "rating": 3,
     "tags": [
       "模型强"
@@ -716,7 +737,7 @@
     "vendor": "字节·方舟",
     "plan": "Large",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqfangzhout",
+    "action": "https://www.volcengine.com/activity/agentplan",
     "rating": 3,
     "tags": [
       "模型强"
@@ -751,7 +772,7 @@
     "vendor": "字节·方舟",
     "plan": "Max",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqfangzhout",
+    "action": "https://www.volcengine.com/activity/agentplan",
     "rating": 3,
     "tags": [
       "模型强"
@@ -786,7 +807,7 @@
     "vendor": "阿里·百炼",
     "plan": "标准",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqbailiant",
+    "action": "https://cn.aliyun.com/benefit/scene/tokenplan",
     "rating": 3,
     "tags": [],
     "firstMonthPrice": "-",
@@ -815,7 +836,7 @@
     "vendor": "阿里·百炼",
     "plan": "高级",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqbailiant",
+    "action": "https://cn.aliyun.com/benefit/scene/tokenplan",
     "rating": 3,
     "tags": [],
     "firstMonthPrice": "-",
@@ -844,7 +865,7 @@
     "vendor": "阿里·百炼",
     "plan": "尊享",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqbailiant",
+    "action": "https://cn.aliyun.com/benefit/scene/tokenplan",
     "rating": 3,
     "tags": [],
     "firstMonthPrice": "-",
@@ -873,7 +894,7 @@
     "vendor": "阿里·百炼",
     "plan": "Lite",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqbailianc",
+    "action": "https://cn.aliyun.com/benefit/scene/codingplan",
     "rating": 4,
     "tags": [
       "性价比高用量足"
@@ -904,7 +925,7 @@
     "vendor": "阿里·百炼",
     "plan": "Pro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqbailianc",
+    "action": "https://cn.aliyun.com/benefit/scene/codingplan",
     "rating": 4,
     "tags": [
       "性价比高用量足"
@@ -934,7 +955,7 @@
     "vendor": "小米·MiMo",
     "plan": "Lite",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqmimo",
+    "action": "https://mimo.mi.com/",
     "rating": 3,
     "tags": [],
     "firstMonthPrice": 34.32,
@@ -962,7 +983,7 @@
     "vendor": "小米·MiMo",
     "plan": "Standard",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqmimo",
+    "action": "https://mimo.mi.com/",
     "rating": 3,
     "tags": [],
     "firstMonthPrice": 87.12,
@@ -990,7 +1011,7 @@
     "vendor": "小米·MiMo",
     "plan": "Pro",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqmimo",
+    "action": "https://mimo.mi.com/",
     "rating": 3,
     "tags": [],
     "firstMonthPrice": 289.52,
@@ -1018,7 +1039,7 @@
     "vendor": "小米·MiMo",
     "plan": "Max",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqmimo",
+    "action": "https://mimo.mi.com/",
     "rating": 3,
     "tags": [],
     "firstMonthPrice": 579.92,
@@ -1046,7 +1067,7 @@
     "vendor": "联通云",
     "plan": "Lite",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqunicomcp",
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/coding",
     "rating": 4,
     "tags": [
       "模型强"
@@ -1074,7 +1095,7 @@
     "vendor": "联通云",
     "plan": "Pro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqunicomcp",
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/coding",
     "rating": 4,
     "tags": [
       "模型强"
@@ -1102,7 +1123,7 @@
     "vendor": "联通云",
     "plan": "个人 Lite",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqunicomtp",
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/token",
     "rating": 1,
     "tags": [],
     "firstMonthPrice": "-",
@@ -1124,7 +1145,7 @@
     "vendor": "联通云",
     "plan": "个人 Pro",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqunicomtp",
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/token",
     "rating": 1,
     "tags": [],
     "firstMonthPrice": "-",
@@ -1146,7 +1167,7 @@
     "vendor": "联通云",
     "plan": "个人 Max",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqunicomtp",
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/token",
     "rating": 1,
     "tags": [],
     "firstMonthPrice": "-",
@@ -1168,7 +1189,7 @@
     "vendor": "联通云",
     "plan": "团队 Lite",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqunicomtp",
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/token",
     "rating": 3,
     "tags": [
       "模型强"
@@ -1193,7 +1214,7 @@
     "vendor": "联通云",
     "plan": "团队 Pro",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqunicomtp",
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/token",
     "rating": 3,
     "tags": [
       "模型强"
@@ -1218,7 +1239,7 @@
     "vendor": "联通云",
     "plan": "团队 Max",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqunicomtp",
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/token",
     "rating": 3,
     "tags": [
       "模型强"
@@ -1243,7 +1264,7 @@
     "vendor": "百度·千帆",
     "plan": "Lite",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqqianfan",
+    "action": "https://cloud.baidu.com/product/codingplan.html",
     "rating": 3,
     "tags": [],
     "firstMonthPrice": "-",
@@ -1270,7 +1291,7 @@
     "vendor": "百度·千帆",
     "plan": "Pro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqqianfan",
+    "action": "https://cloud.baidu.com/product/codingplan.html",
     "rating": 3,
     "tags": [],
     "firstMonthPrice": "-",
@@ -1297,7 +1318,7 @@
     "vendor": "京东云",
     "plan": "Lite",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqjingdong",
+    "action": "https://www.jdcloud.com/cn/pages/codingplan",
     "rating": 3,
     "tags": [],
     "firstMonthPrice": 19.9,
@@ -1322,7 +1343,7 @@
     "vendor": "京东云",
     "plan": "Pro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqjingdong",
+    "action": "https://www.jdcloud.com/cn/pages/codingplan",
     "rating": 3,
     "tags": [],
     "firstMonthPrice": 99.9,
@@ -1347,7 +1368,7 @@
     "vendor": "腾讯云",
     "plan": "Lite",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqtengxunc",
+    "action": "https://cloud.tencent.com/act/redirect?page=codingplan",
     "rating": 3,
     "tags": [
       "性价比高用量足"
@@ -1375,7 +1396,7 @@
     "vendor": "腾讯云",
     "plan": "Pro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqtengxunc",
+    "action": "https://cloud.tencent.com/act/redirect?page=codingplan",
     "rating": 3,
     "tags": [
       "性价比高用量足"
@@ -1403,7 +1424,7 @@
     "vendor": "腾讯云",
     "plan": "Lite",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqtengxunt",
+    "action": "https://cloud.tencent.com/act/pro/tokenplan",
     "rating": 2,
     "tags": [
       "模型强"
@@ -1429,7 +1450,7 @@
     "vendor": "腾讯云",
     "plan": "Standard",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqtengxunt",
+    "action": "https://cloud.tencent.com/act/pro/tokenplan",
     "rating": 2,
     "tags": [
       "模型强"
@@ -1455,7 +1476,7 @@
     "vendor": "腾讯云",
     "plan": "Pro",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqtengxunt",
+    "action": "https://cloud.tencent.com/act/pro/tokenplan",
     "rating": 2,
     "tags": [
       "模型强"
@@ -1481,7 +1502,7 @@
     "vendor": "腾讯云",
     "plan": "Max",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqtengxunt",
+    "action": "https://cloud.tencent.com/act/pro/tokenplan",
     "rating": 2,
     "tags": [
       "模型强"
@@ -1507,7 +1528,7 @@
     "vendor": "优云智算",
     "plan": "Mini",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqyyzs",
+    "action": "https://passport.compshare.cn/register",
     "rating": 3,
     "tags": [
       "模型强"
@@ -1535,7 +1556,7 @@
     "vendor": "优云智算",
     "plan": "Lite",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqyyzs",
+    "action": "https://passport.compshare.cn/register",
     "rating": 3,
     "tags": [
       "模型强"
@@ -1563,7 +1584,7 @@
     "vendor": "优云智算",
     "plan": "Basic",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqyyzs",
+    "action": "https://passport.compshare.cn/register",
     "rating": 3,
     "tags": [
       "模型强"
@@ -1591,7 +1612,7 @@
     "vendor": "优云智算",
     "plan": "Pro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqyyzs",
+    "action": "https://passport.compshare.cn/register",
     "rating": 3,
     "tags": [
       "模型强"
@@ -1619,7 +1640,7 @@
     "vendor": "优云智算",
     "plan": "Max",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqyyzs",
+    "action": "https://passport.compshare.cn/register",
     "rating": 3,
     "tags": [
       "模型强"
@@ -1647,7 +1668,7 @@
     "vendor": "优云智算",
     "plan": "Ultra",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqyyzs",
+    "action": "https://passport.compshare.cn/register",
     "rating": 3,
     "tags": [
       "模型强"
@@ -1675,7 +1696,7 @@
     "vendor": "阶跃星辰",
     "plan": "Flash Mini",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqstepfun",
+    "action": "https://platform.stepfun.com/step-plan",
     "rating": 2,
     "tags": [],
     "firstMonthPrice": "-",
@@ -1698,7 +1719,7 @@
     "vendor": "阶跃星辰",
     "plan": "Flash Plus",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqstepfun",
+    "action": "https://platform.stepfun.com/step-plan",
     "rating": 2,
     "tags": [],
     "firstMonthPrice": "-",
@@ -1721,7 +1742,7 @@
     "vendor": "阶跃星辰",
     "plan": "Flash Pro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqstepfun",
+    "action": "https://platform.stepfun.com/step-plan",
     "rating": 2,
     "tags": [],
     "firstMonthPrice": "-",
@@ -1744,7 +1765,7 @@
     "vendor": "阶跃星辰",
     "plan": "Flash Max",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqstepfun",
+    "action": "https://platform.stepfun.com/step-plan",
     "rating": 2,
     "tags": [],
     "firstMonthPrice": "-",
@@ -1767,7 +1788,7 @@
     "vendor": "天翼云",
     "plan": "GLM Lite",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqctyun",
+    "action": "https://ctxirang.ctyun.cn/maas/codingPlan",
     "rating": 4,
     "tags": [
       "模型强"
@@ -1792,7 +1813,7 @@
     "vendor": "天翼云",
     "plan": "GLM Pro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqctyun",
+    "action": "https://ctxirang.ctyun.cn/maas/codingPlan",
     "rating": 4,
     "tags": [
       "模型强",
@@ -1819,7 +1840,7 @@
     "vendor": "天翼云",
     "plan": "GLM Max",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqctyun",
+    "action": "https://ctxirang.ctyun.cn/maas/codingPlan",
     "rating": 4,
     "tags": [
       "模型强",
@@ -1888,7 +1909,7 @@
     "vendor": "超算",
     "plan": "Lite",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqscnetcp",
+    "action": "https://www.scnet.cn/ui/console/index.html",
     "rating": 2,
     "tags": [
       "性价比高用量足"
@@ -1912,7 +1933,7 @@
     "vendor": "超算",
     "plan": "Pro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqscnetcp",
+    "action": "https://www.scnet.cn/ui/console/index.html",
     "rating": 2,
     "tags": [
       "性价比高用量足"
@@ -1936,7 +1957,7 @@
     "vendor": "无问芯穹",
     "plan": "Lite",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqinfini",
+    "action": "https://cloud.infini-ai.com/genstudio/code",
     "rating": 4,
     "tags": [
       "模型强"
@@ -1965,7 +1986,7 @@
     "vendor": "无问芯穹",
     "plan": "Pro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqinfini",
+    "action": "https://cloud.infini-ai.com/genstudio/code",
     "rating": 4,
     "tags": [
       "模型强"
@@ -1994,7 +2015,7 @@
     "vendor": "摩尔线程",
     "plan": "Free Trial",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqmoorefree",
+    "action": "https://coding-plan.kuaecloud.net/free_apply",
     "rating": 3,
     "tags": [
       "性价比高用量足"
@@ -2017,7 +2038,7 @@
     "vendor": "摩尔线程",
     "plan": "Lite Plan",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqjdmeta",
+    "action": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fitem.jd.com%2F10210423833387.html",
     "rating": 2,
     "tags": [],
     "firstMonthPrice": "-",
@@ -2039,7 +2060,7 @@
     "vendor": "摩尔线程",
     "plan": "Pro Plan",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqjdmeta",
+    "action": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fitem.jd.com%2F10210423833387.html",
     "rating": 2,
     "tags": [],
     "firstMonthPrice": "-",
@@ -2061,7 +2082,7 @@
     "vendor": "摩尔线程",
     "plan": "Max Plan",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqjdmeta",
+    "action": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fitem.jd.com%2F10210423833387.html",
     "rating": 2,
     "tags": [],
     "firstMonthPrice": "-",
@@ -2083,7 +2104,7 @@
     "vendor": "商汤·日日新",
     "plan": "Free·公测",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqsensenova",
+    "action": "https://www.sensenova.cn/token-plan",
     "rating": 3,
     "tags": [
       "性价比高用量足"
@@ -2110,7 +2131,7 @@
     "vendor": "OpenCode",
     "plan": "Go",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqopencode",
+    "action": "https://opencode.ai/zh/go",
     "rating": 5,
     "tags": [
       "模型强",
@@ -2147,7 +2168,7 @@
     "vendor": "Ollama",
     "plan": "Pro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqollama",
+    "action": "https://ollama.com/pricing",
     "rating": 3,
     "tags": [
       "模型强"
@@ -2181,7 +2202,7 @@
     "vendor": "Ollama",
     "plan": "Max",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqollama",
+    "action": "https://ollama.com/pricing",
     "rating": 3,
     "tags": [
       "模型强"
@@ -2215,7 +2236,7 @@
     "vendor": "Codex",
     "plan": "Plus",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqchatgpt",
+    "action": "https://chatgpt.com/",
     "rating": 4,
     "tags": [
       "模型强"
@@ -2249,7 +2270,7 @@
     "vendor": "Codex",
     "plan": "Pro *5",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqchatgpt",
+    "action": "https://chatgpt.com/",
     "rating": 4,
     "tags": [
       "模型强"
@@ -2283,7 +2304,7 @@
     "vendor": "Codex",
     "plan": "Pro *20",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqchatgpt",
+    "action": "https://chatgpt.com/",
     "rating": 4,
     "tags": [
       "模型强"
@@ -2317,7 +2338,7 @@
     "vendor": "Claude",
     "plan": "Pro",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqclaudeup",
+    "action": "https://claude.ai/upgrade?from=menu",
     "rating": 4,
     "tags": [
       "模型强"
@@ -2351,7 +2372,7 @@
     "vendor": "Claude",
     "plan": "Max *5",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqclaudeup",
+    "action": "https://claude.ai/upgrade?from=menu",
     "rating": 4,
     "tags": [
       "模型强"
@@ -2385,7 +2406,7 @@
     "vendor": "Claude",
     "plan": "Max *20",
     "type": "Token Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqclaudeup",
+    "action": "https://claude.ai/upgrade?from=menu",
     "rating": 4,
     "tags": [
       "模型强"
@@ -2419,7 +2440,7 @@
     "vendor": "GitHub",
     "plan": "学生",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqghstudent",
+    "action": "https://github.com/education/students",
     "rating": 5,
     "tags": [
       "模型强",
@@ -2452,7 +2473,7 @@
     "vendor": "GitHub",
     "plan": "Pro",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqghcopilot",
+    "action": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fgithub-copilot%2Fpro%2Fsignup",
     "rating": 4,
     "tags": [
       "模型强"
@@ -2482,7 +2503,7 @@
     "vendor": "GitHub",
     "plan": "Pro+",
     "type": "Coding Plan",
-    "action": "https://api.dreamfree.space/c/s/cpyqghcopilotp",
+    "action": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fgithub-copilot%2Fpro-plus%2Fsignup",
     "rating": 4,
     "tags": [
       "模型强"

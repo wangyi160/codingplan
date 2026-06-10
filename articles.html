@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>延伸阅读 - AI Coding Plan 对比工具</title>
+    <link rel="icon" href="/favicon.ico?v=260603a" type="image/x-icon">
+    <link rel="stylesheet" href="styles/shared.css?v=260603a">
+    <style>
+        body {
+            min-height: 100vh;
+            padding: 28px 34px 64px;
+            background:
+                radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 26%),
+                radial-gradient(circle at top right, rgba(198, 107, 26, 0.14), transparent 24%),
+                linear-gradient(180deg, #f8f3eb 0%, #f4efe6 42%, #f7f2ea 100%);
+            color: var(--text-primary);
+            font-family: "Avenir Next", "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 28px;
+        }
+
+        .article-card {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(165deg, rgba(255, 255, 255, 0.95), rgba(244, 236, 223, 0.95));
+            border: 1px solid rgba(23, 32, 51, 0.12);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 24px rgba(23, 32, 51, 0.05);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 36px rgba(23, 32, 51, 0.1);
+            border-color: rgba(15, 118, 110, 0.28);
+        }
+
+        .article-media {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            background: rgba(23, 32, 51, 0.04);
+        }
+
+        .article-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover .article-media img {
+            transform: scale(1.02);
+        }
+
+        .article-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .article-kicker {
+            display: inline-flex;
+            align-items: center;
+            align-self: flex-start;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 999px;
+            margin-bottom: 12px;
+            color: #0f766e;
+            background: rgba(15, 118, 110, 0.1);
+        }
+
+        .article-title {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .article-desc {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .article-link {
+            margin-top: auto;
+            align-self: flex-start;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            transition: color 0.15s ease, border-color 0.15s ease;
+        }
+
+        .article-link:hover {
+            color: #0d9488;
+            border-bottom-color: rgba(13, 148, 136, 0.45);
+        }
+
+        .header {
+            margin-bottom: 32px;
+        }
+
+        .header h1 {
+            font-size: clamp(26px, 4vw, 36px);
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .header p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 18px 20px 48px;
+            }
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="pageNavMount"></div>
+
+        <header class="header">
+            <h1>延伸阅读 & 深度评测</h1>
+            <p>基于数据与真实评测，帮助开发者、研究员及独立开发者深度对比主流 AI 编程平台的价格、额度与大模型代码能力选型。</p>
+        </header>
+
+        <div class="articles-grid">
+            <!-- 卡片 1 -->
+            <div class="article-card">
+                <div class="article-media">
+                    <img src="articles/model_comparisons/20260604/agentic_index_202606.png" alt="2026年6月主流大模型 Coding 能力深度对比">
+                </div>
+                <div class="article-content">
+                    <div class="article-kicker">深度对比</div>
+                    <h2 class="article-title">2026年6月主流大模型 Coding 能力深度对比</h2>
+                    <p class="article-desc">基于 Artificial Analysis 2026年6月最新基准测试，围绕 Coding 指数与 Agentic 智能指数对 GPT-5.5、Claude Opus 4.8、Qwen3.7 Max、DeepSeek V4 Pro、Kimi K2.6 等 19 款主流大模型横向评测，附选型建议。</p>
+                    <a href="articles/model_comparisons/20260604/index.html" class="article-link">阅读全文 →</a>
+                </div>
+            </div>
+
+            <!-- 卡片 2 -->
+            <div class="article-card">
+                <div class="article-media" style="background: linear-gradient(135deg, rgba(198, 107, 26, 0.1), rgba(15, 118, 110, 0.1)); display: flex; align-items: center; justify-content: center; font-size: 48px;">
+                    📝
+                </div>
+                <div class="article-content">
+                    <div class="article-kicker">选型指南</div>
+                    <h2 class="article-title">2026年6月主流AI Coding Plan平台全面对比</h2>
+                    <p class="article-desc">全面对比智谱AI、MiniMax、Kimi、DeepSeek、字节方舟、阿里百炼等25大平台的能力、价格、用量与选型建议，帮助快速建立全局判断并做出第一轮取舍。</p>
+                    <a href="articles/plan_comparisons/20260603/index.html" class="article-link">阅读全文 →</a>
+                </div>
+            </div>
+
+            <!-- 卡片 3 -->
+            <div class="article-card">
+                <div class="article-media" style="background: linear-gradient(135deg, rgba(15, 118, 110, 0.1), rgba(23, 32, 51, 0.05)); display: flex; align-items: center; justify-content: center; font-size: 48px;">
+                    🦞
+                </div>
+                <div class="article-content">
+                    <div class="article-kicker">龙虾场景</div>
+                    <h2 class="article-title">国产主流模型能力对比：涵盖代码Coding Agent及Agentic养龙虾场景</h2>
+                    <p class="article-desc">基于 Artificial Analysis 公开榜单，横向对比智谱、DeepSeek、MiniMax、Kimi、Qwen、MiMo 等与海外头部差距，并附 Coding Plan / OpenClaw 场景的选型参考。</p>
+                    <a href="articles/models_comparition_20260513/index.html" class="article-link">阅读全文 →</a>
+                </div>
+            </div>
+
+            <!-- 卡片 4 -->
+            <div class="article-card">
+                <div class="article-media" style="background: linear-gradient(135deg, rgba(23, 32, 51, 0.05), rgba(198, 107, 26, 0.08)); display: flex; align-items: center; justify-content: center; font-size: 48px;">
+                    📊
+                </div>
+                <div class="article-content">
+                    <div class="article-kicker">历史回顾</div>
+                    <h2 class="article-title">2026年5月主流AI Coding Plan平台更新动态</h2>
+                    <p class="article-desc">汇总分析5月份国内主流 AI Coding Plan 套餐的规则变化、价格波动以及新增的高性价比模型推荐，回顾上一代套餐演进细节。</p>
+                    <a href="articles/plan_comparison_20260519/index.html" class="article-link">阅读全文 →</a>
+                </div>
+            </div>
+
+            <!-- 卡片 5 -->
+            <div class="article-card">
+                <div class="article-media" style="background: linear-gradient(135deg, rgba(198, 107, 26, 0.08), rgba(15, 118, 110, 0.08)); display: flex; align-items: center; justify-content: center; font-size: 48px;">
+                    🚀
+                </div>
+                <div class="article-content">
+                    <div class="article-kicker">最新动态</div>
+                    <h2 class="article-title">MiniMax M3 及大模型套餐价格更新</h2>
+                    <p class="article-desc">深度解读 MiniMax 发布的 M3 及 M3-highspeed 模型，并对比老用户保留套餐与新售套餐的额度与频率限制变化。</p>
+                    <a href="articles/news/20260602_minimax_m3/index.html" class="article-link">阅读全文 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/shared.js?v=260603a"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPageNav('pageNavMount', {
+                activeKey: 'articles',
+                settings: {
+                    panelTitle: '显示设置',
+                    ultraWideLabel: '超宽屏模式'
+                }
+            });
+        });
+    </script>
+</body>
+</html>
