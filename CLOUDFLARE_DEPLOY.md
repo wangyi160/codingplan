@@ -12,11 +12,28 @@
 
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| `CLOUDFLARE_API_TOKEN` | Secret 或 Variable | Cloudflare API Token |
+| `CLOUDFLARE_API_TOKEN` | Secret 或 Variable | Cloudflare User API Token |
 | `CLOUDFLARE_ACCOUNT_ID` | Secret 或 Variable | Cloudflare Account ID |
 | `CLOUDFLARE_PAGES_PROJECT` | Variable，可选 | Pages 项目名，默认 `codingplan` |
 
-API Token 需要能部署 Cloudflare Pages。Pages 项目名如果不存在，建议先在 Cloudflare Dashboard 创建一个 `codingplan` Pages 项目，再让 GitHub Actions 部署。
+API Token 建议在 `My Profile -> API Tokens` 里创建 User API Token，不要用 Account-owned token。Wrangler 在 CI 里会读取用户 membership 信息，Account-owned token 可能报 `Authentication error [code: 10000]` 或提示缺少 `User -> Memberships -> Read`。
+
+推荐最小权限：
+
+| Scope | Permission | Access |
+| --- | --- | --- |
+| Account | Cloudflare Pages | Edit |
+| Account | Account Settings | Read |
+| User | User Details | Read |
+| User | Memberships | Read |
+
+Account Resources 选择你的 Cloudflare account。workflow 会在部署前检查 Pages 项目是否存在；如果不存在，会执行：
+
+```bash
+wrangler pages project create codingplan --production-branch main
+```
+
+如果你设置了 `CLOUDFLARE_PAGES_PROJECT`，则会创建对应项目名。
 
 ## 部署流程
 

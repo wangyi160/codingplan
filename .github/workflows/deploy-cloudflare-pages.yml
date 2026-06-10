@@ -47,6 +47,13 @@ jobs:
             --exclude 'node_modules' \
             --exclude '.preview'
 
+      - name: Ensure Pages project exists
+        run: |
+          if ! npx wrangler@latest pages project list | grep -Fq "$CLOUDFLARE_PAGES_PROJECT"; then
+            npx wrangler@latest pages project create "$CLOUDFLARE_PAGES_PROJECT" \
+              --production-branch main
+          fi
+
       - name: Deploy
         run: |
           npx wrangler@latest pages deploy .cloudflare-pages \
