@@ -1,0 +1,285 @@
+{
+  "智谱AI|Lite|Coding Plan": {
+    "action": "https://www.bigmodel.cn/glm-coding",
+    "snapshot": "snapshots/plans/www-bigmodel-cn-glm-coding-b89a53918f/index.html",
+    "snapshotSource": "https://www.bigmodel.cn/glm-coding",
+    "snapshotCapturedAt": "2026-06-10T17:24:47.092221+00:00"
+  },
+  "智谱AI|Pro|Coding Plan": {
+    "action": "https://www.bigmodel.cn/glm-coding",
+    "snapshot": "snapshots/plans/www-bigmodel-cn-glm-coding-b89a53918f/index.html",
+    "snapshotSource": "https://www.bigmodel.cn/glm-coding",
+    "snapshotCapturedAt": "2026-06-10T17:24:47.219749+00:00"
+  },
+  "智谱AI|Max|Coding Plan": {
+    "action": "https://www.bigmodel.cn/glm-coding",
+    "snapshot": "snapshots/plans/www-bigmodel-cn-glm-coding-b89a53918f/index.html",
+    "snapshotSource": "https://www.bigmodel.cn/glm-coding",
+    "snapshotCapturedAt": "2026-06-10T17:24:47.219783+00:00"
+  },
+  "智谱国际版|Lite|Coding Plan": {
+    "action": "https://z.ai/subscribe",
+    "snapshot": "snapshots/plans/z-ai-subscribe-5019642538/index.html",
+    "snapshotSource": "https://z.ai/subscribe",
+    "snapshotCapturedAt": "2026-06-10T17:26:20.945525+00:00"
+  },
+  "智谱国际版|Pro|Coding Plan": {
+    "action": "https://z.ai/subscribe",
+    "snapshot": "snapshots/plans/z-ai-subscribe-5019642538/index.html",
+    "snapshotSource": "https://z.ai/subscribe",
+    "snapshotCapturedAt": "2026-06-10T17:26:21.023656+00:00"
+  },
+  "智谱国际版|Max|Coding Plan": {
+    "action": "https://z.ai/subscribe",
+    "snapshot": "snapshots/plans/z-ai-subscribe-5019642538/index.html",
+    "snapshotSource": "https://z.ai/subscribe",
+    "snapshotCapturedAt": "2026-06-10T17:26:21.023681+00:00"
+  },
+  "MiniMax|Starter|Coding Plan": {
+    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+  },
+  "MiniMax|Plus|Coding Plan": {
+    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+  },
+  "MiniMax|Max|Coding Plan": {
+    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+  },
+  "MiniMax|Plus-极速|Coding Plan": {
+    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+  },
+  "MiniMax|Max-极速|Coding Plan": {
+    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+  },
+  "MiniMax|Plus|Token Plan": {
+    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+  },
+  "MiniMax|Max|Token Plan": {
+    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+  },
+  "MiniMax|Ultra|Token Plan": {
+    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+  },
+  "讯飞·星火|专业版|Coding Plan": {
+    "action": "https://maas.xfyun.cn/packageSubscription",
+    "snapshot": "snapshots/plans/maas-xfyun-cn-packagesubscription-f68af78118/index.html",
+    "snapshotSource": "https://maas.xfyun.cn/packageSubscription",
+    "snapshotCapturedAt": "2026-06-10T15:37:24.393738+00:00"
+  },
+  "讯飞·星火|高效版|Coding Plan": {
+    "action": "https://maas.xfyun.cn/packageSubscription",
+    "snapshot": "snapshots/plans/maas-xfyun-cn-packagesubscription-f68af78118/index.html"
+  },
+  "Kimi|Andante|Coding Plan": {
+    "action": "https://www.kimi.com/code"
+  },
+  "Kimi|Moderato|Coding Plan": {
+    "action": "https://www.kimi.com/code"
+  },
+  "Kimi|Allegretto|Coding Plan": {
+    "action": "https://www.kimi.com/code"
+  },
+  "Kimi|Allegro|Coding Plan": {
+    "action": "https://www.kimi.com/code"
+  },
+  "字节·方舟|Lite|Coding Plan": {
+    "action": "https://www.volcengine.com/activity/codingplan"
+  },
+  "字节·方舟|Pro|Coding Plan": {
+    "action": "https://www.volcengine.com/activity/codingplan"
+  },
+  "字节·方舟|Small|Token Plan": {
+    "action": "https://www.volcengine.com/activity/agentplan"
+  },
+  "字节·方舟|Medium|Token Plan": {
+    "action": "https://www.volcengine.com/activity/agentplan"
+  },
+  "字节·方舟|Large|Token Plan": {
+    "action": "https://www.volcengine.com/activity/agentplan"
+  },
+  "字节·方舟|Max|Token Plan": {
+    "action": "https://www.volcengine.com/activity/agentplan"
+  },
+  "阿里·百炼|标准|Token Plan": {
+    "action": "https://cn.aliyun.com/benefit/scene/tokenplan"
+  },
+  "阿里·百炼|高级|Token Plan": {
+    "action": "https://cn.aliyun.com/benefit/scene/tokenplan"
+  },
+  "阿里·百炼|尊享|Token Plan": {
+    "action": "https://cn.aliyun.com/benefit/scene/tokenplan"
+  },
+  "阿里·百炼|Lite|Coding Plan": {
+    "action": "https://cn.aliyun.com/benefit/scene/codingplan"
+  },
+  "阿里·百炼|Pro|Coding Plan": {
+    "action": "https://cn.aliyun.com/benefit/scene/codingplan"
+  },
+  "小米·MiMo|Lite|Token Plan": {
+    "action": "https://mimo.mi.com/"
+  },
+  "小米·MiMo|Standard|Token Plan": {
+    "action": "https://mimo.mi.com/"
+  },
+  "小米·MiMo|Pro|Token Plan": {
+    "action": "https://mimo.mi.com/"
+  },
+  "小米·MiMo|Max|Token Plan": {
+    "action": "https://mimo.mi.com/"
+  },
+  "联通云|Lite|Coding Plan": {
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/coding"
+  },
+  "联通云|Pro|Coding Plan": {
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/coding"
+  },
+  "联通云|个人 Lite|Token Plan": {
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/token"
+  },
+  "联通云|个人 Pro|Token Plan": {
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/token"
+  },
+  "联通云|个人 Max|Token Plan": {
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/token"
+  },
+  "联通云|团队 Lite|Token Plan": {
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/token"
+  },
+  "联通云|团队 Pro|Token Plan": {
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/token"
+  },
+  "联通云|团队 Max|Token Plan": {
+    "action": "https://console.cucloud.cn/console/cuig/subscribePlan/token"
+  },
+  "百度·千帆|Lite|Coding Plan": {
+    "action": "https://cloud.baidu.com/product/codingplan.html"
+  },
+  "百度·千帆|Pro|Coding Plan": {
+    "action": "https://cloud.baidu.com/product/codingplan.html"
+  },
+  "京东云|Lite|Coding Plan": {
+    "action": "https://www.jdcloud.com/cn/pages/codingplan"
+  },
+  "京东云|Pro|Coding Plan": {
+    "action": "https://www.jdcloud.com/cn/pages/codingplan"
+  },
+  "腾讯云|Lite|Coding Plan": {
+    "action": "https://cloud.tencent.com/act/redirect?page=codingplan"
+  },
+  "腾讯云|Pro|Coding Plan": {
+    "action": "https://cloud.tencent.com/act/redirect?page=codingplan"
+  },
+  "腾讯云|Lite|Token Plan": {
+    "action": "https://cloud.tencent.com/act/pro/tokenplan"
+  },
+  "腾讯云|Standard|Token Plan": {
+    "action": "https://cloud.tencent.com/act/pro/tokenplan"
+  },
+  "腾讯云|Pro|Token Plan": {
+    "action": "https://cloud.tencent.com/act/pro/tokenplan"
+  },
+  "腾讯云|Max|Token Plan": {
+    "action": "https://cloud.tencent.com/act/pro/tokenplan"
+  },
+  "优云智算|Mini|Coding Plan": {
+    "action": "https://passport.compshare.cn/register"
+  },
+  "优云智算|Lite|Coding Plan": {
+    "action": "https://passport.compshare.cn/register"
+  },
+  "优云智算|Basic|Coding Plan": {
+    "action": "https://passport.compshare.cn/register"
+  },
+  "优云智算|Pro|Coding Plan": {
+    "action": "https://passport.compshare.cn/register"
+  },
+  "优云智算|Max|Coding Plan": {
+    "action": "https://passport.compshare.cn/register"
+  },
+  "优云智算|Ultra|Coding Plan": {
+    "action": "https://passport.compshare.cn/register"
+  },
+  "阶跃星辰|Flash Mini|Coding Plan": {
+    "action": "https://platform.stepfun.com/step-plan"
+  },
+  "阶跃星辰|Flash Plus|Coding Plan": {
+    "action": "https://platform.stepfun.com/step-plan"
+  },
+  "阶跃星辰|Flash Pro|Coding Plan": {
+    "action": "https://platform.stepfun.com/step-plan"
+  },
+  "阶跃星辰|Flash Max|Coding Plan": {
+    "action": "https://platform.stepfun.com/step-plan"
+  },
+  "天翼云|GLM Lite|Coding Plan": {
+    "action": "https://ctxirang.ctyun.cn/maas/codingPlan"
+  },
+  "天翼云|GLM Pro|Coding Plan": {
+    "action": "https://ctxirang.ctyun.cn/maas/codingPlan"
+  },
+  "天翼云|GLM Max|Coding Plan": {
+    "action": "https://ctxirang.ctyun.cn/maas/codingPlan"
+  },
+  "超算|Lite|Coding Plan": {
+    "action": "https://www.scnet.cn/ui/console/index.html"
+  },
+  "超算|Pro|Coding Plan": {
+    "action": "https://www.scnet.cn/ui/console/index.html"
+  },
+  "无问芯穹|Lite|Coding Plan": {
+    "action": "https://cloud.infini-ai.com/genstudio/code"
+  },
+  "无问芯穹|Pro|Coding Plan": {
+    "action": "https://cloud.infini-ai.com/genstudio/code"
+  },
+  "摩尔线程|Free Trial|Coding Plan": {
+    "action": "https://coding-plan.kuaecloud.net/free_apply"
+  },
+  "摩尔线程|Lite Plan|Coding Plan": {
+    "action": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fitem.jd.com%2F10210423833387.html"
+  },
+  "摩尔线程|Pro Plan|Coding Plan": {
+    "action": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fitem.jd.com%2F10210423833387.html"
+  },
+  "摩尔线程|Max Plan|Coding Plan": {
+    "action": "https://cfe.m.jd.com/privatedomain/risk_handler/03101900/?returnurl=https%3A%2F%2Fitem.jd.com%2F10210423833387.html"
+  },
+  "商汤·日日新|Free·公测|Coding Plan": {
+    "action": "https://www.sensenova.cn/token-plan"
+  },
+  "OpenCode|Go|Token Plan": {
+    "action": "https://opencode.ai/zh/go"
+  },
+  "Ollama|Pro|Coding Plan": {
+    "action": "https://ollama.com/pricing"
+  },
+  "Ollama|Max|Coding Plan": {
+    "action": "https://ollama.com/pricing"
+  },
+  "Codex|Plus|Token Plan": {
+    "action": "https://chatgpt.com/"
+  },
+  "Codex|Pro *5|Token Plan": {
+    "action": "https://chatgpt.com/"
+  },
+  "Codex|Pro *20|Token Plan": {
+    "action": "https://chatgpt.com/"
+  },
+  "Claude|Pro|Token Plan": {
+    "action": "https://claude.ai/upgrade?from=menu"
+  },
+  "Claude|Max *5|Token Plan": {
+    "action": "https://claude.ai/upgrade?from=menu"
+  },
+  "Claude|Max *20|Token Plan": {
+    "action": "https://claude.ai/upgrade?from=menu"
+  },
+  "GitHub|学生|Coding Plan": {
+    "action": "https://github.com/education/students"
+  },
+  "GitHub|Pro|Coding Plan": {
+    "action": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fgithub-copilot%2Fpro%2Fsignup"
+  },
+  "GitHub|Pro+|Coding Plan": {
+    "action": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fgithub-copilot%2Fpro-plus%2Fsignup"
+  }
+}

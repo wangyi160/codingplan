@@ -2,6 +2,12 @@
 
 这个工具用于把需要登录后才能查看的套餐页保存成本地轻量 HTML 快照，然后在 `index.html` 里通过“预览”按钮用 iframe 打开。
 
+## 数据覆盖逻辑
+
+`plans.json` 保持为原始套餐数据，尽量不写入本地专用字段。`patch.json` 保存本地覆盖值，例如去掉 referer 后的官方直链、`snapshot`、`snapshotSource`、`snapshotCapturedAt`。首页加载时会先读取 `plans.json`，再用 `patch.json` 里同一个 `平台|套餐|类型` 的字段覆盖原值。
+
+抓取脚本也使用同样的合并逻辑：筛选和打开页面时使用合并后的链接，保存快照时只更新 `patch.json`。
+
 ## 安装依赖
 
 ```bash
@@ -31,7 +37,7 @@ printf '%s\n' "$PW_CHROME"
 
 这个 Chromium 窗口可以在登录期间一直开着。你在里面逐个完成登录后，登录状态会保存在 `.playwright-snapshot-profile/`，这个目录已经加入 `.gitignore`。使用 `get-cdp` 时不要关闭这个窗口，脚本会连接这个已经打开的浏览器读取页面。
 
-`get-cdp` 会连接已经手动打开的 9222 浏览器，读取当前标签页、保存 HTML 快照，并默认回写 `plans.json`。它不会重新启动浏览器，也不会重新访问登录页。
+`get-cdp` 会连接已经手动打开的 9222 浏览器，读取当前标签页、保存 HTML 快照，并默认回写 `patch.json`。它不会重新启动浏览器，也不会重新访问登录页。
 
 ```bash
 scripts/capture_snapshots.py get-cdp --url 'https://example.com/pricing' --wait 5
@@ -67,9 +73,9 @@ scripts/capture_snapshots.py get-cdp --name '讯飞·星火'
 snapshots/plans/xxx/index.html
 ```
 
-快照目录按 URL 生成。同一个 URL 下的 Lite / Pro / Max 会共用同一个快照目录；再次运行 `get` 时，会先清空这个 URL 对应的旧快照目录，再写入新的 `index.html`。如果 `plans.json` 里原来记录的是旧目录名，`get` 会改成新的 URL 目录名，并删除旧的已记录目录。
+快照目录按 URL 生成。同一个 URL 下的 Lite / Pro / Max 会共用同一个快照目录；再次运行 `get` 时，会先清空这个 URL 对应的旧快照目录，再写入新的 `index.html`。如果 `patch.json` 里原来记录的是旧目录名，`get` 会改成新的 URL 目录名，并删除旧的已记录目录。
 
-回写到 `plans.json` 后会出现：
+回写到 `patch.json` 后会出现：
 
 ```json
 "snapshot": "snapshots/plans/xxx/index.html"
@@ -79,7 +85,7 @@ snapshots/plans/xxx/index.html
 
 ## 当前首页链接手动打开命令表
 
-下面这些链接来自当前 `plans.json` 里的 `action` 字段，也就是首页套餐名点击会打开的链接。同一链接下有多个套餐时，只需要登录一次。
+下面这些链接来自 `plans.json` 与 `patch.json` 合并后的 `action` 字段，也就是首页套餐名点击会打开的链接。同一链接下有多个套餐时，只需要登录一次。
 
 | 平台 | 套餐 | 手动打开命令 |
 | --- | --- | --- |
@@ -145,5 +151,5 @@ scripts/capture_snapshots.py get-cdp --vendor MiniMax --wait 5
 | `--click-selector '.xxx'` | 抓取前点击 CSS 选择器，可重复传 |
 | `--after-click-wait 5` | 每次点击后等待 5 秒 |
 | `--limit 1` | 只抓取一个唯一链接，调试时好用 |
-| `--no-write-plans` | 只保存快照，不回写 `plans.json` |
+| `--no-write-plans` | 只保存快照，不回写 `patch.json` |
 | `--channel chrome` | 只有你改用系统 Chrome 手动登录时才需要；使用 Playwright Chromium 手动登录时不要加 |

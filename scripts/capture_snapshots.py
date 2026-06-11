@@ -29,6 +29,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 PLANS_PATH = ROOT / "plans.json"
+PATCH_PATH = ROOT / "patch.json"
 SNAPSHOT_ROOT = ROOT / "snapshots" / "plans"
 DEFAULT_PROFILE = ROOT / ".playwright-snapshot-profile"
 USERNAME_REDACTIONS = ("wangyi160",)
@@ -121,11 +122,45 @@ def load_plans() -> list[dict]:
     return json.loads(PLANS_PATH.read_text(encoding="utf-8"))
 
 
-def save_plans(plans: list[dict]) -> None:
-    PLANS_PATH.write_text(
-        json.dumps(plans, ensure_ascii=False, indent=2) + "\n",
+def plan_patch_key(plan: dict) -> str:
+    return "|".join(
+        [
+            str(plan.get("vendor", "")),
+            str(plan.get("plan", "")),
+            str(plan.get("type", "Coding Plan")),
+        ]
+    )
+
+
+def load_patches() -> dict:
+    if not PATCH_PATH.exists():
+        return {}
+    patches = json.loads(PATCH_PATH.read_text(encoding="utf-8"))
+    if not isinstance(patches, dict):
+        raise ValueError(f"{PATCH_PATH.relative_to(ROOT)} must be a JSON object")
+    return patches
+
+
+def save_patches(patches: dict) -> None:
+    PATCH_PATH.write_text(
+        json.dumps(patches, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+
+
+def apply_patches(plans: list[dict], patches: dict) -> list[dict]:
+    return [
+        {
+            **plan,
+            **patches.get(plan_patch_key(plan), {}),
+        }
+        for plan in plans
+    ]
+
+
+def update_plan_patch(patches: dict, plan: dict, values: dict) -> None:
+    patch = patches.setdefault(plan_patch_key(plan), {})
+    patch.update(values)
 
 
 def matches_filters(plan: dict, args: argparse.Namespace) -> bool:
@@ -398,7 +433,7 @@ def launch_context(playwright, args: argparse.Namespace):
 
 
 def run_login(args: argparse.Namespace) -> int:
-    plans = load_plans()
+    plans = apply_patches(load_plans(), load_patches())
     selected = [(index, plan) for index, plan in enumerate(plans) if matches_filters(plan, args)]
     start_url = args.url
     if not start_url and selected:
@@ -414,7 +449,7 @@ def run_login(args: argparse.Namespace) -> int:
         else:
             print("未指定 --url，也没有匹配到 plans.json 链接，已打开空白浏览器。")
 
-        print("请在打开的浏览器里完成登录。此命令不会保存快照或修改 plans.json。")
+        print("请在打开的浏览器里完成登录。此命令不会保存快照或修改 patch.json。")
         print("浏览器会一直保持打开；需要结束时，在终端按 Ctrl+C。")
         try:
             signal.pause()
@@ -428,7 +463,9 @@ def run_login(args: argparse.Namespace) -> int:
 
 
 def run_get(args: argparse.Namespace) -> int:
-    plans = load_plans()
+    raw_plans = load_plans()
+    patches = load_patches()
+    plans = apply_patches(raw_plans, patches)
     selected = [(index, plan) for index, plan in enumerate(plans) if matches_filters(plan, args)]
     if not selected:
         print("没有找到符合条件且带 action 链接的套餐。")
@@ -446,9 +483,11 @@ def run_get(args: argparse.Namespace) -> int:
                 dedupe_key = plan["action"] if not args.no_dedupe else f"{index}:{plan['action']}"
                 if dedupe_key in captured_by_key:
                     previous_snapshot = plan.get("snapshot")
-                    plans[index]["snapshot"] = captured_by_key[dedupe_key]
-                    plans[index]["snapshotSource"] = plan["action"]
-                    plans[index]["snapshotCapturedAt"] = datetime.now(timezone.utc).isoformat()
+                    update_plan_patch(patches, raw_plans[index], {
+                        "snapshot": captured_by_key[dedupe_key],
+                        "snapshotSource": plan["action"],
+                        "snapshotCapturedAt": datetime.now(timezone.utc).isoformat(),
+                    })
                     if previous_snapshot and previous_snapshot != captured_by_key[dedupe_key]:
                         previous_path = (ROOT / previous_snapshot).parent
                         safe_remove_snapshot_dir(previous_path)
@@ -464,9 +503,11 @@ def run_get(args: argparse.Namespace) -> int:
                     previous_path = (ROOT / previous_snapshot).parent
                     safe_remove_snapshot_dir(previous_path)
 
-                plans[index]["snapshot"] = relative_path
-                plans[index]["snapshotSource"] = plan["action"]
-                plans[index]["snapshotCapturedAt"] = datetime.now(timezone.utc).isoformat()
+                update_plan_patch(patches, raw_plans[index], {
+                    "snapshot": relative_path,
+                    "snapshotSource": plan["action"],
+                    "snapshotCapturedAt": datetime.now(timezone.utc).isoformat(),
+                })
                 captured_by_key[dedupe_key] = relative_path
                 captured_count += 1
                 print(f"  保存：{relative_path}")
@@ -474,8 +515,8 @@ def run_get(args: argparse.Namespace) -> int:
             context.close()
 
     if not args.no_write_plans:
-        save_plans(plans)
-        print(f"已回写 {PLANS_PATH.relative_to(ROOT)}")
+        save_patches(patches)
+        print(f"已回写 {PATCH_PATH.relative_to(ROOT)}")
 
     print(f"完成，新增/更新 {captured_count} 个快照。")
     return 0
@@ -500,7 +541,9 @@ def find_cdp_page(browser, target_url: str):
 
 def run_get_cdp(args: argparse.Namespace) -> int:
     apply_named_workflow(args)
-    plans = load_plans()
+    raw_plans = load_plans()
+    patches = load_patches()
+    plans = apply_patches(raw_plans, patches)
     selected = [(index, plan) for index, plan in enumerate(plans) if matches_filters(plan, args)]
     if not selected:
         print("没有找到符合条件且带 action 链接的套餐。")
@@ -517,9 +560,11 @@ def run_get_cdp(args: argparse.Namespace) -> int:
                 dedupe_key = plan["action"] if not args.no_dedupe else f"{index}:{plan['action']}"
                 if dedupe_key in captured_by_key:
                     previous_snapshot = plan.get("snapshot")
-                    plans[index]["snapshot"] = captured_by_key[dedupe_key]
-                    plans[index]["snapshotSource"] = plan["action"]
-                    plans[index]["snapshotCapturedAt"] = datetime.now(timezone.utc).isoformat()
+                    update_plan_patch(patches, raw_plans[index], {
+                        "snapshot": captured_by_key[dedupe_key],
+                        "snapshotSource": plan["action"],
+                        "snapshotCapturedAt": datetime.now(timezone.utc).isoformat(),
+                    })
                     if previous_snapshot and previous_snapshot != captured_by_key[dedupe_key]:
                         previous_path = (ROOT / previous_snapshot).parent
                         safe_remove_snapshot_dir(previous_path)
@@ -557,9 +602,11 @@ def run_get_cdp(args: argparse.Namespace) -> int:
                     previous_path = (ROOT / previous_snapshot).parent
                     safe_remove_snapshot_dir(previous_path)
 
-                plans[index]["snapshot"] = relative_path
-                plans[index]["snapshotSource"] = plan["action"]
-                plans[index]["snapshotCapturedAt"] = datetime.now(timezone.utc).isoformat()
+                update_plan_patch(patches, raw_plans[index], {
+                    "snapshot": relative_path,
+                    "snapshotSource": plan["action"],
+                    "snapshotCapturedAt": datetime.now(timezone.utc).isoformat(),
+                })
                 captured_by_key[dedupe_key] = relative_path
                 captured_count += 1
                 print(f"  保存：{relative_path}")
@@ -571,8 +618,8 @@ def run_get_cdp(args: argparse.Namespace) -> int:
             pass
 
     if not args.no_write_plans:
-        save_plans(plans)
-        print(f"已回写 {PLANS_PATH.relative_to(ROOT)}")
+        save_patches(patches)
+        print(f"已回写 {PATCH_PATH.relative_to(ROOT)}")
 
     print(f"完成，新增/更新 {captured_count} 个快照。")
     return 0
@@ -582,19 +629,19 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Login to plan sites or capture local lightweight HTML snapshots.")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    login_parser = subparsers.add_parser("login", help="只打开浏览器用于登录，不保存快照，不修改 plans.json")
+    login_parser = subparsers.add_parser("login", help="只打开浏览器用于登录，不保存快照，不修改 patch.json")
     add_filter_args(login_parser, "打开")
     add_common_browser_args(login_parser)
     login_parser.add_argument("--timeout", type=int, default=45, help="打开登录页超时时间，单位秒")
 
-    get_parser = subparsers.add_parser("get", help="抓取页面快照，保存 HTML，并默认回写 plans.json")
+    get_parser = subparsers.add_parser("get", help="抓取页面快照，保存 HTML，并默认回写 patch.json")
     add_filter_args(get_parser, "抓取")
     add_common_browser_args(get_parser)
     get_parser.add_argument("--limit", type=int, help="最多抓取多少个唯一页面")
     get_parser.add_argument("--wait", type=int, default=0, help="打开页面后额外等待秒数，适合登录后异步加载内容")
     get_parser.add_argument("--timeout", type=int, default=45, help="单页超时时间，单位秒")
     get_parser.add_argument("--no-dedupe", action="store_true", help="相同 action URL 也分别生成快照")
-    get_parser.add_argument("--no-write-plans", action="store_true", help="只保存快照，不回写 plans.json")
+    get_parser.add_argument("--no-write-plans", action="store_true", help="只保存快照，不回写 patch.json")
 
     get_cdp_parser = subparsers.add_parser("get-cdp", help="连接已手动打开的 CDP 浏览器抓取页面，不启动新浏览器")
     add_filter_args(get_cdp_parser, "抓取")
@@ -612,7 +659,7 @@ def main() -> int:
     get_cdp_parser.add_argument("--click-timeout", type=int, default=15, help="点击等待超时时间，单位秒")
     get_cdp_parser.add_argument("--after-click-wait", type=int, default=5, help="每次点击后等待秒数")
     get_cdp_parser.add_argument("--no-dedupe", action="store_true", help="相同 action URL 也分别生成快照")
-    get_cdp_parser.add_argument("--no-write-plans", action="store_true", help="只保存快照，不回写 plans.json")
+    get_cdp_parser.add_argument("--no-write-plans", action="store_true", help="只保存快照，不回写 patch.json")
 
     args = parser.parse_args()
     if args.command == "login":

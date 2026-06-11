@@ -95,7 +95,7 @@ GitHub Copilot 也已转向 Token 计费口径，用量大幅降低，不足之�
 
 **综合评分**：★★★★★
 **限购状态**：**全面限购**，每日10:00限量发售Lite、Pro、Max套餐，1分钟内售罄。续订或有效期内升级不受限售影响。
-**抢购辅助**：[油猴抢购脚本](https://greasyfork.org/zh-CN/scripts/571507-%E6%99%BA%E8%B0%B1-glm-coding-%E7%89%B9%E6%83%A0%E8%AE%A2%E8%B4%AD%E6%8A%A2%E8%B4%AD%E5%8A%A9%E6%89%8B)（打不开可查看[GitHub讨论](https://github.com/wmpeng/codingplan/discussions/22)）
+**抢购辅助**：[油猴抢购脚本](https://greasyfork.org/zh-CN/scripts/571507-%E6%99%BA%E8%B0%B1-glm-coding-%E7%89%B9%E6%83%A0%E8%AE%A2%E8%B4%AD%E6%8A%A2%E8%B4%AD%E5%8A%A9%E6%89%8B)（打不开可查看[GitHub讨论](https://github.com/wangyi160/codingplan)）
 
 **核心优势**：
 - 模型能力处于T0级别，主打GLM-5.1和GLM-5-Turbo，代码生成、调试与重构能力突出，是国产模型中代码场景的标杆。

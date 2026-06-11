@@ -27,7 +27,7 @@
 1. 智谱AI ⭐️⭐️⭐️⭐️⭐️
     - 支持GLM5.1模型。+1
     - 提供免费MCP次数。+1
-    - **发现个抢购的[油猴脚本](https://greasyfork.org/zh-CN/scripts/571507-%E6%99%BA%E8%B0%B1-glm-coding-%E7%89%B9%E6%83%A0%E8%AE%A2%E8%B4%AD%E6%8A%A2%E8%B4%AD%E5%8A%A9%E6%89%8B) 打不开可以用[github讨论](https://github.com/wmpeng/codingplan/discussions/22)**
+    - **发现个抢购的[油猴脚本](https://greasyfork.org/zh-CN/scripts/571507-%E6%99%BA%E8%B0%B1-glm-coding-%E7%89%B9%E6%83%A0%E8%AE%A2%E8%B4%AD%E6%8A%A2%E8%B4%AD%E5%8A%A9%E6%89%8B) 打不开可以用[github讨论](https://github.com/wangyi160/codingplan)**
     - 模型能力T0级别，尤其适合作为代码场景，Opus平替。**可见👆上方能力评测。**
     - 需要抢购，能抢到就赚到。
 2. MiniMax ⭐️⭐️⭐️⭐️⭐️
