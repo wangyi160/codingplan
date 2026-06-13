@@ -2581,7 +2581,7 @@
             </div>
 
             <!-- 类型筛选下拉 -->
-            <div class="filter-dropdown" style="display: none;">
+            <div class="filter-dropdown">
                 <button class="filter-btn" id="typeBtn">
                     <span>类型</span>
                     <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
@@ -4515,7 +4515,8 @@
             if (!modal || !frame || !titleEl || !openLink || !snapshotUrl) return;
 
             titleEl.textContent = title || '套餐快照';
-            frame.src = snapshotUrl;
+            const separator = snapshotUrl.includes('?') ? '&' : '?';
+            frame.src = `${snapshotUrl}${separator}preview=${Date.now()}`;
             openLink.href = snapshotUrl;
             modal.classList.add('is-open');
             modal.setAttribute('aria-hidden', 'false');
@@ -4645,6 +4646,71 @@
             requestAnimationFrame(updateStickyColumns);
         });
 
+        async function loadPatchFile(logPrefix = '补丁') {
+            try {
+                const response = await fetch(PLANS_PATCH_FILE_PATH, {
+                    cache: 'no-store'
+                });
+                if (!response.ok) {
+                    if (response.status !== 404) {
+                        console.warn(`${logPrefix}加载失败: ${response.status}`);
+                    }
+                    return {};
+                }
+                const patches = await response.json();
+                return patches && typeof patches === 'object' && !Array.isArray(patches) ? patches : {};
+            } catch (error) {
+                console.warn(`${logPrefix}加载失败:`, error);
+                return {};
+            }
+        }
+
+        function isPlainObject(value) {
+            return value && typeof value === 'object' && !Array.isArray(value);
+        }
+
+        function mergeConfigPatch(base, patch) {
+            if (!isPlainObject(patch)) return base;
+            const merged = { ...base };
+            Object.entries(patch).forEach(([key, value]) => {
+                if (isPlainObject(value) && isPlainObject(merged[key])) {
+                    merged[key] = mergeConfigPatch(merged[key], value);
+                } else {
+                    merged[key] = value;
+                }
+            });
+            return merged;
+        }
+
+        function applyConfigTextReplacements(value, replacements) {
+            if (!isPlainObject(replacements)) return value;
+            if (typeof value === 'string') {
+                return Object.entries(replacements).reduce((text, [search, replacement]) => {
+                    if (typeof search !== 'string' || typeof replacement !== 'string' || !search) {
+                        return text;
+                    }
+                    return text.split(search).join(replacement);
+                }, value);
+            }
+            if (Array.isArray(value)) {
+                return value.map(item => applyConfigTextReplacements(item, replacements));
+            }
+            if (isPlainObject(value)) {
+                return Object.fromEntries(
+                    Object.entries(value).map(([key, item]) => [
+                        key,
+                        applyConfigTextReplacements(item, replacements)
+                    ])
+                );
+            }
+            return value;
+        }
+
+        function applyConfigPatch(config, patches) {
+            const withReplacements = applyConfigTextReplacements(config, patches.__configTextReplacements);
+            return mergeConfigPatch(withReplacements, patches.__config);
+        }
+
         // 加载配置文件
         async function loadConfig() {
             try {
@@ -4654,7 +4720,9 @@
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                appConfig = await response.json();
+                const config = await response.json();
+                const patches = await loadPatchFile('配置补丁');
+                appConfig = applyConfigPatch(config, patches);
                 applyConfig();
                 console.log('成功加载配置文件');
             } catch (error) {
@@ -4708,6 +4776,8 @@
                         qrHint: "扫码即可进群"
                     }
                 };
+                const patches = await loadPatchFile('配置补丁');
+                appConfig = applyConfigPatch(appConfig, patches);
                 applyConfig();
             }
         }
@@ -4860,7 +4930,7 @@
         function renderFeedbackFloat(community) {
             const floatRoot = document.getElementById('feedbackFloat');
             const feedback = appConfig.feedback || {};
-            if (floatRoot && feedback.enabled === false) {
+            if (floatRoot && feedback.enabled !== true) {
                 floatRoot.style.display = 'none';
                 floatRoot.classList.remove('is-open');
                 return;
@@ -5065,22 +5135,7 @@
         }
 
         async function loadPlanPatches() {
-            try {
-                const response = await fetch(PLANS_PATCH_FILE_PATH, {
-                    cache: 'no-store'
-                });
-                if (!response.ok) {
-                    if (response.status !== 404) {
-                        console.warn(`计划补丁加载失败: ${response.status}`);
-                    }
-                    return {};
-                }
-                const patches = await response.json();
-                return patches && typeof patches === 'object' && !Array.isArray(patches) ? patches : {};
-            } catch (error) {
-                console.warn('计划补丁加载失败:', error);
-                return {};
-            }
+            return loadPatchFile('计划补丁');
         }
 
         function applyPlanPatches(plans, patches) {
@@ -5110,8 +5165,7 @@
                 const plansData = await response.json();
                 const planPatches = await loadPlanPatches();
                 const patchedPlansData = applyPlanPatches(plansData, planPatches);
-                const codingPlansOnly = patchedPlansData.filter(item => (item.type || 'Coding Plan') !== 'Token Plan');
-                allPlans = codingPlansOnly.map((item, index) => processPrices(item, index));
+                allPlans = patchedPlansData.map((item, index) => processPrices(item, index));
                 filteredPlans = [...allPlans];
 
                 initFilters();

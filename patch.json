@@ -1,118 +1,192 @@
 {
+  "__configTextReplacements": {
+    "https://github.com/wmpeng/codingplan": "https://github.com/wangyi160/codingplan"
+  },
   "智谱AI|Lite|Coding Plan": {
     "action": "https://www.bigmodel.cn/glm-coding",
     "snapshot": "snapshots/plans/www-bigmodel-cn-glm-coding-b89a53918f/index.html",
     "snapshotSource": "https://www.bigmodel.cn/glm-coding",
-    "snapshotCapturedAt": "2026-06-10T17:24:47.092221+00:00"
+    "snapshotCapturedAt": "2026-06-13T14:30:03.518790+00:00"
   },
   "智谱AI|Pro|Coding Plan": {
     "action": "https://www.bigmodel.cn/glm-coding",
     "snapshot": "snapshots/plans/www-bigmodel-cn-glm-coding-b89a53918f/index.html",
     "snapshotSource": "https://www.bigmodel.cn/glm-coding",
-    "snapshotCapturedAt": "2026-06-10T17:24:47.219749+00:00"
+    "snapshotCapturedAt": "2026-06-13T14:30:03.602861+00:00"
   },
   "智谱AI|Max|Coding Plan": {
     "action": "https://www.bigmodel.cn/glm-coding",
     "snapshot": "snapshots/plans/www-bigmodel-cn-glm-coding-b89a53918f/index.html",
     "snapshotSource": "https://www.bigmodel.cn/glm-coding",
-    "snapshotCapturedAt": "2026-06-10T17:24:47.219783+00:00"
+    "snapshotCapturedAt": "2026-06-13T14:30:03.602922+00:00"
   },
   "智谱国际版|Lite|Coding Plan": {
     "action": "https://z.ai/subscribe",
     "snapshot": "snapshots/plans/z-ai-subscribe-5019642538/index.html",
     "snapshotSource": "https://z.ai/subscribe",
-    "snapshotCapturedAt": "2026-06-10T17:26:20.945525+00:00"
+    "snapshotCapturedAt": "2026-06-13T14:32:28.389332+00:00"
   },
   "智谱国际版|Pro|Coding Plan": {
     "action": "https://z.ai/subscribe",
     "snapshot": "snapshots/plans/z-ai-subscribe-5019642538/index.html",
     "snapshotSource": "https://z.ai/subscribe",
-    "snapshotCapturedAt": "2026-06-10T17:26:21.023656+00:00"
+    "snapshotCapturedAt": "2026-06-13T14:32:28.446009+00:00"
   },
   "智谱国际版|Max|Coding Plan": {
     "action": "https://z.ai/subscribe",
     "snapshot": "snapshots/plans/z-ai-subscribe-5019642538/index.html",
     "snapshotSource": "https://z.ai/subscribe",
-    "snapshotCapturedAt": "2026-06-10T17:26:21.023681+00:00"
+    "snapshotCapturedAt": "2026-06-13T14:32:28.446068+00:00"
   },
   "MiniMax|Starter|Coding Plan": {
-    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshot": "snapshots/plans/platform-minimaxi-com-subscribe-token-plan-6eb5880627/index.html",
+    "snapshotSource": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshotCapturedAt": "2026-06-13T14:34:22.067776+00:00"
   },
   "MiniMax|Plus|Coding Plan": {
-    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshot": "snapshots/plans/platform-minimaxi-com-subscribe-token-plan-6eb5880627/index.html",
+    "snapshotSource": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshotCapturedAt": "2026-06-13T14:34:22.115788+00:00"
   },
   "MiniMax|Max|Coding Plan": {
-    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshot": "snapshots/plans/platform-minimaxi-com-subscribe-token-plan-6eb5880627/index.html",
+    "snapshotSource": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshotCapturedAt": "2026-06-13T14:34:22.115851+00:00"
   },
   "MiniMax|Plus-极速|Coding Plan": {
-    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshot": "snapshots/plans/platform-minimaxi-com-subscribe-token-plan-6eb5880627/index.html",
+    "snapshotSource": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshotCapturedAt": "2026-06-13T14:34:22.115864+00:00"
   },
   "MiniMax|Max-极速|Coding Plan": {
-    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshot": "snapshots/plans/platform-minimaxi-com-subscribe-token-plan-6eb5880627/index.html",
+    "snapshotSource": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshotCapturedAt": "2026-06-13T14:34:22.118283+00:00"
   },
   "MiniMax|Plus|Token Plan": {
-    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshot": "snapshots/plans/platform-minimaxi-com-subscribe-token-plan-6eb5880627/index.html",
+    "snapshotSource": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshotCapturedAt": "2026-06-13T14:34:22.118314+00:00"
   },
   "MiniMax|Max|Token Plan": {
-    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshot": "snapshots/plans/platform-minimaxi-com-subscribe-token-plan-6eb5880627/index.html",
+    "snapshotSource": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshotCapturedAt": "2026-06-13T14:34:22.118329+00:00"
   },
   "MiniMax|Ultra|Token Plan": {
-    "action": "https://platform.minimaxi.com/subscribe/token-plan"
+    "action": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshot": "snapshots/plans/platform-minimaxi-com-subscribe-token-plan-6eb5880627/index.html",
+    "snapshotSource": "https://platform.minimaxi.com/subscribe/token-plan",
+    "snapshotCapturedAt": "2026-06-13T14:34:22.118339+00:00"
   },
   "讯飞·星火|专业版|Coding Plan": {
     "action": "https://maas.xfyun.cn/packageSubscription",
     "snapshot": "snapshots/plans/maas-xfyun-cn-packagesubscription-f68af78118/index.html",
     "snapshotSource": "https://maas.xfyun.cn/packageSubscription",
-    "snapshotCapturedAt": "2026-06-10T15:37:24.393738+00:00"
+    "snapshotCapturedAt": "2026-06-13T14:44:50.724155+00:00"
   },
   "讯飞·星火|高效版|Coding Plan": {
     "action": "https://maas.xfyun.cn/packageSubscription",
-    "snapshot": "snapshots/plans/maas-xfyun-cn-packagesubscription-f68af78118/index.html"
+    "snapshot": "snapshots/plans/maas-xfyun-cn-packagesubscription-f68af78118/index.html",
+    "snapshotSource": "https://maas.xfyun.cn/packageSubscription",
+    "snapshotCapturedAt": "2026-06-13T14:44:50.755952+00:00"
   },
   "Kimi|Andante|Coding Plan": {
-    "action": "https://www.kimi.com/code"
+    "action": "https://www.kimi.com/code",
+    "snapshot": "snapshots/plans/www-kimi-com-code-b729912a73/index.html",
+    "snapshotSource": "https://www.kimi.com/code",
+    "snapshotCapturedAt": "2026-06-13T14:36:17.555688+00:00"
   },
   "Kimi|Moderato|Coding Plan": {
-    "action": "https://www.kimi.com/code"
+    "action": "https://www.kimi.com/code",
+    "snapshot": "snapshots/plans/www-kimi-com-code-b729912a73/index.html",
+    "snapshotSource": "https://www.kimi.com/code",
+    "snapshotCapturedAt": "2026-06-13T14:36:17.640728+00:00"
   },
   "Kimi|Allegretto|Coding Plan": {
-    "action": "https://www.kimi.com/code"
+    "action": "https://www.kimi.com/code",
+    "snapshot": "snapshots/plans/www-kimi-com-code-b729912a73/index.html",
+    "snapshotSource": "https://www.kimi.com/code",
+    "snapshotCapturedAt": "2026-06-13T14:36:17.640793+00:00"
   },
   "Kimi|Allegro|Coding Plan": {
-    "action": "https://www.kimi.com/code"
+    "action": "https://www.kimi.com/code",
+    "snapshot": "snapshots/plans/www-kimi-com-code-b729912a73/index.html",
+    "snapshotSource": "https://www.kimi.com/code",
+    "snapshotCapturedAt": "2026-06-13T14:36:17.640807+00:00"
   },
   "字节·方舟|Lite|Coding Plan": {
-    "action": "https://www.volcengine.com/activity/codingplan"
+    "action": "https://www.volcengine.com/activity/codingplan",
+    "snapshot": "snapshots/plans/www-volcengine-com-activity-codingplan-724ed5731f/index.html",
+    "snapshotSource": "https://www.volcengine.com/activity/codingplan",
+    "snapshotCapturedAt": "2026-06-13T14:39:20.190468+00:00"
   },
   "字节·方舟|Pro|Coding Plan": {
-    "action": "https://www.volcengine.com/activity/codingplan"
+    "action": "https://www.volcengine.com/activity/codingplan",
+    "snapshot": "snapshots/plans/www-volcengine-com-activity-codingplan-724ed5731f/index.html",
+    "snapshotSource": "https://www.volcengine.com/activity/codingplan",
+    "snapshotCapturedAt": "2026-06-13T14:39:20.293053+00:00"
   },
   "字节·方舟|Small|Token Plan": {
-    "action": "https://www.volcengine.com/activity/agentplan"
+    "action": "https://www.volcengine.com/activity/agentplan",
+    "snapshot": "snapshots/plans/www-volcengine-com-activity-agentplan-fb5c752ea0/index.html",
+    "snapshotSource": "https://www.volcengine.com/activity/agentplan",
+    "snapshotCapturedAt": "2026-06-13T14:41:54.530969+00:00"
   },
   "字节·方舟|Medium|Token Plan": {
-    "action": "https://www.volcengine.com/activity/agentplan"
+    "action": "https://www.volcengine.com/activity/agentplan",
+    "snapshot": "snapshots/plans/www-volcengine-com-activity-agentplan-fb5c752ea0/index.html",
+    "snapshotSource": "https://www.volcengine.com/activity/agentplan",
+    "snapshotCapturedAt": "2026-06-13T14:41:54.679222+00:00"
   },
   "字节·方舟|Large|Token Plan": {
-    "action": "https://www.volcengine.com/activity/agentplan"
+    "action": "https://www.volcengine.com/activity/agentplan",
+    "snapshot": "snapshots/plans/www-volcengine-com-activity-agentplan-fb5c752ea0/index.html",
+    "snapshotSource": "https://www.volcengine.com/activity/agentplan",
+    "snapshotCapturedAt": "2026-06-13T14:41:54.679270+00:00"
   },
   "字节·方舟|Max|Token Plan": {
-    "action": "https://www.volcengine.com/activity/agentplan"
+    "action": "https://www.volcengine.com/activity/agentplan",
+    "snapshot": "snapshots/plans/www-volcengine-com-activity-agentplan-fb5c752ea0/index.html",
+    "snapshotSource": "https://www.volcengine.com/activity/agentplan",
+    "snapshotCapturedAt": "2026-06-13T14:41:54.679284+00:00"
   },
   "阿里·百炼|标准|Token Plan": {
-    "action": "https://cn.aliyun.com/benefit/scene/tokenplan"
+    "action": "https://cn.aliyun.com/benefit/scene/tokenplan",
+    "snapshot": "snapshots/plans/cn-aliyun-com-benefit-scene-tokenplan-de85b978bf/index.html",
+    "snapshotSource": "https://cn.aliyun.com/benefit/scene/tokenplan",
+    "snapshotCapturedAt": "2026-06-13T14:26:25.629305+00:00"
   },
   "阿里·百炼|高级|Token Plan": {
-    "action": "https://cn.aliyun.com/benefit/scene/tokenplan"
+    "action": "https://cn.aliyun.com/benefit/scene/tokenplan",
+    "snapshot": "snapshots/plans/cn-aliyun-com-benefit-scene-tokenplan-de85b978bf/index.html",
+    "snapshotSource": "https://cn.aliyun.com/benefit/scene/tokenplan",
+    "snapshotCapturedAt": "2026-06-13T14:26:25.683621+00:00"
   },
   "阿里·百炼|尊享|Token Plan": {
-    "action": "https://cn.aliyun.com/benefit/scene/tokenplan"
+    "action": "https://cn.aliyun.com/benefit/scene/tokenplan",
+    "snapshot": "snapshots/plans/cn-aliyun-com-benefit-scene-tokenplan-de85b978bf/index.html",
+    "snapshotSource": "https://cn.aliyun.com/benefit/scene/tokenplan",
+    "snapshotCapturedAt": "2026-06-13T14:26:25.683681+00:00"
   },
   "阿里·百炼|Lite|Coding Plan": {
-    "action": "https://cn.aliyun.com/benefit/scene/codingplan"
+    "action": "https://cn.aliyun.com/benefit/scene/codingplan",
+    "snapshot": "snapshots/plans/cn-aliyun-com-benefit-scene-tokenplan-de85b978bf/index.html",
+    "snapshotSource": "https://cn.aliyun.com/benefit/scene/tokenplan",
+    "snapshotCapturedAt": "2026-06-13T10:41:35.822595+00:00"
   },
   "阿里·百炼|Pro|Coding Plan": {
-    "action": "https://cn.aliyun.com/benefit/scene/codingplan"
+    "action": "https://cn.aliyun.com/benefit/scene/codingplan",
+    "snapshot": "snapshots/plans/cn-aliyun-com-benefit-scene-tokenplan-de85b978bf/index.html",
+    "snapshotSource": "https://cn.aliyun.com/benefit/scene/tokenplan",
+    "snapshotCapturedAt": "2026-06-13T10:41:35.822595+00:00"
   },
   "小米·MiMo|Lite|Token Plan": {
     "action": "https://mimo.mi.com/"
@@ -273,13 +347,13 @@
   "Claude|Max *20|Token Plan": {
     "action": "https://claude.ai/upgrade?from=menu"
   },
-  "GitHub|学生|Coding Plan": {
+  "GitHub|学生|Token Plan": {
     "action": "https://github.com/education/students"
   },
-  "GitHub|Pro|Coding Plan": {
+  "GitHub|Pro|Token Plan": {
     "action": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fgithub-copilot%2Fpro%2Fsignup"
   },
-  "GitHub|Pro+|Coding Plan": {
+  "GitHub|Pro+|Token Plan": {
     "action": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fgithub-copilot%2Fpro-plus%2Fsignup"
   }
 }

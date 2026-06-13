@@ -36,6 +36,10 @@ yarn.lock
 .ruff_cache/
 .tox/
 
+# Local maintenance scripts
+*.py
+*.sh
+
 # Go tooling
 bin/
 *.test
