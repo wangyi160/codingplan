@@ -15,6 +15,7 @@
     "yearlyPrice": 470.4,
     "models": [
       "GLM-5.1",
+      "GLM-5.2",
       "GLM-5-Turbo"
     ],
     "fiveHoursRequests": 1200,
@@ -45,6 +46,7 @@
     "yearlyPrice": 1430.4,
     "models": [
       "GLM-5.1",
+      "GLM-5.2",
       "GLM-5-Turbo",
       "GLM-5"
     ],
@@ -76,6 +78,7 @@
     "yearlyPrice": 4502.4,
     "models": [
       "GLM-5.1",
+      "GLM-5.2",
       "GLM-5-Turbo",
       "GLM-5"
     ],
@@ -106,6 +109,7 @@
     "yearlyPrice": 172.8,
     "models": [
       "GLM-5.1",
+      "GLM-5.2",
       "GLM-5-Turbo"
     ],
     "fiveHoursRequests": 1200,
@@ -133,6 +137,7 @@
     "yearlyPrice": 691.2,
     "models": [
       "GLM-5.1",
+      "GLM-5.2",
       "GLM-5-Turbo",
       "GLM-5"
     ],
@@ -161,6 +166,7 @@
     "yearlyPrice": 1536,
     "models": [
       "GLM-5.1",
+      "GLM-5.2",
       "GLM-5-Turbo",
       "GLM-5"
     ],
@@ -230,7 +236,9 @@
     "benefits": [],
     "note": "• 当前公开订阅档位\n• 支持 M3 与多模态，和 M2.7 共享额度池\n• 套餐额度受 5 小时窗口与周窗口控制",
     "discontinued": true,
-    "measuredMonthlyTokenLimit": 600
+    "measuredMonthlyTokenLimit": 2400,
+    "measuredFiveHoursTokenLimit": 60,
+    "measuredWeeklyTokenLimit": 600
   },
   {
     "vendor": "MiniMax",
@@ -258,7 +266,9 @@
     "benefits": [],
     "note": "• 约50TPS\n• 官方只有周限量无月限量，这里按照1月=4周计算",
     "discontinued": true,
-    "measuredMonthlyTokenLimit": 1800
+    "measuredMonthlyTokenLimit": 7200,
+    "measuredFiveHoursTokenLimit": 180,
+    "measuredWeeklyTokenLimit": 1800
   },
   {
     "vendor": "MiniMax",
@@ -322,7 +332,7 @@
   },
   {
     "vendor": "MiniMax",
-    "plan": "Plus",
+    "plan": "新Plus",
     "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqminimax",
     "rating": 5,
@@ -349,7 +359,7 @@
   },
   {
     "vendor": "MiniMax",
-    "plan": "Max",
+    "plan": "新Max",
     "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqminimax",
     "rating": 5,
@@ -376,7 +386,7 @@
   },
   {
     "vendor": "MiniMax",
-    "plan": "Ultra",
+    "plan": "新Ultra",
     "type": "Token Plan",
     "action": "https://api.dreamfree.space/c/s/cpyqminimax",
     "rating": 5,
@@ -478,10 +488,12 @@
     "models": [
       "Doubao-Seed-2.0系列",
       "Doubao-Seed-Code",
+      "GLM-5.1",
+      "GLM-5.2",
       "MiniMax-M2.7",
       "MiniMax-M3",
       "Kimi-K2.6",
-      "GLM-5.1",
+      "Kimi-K2.7-Code",
       "DeepSeek-V3.2",
       "DeepSeek-V4-Flash",
       "DeepSeek-V4-Pro"
@@ -490,13 +502,12 @@
     "weeklyRequests": 9000,
     "monthlyRequests": 18000,
     "tokenLimit": "无限制",
-    "benefits": [
-    ],
+    "benefits": [],
     "note": "• 官方6.8-8.8期间2.5折活动（首两个月），可与9.5折邀请活动叠加（5.19-11.19）\n• DeepSeek-V4-Pro、GLM-5.1，Kimi-K2.6限时用量2.5倍",
     "discontinued": false,
-    "measuredFiveHoursTokenLimit": 6,
-    "measuredWeeklyTokenLimit": 42,
-    "measuredMonthlyTokenLimit": 83
+    "measuredFiveHoursTokenLimit": 17,
+    "measuredWeeklyTokenLimit": 125,
+    "measuredMonthlyTokenLimit": 250
   },
   {
     "vendor": "字节·方舟",
@@ -514,10 +525,12 @@
     "models": [
       "Doubao-Seed-2.0系列",
       "Doubao-Seed-Code",
+      "GLM-5.1",
+      "GLM-5.2",
       "MiniMax-M2.7",
       "MiniMax-M3",
       "Kimi-K2.6",
-      "GLM-5.1",
+      "Kimi-K2.7-Code",
       "DeepSeek-V3.2",
       "DeepSeek-V4-Flash",
       "DeepSeek-V4-Pro"
@@ -529,9 +542,9 @@
     "benefits": [],
     "note": "• 官方6.8-8.8期间2.5折活动（首两个月），可与9.5折邀请活动叠加（5.19-11.19）\n• DeepSeek-V4-Pro、GLM-5.1，Kimi-K2.6限时用量2.5倍",
     "discontinued": false,
-    "measuredFiveHoursTokenLimit": 28,
-    "measuredWeeklyTokenLimit": 208,
-    "measuredMonthlyTokenLimit": 416
+    "measuredFiveHoursTokenLimit": 83,
+    "measuredWeeklyTokenLimit": 624,
+    "measuredMonthlyTokenLimit": 1249
   },
   {
     "vendor": "Kimi",
@@ -547,6 +560,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": 468,
     "models": [
+      "Kimi-K2.7-Code",
       "Kimi-K2.6",
       "Kimi-K2.5",
       "Kimi-K2"
@@ -575,6 +589,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": 948,
     "models": [
+      "Kimi-K2.7-Code",
       "Kimi-K2.6",
       "Kimi-K2.5",
       "Kimi-K2"
@@ -600,6 +615,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": 1908,
     "models": [
+      "Kimi-K2.7-Code",
       "Kimi-K2.6",
       "Kimi-K2.5",
       "Kimi-K2"
@@ -630,6 +646,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": 6708,
     "models": [
+      "Kimi-K2.7-Code",
       "Kimi-K2.6",
       "Kimi-K2.5",
       "Kimi-K2"
@@ -661,10 +678,12 @@
       "DeepSeek-V4-Pro",
       "DeepSeek-V4-Flash",
       "DeepSeek-V3.2",
+      "GLM-5.1",
+      "GLM-5.2",
       "MiniMax-M2.7",
       "MiniMax-M3",
-      "GLM-5.1",
       "Kimi-K2.6",
+      "Kimi-K2.7-Code",
       "Doubao-Seedream-5.0-lite"
     ],
     "fiveHoursRequests": 200,
@@ -695,10 +714,12 @@
       "DeepSeek-V4-Pro",
       "DeepSeek-V4-Flash",
       "DeepSeek-V3.2",
+      "GLM-5.1",
+      "GLM-5.2",
       "MiniMax-M2.7",
       "MiniMax-M3",
-      "GLM-5.1",
       "Kimi-K2.6",
+      "Kimi-K2.7-Code",
       "Doubao-Seedream-5.0-lite",
       "Doubao-Seedance-2.0"
     ],
@@ -730,10 +751,12 @@
       "DeepSeek-V4-Pro",
       "DeepSeek-V4-Flash",
       "DeepSeek-V3.2",
+      "GLM-5.1",
+      "GLM-5.2",
       "MiniMax-M2.7",
       "MiniMax-M3",
-      "GLM-5.1",
       "Kimi-K2.6",
+      "Kimi-K2.7-Code",
       "Doubao-Seedream-5.0-lite",
       "Doubao-Seedance-2.0"
     ],
@@ -765,10 +788,12 @@
       "DeepSeek-V4-Pro",
       "DeepSeek-V4-Flash",
       "DeepSeek-V3.2",
+      "GLM-5.1",
+      "GLM-5.2",
       "MiniMax-M2.7",
       "MiniMax-M3",
-      "GLM-5.1",
       "Kimi-K2.6",
+      "Kimi-K2.7-Code",
       "Doubao-Seedream-5.0-lite",
       "Doubao-Seedance-2.0"
     ],
@@ -795,6 +820,7 @@
     "yearlyPrice": "-",
     "models": [
       "Qwen-3.7-Max",
+      "Qwen-3.7-Plus",
       "Qwen-3.6-Plus",
       "Qwen-3.6-Flash",
       "Qwen-3.5-Plus",
@@ -824,6 +850,7 @@
     "yearlyPrice": "-",
     "models": [
       "Qwen-3.7-Max",
+      "Qwen-3.7-Plus",
       "Qwen-3.6-Plus",
       "Qwen-3.6-Flash",
       "Qwen-3.5-Plus",
@@ -853,6 +880,7 @@
     "yearlyPrice": "-",
     "models": [
       "Qwen-3.7-Max",
+      "Qwen-3.7-Plus",
       "Qwen-3.6-Plus",
       "Qwen-3.6-Flash",
       "Qwen-3.5-Plus",
@@ -883,6 +911,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": "-",
     "models": [
+      "Qwen-3.7-Plus",
       "Qwen-3.6-Plus",
       "Qwen-3.5-Plus",
       "MiniMax-M2.5",
@@ -914,6 +943,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": "-",
     "models": [
+      "Qwen-3.7-Plus",
       "Qwen-3.6-Plus",
       "Qwen-3.5-Plus",
       "MiniMax-M2.5",
@@ -1041,6 +1071,102 @@
     ],
     "note": "• 82B Credits，无5小时限额，支持集中消耗\n• MiMo-V2.5-Pro：缓存 2.5 Credits/Token，输入 300 Credits/Token，输出 600 Credits/Token\n• 按缓存命中率90%、输入输出99:1算：100 Token 约消耗 99×10%×300 + 99×90%×2.5 + 1×600 = 3792.75 Credits，即 1B Credits≈26.37M Token。表格按 MiMo-V2.5-Pro 口径算，MiMo-V2.5 实际更高",
     "measuredMonthlyTokenLimit": 2162
+  },
+  {
+    "vendor": "DeepSeek Flash",
+    "plan": "虚拟套餐 40",
+    "type": "Token Plan",
+    "action": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing",
+    "rating": 4,
+    "tags": [
+      "模型强"
+    ],
+    "firstMonthPrice": "-",
+    "monthlyPrice": 40,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "DeepSeek-V4-Flash"
+    ],
+    "fiveHoursRequests": "无限制",
+    "weeklyRequests": "无限制",
+    "monthlyRequests": "无限制",
+    "tokenLimit": 292,
+    "benefits": [],
+    "note": "• 官方定价：缓存命中输入 ¥0.02/M Token，缓存未命中输入 ¥1/M Token，输出 ¥2/M Token\n• 按输入输出99:1、输入缓存命中率90%估算：100 Token 约消耗 99×90%×0.02/1000000 + 99×10%×1/1000000 + 1×2/1000000 = 0.000013682 元\n• 约等于 1 元≈7.31M Token，再乘月费 40 元，得到月 Token 上限约 292M",
+    "measuredMonthlyTokenLimit": 292
+  },
+  {
+    "vendor": "DeepSeek Flash",
+    "plan": "虚拟套餐 200",
+    "type": "Token Plan",
+    "action": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing",
+    "rating": 4,
+    "tags": [
+      "模型强"
+    ],
+    "firstMonthPrice": "-",
+    "monthlyPrice": 200,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "DeepSeek-V4-Flash"
+    ],
+    "fiveHoursRequests": "无限制",
+    "weeklyRequests": "无限制",
+    "monthlyRequests": "无限制",
+    "tokenLimit": 1462,
+    "benefits": [],
+    "note": "• 官方定价：缓存命中输入 ¥0.02/M Token，缓存未命中输入 ¥1/M Token，输出 ¥2/M Token\n• 按输入输出99:1、输入缓存命中率90%估算：100 Token 约消耗 99×90%×0.02/1000000 + 99×10%×1/1000000 + 1×2/1000000 = 0.000013682 元\n• 约等于 1 元≈7.31M Token，再乘月费 200 元，得到月 Token 上限约 1462M",
+    "measuredMonthlyTokenLimit": 1462
+  },
+  {
+    "vendor": "DeepSeek Pro",
+    "plan": "虚拟套餐 40",
+    "type": "Token Plan",
+    "action": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing",
+    "rating": 4,
+    "tags": [
+      "模型强"
+    ],
+    "firstMonthPrice": "-",
+    "monthlyPrice": 40,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "DeepSeek-V4-Pro"
+    ],
+    "fiveHoursRequests": "无限制",
+    "weeklyRequests": "无限制",
+    "monthlyRequests": "无限制",
+    "tokenLimit": 105,
+    "benefits": [],
+    "note": "• 官方定价：缓存命中输入 ¥0.025/M Token，缓存未命中输入 ¥3/M Token，输出 ¥6/M Token\n• 按输入输出99:1、输入缓存命中率90%估算：100 Token 约消耗 99×90%×0.025/1000000 + 99×10%×3/1000000 + 1×6/1000000 = 0.0000379275 元\n• 约等于 1 元≈2.64M Token，再乘月费 40 元，得到月 Token 上限约 105M",
+    "measuredMonthlyTokenLimit": 105
+  },
+  {
+    "vendor": "DeepSeek Pro",
+    "plan": "虚拟套餐 200",
+    "type": "Token Plan",
+    "action": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing",
+    "rating": 4,
+    "tags": [
+      "模型强"
+    ],
+    "firstMonthPrice": "-",
+    "monthlyPrice": 200,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "DeepSeek-V4-Pro"
+    ],
+    "fiveHoursRequests": "无限制",
+    "weeklyRequests": "无限制",
+    "monthlyRequests": "无限制",
+    "tokenLimit": 527,
+    "benefits": [],
+    "note": "• 官方定价：缓存命中输入 ¥0.025/M Token，缓存未命中输入 ¥3/M Token，输出 ¥6/M Token\n• 按输入输出99:1、输入缓存命中率90%估算：100 Token 约消耗 99×90%×0.025/1000000 + 99×10%×3/1000000 + 1×6/1000000 = 0.0000379275 元\n• 约等于 1 元≈2.64M Token，再乘月费 200 元，得到月 Token 上限约 527M",
+    "measuredMonthlyTokenLimit": 527
   },
   {
     "vendor": "联通云",
@@ -1683,6 +1809,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": "-",
     "models": [
+      "step-3.7-flash",
       "step-3.5-flash-2603",
       "step-3.5-flash",
       "step-router-v1"
@@ -1706,6 +1833,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": "-",
     "models": [
+      "step-3.7-flash",
       "step-3.5-flash-2603",
       "step-3.5-flash",
       "step-router-v1"
@@ -1729,6 +1857,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": "-",
     "models": [
+      "step-3.7-flash",
       "step-3.5-flash-2603",
       "step-3.5-flash",
       "step-router-v1"
@@ -1752,6 +1881,7 @@
     "quarterlyPrice": "-",
     "yearlyPrice": "-",
     "models": [
+      "step-3.7-flash",
       "step-3.5-flash-2603",
       "step-3.5-flash",
       "step-router-v1"
@@ -2508,5 +2638,105 @@
       "3900 积分"
     ],
     "note": "• 存在周限额和 session 限额；不同模型有不同高级模型扣减倍率\n• 已改为用 token 计费模式"
+  },
+  {
+    "vendor": "华为云",
+    "plan": "Lite",
+    "type": "Token Plan",
+    "action": "https://console.huaweicloud.com/modelarts/?region=cn-southwest-2#/model-studio/resourcePlanManagement",
+    "rating": 3,
+    "tags": [],
+    "firstMonthPrice": "-",
+    "monthlyPrice": 59,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "GLM-5.1",
+      "GLM-5",
+      "Kimi-K2.6",
+      "DeepSeek-V4-Flash"
+    ],
+    "fiveHoursRequests": "无限制",
+    "weeklyRequests": "无限制",
+    "monthlyRequests": "无限制",
+    "tokenLimit": 50,
+    "benefits": [],
+    "note": "• 限个人用户购买，每个用户限购 1 套\n• 订阅后不支持退订\n• 订阅后开通 Token Plan 专属 URL 直接接入 Coding / Agent 工具，无需单独开通模型服务\n• 仅限 AI Coding 与 Agent 工具使用，违规使用可能导致 Plan 被中止",
+    "measuredMonthlyTokenLimit": 50
+  },
+  {
+    "vendor": "华为云",
+    "plan": "Standard",
+    "type": "Token Plan",
+    "action": "https://console.huaweicloud.com/modelarts/?region=cn-southwest-2#/model-studio/resourcePlanManagement",
+    "rating": 3,
+    "tags": [],
+    "firstMonthPrice": "-",
+    "monthlyPrice": 149,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "GLM-5.1",
+      "GLM-5",
+      "Kimi-K2.6",
+      "DeepSeek-V4-Flash"
+    ],
+    "fiveHoursRequests": "无限制",
+    "weeklyRequests": "无限制",
+    "monthlyRequests": "无限制",
+    "tokenLimit": 130,
+    "benefits": [],
+    "note": "• 限个人用户购买，每个用户限购 1 套\n• 订阅后不支持退订\n• 订阅后开通 Token Plan 专属 URL 直接接入 Coding / Agent 工具，无需单独开通模型服务\n• 仅限 AI Coding 与 Agent 工具使用，违规使用可能导致 Plan 被中止\n• 页面标\"最受欢迎\"档",
+    "measuredMonthlyTokenLimit": 130
+  },
+  {
+    "vendor": "华为云",
+    "plan": "Pro",
+    "type": "Token Plan",
+    "action": "https://console.huaweicloud.com/modelarts/?region=cn-southwest-2#/model-studio/resourcePlanManagement",
+    "rating": 3,
+    "tags": [],
+    "firstMonthPrice": "-",
+    "monthlyPrice": 399,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "GLM-5.1",
+      "GLM-5",
+      "Kimi-K2.6",
+      "DeepSeek-V4-Flash"
+    ],
+    "fiveHoursRequests": "无限制",
+    "weeklyRequests": "无限制",
+    "monthlyRequests": "无限制",
+    "tokenLimit": 380,
+    "benefits": [],
+    "note": "• 限个人用户购买，每个用户限购 1 套\n• 订阅后不支持退订\n• 订阅后开通 Token Plan 专属 URL 直接接入 Coding / Agent 工具，无需单独开通模型服务\n• 仅限 AI Coding 与 Agent 工具使用，违规使用可能导致 Plan 被中止",
+    "measuredMonthlyTokenLimit": 380
+  },
+  {
+    "vendor": "华为云",
+    "plan": "Max",
+    "type": "Token Plan",
+    "action": "https://console.huaweicloud.com/modelarts/?region=cn-southwest-2#/model-studio/resourcePlanManagement",
+    "rating": 3,
+    "tags": [],
+    "firstMonthPrice": "-",
+    "monthlyPrice": 799,
+    "quarterlyPrice": "-",
+    "yearlyPrice": "-",
+    "models": [
+      "GLM-5.1",
+      "GLM-5",
+      "Kimi-K2.6",
+      "DeepSeek-V4-Flash"
+    ],
+    "fiveHoursRequests": "无限制",
+    "weeklyRequests": "无限制",
+    "monthlyRequests": "无限制",
+    "tokenLimit": 880,
+    "benefits": [],
+    "note": "• 限个人用户购买，每个用户限购 1 套\n• 订阅后不支持退订\n• 订阅后开通 Token Plan 专属 URL 直接接入 Coding / Agent 工具，无需单独开通模型服务\n• 仅限 AI Coding 与 Agent 工具使用，违规使用可能导致 Plan 被中止",
+    "measuredMonthlyTokenLimit": 880
   }
 ]
